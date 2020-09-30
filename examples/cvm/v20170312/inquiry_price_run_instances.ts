@@ -1,4 +1,4 @@
-const tencentcloud = require("../../../../tencentcloud-sdk-nodejs")
+import * as tencentcloud from "../../../tencentcloud"
 
 // 导入对应产品模块的client models。
 const CvmClient = tencentcloud.cvm.v20170312.Client
@@ -21,7 +21,7 @@ const client = new CvmClient({
 
 // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client
-  .RunInstances({
+  .InquiryPriceRunInstances({
     InternetAccessible: {
       InternetMaxBandwidthOut: 1,
       InternetChargeType: "TRAFFIC_POSTPAID_BY_HOUR",
