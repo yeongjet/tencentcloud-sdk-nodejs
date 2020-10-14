@@ -116,7 +116,7 @@ export class Client extends AbstractClient {
    * 查询用户可创建跟踪集的数量
    */
   async InquireAuditCredit(
-    req: InquireAuditCreditRequest,
+    req?: InquireAuditCreditRequest,
     cb?: (error: string, rep: InquireAuditCreditResponse) => void
   ): Promise<InquireAuditCreditResponse> {
     return this.request("InquireAuditCredit", req, cb)
@@ -194,7 +194,7 @@ export class Client extends AbstractClient {
    * 查询跟踪集概要
    */
   async ListAudits(
-    req: ListAuditsRequest,
+    req?: ListAuditsRequest,
     cb?: (error: string, rep: ListAuditsResponse) => void
   ): Promise<ListAuditsResponse> {
     return this.request("ListAudits", req, cb)

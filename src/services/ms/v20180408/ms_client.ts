@@ -209,7 +209,7 @@ export class Client extends AbstractClient {
    * 获取用户基础信息
    */
   async DescribeUserBaseInfoInstance(
-    req: DescribeUserBaseInfoInstanceRequest,
+    req?: DescribeUserBaseInfoInstanceRequest,
     cb?: (error: string, rep: DescribeUserBaseInfoInstanceResponse) => void
   ): Promise<DescribeUserBaseInfoInstanceResponse> {
     return this.request("DescribeUserBaseInfoInstance", req, cb)

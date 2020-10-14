@@ -29,7 +29,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询企业用户TID平台控制台权限
      */
-    DescribePermission(req: DescribePermissionRequest, cb?: (error: string, rep: DescribePermissionResponse) => void): Promise<DescribePermissionResponse>;
+    DescribePermission(req?: DescribePermissionRequest, cb?: (error: string, rep: DescribePermissionResponse) => void): Promise<DescribePermissionResponse>;
     /**
      * 安全芯片为载体的TID空发回执，绑定TID与订单号。
      */

@@ -194,7 +194,7 @@ export class Client extends AbstractClient {
    * 检查是否开通Tcb服务
    */
   async CheckTcbService(
-    req: CheckTcbServiceRequest,
+    req?: CheckTcbServiceRequest,
     cb?: (error: string, rep: CheckTcbServiceResponse) => void
   ): Promise<CheckTcbServiceResponse> {
     return this.request("CheckTcbService", req, cb)
@@ -314,7 +314,7 @@ export class Client extends AbstractClient {
    * 查询环境个数上限
    */
   async DescribeEnvLimit(
-    req: DescribeEnvLimitRequest,
+    req?: DescribeEnvLimitRequest,
     cb?: (error: string, rep: DescribeEnvLimitResponse) => void
   ): Promise<DescribeEnvLimitResponse> {
     return this.request("DescribeEnvLimit", req, cb)

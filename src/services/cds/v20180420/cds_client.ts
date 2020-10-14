@@ -47,7 +47,7 @@ export class Client extends AbstractClient {
    * 获取镜像列表
    */
   async DescribeDasbImageIds(
-    req: DescribeDasbImageIdsRequest,
+    req?: DescribeDasbImageIdsRequest,
     cb?: (error: string, rep: DescribeDasbImageIdsResponse) => void
   ): Promise<DescribeDasbImageIdsResponse> {
     return this.request("DescribeDasbImageIds", req, cb)
@@ -87,7 +87,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeDbauditUsedRegions) 用于查询可售卖地域列表。
    */
   async DescribeDbauditUsedRegions(
-    req: DescribeDbauditUsedRegionsRequest,
+    req?: DescribeDbauditUsedRegionsRequest,
     cb?: (error: string, rep: DescribeDbauditUsedRegionsResponse) => void
   ): Promise<DescribeDbauditUsedRegionsResponse> {
     return this.request("DescribeDbauditUsedRegions", req, cb)
@@ -97,7 +97,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeDbauditInstanceType) 用于查询可售卖的产品规格列表。
    */
   async DescribeDbauditInstanceType(
-    req: DescribeDbauditInstanceTypeRequest,
+    req?: DescribeDbauditInstanceTypeRequest,
     cb?: (error: string, rep: DescribeDbauditInstanceTypeResponse) => void
   ): Promise<DescribeDbauditInstanceTypeResponse> {
     return this.request("DescribeDbauditInstanceType", req, cb)

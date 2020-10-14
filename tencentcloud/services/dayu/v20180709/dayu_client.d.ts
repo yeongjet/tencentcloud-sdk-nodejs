@@ -101,7 +101,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取IP封堵列表
      */
-    DescribeIpBlockList(req: DescribeIpBlockListRequest, cb?: (error: string, rep: DescribeIpBlockListResponse) => void): Promise<DescribeIpBlockListResponse>;
+    DescribeIpBlockList(req?: DescribeIpBlockListRequest, cb?: (error: string, rep: DescribeIpBlockListResponse) => void): Promise<DescribeIpBlockListResponse>;
     /**
      * 导出四层健康检查配置
      */
@@ -109,7 +109,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取本月安全统计
      */
-    DescribeSecIndex(req: DescribeSecIndexRequest, cb?: (error: string, rep: DescribeSecIndexResponse) => void): Promise<DescribeSecIndexResponse>;
+    DescribeSecIndex(req?: DescribeSecIndexRequest, cb?: (error: string, rep: DescribeSecIndexResponse) => void): Promise<DescribeSecIndexResponse>;
     /**
      * 获取调度域名列表
      */
@@ -305,7 +305,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取黑洞解封次数
      */
-    DescribeUnBlockStatis(req: DescribeUnBlockStatisRequest, cb?: (error: string, rep: DescribeUnBlockStatisResponse) => void): Promise<DescribeUnBlockStatisResponse>;
+    DescribeUnBlockStatis(req?: DescribeUnBlockStatisRequest, cb?: (error: string, rep: DescribeUnBlockStatisResponse) => void): Promise<DescribeUnBlockStatisResponse>;
     /**
      * 获取DDoS攻击流量带宽和攻击包速率数据
      */
@@ -427,9 +427,9 @@ export declare class Client extends AbstractClient {
      */
     CreateInstanceName(req: CreateInstanceNameRequest, cb?: (error: string, rep: CreateInstanceNameResponse) => void): Promise<CreateInstanceNameResponse>;
     /**
-       * 获取高防IP可添加的最多7层规则数量
-  
-       */
+     * 获取高防IP可添加的最多7层规则数量
+
+     */
     DescribeBGPIPL7RuleMaxCnt(req: DescribeBGPIPL7RuleMaxCntRequest, cb?: (error: string, rep: DescribeBGPIPL7RuleMaxCntResponse) => void): Promise<DescribeBGPIPL7RuleMaxCntResponse>;
     /**
      * 修改资源自动续费标记

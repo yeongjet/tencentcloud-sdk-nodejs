@@ -470,7 +470,7 @@ export class Client extends AbstractClient {
    * 获取快照概览信息
    */
   async GetSnapOverview(
-    req: GetSnapOverviewRequest,
+    req?: GetSnapOverviewRequest,
     cb?: (error: string, rep: GetSnapOverviewResponse) => void
   ): Promise<GetSnapOverviewResponse> {
     return this.request("GetSnapOverview", req, cb)

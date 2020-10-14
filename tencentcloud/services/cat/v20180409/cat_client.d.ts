@@ -29,7 +29,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询拨测分组列表
      */
-    DescribeAgentGroups(req: DescribeAgentGroupsRequest, cb?: (error: string, rep: DescribeAgentGroupsResponse) => void): Promise<DescribeAgentGroupsResponse>;
+    DescribeAgentGroups(req?: DescribeAgentGroupsRequest, cb?: (error: string, rep: DescribeAgentGroupsResponse) => void): Promise<DescribeAgentGroupsResponse>;
     /**
      * 获取实时可用率信息
      */
@@ -69,11 +69,11 @@ export declare class Client extends AbstractClient {
     /**
      * 查询本用户可选的拨测点列表
      */
-    DescribeAgents(req: DescribeAgentsRequest, cb?: (error: string, rep: DescribeAgentsResponse) => void): Promise<DescribeAgentsResponse>;
+    DescribeAgents(req?: DescribeAgentsRequest, cb?: (error: string, rep: DescribeAgentsResponse) => void): Promise<DescribeAgentsResponse>;
     /**
      * 获取用户可用资源限制
      */
-    DescribeUserLimit(req: DescribeUserLimitRequest, cb?: (error: string, rep: DescribeUserLimitResponse) => void): Promise<DescribeUserLimitResponse>;
+    DescribeUserLimit(req?: DescribeUserLimitRequest, cb?: (error: string, rep: DescribeUserLimitResponse) => void): Promise<DescribeUserLimitResponse>;
     /**
      * 查询拨测流水
      */
@@ -113,5 +113,5 @@ export declare class Client extends AbstractClient {
     /**
      * 获取AppId下的拨测任务总数
      */
-    GetTaskTotalNumber(req: GetTaskTotalNumberRequest, cb?: (error: string, rep: GetTaskTotalNumberResponse) => void): Promise<GetTaskTotalNumberResponse>;
+    GetTaskTotalNumber(req?: GetTaskTotalNumberRequest, cb?: (error: string, rep: GetTaskTotalNumberResponse) => void): Promise<GetTaskTotalNumberResponse>;
 }

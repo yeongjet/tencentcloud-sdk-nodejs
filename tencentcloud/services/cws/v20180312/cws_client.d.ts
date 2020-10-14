@@ -33,7 +33,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeConfig) 用于查询用户配置的详细信息。
      */
-    DescribeConfig(req: DescribeConfigRequest, cb?: (error: string, rep: DescribeConfigResponse) => void): Promise<DescribeConfigResponse>;
+    DescribeConfig(req?: DescribeConfigRequest, cb?: (error: string, rep: DescribeConfigResponse) => void): Promise<DescribeConfigResponse>;
     /**
      * 本接口 (DescribeSites) 用于查询一个或多个站点的详细信息。
      */
@@ -53,7 +53,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeVulsNumberTimeline) 用于查询漏洞数随时间变化统计信息。
      */
-    DescribeVulsNumberTimeline(req: DescribeVulsNumberTimelineRequest, cb?: (error: string, rep: DescribeVulsNumberTimelineResponse) => void): Promise<DescribeVulsNumberTimelineResponse>;
+    DescribeVulsNumberTimeline(req?: DescribeVulsNumberTimelineRequest, cb?: (error: string, rep: DescribeVulsNumberTimelineResponse) => void): Promise<DescribeVulsNumberTimelineResponse>;
     /**
      * 本接口 (VerifySites) 用于验证一个或多个待验证站点。
      */
@@ -73,7 +73,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeVulsNumber) 用于查询用户网站的漏洞总计数量。
      */
-    DescribeVulsNumber(req: DescribeVulsNumberRequest, cb?: (error: string, rep: DescribeVulsNumberResponse) => void): Promise<DescribeVulsNumberResponse>;
+    DescribeVulsNumber(req?: DescribeVulsNumberRequest, cb?: (error: string, rep: DescribeVulsNumberResponse) => void): Promise<DescribeVulsNumberResponse>;
     /**
      * 本接口 (DescribeMonitors) 用于查询一个或多个监控任务的详细信息。
      */
@@ -81,5 +81,5 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeSiteQuota) 用于查询用户购买的扫描次数总数和已使用数。
      */
-    DescribeSiteQuota(req: DescribeSiteQuotaRequest, cb?: (error: string, rep: DescribeSiteQuotaResponse) => void): Promise<DescribeSiteQuotaResponse>;
+    DescribeSiteQuota(req?: DescribeSiteQuotaRequest, cb?: (error: string, rep: DescribeSiteQuotaResponse) => void): Promise<DescribeSiteQuotaResponse>;
 }

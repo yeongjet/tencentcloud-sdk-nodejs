@@ -9,7 +9,7 @@ export declare class Client extends AbstractClient {
     /**
      * 安全验证码获取用户注册所有APPId和应用名称
      */
-    DescribeCaptchaUserAllAppId(req: DescribeCaptchaUserAllAppIdRequest, cb?: (error: string, rep: DescribeCaptchaUserAllAppIdResponse) => void): Promise<DescribeCaptchaUserAllAppIdResponse>;
+    DescribeCaptchaUserAllAppId(req?: DescribeCaptchaUserAllAppIdRequest, cb?: (error: string, rep: DescribeCaptchaUserAllAppIdResponse) => void): Promise<DescribeCaptchaUserAllAppIdResponse>;
     /**
      * 验证码控制台票据验证信息
      */

@@ -65,7 +65,7 @@ export declare class Client extends AbstractClient {
     /**
      * 描述服务运行环境
      */
-    DescribeRuntimes(req: DescribeRuntimesRequest, cb?: (error: string, rep: DescribeRuntimesResponse) => void): Promise<DescribeRuntimesResponse>;
+    DescribeRuntimes(req?: DescribeRuntimesRequest, cb?: (error: string, rep: DescribeRuntimesResponse) => void): Promise<DescribeRuntimesResponse>;
     /**
      * 获取资源组列表
      */

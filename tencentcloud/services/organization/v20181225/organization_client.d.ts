@@ -29,11 +29,11 @@ export declare class Client extends AbstractClient {
     /**
      * 获取企业组织信息
      */
-    GetOrganization(req: GetOrganizationRequest, cb?: (error: string, rep: GetOrganizationResponse) => void): Promise<GetOrganizationResponse>;
+    GetOrganization(req?: GetOrganizationRequest, cb?: (error: string, rep: GetOrganizationResponse) => void): Promise<GetOrganizationResponse>;
     /**
      * 获取企业组织单元列表
      */
-    ListOrganizationNodes(req: ListOrganizationNodesRequest, cb?: (error: string, rep: ListOrganizationNodesResponse) => void): Promise<ListOrganizationNodesResponse>;
+    ListOrganizationNodes(req?: ListOrganizationNodesRequest, cb?: (error: string, rep: ListOrganizationNodesResponse) => void): Promise<ListOrganizationNodesResponse>;
     /**
      * 更新企业成员信息
      */
@@ -69,7 +69,7 @@ export declare class Client extends AbstractClient {
     /**
      * 删除企业组织
      */
-    DeleteOrganization(req: DeleteOrganizationRequest, cb?: (error: string, rep: DeleteOrganizationResponse) => void): Promise<DeleteOrganizationResponse>;
+    DeleteOrganization(req?: DeleteOrganizationRequest, cb?: (error: string, rep: DeleteOrganizationResponse) => void): Promise<DeleteOrganizationResponse>;
     /**
      * 批量删除企业组织成员
      */

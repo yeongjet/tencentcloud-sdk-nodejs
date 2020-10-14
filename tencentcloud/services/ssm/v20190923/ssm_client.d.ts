@@ -45,7 +45,7 @@ export declare class Client extends AbstractClient {
     /**
      * 该接口用户获取用户SecretsManager服务开通状态。
      */
-    GetServiceStatus(req: GetServiceStatusRequest, cb?: (error: string, rep: GetServiceStatusResponse) => void): Promise<GetServiceStatusResponse>;
+    GetServiceStatus(req?: GetServiceStatusRequest, cb?: (error: string, rep: GetServiceStatusResponse) => void): Promise<GetServiceStatusResponse>;
     /**
      * 该接口用于直接删除指定凭据下的单个版本凭据，删除操作立即生效，对所有状态下的凭据版本都可以删除。
      */
@@ -57,7 +57,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取控制台展示region列表
      */
-    GetRegions(req: GetRegionsRequest, cb?: (error: string, rep: GetRegionsResponse) => void): Promise<GetRegionsResponse>;
+    GetRegions(req?: GetRegionsRequest, cb?: (error: string, rep: GetRegionsResponse) => void): Promise<GetRegionsResponse>;
     /**
      * 停用指定的凭据，停用后状态为 Disabled，无法通过接口获取该凭据的明文。
      */

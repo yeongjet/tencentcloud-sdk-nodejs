@@ -663,7 +663,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeAccountLimits）用于查询用户账户在弹性伸缩中的资源限制。
    */
   async DescribeAccountLimits(
-    req: DescribeAccountLimitsRequest,
+    req?: DescribeAccountLimitsRequest,
     cb?: (error: string, rep: DescribeAccountLimitsResponse) => void
   ): Promise<DescribeAccountLimitsResponse> {
     return this.request("DescribeAccountLimits", req, cb)

@@ -125,7 +125,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeZones) 用于查询当前可售卖的可用区信息。
      */
-    DescribeZones(req: DescribeZonesRequest, cb?: (error: string, rep: DescribeZonesResponse) => void): Promise<DescribeZonesResponse>;
+    DescribeZones(req?: DescribeZonesRequest, cb?: (error: string, rep: DescribeZonesResponse) => void): Promise<DescribeZonesResponse>;
     /**
      * 本接口（ModifyDBRemark）用于修改数据库备注。
      */
@@ -165,7 +165,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeRegions) 用于查询售卖地域信息。
      */
-    DescribeRegions(req: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
+    DescribeRegions(req?: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
     /**
      * 本接口（InquiryPriceRenewDBInstance）用于查询续费实例的价格。
      */

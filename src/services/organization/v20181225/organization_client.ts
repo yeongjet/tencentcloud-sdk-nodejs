@@ -125,7 +125,7 @@ export class Client extends AbstractClient {
    * 获取企业组织信息
    */
   async GetOrganization(
-    req: GetOrganizationRequest,
+    req?: GetOrganizationRequest,
     cb?: (error: string, rep: GetOrganizationResponse) => void
   ): Promise<GetOrganizationResponse> {
     return this.request("GetOrganization", req, cb)
@@ -135,7 +135,7 @@ export class Client extends AbstractClient {
    * 获取企业组织单元列表
    */
   async ListOrganizationNodes(
-    req: ListOrganizationNodesRequest,
+    req?: ListOrganizationNodesRequest,
     cb?: (error: string, rep: ListOrganizationNodesResponse) => void
   ): Promise<ListOrganizationNodesResponse> {
     return this.request("ListOrganizationNodes", req, cb)
@@ -225,7 +225,7 @@ export class Client extends AbstractClient {
    * 删除企业组织
    */
   async DeleteOrganization(
-    req: DeleteOrganizationRequest,
+    req?: DeleteOrganizationRequest,
     cb?: (error: string, rep: DeleteOrganizationResponse) => void
   ): Promise<DeleteOrganizationResponse> {
     return this.request("DeleteOrganization", req, cb)

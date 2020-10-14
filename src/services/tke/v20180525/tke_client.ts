@@ -140,7 +140,7 @@ export class Client extends AbstractClient {
    * 获取镜像信息
    */
   async DescribeImages(
-    req: DescribeImagesRequest,
+    req?: DescribeImagesRequest,
     cb?: (error: string, rep: DescribeImagesResponse) => void
   ): Promise<DescribeImagesResponse> {
     return this.request("DescribeImages", req, cb)
@@ -270,7 +270,7 @@ export class Client extends AbstractClient {
    * 查询集群路由表
    */
   async DescribeClusterRouteTables(
-    req: DescribeClusterRouteTablesRequest,
+    req?: DescribeClusterRouteTablesRequest,
     cb?: (error: string, rep: DescribeClusterRouteTablesResponse) => void
   ): Promise<DescribeClusterRouteTablesResponse> {
     return this.request("DescribeClusterRouteTables", req, cb)
@@ -330,7 +330,7 @@ export class Client extends AbstractClient {
    * 获取容器服务支持的所有地域
    */
   async DescribeRegions(
-    req: DescribeRegionsRequest,
+    req?: DescribeRegionsRequest,
     cb?: (error: string, rep: DescribeRegionsResponse) => void
   ): Promise<DescribeRegionsResponse> {
     return this.request("DescribeRegions", req, cb)

@@ -214,7 +214,7 @@ export class Client extends AbstractClient {
    * 用于查询该用户是否已开通KMS服务
    */
   async GetServiceStatus(
-    req: GetServiceStatusRequest,
+    req?: GetServiceStatusRequest,
     cb?: (error: string, rep: GetServiceStatusResponse) => void
   ): Promise<GetServiceStatusResponse> {
     return this.request("GetServiceStatus", req, cb)
@@ -314,7 +314,7 @@ export class Client extends AbstractClient {
    * 列出当前Region支持的加密方式
    */
   async ListAlgorithms(
-    req: ListAlgorithmsRequest,
+    req?: ListAlgorithmsRequest,
     cb?: (error: string, rep: ListAlgorithmsResponse) => void
   ): Promise<ListAlgorithmsResponse> {
     return this.request("ListAlgorithms", req, cb)
@@ -554,7 +554,7 @@ export class Client extends AbstractClient {
    * 获取白盒密钥服务状态
    */
   async DescribeWhiteBoxServiceStatus(
-    req: DescribeWhiteBoxServiceStatusRequest,
+    req?: DescribeWhiteBoxServiceStatusRequest,
     cb?: (error: string, rep: DescribeWhiteBoxServiceStatusResponse) => void
   ): Promise<DescribeWhiteBoxServiceStatusResponse> {
     return this.request("DescribeWhiteBoxServiceStatus", req, cb)
@@ -594,7 +594,7 @@ export class Client extends AbstractClient {
    * 获取支持的地域列表
    */
   async GetRegions(
-    req: GetRegionsRequest,
+    req?: GetRegionsRequest,
     cb?: (error: string, rep: GetRegionsResponse) => void
   ): Promise<GetRegionsResponse> {
     return this.request("GetRegions", req, cb)

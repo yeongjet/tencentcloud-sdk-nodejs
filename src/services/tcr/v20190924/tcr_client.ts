@@ -243,7 +243,7 @@ export class Client extends AbstractClient {
    * 用于获取个人版全局镜像版本自动清理策略
    */
   async DescribeImageLifecycleGlobalPersonal(
-    req: DescribeImageLifecycleGlobalPersonalRequest,
+    req?: DescribeImageLifecycleGlobalPersonalRequest,
     cb?: (error: string, rep: DescribeImageLifecycleGlobalPersonalResponse) => void
   ): Promise<DescribeImageLifecycleGlobalPersonalResponse> {
     return this.request("DescribeImageLifecycleGlobalPersonal", req, cb)
@@ -533,7 +533,7 @@ export class Client extends AbstractClient {
    * 查询个人用户配额
    */
   async DescribeUserQuotaPersonal(
-    req: DescribeUserQuotaPersonalRequest,
+    req?: DescribeUserQuotaPersonalRequest,
     cb?: (error: string, rep: DescribeUserQuotaPersonalResponse) => void
   ): Promise<DescribeUserQuotaPersonalResponse> {
     return this.request("DescribeUserQuotaPersonal", req, cb)
@@ -673,7 +673,7 @@ export class Client extends AbstractClient {
    * 用于删除个人版全局镜像版本自动清理策略
    */
   async DeleteImageLifecycleGlobalPersonal(
-    req: DeleteImageLifecycleGlobalPersonalRequest,
+    req?: DeleteImageLifecycleGlobalPersonalRequest,
     cb?: (error: string, rep: DeleteImageLifecycleGlobalPersonalResponse) => void
   ): Promise<DeleteImageLifecycleGlobalPersonalResponse> {
     return this.request("DeleteImageLifecycleGlobalPersonal", req, cb)

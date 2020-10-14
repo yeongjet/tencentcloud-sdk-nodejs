@@ -399,7 +399,7 @@ export class Client extends AbstractClient {
    * 查询自定义机型部件信息，包括CpuId对应的型号，DiskTypeId对应的磁盘类型
    */
   async DescribeHardwareSpecification(
-    req: DescribeHardwareSpecificationRequest,
+    req?: DescribeHardwareSpecificationRequest,
     cb?: (error: string, rep: DescribeHardwareSpecificationResponse) => void
   ): Promise<DescribeHardwareSpecificationResponse> {
     return this.request("DescribeHardwareSpecification", req, cb)
@@ -637,7 +637,7 @@ ConfirmUnRecovered（维修完成后，确认故障未恢复）<br>
    * 维修任务配置获取
    */
   async DescribeRepairTaskConstant(
-    req: DescribeRepairTaskConstantRequest,
+    req?: DescribeRepairTaskConstantRequest,
     cb?: (error: string, rep: DescribeRepairTaskConstantResponse) => void
   ): Promise<DescribeRepairTaskConstantResponse> {
     return this.request("DescribeRepairTaskConstant", req, cb)

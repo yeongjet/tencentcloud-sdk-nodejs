@@ -151,7 +151,7 @@ export class Client extends AbstractClient {
    * 查询拨测分组列表
    */
   async DescribeAgentGroups(
-    req: DescribeAgentGroupsRequest,
+    req?: DescribeAgentGroupsRequest,
     cb?: (error: string, rep: DescribeAgentGroupsResponse) => void
   ): Promise<DescribeAgentGroupsResponse> {
     return this.request("DescribeAgentGroups", req, cb)
@@ -251,7 +251,7 @@ export class Client extends AbstractClient {
    * 查询本用户可选的拨测点列表
    */
   async DescribeAgents(
-    req: DescribeAgentsRequest,
+    req?: DescribeAgentsRequest,
     cb?: (error: string, rep: DescribeAgentsResponse) => void
   ): Promise<DescribeAgentsResponse> {
     return this.request("DescribeAgents", req, cb)
@@ -261,7 +261,7 @@ export class Client extends AbstractClient {
    * 获取用户可用资源限制
    */
   async DescribeUserLimit(
-    req: DescribeUserLimitRequest,
+    req?: DescribeUserLimitRequest,
     cb?: (error: string, rep: DescribeUserLimitResponse) => void
   ): Promise<DescribeUserLimitResponse> {
     return this.request("DescribeUserLimit", req, cb)
@@ -361,7 +361,7 @@ export class Client extends AbstractClient {
    * 获取AppId下的拨测任务总数
    */
   async GetTaskTotalNumber(
-    req: GetTaskTotalNumberRequest,
+    req?: GetTaskTotalNumberRequest,
     cb?: (error: string, rep: GetTaskTotalNumberResponse) => void
   ): Promise<GetTaskTotalNumberResponse> {
     return this.request("GetTaskTotalNumber", req, cb)

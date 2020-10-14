@@ -127,7 +127,7 @@ export class Client extends AbstractClient {
    * 查询黑石EIP 限额
    */
   async DescribeEipQuota(
-    req: DescribeEipQuotaRequest,
+    req?: DescribeEipQuotaRequest,
     cb?: (error: string, rep: DescribeEipQuotaResponse) => void
   ): Promise<DescribeEipQuotaResponse> {
     return this.request("DescribeEipQuota", req, cb)

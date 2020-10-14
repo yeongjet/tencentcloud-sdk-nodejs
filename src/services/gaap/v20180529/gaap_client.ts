@@ -471,7 +471,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeCountryAreaMapping）用于获取国家地区编码映射表。
    */
   async DescribeCountryAreaMapping(
-    req: DescribeCountryAreaMappingRequest,
+    req?: DescribeCountryAreaMappingRequest,
     cb?: (error: string, rep: DescribeCountryAreaMappingResponse) => void
   ): Promise<DescribeCountryAreaMappingResponse> {
     return this.request("DescribeCountryAreaMapping", req, cb)
@@ -481,7 +481,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeAccessRegions）用于查询加速区域，即客户端接入区域。
    */
   async DescribeAccessRegions(
-    req: DescribeAccessRegionsRequest,
+    req?: DescribeAccessRegionsRequest,
     cb?: (error: string, rep: DescribeAccessRegionsResponse) => void
   ): Promise<DescribeAccessRegionsResponse> {
     return this.request("DescribeAccessRegions", req, cb)
@@ -833,7 +833,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeDestRegions）用于查询源站区域，即源站服务器所在区域。
    */
   async DescribeDestRegions(
-    req: DescribeDestRegionsRequest,
+    req?: DescribeDestRegionsRequest,
     cb?: (error: string, rep: DescribeDestRegionsResponse) => void
   ): Promise<DescribeDestRegionsResponse> {
     return this.request("DescribeDestRegions", req, cb)
@@ -884,7 +884,7 @@ export class Client extends AbstractClient {
    * 该接口（DescribeRegionAndPrice）用于获取源站区域和带宽梯度价格
    */
   async DescribeRegionAndPrice(
-    req: DescribeRegionAndPriceRequest,
+    req?: DescribeRegionAndPriceRequest,
     cb?: (error: string, rep: DescribeRegionAndPriceResponse) => void
   ): Promise<DescribeRegionAndPriceResponse> {
     return this.request("DescribeRegionAndPrice", req, cb)

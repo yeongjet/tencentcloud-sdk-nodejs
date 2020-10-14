@@ -867,7 +867,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeCustomerGatewayVendors）用于查询可支持的对端网关厂商信息。
    */
   async DescribeCustomerGatewayVendors(
-    req: DescribeCustomerGatewayVendorsRequest,
+    req?: DescribeCustomerGatewayVendorsRequest,
     cb?: (error: string, rep: DescribeCustomerGatewayVendorsResponse) => void
   ): Promise<DescribeCustomerGatewayVendorsResponse> {
     return this.request("DescribeCustomerGatewayVendors", req, cb)
@@ -1024,7 +1024,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeTemplateLimits）用于查询参数模板配额列表。
    */
   async DescribeTemplateLimits(
-    req: DescribeTemplateLimitsRequest,
+    req?: DescribeTemplateLimitsRequest,
     cb?: (error: string, rep: DescribeTemplateLimitsResponse) => void
   ): Promise<DescribeTemplateLimitsResponse> {
     return this.request("DescribeTemplateLimits", req, cb)
@@ -1774,7 +1774,7 @@ export class Client extends AbstractClient {
    * 接口用于查询账户在当前地域的带宽包上限数量以及使用数量
    */
   async DescribeBandwidthPackageQuota(
-    req: DescribeBandwidthPackageQuotaRequest,
+    req?: DescribeBandwidthPackageQuotaRequest,
     cb?: (error: string, rep: DescribeBandwidthPackageQuotaResponse) => void
   ): Promise<DescribeBandwidthPackageQuotaResponse> {
     return this.request("DescribeBandwidthPackageQuota", req, cb)
@@ -2124,7 +2124,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeSecurityGroupLimits)用于查询用户安全组配额。
    */
   async DescribeSecurityGroupLimits(
-    req: DescribeSecurityGroupLimitsRequest,
+    req?: DescribeSecurityGroupLimitsRequest,
     cb?: (error: string, rep: DescribeSecurityGroupLimitsResponse) => void
   ): Promise<DescribeSecurityGroupLimitsResponse> {
     return this.request("DescribeSecurityGroupLimits", req, cb)
@@ -2189,7 +2189,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeAccountAttributes）用于查询用户账号私有属性。
    */
   async DescribeAccountAttributes(
-    req: DescribeAccountAttributesRequest,
+    req?: DescribeAccountAttributesRequest,
     cb?: (error: string, rep: DescribeAccountAttributesResponse) => void
   ): Promise<DescribeAccountAttributesResponse> {
     return this.request("DescribeAccountAttributes", req, cb)
@@ -2370,7 +2370,7 @@ LimitTypes取值范围：
    * 本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）在当前地域的配额信息。配额详情可参见 [EIP 产品简介](https://cloud.tencent.com/document/product/213/5733)。
    */
   async DescribeAddressQuota(
-    req: DescribeAddressQuotaRequest,
+    req?: DescribeAddressQuotaRequest,
     cb?: (error: string, rep: DescribeAddressQuotaResponse) => void
   ): Promise<DescribeAddressQuotaResponse> {
     return this.request("DescribeAddressQuota", req, cb)

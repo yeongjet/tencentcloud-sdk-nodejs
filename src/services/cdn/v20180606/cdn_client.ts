@@ -406,7 +406,7 @@ export class Client extends AbstractClient {
    * DescribePurgeQuota 用于查询账户刷新配额和每日可用量。
    */
   async DescribePurgeQuota(
-    req: DescribePurgeQuotaRequest,
+    req?: DescribePurgeQuotaRequest,
     cb?: (error: string, rep: DescribePurgeQuotaResponse) => void
   ): Promise<DescribePurgeQuotaResponse> {
     return this.request("DescribePurgeQuota", req, cb)
@@ -683,7 +683,7 @@ export class Client extends AbstractClient {
    * DescribePushQuota  用于查询预热配额和每日可用量。
    */
   async DescribePushQuota(
-    req: DescribePushQuotaRequest,
+    req?: DescribePushQuotaRequest,
     cb?: (error: string, rep: DescribePushQuotaResponse) => void
   ): Promise<DescribePushQuotaResponse> {
     return this.request("DescribePushQuota", req, cb)

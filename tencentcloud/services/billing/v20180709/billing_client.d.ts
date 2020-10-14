@@ -9,7 +9,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取云账户余额信息。
      */
-    DescribeAccountBalance(req: DescribeAccountBalanceRequest, cb?: (error: string, rep: DescribeAccountBalanceResponse) => void): Promise<DescribeAccountBalanceResponse>;
+    DescribeAccountBalance(req?: DescribeAccountBalanceRequest, cb?: (error: string, rep: DescribeAccountBalanceResponse) => void): Promise<DescribeAccountBalanceResponse>;
     /**
      * 按日期获取产品用量明细
      */

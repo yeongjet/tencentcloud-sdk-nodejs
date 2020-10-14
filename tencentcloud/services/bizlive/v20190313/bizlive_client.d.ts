@@ -21,7 +21,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询空闲机器数量
      */
-    DescribeWorkers(req: DescribeWorkersRequest, cb?: (error: string, rep: DescribeWorkersResponse) => void): Promise<DescribeWorkersResponse>;
+    DescribeWorkers(req?: DescribeWorkersRequest, cb?: (error: string, rep: DescribeWorkersResponse) => void): Promise<DescribeWorkersResponse>;
     /**
      * 查询播放数据，支持按流名称查询详细播放数据，也可按播放域名查询详细总数据。
      */

@@ -161,7 +161,7 @@ export class Client extends AbstractClient {
    * 查询本用户是否在白名单中，控制是否能创建TDR类型的APP或表
    */
   async DescribeUinInWhitelist(
-    req: DescribeUinInWhitelistRequest,
+    req?: DescribeUinInWhitelistRequest,
     cb?: (error: string, rep: DescribeUinInWhitelistResponse) => void
   ): Promise<DescribeUinInWhitelistResponse> {
     return this.request("DescribeUinInWhitelist", req, cb)
@@ -321,7 +321,7 @@ export class Client extends AbstractClient {
    * 查询TcaplusDB服务支持的地域列表
    */
   async DescribeRegions(
-    req: DescribeRegionsRequest,
+    req?: DescribeRegionsRequest,
     cb?: (error: string, rep: DescribeRegionsResponse) => void
   ): Promise<DescribeRegionsResponse> {
     return this.request("DescribeRegions", req, cb)

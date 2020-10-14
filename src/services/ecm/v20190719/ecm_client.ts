@@ -293,7 +293,7 @@ export class Client extends AbstractClient {
    * 获取带宽硬盘等数据的限制
    */
   async DescribeConfig(
-    req: DescribeConfigRequest,
+    req?: DescribeConfigRequest,
     cb?: (error: string, rep: DescribeConfigResponse) => void
   ): Promise<DescribeConfigResponse> {
     return this.request("DescribeConfig", req, cb)
@@ -303,7 +303,7 @@ export class Client extends AbstractClient {
    * 获取概览页统计的基本数据
    */
   async DescribeBaseOverview(
-    req: DescribeBaseOverviewRequest,
+    req?: DescribeBaseOverviewRequest,
     cb?: (error: string, rep: DescribeBaseOverviewResponse) => void
   ): Promise<DescribeBaseOverviewResponse> {
     return this.request("DescribeBaseOverview", req, cb)
@@ -487,7 +487,7 @@ EIP 如果被封堵，则不能进行解绑定操作。
    * 获取机型配置列表
    */
   async DescribeInstanceTypeConfig(
-    req: DescribeInstanceTypeConfigRequest,
+    req?: DescribeInstanceTypeConfigRequest,
     cb?: (error: string, rep: DescribeInstanceTypeConfigResponse) => void
   ): Promise<DescribeInstanceTypeConfigResponse> {
     return this.request("DescribeInstanceTypeConfig", req, cb)
@@ -749,7 +749,7 @@ EIP 如果欠费或被封堵，则不能被绑定。
    * 查询外部导入镜像支持的OS列表
    */
   async DescribeImportImageOs(
-    req: DescribeImportImageOsRequest,
+    req?: DescribeImportImageOsRequest,
     cb?: (error: string, rep: DescribeImportImageOsResponse) => void
   ): Promise<DescribeImportImageOsResponse> {
     return this.request("DescribeImportImageOs", req, cb)
@@ -869,7 +869,7 @@ EIP 如果欠费或被封堵，则不能被绑定。
    * 查询用户安全组配额
    */
   async DescribeSecurityGroupLimits(
-    req: DescribeSecurityGroupLimitsRequest,
+    req?: DescribeSecurityGroupLimitsRequest,
     cb?: (error: string, rep: DescribeSecurityGroupLimitsResponse) => void
   ): Promise<DescribeSecurityGroupLimitsResponse> {
     return this.request("DescribeSecurityGroupLimits", req, cb)

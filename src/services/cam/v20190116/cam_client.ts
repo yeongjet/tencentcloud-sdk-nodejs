@@ -232,7 +232,7 @@ export class Client extends AbstractClient {
    * 查询SAML身份提供商列表
    */
   async ListSAMLProviders(
-    req: ListSAMLProvidersRequest,
+    req?: ListSAMLProvidersRequest,
     cb?: (error: string, rep: ListSAMLProvidersResponse) => void
   ): Promise<ListSAMLProvidersResponse> {
     return this.request("ListSAMLProviders", req, cb)
@@ -262,7 +262,7 @@ export class Client extends AbstractClient {
    * 拉取子用户
    */
   async ListUsers(
-    req: ListUsersRequest,
+    req?: ListUsersRequest,
     cb?: (error: string, rep: ListUsersResponse) => void
   ): Promise<ListUsersResponse> {
     return this.request("ListUsers", req, cb)

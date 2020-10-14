@@ -434,7 +434,7 @@ export class Client extends AbstractClient {
    * 导出网络攻击日志
    */
   async ExportAttackLogs(
-    req: ExportAttackLogsRequest,
+    req?: ExportAttackLogsRequest,
     cb?: (error: string, rep: ExportAttackLogsResponse) => void
   ): Promise<ExportAttackLogsResponse> {
     return this.request("ExportAttackLogs", req, cb)
@@ -514,7 +514,7 @@ export class Client extends AbstractClient {
    * 导出高危命令事件
    */
   async ExportBashEvents(
-    req: ExportBashEventsRequest,
+    req?: ExportBashEventsRequest,
     cb?: (error: string, rep: ExportBashEventsResponse) => void
   ): Promise<ExportBashEventsResponse> {
     return this.request("ExportBashEvents", req, cb)
@@ -625,7 +625,7 @@ export class Client extends AbstractClient {
    * 本接口 (ExportMaliciousRequests) 用于导出下载恶意请求文件。
    */
   async ExportMaliciousRequests(
-    req: ExportMaliciousRequestsRequest,
+    req?: ExportMaliciousRequestsRequest,
     cb?: (error: string, rep: ExportMaliciousRequestsResponse) => void
   ): Promise<ExportMaliciousRequestsResponse> {
     return this.request("ExportMaliciousRequests", req, cb)
@@ -655,7 +655,7 @@ export class Client extends AbstractClient {
    * 导出本地提权事件
    */
   async ExportPrivilegeEvents(
-    req: ExportPrivilegeEventsRequest,
+    req?: ExportPrivilegeEventsRequest,
     cb?: (error: string, rep: ExportPrivilegeEventsResponse) => void
   ): Promise<ExportPrivilegeEventsResponse> {
     return this.request("ExportPrivilegeEvents", req, cb)
@@ -665,7 +665,7 @@ export class Client extends AbstractClient {
    * 本接口用于（DescribeOverviewStatistics）获取概览统计数据。
    */
   async DescribeOverviewStatistics(
-    req: DescribeOverviewStatisticsRequest,
+    req?: DescribeOverviewStatisticsRequest,
     cb?: (error: string, rep: DescribeOverviewStatisticsResponse) => void
   ): Promise<DescribeOverviewStatisticsResponse> {
     return this.request("DescribeOverviewStatistics", req, cb)
@@ -795,7 +795,7 @@ export class Client extends AbstractClient {
    * 本接口 (ExportBruteAttacks) 用于导出密码破解记录成CSV文件。
    */
   async ExportBruteAttacks(
-    req: ExportBruteAttacksRequest,
+    req?: ExportBruteAttacksRequest,
     cb?: (error: string, rep: ExportBruteAttacksResponse) => void
   ): Promise<ExportBruteAttacksResponse> {
     return this.request("ExportBruteAttacks", req, cb)
@@ -835,7 +835,7 @@ export class Client extends AbstractClient {
    * 本接口 (ExportMalwares) 用于导出木马记录CSV文件。
    */
   async ExportMalwares(
-    req: ExportMalwaresRequest,
+    req?: ExportMalwaresRequest,
     cb?: (error: string, rep: ExportMalwaresResponse) => void
   ): Promise<ExportMalwaresResponse> {
     return this.request("ExportMalwares", req, cb)
@@ -905,7 +905,7 @@ export class Client extends AbstractClient {
    * 本接口 (ExportNonlocalLoginPlaces) 用于导出异地登录事件记录CSV文件。
    */
   async ExportNonlocalLoginPlaces(
-    req: ExportNonlocalLoginPlacesRequest,
+    req?: ExportNonlocalLoginPlacesRequest,
     cb?: (error: string, rep: ExportNonlocalLoginPlacesResponse) => void
   ): Promise<ExportNonlocalLoginPlacesResponse> {
     return this.request("ExportNonlocalLoginPlaces", req, cb)
@@ -985,7 +985,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeProVersionInfo) 用于获取专业版信息。
    */
   async DescribeProVersionInfo(
-    req: DescribeProVersionInfoRequest,
+    req?: DescribeProVersionInfoRequest,
     cb?: (error: string, rep: DescribeProVersionInfoResponse) => void
   ): Promise<DescribeProVersionInfoResponse> {
     return this.request("DescribeProVersionInfo", req, cb)
@@ -1015,7 +1015,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeAlarmAttribute) 用于获取告警设置。
    */
   async DescribeAlarmAttribute(
-    req: DescribeAlarmAttributeRequest,
+    req?: DescribeAlarmAttributeRequest,
     cb?: (error: string, rep: DescribeAlarmAttributeResponse) => void
   ): Promise<DescribeAlarmAttributeResponse> {
     return this.request("DescribeAlarmAttribute", req, cb)
@@ -1046,7 +1046,7 @@ export class Client extends AbstractClient {
 
      */
   async DescribeVulScanResult(
-    req: DescribeVulScanResultRequest,
+    req?: DescribeVulScanResultRequest,
     cb?: (error: string, rep: DescribeVulScanResultResponse) => void
   ): Promise<DescribeVulScanResultResponse> {
     return this.request("DescribeVulScanResult", req, cb)
@@ -1147,7 +1147,7 @@ export class Client extends AbstractClient {
    * 导出反弹Shell事件
    */
   async ExportReverseShellEvents(
-    req: ExportReverseShellEventsRequest,
+    req?: ExportReverseShellEventsRequest,
     cb?: (error: string, rep: ExportReverseShellEventsResponse) => void
   ): Promise<ExportReverseShellEventsResponse> {
     return this.request("ExportReverseShellEvents", req, cb)

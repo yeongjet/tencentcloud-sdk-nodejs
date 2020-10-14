@@ -9,7 +9,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取镜像列表
      */
-    DescribeDasbImageIds(req: DescribeDasbImageIdsRequest, cb?: (error: string, rep: DescribeDasbImageIdsResponse) => void): Promise<DescribeDasbImageIdsResponse>;
+    DescribeDasbImageIds(req?: DescribeDasbImageIdsRequest, cb?: (error: string, rep: DescribeDasbImageIdsResponse) => void): Promise<DescribeDasbImageIdsResponse>;
     /**
      * 本接口 (ModifyDbauditInstancesRenewFlag) 用于修改数据安全审计产品实例续费标识
      */
@@ -25,9 +25,9 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeDbauditUsedRegions) 用于查询可售卖地域列表。
      */
-    DescribeDbauditUsedRegions(req: DescribeDbauditUsedRegionsRequest, cb?: (error: string, rep: DescribeDbauditUsedRegionsResponse) => void): Promise<DescribeDbauditUsedRegionsResponse>;
+    DescribeDbauditUsedRegions(req?: DescribeDbauditUsedRegionsRequest, cb?: (error: string, rep: DescribeDbauditUsedRegionsResponse) => void): Promise<DescribeDbauditUsedRegionsResponse>;
     /**
      * 本接口 (DescribeDbauditInstanceType) 用于查询可售卖的产品规格列表。
      */
-    DescribeDbauditInstanceType(req: DescribeDbauditInstanceTypeRequest, cb?: (error: string, rep: DescribeDbauditInstanceTypeResponse) => void): Promise<DescribeDbauditInstanceTypeResponse>;
+    DescribeDbauditInstanceType(req?: DescribeDbauditInstanceTypeRequest, cb?: (error: string, rep: DescribeDbauditInstanceTypeResponse) => void): Promise<DescribeDbauditInstanceTypeResponse>;
 }

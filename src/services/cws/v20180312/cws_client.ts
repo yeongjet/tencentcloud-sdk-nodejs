@@ -139,7 +139,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeConfig) 用于查询用户配置的详细信息。
    */
   async DescribeConfig(
-    req: DescribeConfigRequest,
+    req?: DescribeConfigRequest,
     cb?: (error: string, rep: DescribeConfigResponse) => void
   ): Promise<DescribeConfigResponse> {
     return this.request("DescribeConfig", req, cb)
@@ -189,7 +189,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeVulsNumberTimeline) 用于查询漏洞数随时间变化统计信息。
    */
   async DescribeVulsNumberTimeline(
-    req: DescribeVulsNumberTimelineRequest,
+    req?: DescribeVulsNumberTimelineRequest,
     cb?: (error: string, rep: DescribeVulsNumberTimelineResponse) => void
   ): Promise<DescribeVulsNumberTimelineResponse> {
     return this.request("DescribeVulsNumberTimeline", req, cb)
@@ -239,7 +239,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeVulsNumber) 用于查询用户网站的漏洞总计数量。
    */
   async DescribeVulsNumber(
-    req: DescribeVulsNumberRequest,
+    req?: DescribeVulsNumberRequest,
     cb?: (error: string, rep: DescribeVulsNumberResponse) => void
   ): Promise<DescribeVulsNumberResponse> {
     return this.request("DescribeVulsNumber", req, cb)
@@ -259,7 +259,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeSiteQuota) 用于查询用户购买的扫描次数总数和已使用数。
    */
   async DescribeSiteQuota(
-    req: DescribeSiteQuotaRequest,
+    req?: DescribeSiteQuotaRequest,
     cb?: (error: string, rep: DescribeSiteQuotaResponse) => void
   ): Promise<DescribeSiteQuotaResponse> {
     return this.request("DescribeSiteQuota", req, cb)

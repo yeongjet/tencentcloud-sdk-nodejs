@@ -23,9 +23,9 @@ export declare class Client extends AbstractClient {
      */
     DeleteWhiteBoxKey(req: DeleteWhiteBoxKeyRequest, cb?: (error: string, rep: DeleteWhiteBoxKeyResponse) => void): Promise<DeleteWhiteBoxKeyResponse>;
     /**
-       * 用于导入密钥材料。只有类型为EXTERNAL 的CMK 才可以导入，导入的密钥材料使用 GetParametersForImport 获取的密钥进行加密。可以为指定的 CMK 重新导入密钥材料，并重新指定过期时间，但必须导入相同的密钥材料。CMK 密钥材料导入后不可以更换密钥材料。导入的密钥材料过期或者被删除后，指定的CMK将无法使用，需要再次导入相同的密钥材料才能正常使用。CMK是独立的，同样的密钥材料可导入不同的 CMK 中，但使用其中一个 CMK 加密的数据无法使用另一个 CMK解密。
-  只有Enabled 和 PendingImport状态的CMK可以导入密钥材料。
-       */
+     * 用于导入密钥材料。只有类型为EXTERNAL 的CMK 才可以导入，导入的密钥材料使用 GetParametersForImport 获取的密钥进行加密。可以为指定的 CMK 重新导入密钥材料，并重新指定过期时间，但必须导入相同的密钥材料。CMK 密钥材料导入后不可以更换密钥材料。导入的密钥材料过期或者被删除后，指定的CMK将无法使用，需要再次导入相同的密钥材料才能正常使用。CMK是独立的，同样的密钥材料可导入不同的 CMK 中，但使用其中一个 CMK 加密的数据无法使用另一个 CMK解密。
+只有Enabled 和 PendingImport状态的CMK可以导入密钥材料。
+     */
     ImportKeyMaterial(req: ImportKeyMaterialRequest, cb?: (error: string, rep: ImportKeyMaterialResponse) => void): Promise<ImportKeyMaterialResponse>;
     /**
      * 该接口用户获取 KeyUsage为ASYMMETRIC_DECRYPT_RSA_2048 和 ASYMMETRIC_DECRYPT_SM2 的非对称密钥的公钥信息，使用该公钥用户可在本地进行数据加密，使用该公钥加密的数据只能通过KMS使用对应的私钥进行解密。只有处于Enabled状态的非对称密钥才可能获取公钥。
@@ -42,7 +42,7 @@ export declare class Client extends AbstractClient {
     /**
      * 用于查询该用户是否已开通KMS服务
      */
-    GetServiceStatus(req: GetServiceStatusRequest, cb?: (error: string, rep: GetServiceStatusResponse) => void): Promise<GetServiceStatusResponse>;
+    GetServiceStatus(req?: GetServiceStatusRequest, cb?: (error: string, rep: GetServiceStatusResponse) => void): Promise<GetServiceStatusResponse>;
     /**
      * 使用指定的SM2非对称密钥的私钥进行数据解密，密文必须是使用对应公钥加密的。处于Enabled 状态的非对称密钥才能进行解密操作。传入的密文的长度不能超过256字节。
      */
@@ -82,7 +82,7 @@ export declare class Client extends AbstractClient {
     /**
      * 列出当前Region支持的加密方式
      */
-    ListAlgorithms(req: ListAlgorithmsRequest, cb?: (error: string, rep: ListAlgorithmsResponse) => void): Promise<ListAlgorithmsResponse>;
+    ListAlgorithms(req?: ListAlgorithmsRequest, cb?: (error: string, rep: ListAlgorithmsResponse) => void): Promise<ListAlgorithmsResponse>;
     /**
      * 用于获取指定KeyId的主密钥属性详情信息。
      */
@@ -178,7 +178,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取白盒密钥服务状态
      */
-    DescribeWhiteBoxServiceStatus(req: DescribeWhiteBoxServiceStatusRequest, cb?: (error: string, rep: DescribeWhiteBoxServiceStatusResponse) => void): Promise<DescribeWhiteBoxServiceStatusResponse>;
+    DescribeWhiteBoxServiceStatus(req?: DescribeWhiteBoxServiceStatusRequest, cb?: (error: string, rep: DescribeWhiteBoxServiceStatusResponse) => void): Promise<DescribeWhiteBoxServiceStatusResponse>;
     /**
      * 该接口用于对指定的cmk修改描述信息。对于处于PendingDelete状态的CMK禁止修改。
      */
@@ -194,5 +194,5 @@ export declare class Client extends AbstractClient {
     /**
      * 获取支持的地域列表
      */
-    GetRegions(req: GetRegionsRequest, cb?: (error: string, rep: GetRegionsResponse) => void): Promise<GetRegionsResponse>;
+    GetRegions(req?: GetRegionsRequest, cb?: (error: string, rep: GetRegionsResponse) => void): Promise<GetRegionsResponse>;
 }

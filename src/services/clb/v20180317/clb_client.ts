@@ -550,7 +550,7 @@ export class Client extends AbstractClient {
    * 获取用户的clb专有日志集
    */
   async DescribeClsLogSet(
-    req: DescribeClsLogSetRequest,
+    req?: DescribeClsLogSetRequest,
     cb?: (error: string, rep: DescribeClsLogSetResponse) => void
   ): Promise<DescribeClsLogSetResponse> {
     return this.request("DescribeClsLogSet", req, cb)
@@ -799,7 +799,7 @@ export class Client extends AbstractClient {
    * 查询用户当前地域下的各项配额
    */
   async DescribeQuota(
-    req: DescribeQuotaRequest,
+    req?: DescribeQuotaRequest,
     cb?: (error: string, rep: DescribeQuotaResponse) => void
   ): Promise<DescribeQuotaResponse> {
     return this.request("DescribeQuota", req, cb)

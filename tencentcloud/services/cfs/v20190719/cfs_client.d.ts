@@ -13,7 +13,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（DescribeCfsPGroups）用于查询权限组列表。
      */
-    DescribeCfsPGroups(req: DescribeCfsPGroupsRequest, cb?: (error: string, rep: DescribeCfsPGroupsResponse) => void): Promise<DescribeCfsPGroupsResponse>;
+    DescribeCfsPGroups(req?: DescribeCfsPGroupsRequest, cb?: (error: string, rep: DescribeCfsPGroupsResponse) => void): Promise<DescribeCfsPGroupsResponse>;
     /**
      * 本接口（DescribeCfsRules）用于查询权限组规则列表。
      */
@@ -25,7 +25,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（DescribeAvailableZoneInfo）用于查询区域的可用情况。
      */
-    DescribeAvailableZoneInfo(req: DescribeAvailableZoneInfoRequest, cb?: (error: string, rep: DescribeAvailableZoneInfoResponse) => void): Promise<DescribeAvailableZoneInfoResponse>;
+    DescribeAvailableZoneInfo(req?: DescribeAvailableZoneInfoRequest, cb?: (error: string, rep: DescribeAvailableZoneInfoResponse) => void): Promise<DescribeAvailableZoneInfoResponse>;
     /**
      * 本接口（UpdateCfsFileSystemName）用于更新文件系统名
      */
@@ -49,7 +49,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（DescribeCfsServiceStatus）用于查询用户使用CFS的服务状态。
      */
-    DescribeCfsServiceStatus(req: DescribeCfsServiceStatusRequest, cb?: (error: string, rep: DescribeCfsServiceStatusResponse) => void): Promise<DescribeCfsServiceStatusResponse>;
+    DescribeCfsServiceStatus(req?: DescribeCfsServiceStatusRequest, cb?: (error: string, rep: DescribeCfsServiceStatusResponse) => void): Promise<DescribeCfsServiceStatusResponse>;
     /**
      * 本接口（DescribeCfsFileSystems）用于查询文件系统
      */
@@ -57,7 +57,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（SignUpCfsService）用于开通CFS服务。
      */
-    SignUpCfsService(req: SignUpCfsServiceRequest, cb?: (error: string, rep: SignUpCfsServiceResponse) => void): Promise<SignUpCfsServiceResponse>;
+    SignUpCfsService(req?: SignUpCfsServiceRequest, cb?: (error: string, rep: SignUpCfsServiceResponse) => void): Promise<SignUpCfsServiceResponse>;
     /**
      * 本接口（CreateCfsRule）用于创建权限组规则。
      */

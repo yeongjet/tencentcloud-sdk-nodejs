@@ -169,7 +169,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeSaleInfo)用于查询云数据库可售卖的地域和可用区信息。
    */
   async DescribeSaleInfo(
-    req: DescribeSaleInfoRequest,
+    req?: DescribeSaleInfoRequest,
     cb?: (error: string, rep: DescribeSaleInfoResponse) => void
   ): Promise<DescribeSaleInfoResponse> {
     return this.request("DescribeSaleInfo", req, cb)
@@ -342,7 +342,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeDBInstanceSpecs)用于查询可创建的云数据库可售卖的规格配置。
    */
   async DescribeDBInstanceSpecs(
-    req: DescribeDBInstanceSpecsRequest,
+    req?: DescribeDBInstanceSpecsRequest,
     cb?: (error: string, rep: DescribeDBInstanceSpecsResponse) => void
   ): Promise<DescribeDBInstanceSpecsResponse> {
     return this.request("DescribeDBInstanceSpecs", req, cb)

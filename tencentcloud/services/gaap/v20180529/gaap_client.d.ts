@@ -101,19 +101,19 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（DescribeCountryAreaMapping）用于获取国家地区编码映射表。
      */
-    DescribeCountryAreaMapping(req: DescribeCountryAreaMappingRequest, cb?: (error: string, rep: DescribeCountryAreaMappingResponse) => void): Promise<DescribeCountryAreaMappingResponse>;
+    DescribeCountryAreaMapping(req?: DescribeCountryAreaMappingRequest, cb?: (error: string, rep: DescribeCountryAreaMappingResponse) => void): Promise<DescribeCountryAreaMappingResponse>;
     /**
      * 本接口（DescribeAccessRegions）用于查询加速区域，即客户端接入区域。
      */
-    DescribeAccessRegions(req: DescribeAccessRegionsRequest, cb?: (error: string, rep: DescribeAccessRegionsResponse) => void): Promise<DescribeAccessRegionsResponse>;
+    DescribeAccessRegions(req?: DescribeAccessRegionsRequest, cb?: (error: string, rep: DescribeAccessRegionsResponse) => void): Promise<DescribeAccessRegionsResponse>;
     /**
      * 删除安全策略规则
      */
     DeleteSecurityRules(req: DeleteSecurityRulesRequest, cb?: (error: string, rep: DeleteSecurityRulesResponse) => void): Promise<DeleteSecurityRulesResponse>;
     /**
-       * 该接口（ModifyHTTPListenerAttribute）用于修改通道的HTTP监听器配置信息，目前仅支持修改监听器的名称。
-  注意：通道组通道暂时不支持HTTP/HTTPS监听器。
-       */
+     * 该接口（ModifyHTTPListenerAttribute）用于修改通道的HTTP监听器配置信息，目前仅支持修改监听器的名称。
+注意：通道组通道暂时不支持HTTP/HTTPS监听器。
+     */
     ModifyHTTPListenerAttribute(req: ModifyHTTPListenerAttributeRequest, cb?: (error: string, rep: ModifyHTTPListenerAttributeResponse) => void): Promise<ModifyHTTPListenerAttributeResponse>;
     /**
      * 该接口（DeleteRule）用于删除HTTP/HTTPS监听器的转发规则。
@@ -164,9 +164,9 @@ export declare class Client extends AbstractClient {
      */
     ModifyHTTPSListenerAttribute(req: ModifyHTTPSListenerAttributeRequest, cb?: (error: string, rep: ModifyHTTPSListenerAttributeResponse) => void): Promise<ModifyHTTPSListenerAttributeResponse>;
     /**
-       * 本接口（CreateDomain）用于创建HTTP/HTTPS监听器的访问域名，客户端请求通过访问该域名来请求后端业务。
-  该接口仅支持version3.0的通道。
-       */
+     * 本接口（CreateDomain）用于创建HTTP/HTTPS监听器的访问域名，客户端请求通过访问该域名来请求后端业务。
+该接口仅支持version3.0的通道。
+     */
     CreateDomain(req: CreateDomainRequest, cb?: (error: string, rep: CreateDomainResponse) => void): Promise<CreateDomainResponse>;
     /**
      * 本接口（ModifyRuleAttribute）用于修改转发规则的信息，包括健康检查的配置以及转发策略。
@@ -247,11 +247,11 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口（DescribeDestRegions）用于查询源站区域，即源站服务器所在区域。
      */
-    DescribeDestRegions(req: DescribeDestRegionsRequest, cb?: (error: string, rep: DescribeDestRegionsResponse) => void): Promise<DescribeDestRegionsResponse>;
+    DescribeDestRegions(req?: DescribeDestRegionsRequest, cb?: (error: string, rep: DescribeDestRegionsResponse) => void): Promise<DescribeDestRegionsResponse>;
     /**
-       * 本接口（BindListenerRealServers）用于TCP/UDP监听器绑定解绑源站。
-  注意：本接口会解绑之前绑定的源站，绑定本次调用所选择的源站。例如：原来绑定的源站为A，B，C，本次调用的选择绑定的源站为C，D，E，那么调用后所绑定的源站为C，D，E。
-       */
+     * 本接口（BindListenerRealServers）用于TCP/UDP监听器绑定解绑源站。
+注意：本接口会解绑之前绑定的源站，绑定本次调用所选择的源站。例如：原来绑定的源站为A，B，C，本次调用的选择绑定的源站为C，D，E，那么调用后所绑定的源站为C，D，E。
+     */
     BindListenerRealServers(req: BindListenerRealServersRequest, cb?: (error: string, rep: BindListenerRealServersResponse) => void): Promise<BindListenerRealServersResponse>;
     /**
      * 该接口（DescribeHTTPListeners）用来查询HTTP监听器信息。
@@ -268,7 +268,7 @@ export declare class Client extends AbstractClient {
     /**
      * 该接口（DescribeRegionAndPrice）用于获取源站区域和带宽梯度价格
      */
-    DescribeRegionAndPrice(req: DescribeRegionAndPriceRequest, cb?: (error: string, rep: DescribeRegionAndPriceResponse) => void): Promise<DescribeRegionAndPriceResponse>;
+    DescribeRegionAndPrice(req?: DescribeRegionAndPriceRequest, cb?: (error: string, rep: DescribeRegionAndPriceResponse) => void): Promise<DescribeRegionAndPriceResponse>;
     /**
      * 本接口（CreateCertificate）用于创建Gaap相关证书和配置文件，包括基础认证配置文件，客户端CA证书，服务器SSL证书，Gaap SSL证书以及源站CA证书。
      */

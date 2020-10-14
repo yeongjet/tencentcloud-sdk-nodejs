@@ -13,7 +13,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取镜像信息
      */
-    DescribeImages(req: DescribeImagesRequest, cb?: (error: string, rep: DescribeImagesResponse) => void): Promise<DescribeImagesResponse>;
+    DescribeImages(req?: DescribeImagesRequest, cb?: (error: string, rep: DescribeImagesResponse) => void): Promise<DescribeImagesResponse>;
     /**
      * 修改集群伸缩组属性
      */
@@ -65,7 +65,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询集群路由表
      */
-    DescribeClusterRouteTables(req: DescribeClusterRouteTablesRequest, cb?: (error: string, rep: DescribeClusterRouteTablesResponse) => void): Promise<DescribeClusterRouteTablesResponse>;
+    DescribeClusterRouteTables(req?: DescribeClusterRouteTablesRequest, cb?: (error: string, rep: DescribeClusterRouteTablesResponse) => void): Promise<DescribeClusterRouteTablesResponse>;
     /**
      * 查询集群列表
      */
@@ -89,7 +89,7 @@ export declare class Client extends AbstractClient {
     /**
      * 获取容器服务支持的所有地域
      */
-    DescribeRegions(req: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
+    DescribeRegions(req?: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
     /**
      * 添加已经存在的实例到集群
      */

@@ -25,7 +25,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询本用户是否在白名单中，控制是否能创建TDR类型的APP或表
      */
-    DescribeUinInWhitelist(req: DescribeUinInWhitelistRequest, cb?: (error: string, rep: DescribeUinInWhitelistResponse) => void): Promise<DescribeUinInWhitelistResponse>;
+    DescribeUinInWhitelist(req?: DescribeUinInWhitelistRequest, cb?: (error: string, rep: DescribeUinInWhitelistResponse) => void): Promise<DescribeUinInWhitelistResponse>;
     /**
      * 查询回收站中的表详情
      */
@@ -89,7 +89,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询TcaplusDB服务支持的地域列表
      */
-    DescribeRegions(req: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
+    DescribeRegions(req?: DescribeRegionsRequest, cb?: (error: string, rep: DescribeRegionsResponse) => void): Promise<DescribeRegionsResponse>;
     /**
      * 查询任务列表
      */

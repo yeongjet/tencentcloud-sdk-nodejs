@@ -97,7 +97,7 @@ export class Client extends AbstractClient {
    * 使用数字活体检测模式前，需调用本接口获取数字验证码。
    */
   async GetLiveCode(
-    req: GetLiveCodeRequest,
+    req?: GetLiveCodeRequest,
     cb?: (error: string, rep: GetLiveCodeResponse) => void
   ): Promise<GetLiveCodeResponse> {
     return this.request("GetLiveCode", req, cb)

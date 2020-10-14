@@ -347,7 +347,7 @@ export class Client extends AbstractClient {
    * 获取人员库列表
    */
   async DescribeLibraries(
-    req: DescribeLibrariesRequest,
+    req?: DescribeLibrariesRequest,
     cb?: (error: string, rep: DescribeLibrariesResponse) => void
   ): Promise<DescribeLibrariesResponse> {
     return this.request("DescribeLibraries", req, cb)
@@ -377,7 +377,7 @@ export class Client extends AbstractClient {
    * 查询词汇库
    */
   async DescribeVocabLib(
-    req: DescribeVocabLibRequest,
+    req?: DescribeVocabLibRequest,
     cb?: (error: string, rep: DescribeVocabLibResponse) => void
   ): Promise<DescribeVocabLibResponse> {
     return this.request("DescribeVocabLib", req, cb)

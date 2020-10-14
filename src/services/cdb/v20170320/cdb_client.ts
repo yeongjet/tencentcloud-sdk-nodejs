@@ -946,7 +946,7 @@ export class Client extends AbstractClient {
    * 该接口（DescribeParamTemplates）查询参数模板列表。
    */
   async DescribeParamTemplates(
-    req: DescribeParamTemplatesRequest,
+    req?: DescribeParamTemplatesRequest,
     cb?: (error: string, rep: DescribeParamTemplatesResponse) => void
   ): Promise<DescribeParamTemplatesResponse> {
     return this.request("DescribeParamTemplates", req, cb)
@@ -1006,7 +1006,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeDBZoneConfig)用于查询可创建的云数据库各地域可售卖的规格配置。
    */
   async DescribeDBZoneConfig(
-    req: DescribeDBZoneConfigRequest,
+    req?: DescribeDBZoneConfigRequest,
     cb?: (error: string, rep: DescribeDBZoneConfigResponse) => void
   ): Promise<DescribeDBZoneConfigResponse> {
     return this.request("DescribeDBZoneConfig", req, cb)

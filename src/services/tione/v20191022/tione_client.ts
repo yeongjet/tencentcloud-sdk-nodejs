@@ -239,7 +239,7 @@ export class Client extends AbstractClient {
    * 查询Notebook概览数据
    */
   async DescribeNotebookSummary(
-    req: DescribeNotebookSummaryRequest,
+    req?: DescribeNotebookSummaryRequest,
     cb?: (error: string, rep: DescribeNotebookSummaryResponse) => void
   ): Promise<DescribeNotebookSummaryResponse> {
     return this.request("DescribeNotebookSummary", req, cb)

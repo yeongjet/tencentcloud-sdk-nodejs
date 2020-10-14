@@ -31,7 +31,7 @@ export class Client extends AbstractClient {
    * 获取云通信IM中腾讯云账号对应的SDKAppID
    */
   async DescribeSdkAppid(
-    req: DescribeSdkAppidRequest,
+    req?: DescribeSdkAppidRequest,
     cb?: (error: string, rep: DescribeSdkAppidResponse) => void
   ): Promise<DescribeSdkAppidResponse> {
     return this.request("DescribeSdkAppid", req, cb)

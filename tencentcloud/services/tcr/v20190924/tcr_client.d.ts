@@ -33,7 +33,7 @@ export declare class Client extends AbstractClient {
     /**
      * 用于获取个人版全局镜像版本自动清理策略
      */
-    DescribeImageLifecycleGlobalPersonal(req: DescribeImageLifecycleGlobalPersonalRequest, cb?: (error: string, rep: DescribeImageLifecycleGlobalPersonalResponse) => void): Promise<DescribeImageLifecycleGlobalPersonalResponse>;
+    DescribeImageLifecycleGlobalPersonal(req?: DescribeImageLifecycleGlobalPersonalRequest, cb?: (error: string, rep: DescribeImageLifecycleGlobalPersonalResponse) => void): Promise<DescribeImageLifecycleGlobalPersonalResponse>;
     /**
      * 用于在企业版中创建命名空间
      */
@@ -149,7 +149,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询个人用户配额
      */
-    DescribeUserQuotaPersonal(req: DescribeUserQuotaPersonalRequest, cb?: (error: string, rep: DescribeUserQuotaPersonalResponse) => void): Promise<DescribeUserQuotaPersonalResponse>;
+    DescribeUserQuotaPersonal(req?: DescribeUserQuotaPersonalRequest, cb?: (error: string, rep: DescribeUserQuotaPersonalResponse) => void): Promise<DescribeUserQuotaPersonalResponse>;
     /**
      * 删除触发器
      */
@@ -205,7 +205,7 @@ export declare class Client extends AbstractClient {
     /**
      * 用于删除个人版全局镜像版本自动清理策略
      */
-    DeleteImageLifecycleGlobalPersonal(req: DeleteImageLifecycleGlobalPersonalRequest, cb?: (error: string, rep: DeleteImageLifecycleGlobalPersonalResponse) => void): Promise<DeleteImageLifecycleGlobalPersonalResponse>;
+    DeleteImageLifecycleGlobalPersonal(req?: DeleteImageLifecycleGlobalPersonalRequest, cb?: (error: string, rep: DeleteImageLifecycleGlobalPersonalResponse) => void): Promise<DeleteImageLifecycleGlobalPersonalResponse>;
     /**
      * 删除共享版命名空间
      */

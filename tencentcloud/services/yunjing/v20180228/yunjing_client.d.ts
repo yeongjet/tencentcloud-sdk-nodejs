@@ -73,7 +73,7 @@ export declare class Client extends AbstractClient {
     /**
      * 导出网络攻击日志
      */
-    ExportAttackLogs(req: ExportAttackLogsRequest, cb?: (error: string, rep: ExportAttackLogsResponse) => void): Promise<ExportAttackLogsResponse>;
+    ExportAttackLogs(req?: ExportAttackLogsRequest, cb?: (error: string, rep: ExportAttackLogsResponse) => void): Promise<ExportAttackLogsResponse>;
     /**
      * 此接口（DescribeUsualLoginPlaces）用于查询常用登录地。
      */
@@ -105,7 +105,7 @@ export declare class Client extends AbstractClient {
     /**
      * 导出高危命令事件
      */
-    ExportBashEvents(req: ExportBashEventsRequest, cb?: (error: string, rep: ExportBashEventsResponse) => void): Promise<ExportBashEventsResponse>;
+    ExportBashEvents(req?: ExportBashEventsRequest, cb?: (error: string, rep: ExportBashEventsResponse) => void): Promise<ExportBashEventsResponse>;
     /**
      * 本接口 (CreateProcessTask) 用于创建实时拉取进程任务。
      */
@@ -143,14 +143,14 @@ export declare class Client extends AbstractClient {
      */
     DeleteNonlocalLoginPlaces(req: DeleteNonlocalLoginPlacesRequest, cb?: (error: string, rep: DeleteNonlocalLoginPlacesResponse) => void): Promise<DeleteNonlocalLoginPlacesResponse>;
     /**
-       * 本接口 (DescribeOpenPorts) 用于获取端口列表数据。
-  
-       */
+     * 本接口 (DescribeOpenPorts) 用于获取端口列表数据。
+
+     */
     DescribeOpenPorts(req: DescribeOpenPortsRequest, cb?: (error: string, rep: DescribeOpenPortsResponse) => void): Promise<DescribeOpenPortsResponse>;
     /**
      * 本接口 (ExportMaliciousRequests) 用于导出下载恶意请求文件。
      */
-    ExportMaliciousRequests(req: ExportMaliciousRequestsRequest, cb?: (error: string, rep: ExportMaliciousRequestsResponse) => void): Promise<ExportMaliciousRequestsResponse>;
+    ExportMaliciousRequests(req?: ExportMaliciousRequestsRequest, cb?: (error: string, rep: ExportMaliciousRequestsResponse) => void): Promise<ExportMaliciousRequestsResponse>;
     /**
      * 获取指定标签关联的服务器信息
      */
@@ -162,11 +162,11 @@ export declare class Client extends AbstractClient {
     /**
      * 导出本地提权事件
      */
-    ExportPrivilegeEvents(req: ExportPrivilegeEventsRequest, cb?: (error: string, rep: ExportPrivilegeEventsResponse) => void): Promise<ExportPrivilegeEventsResponse>;
+    ExportPrivilegeEvents(req?: ExportPrivilegeEventsRequest, cb?: (error: string, rep: ExportPrivilegeEventsResponse) => void): Promise<ExportPrivilegeEventsResponse>;
     /**
      * 本接口用于（DescribeOverviewStatistics）获取概览统计数据。
      */
-    DescribeOverviewStatistics(req: DescribeOverviewStatisticsRequest, cb?: (error: string, rep: DescribeOverviewStatisticsResponse) => void): Promise<DescribeOverviewStatisticsResponse>;
+    DescribeOverviewStatistics(req?: DescribeOverviewStatisticsRequest, cb?: (error: string, rep: DescribeOverviewStatisticsResponse) => void): Promise<DescribeOverviewStatisticsResponse>;
     /**
      * 本接口 (DescribeOpenPortTaskStatus) 用于获取实时拉取端口任务状态。
      */
@@ -218,7 +218,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (ExportBruteAttacks) 用于导出密码破解记录成CSV文件。
      */
-    ExportBruteAttacks(req: ExportBruteAttacksRequest, cb?: (error: string, rep: ExportBruteAttacksResponse) => void): Promise<ExportBruteAttacksResponse>;
+    ExportBruteAttacks(req?: ExportBruteAttacksRequest, cb?: (error: string, rep: ExportBruteAttacksResponse) => void): Promise<ExportBruteAttacksResponse>;
     /**
      * 本接口 (TrustMaliciousRequest) 用于恶意请求添加信任。
      */
@@ -234,7 +234,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (ExportMalwares) 用于导出木马记录CSV文件。
      */
-    ExportMalwares(req: ExportMalwaresRequest, cb?: (error: string, rep: ExportMalwaresResponse) => void): Promise<ExportMalwaresResponse>;
+    ExportMalwares(req?: ExportMalwaresRequest, cb?: (error: string, rep: ExportMalwaresResponse) => void): Promise<ExportMalwaresResponse>;
     /**
      * 本接口{DescribeBruteAttacks}用于获取暴力破解事件列表。
      */
@@ -262,7 +262,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (ExportNonlocalLoginPlaces) 用于导出异地登录事件记录CSV文件。
      */
-    ExportNonlocalLoginPlaces(req: ExportNonlocalLoginPlacesRequest, cb?: (error: string, rep: ExportNonlocalLoginPlacesResponse) => void): Promise<ExportNonlocalLoginPlacesResponse>;
+    ExportNonlocalLoginPlaces(req?: ExportNonlocalLoginPlacesRequest, cb?: (error: string, rep: ExportNonlocalLoginPlacesResponse) => void): Promise<ExportNonlocalLoginPlacesResponse>;
     /**
      * 本接口 (DescribeMaliciousRequests) 用于获取恶意请求数据。
      */
@@ -294,7 +294,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeProVersionInfo) 用于获取专业版信息。
      */
-    DescribeProVersionInfo(req: DescribeProVersionInfoRequest, cb?: (error: string, rep: DescribeProVersionInfoResponse) => void): Promise<DescribeProVersionInfoResponse>;
+    DescribeProVersionInfo(req?: DescribeProVersionInfoRequest, cb?: (error: string, rep: DescribeProVersionInfoResponse) => void): Promise<DescribeProVersionInfoResponse>;
     /**
      * 获取本地提权事件列表
      */
@@ -306,7 +306,7 @@ export declare class Client extends AbstractClient {
     /**
      * 本接口 (DescribeAlarmAttribute) 用于获取告警设置。
      */
-    DescribeAlarmAttribute(req: DescribeAlarmAttributeRequest, cb?: (error: string, rep: DescribeAlarmAttributeResponse) => void): Promise<DescribeAlarmAttributeResponse>;
+    DescribeAlarmAttribute(req?: DescribeAlarmAttributeRequest, cb?: (error: string, rep: DescribeAlarmAttributeResponse) => void): Promise<DescribeAlarmAttributeResponse>;
     /**
      * 本接口 (DescribeComponents) 用于获取组件列表数据。
      */
@@ -316,10 +316,10 @@ export declare class Client extends AbstractClient {
      */
     DescribeLoginWhiteList(req: DescribeLoginWhiteListRequest, cb?: (error: string, rep: DescribeLoginWhiteListResponse) => void): Promise<DescribeLoginWhiteListResponse>;
     /**
-       * 本接口 (DescribeVulScanResult) 用于获取漏洞检测结果。
-  
-       */
-    DescribeVulScanResult(req: DescribeVulScanResultRequest, cb?: (error: string, rep: DescribeVulScanResultResponse) => void): Promise<DescribeVulScanResultResponse>;
+     * 本接口 (DescribeVulScanResult) 用于获取漏洞检测结果。
+
+     */
+    DescribeVulScanResult(req?: DescribeVulScanResultRequest, cb?: (error: string, rep: DescribeVulScanResultResponse) => void): Promise<DescribeVulScanResultResponse>;
     /**
      * 本接口 (DescribeHistoryAccounts) 用于获取帐号变更历史列表数据。
      */
@@ -337,9 +337,9 @@ export declare class Client extends AbstractClient {
      */
     UntrustMalwares(req: UntrustMalwaresRequest, cb?: (error: string, rep: UntrustMalwaresResponse) => void): Promise<UntrustMalwaresResponse>;
     /**
-       * 本接口 (DescribeWeeklyReportVuls) 用于专业版周报漏洞数据。
-  
-       */
+     * 本接口 (DescribeWeeklyReportVuls) 用于专业版周报漏洞数据。
+
+     */
     DescribeWeeklyReportVuls(req: DescribeWeeklyReportVulsRequest, cb?: (error: string, rep: DescribeWeeklyReportVulsResponse) => void): Promise<DescribeWeeklyReportVulsResponse>;
     /**
      * 本接口 (DescribeWeeklyReportInfo) 用于获取专业周报详情数据。
@@ -360,7 +360,7 @@ export declare class Client extends AbstractClient {
     /**
      * 导出反弹Shell事件
      */
-    ExportReverseShellEvents(req: ExportReverseShellEventsRequest, cb?: (error: string, rep: ExportReverseShellEventsResponse) => void): Promise<ExportReverseShellEventsResponse>;
+    ExportReverseShellEvents(req?: ExportReverseShellEventsRequest, cb?: (error: string, rep: ExportReverseShellEventsResponse) => void): Promise<ExportReverseShellEventsResponse>;
     /**
      * 删除网络攻击日志
      */

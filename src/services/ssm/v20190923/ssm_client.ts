@@ -156,7 +156,7 @@ export class Client extends AbstractClient {
    * 该接口用户获取用户SecretsManager服务开通状态。
    */
   async GetServiceStatus(
-    req: GetServiceStatusRequest,
+    req?: GetServiceStatusRequest,
     cb?: (error: string, rep: GetServiceStatusResponse) => void
   ): Promise<GetServiceStatusResponse> {
     return this.request("GetServiceStatus", req, cb)
@@ -186,7 +186,7 @@ export class Client extends AbstractClient {
    * 获取控制台展示region列表
    */
   async GetRegions(
-    req: GetRegionsRequest,
+    req?: GetRegionsRequest,
     cb?: (error: string, rep: GetRegionsResponse) => void
   ): Promise<GetRegionsResponse> {
     return this.request("GetRegions", req, cb)

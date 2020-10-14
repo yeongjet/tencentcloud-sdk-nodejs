@@ -37,7 +37,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询SAML身份提供商列表
      */
-    ListSAMLProviders(req: ListSAMLProvidersRequest, cb?: (error: string, rep: ListSAMLProvidersResponse) => void): Promise<ListSAMLProvidersResponse>;
+    ListSAMLProviders(req?: ListSAMLProvidersRequest, cb?: (error: string, rep: ListSAMLProvidersResponse) => void): Promise<ListSAMLProvidersResponse>;
     /**
      * 本接口（CreateRole）用于创建角色。
      */
@@ -49,7 +49,7 @@ export declare class Client extends AbstractClient {
     /**
      * 拉取子用户
      */
-    ListUsers(req: ListUsersRequest, cb?: (error: string, rep: ListUsersResponse) => void): Promise<ListUsersResponse>;
+    ListUsers(req?: ListUsersRequest, cb?: (error: string, rep: ListUsersResponse) => void): Promise<ListUsersResponse>;
     /**
      * 本接口（ListAttachedRolePolicies）用于获取角色绑定的策略列表。
      */
@@ -159,9 +159,9 @@ export declare class Client extends AbstractClient {
      */
     AttachRolePolicy(req: AttachRolePolicyRequest, cb?: (error: string, rep: AttachRolePolicyResponse) => void): Promise<AttachRolePolicyResponse>;
     /**
-       * 本接口（UpdatePolicy ）可用于更新策略。
-  如果已存在策略版本，本接口会直接更新策略的默认版本，不会创建新版本，如果不存在任何策略版本，则直接创建一个默认版本。
-       */
+     * 本接口（UpdatePolicy ）可用于更新策略。
+如果已存在策略版本，本接口会直接更新策略的默认版本，不会创建新版本，如果不存在任何策略版本，则直接创建一个默认版本。
+     */
     UpdatePolicy(req: UpdatePolicyRequest, cb?: (error: string, rep: UpdatePolicyResponse) => void): Promise<UpdatePolicyResponse>;
     /**
      * 该接口（ListPolicyVersions）用于获取策略版本列表

@@ -59,7 +59,7 @@ export class Client extends AbstractClient {
    * 安全验证码获取用户注册所有APPId和应用名称
    */
   async DescribeCaptchaUserAllAppId(
-    req: DescribeCaptchaUserAllAppIdRequest,
+    req?: DescribeCaptchaUserAllAppIdRequest,
     cb?: (error: string, rep: DescribeCaptchaUserAllAppIdResponse) => void
   ): Promise<DescribeCaptchaUserAllAppIdResponse> {
     return this.request("DescribeCaptchaUserAllAppId", req, cb)

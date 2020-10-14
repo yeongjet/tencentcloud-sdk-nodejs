@@ -58,7 +58,7 @@ export class Client extends AbstractClient {
    * 用户通过该接口，可获得所有的热词表及其信息。
    */
   async GetAsrVocabList(
-    req: GetAsrVocabListRequest,
+    req?: GetAsrVocabListRequest,
     cb?: (error: string, rep: GetAsrVocabListResponse) => void
   ): Promise<GetAsrVocabListResponse> {
     return this.request("GetAsrVocabList", req, cb)

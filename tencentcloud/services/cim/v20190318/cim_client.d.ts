@@ -9,5 +9,5 @@ export declare class Client extends AbstractClient {
     /**
      * 获取云通信IM中腾讯云账号对应的SDKAppID
      */
-    DescribeSdkAppid(req: DescribeSdkAppidRequest, cb?: (error: string, rep: DescribeSdkAppidResponse) => void): Promise<DescribeSdkAppidResponse>;
+    DescribeSdkAppid(req?: DescribeSdkAppidRequest, cb?: (error: string, rep: DescribeSdkAppidResponse) => void): Promise<DescribeSdkAppidResponse>;
 }

@@ -17,7 +17,7 @@ export declare class Client extends AbstractClient {
     /**
      * 使用数字活体检测模式前，需调用本接口获取数字验证码。
      */
-    GetLiveCode(req: GetLiveCodeRequest, cb?: (error: string, rep: GetLiveCodeResponse) => void): Promise<GetLiveCodeResponse>;
+    GetLiveCode(req?: GetLiveCodeRequest, cb?: (error: string, rep: GetLiveCodeResponse) => void): Promise<GetLiveCodeResponse>;
     /**
      * 传入视频和照片，先判断视频中是否为真人，判断为真人后，再判断该视频中的人与上传照片是否属于同一个人。
      */

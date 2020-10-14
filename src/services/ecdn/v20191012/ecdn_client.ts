@@ -156,7 +156,7 @@ export class Client extends AbstractClient {
    * 查询刷新接口的用量配额。
    */
   async DescribePurgeQuota(
-    req: DescribePurgeQuotaRequest,
+    req?: DescribePurgeQuotaRequest,
     cb?: (error: string, rep: DescribePurgeQuotaResponse) => void
   ): Promise<DescribePurgeQuotaResponse> {
     return this.request("DescribePurgeQuota", req, cb)

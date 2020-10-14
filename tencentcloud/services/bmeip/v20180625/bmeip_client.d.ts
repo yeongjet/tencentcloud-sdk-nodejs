@@ -29,7 +29,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询黑石EIP 限额
      */
-    DescribeEipQuota(req: DescribeEipQuotaRequest, cb?: (error: string, rep: DescribeEipQuotaResponse) => void): Promise<DescribeEipQuotaResponse>;
+    DescribeEipQuota(req?: DescribeEipQuotaRequest, cb?: (error: string, rep: DescribeEipQuotaResponse) => void): Promise<DescribeEipQuotaResponse>;
     /**
      * 绑定黑石EIP
      */

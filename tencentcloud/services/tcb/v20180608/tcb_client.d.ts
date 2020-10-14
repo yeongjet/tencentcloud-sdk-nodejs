@@ -49,7 +49,7 @@ export declare class Client extends AbstractClient {
     /**
      * 检查是否开通Tcb服务
      */
-    CheckTcbService(req: CheckTcbServiceRequest, cb?: (error: string, rep: CheckTcbServiceResponse) => void): Promise<CheckTcbServiceResponse>;
+    CheckTcbService(req?: CheckTcbServiceRequest, cb?: (error: string, rep: CheckTcbServiceResponse) => void): Promise<CheckTcbServiceResponse>;
     /**
      * 删除终端用户
      */
@@ -97,7 +97,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询环境个数上限
      */
-    DescribeEnvLimit(req: DescribeEnvLimitRequest, cb?: (error: string, rep: DescribeEnvLimitResponse) => void): Promise<DescribeEnvLimitResponse>;
+    DescribeEnvLimit(req?: DescribeEnvLimitRequest, cb?: (error: string, rep: DescribeEnvLimitResponse) => void): Promise<DescribeEnvLimitResponse>;
     /**
      * 查询后付费免费配额信息
      */

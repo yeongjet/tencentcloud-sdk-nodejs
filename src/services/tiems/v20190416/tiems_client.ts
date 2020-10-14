@@ -241,7 +241,7 @@ export class Client extends AbstractClient {
    * 描述服务运行环境
    */
   async DescribeRuntimes(
-    req: DescribeRuntimesRequest,
+    req?: DescribeRuntimesRequest,
     cb?: (error: string, rep: DescribeRuntimesResponse) => void
   ): Promise<DescribeRuntimesResponse> {
     return this.request("DescribeRuntimes", req, cb)

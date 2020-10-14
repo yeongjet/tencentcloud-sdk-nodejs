@@ -521,7 +521,7 @@ export class Client extends AbstractClient {
    * 获取IP封堵列表
    */
   async DescribeIpBlockList(
-    req: DescribeIpBlockListRequest,
+    req?: DescribeIpBlockListRequest,
     cb?: (error: string, rep: DescribeIpBlockListResponse) => void
   ): Promise<DescribeIpBlockListResponse> {
     return this.request("DescribeIpBlockList", req, cb)
@@ -541,7 +541,7 @@ export class Client extends AbstractClient {
    * 获取本月安全统计
    */
   async DescribeSecIndex(
-    req: DescribeSecIndexRequest,
+    req?: DescribeSecIndexRequest,
     cb?: (error: string, rep: DescribeSecIndexResponse) => void
   ): Promise<DescribeSecIndexResponse> {
     return this.request("DescribeSecIndex", req, cb)
@@ -1031,7 +1031,7 @@ export class Client extends AbstractClient {
    * 获取黑洞解封次数
    */
   async DescribeUnBlockStatis(
-    req: DescribeUnBlockStatisRequest,
+    req?: DescribeUnBlockStatisRequest,
     cb?: (error: string, rep: DescribeUnBlockStatisResponse) => void
   ): Promise<DescribeUnBlockStatisResponse> {
     return this.request("DescribeUnBlockStatis", req, cb)

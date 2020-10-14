@@ -1356,7 +1356,7 @@ export class Client extends AbstractClient {
  FailedOperation。
      */
   async DescribeSubAppIds(
-    req: DescribeSubAppIdsRequest,
+    req?: DescribeSubAppIdsRequest,
     cb?: (error: string, rep: DescribeSubAppIdsResponse) => void
   ): Promise<DescribeSubAppIdsResponse> {
     return this.request("DescribeSubAppIds", req, cb)

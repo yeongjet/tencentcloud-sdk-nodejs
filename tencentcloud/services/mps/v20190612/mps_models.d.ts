@@ -3,8 +3,8 @@
  */
 export interface ModifySnapshotByTimeOffsetTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -12,8 +12,8 @@ export interface ModifySnapshotByTimeOffsetTemplateResponse {
  */
 export interface ModifySampleSnapshotTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -21,48 +21,48 @@ export interface ModifySampleSnapshotTemplateResponse {
  */
 export interface ModifyWatermarkTemplateRequest {
     /**
-     * 水印模板唯一标识。
-     */
+      * 水印模板唯一标识。
+      */
     Definition: number;
     /**
-     * 水印模板名称，长度限制：64 个字符。
-     */
+      * 水印模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 原点位置，可选值：
-  <li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
-  <li>TopRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
-  <li>BottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
-  <li>BottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下角。</li>
-        */
+      * 原点位置，可选值：
+<li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
+<li>TopRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
+<li>BottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
+<li>BottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下角。</li>
+      */
     CoordinateOrigin?: string;
     /**
-        * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
-        */
+      * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
+      */
     XPos?: string;
     /**
-        * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
-        */
+      * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
+      */
     YPos?: string;
     /**
-     * 图片水印模板，该字段仅对图片水印模板有效。
-     */
+      * 图片水印模板，该字段仅对图片水印模板有效。
+      */
     ImageTemplate?: ImageWatermarkInputForUpdate;
     /**
-     * 文字水印模板，该字段仅对文字水印模板有效。
-     */
+      * 文字水印模板，该字段仅对文字水印模板有效。
+      */
     TextTemplate?: TextWatermarkTemplateInputForUpdate;
     /**
-     * SVG水印模板，当 Type 为 svg，该字段必填。当 Type 为 image 或 text，该字段无效。
-     */
+      * SVG水印模板，当 Type 为 svg，该字段必填。当 Type 为 image 或 text，该字段无效。
+      */
     SvgTemplate?: SvgWatermarkInputForUpdate;
 }
 /**
@@ -70,20 +70,20 @@ export interface ModifyWatermarkTemplateRequest {
  */
 export interface AiRecognitionTaskAsrFullTextSegmentItem {
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别片段起始的偏移时间，单位：秒。
-     */
+      * 识别片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 识别片段终止的偏移时间，单位：秒。
-     */
+      * 识别片段终止的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 识别文本。
-     */
+      * 识别文本。
+      */
     Text: string;
 }
 /**
@@ -91,23 +91,23 @@ export interface AiRecognitionTaskAsrFullTextSegmentItem {
  */
 export interface UserDefineOcrTextReviewTemplateInfoForUpdate {
     /**
-        * 用户自定文本审核任务开关，可选值：
-  <li>ON：开启自定义文本审核任务；</li>
-  <li>OFF：关闭自定义文本审核任务。</li>
-        */
+      * 用户自定文本审核任务开关，可选值：
+<li>ON：开启自定义文本审核任务；</li>
+<li>OFF：关闭自定义文本审核任务。</li>
+      */
     Switch?: string;
     /**
-        * 用户自定义文本过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义文本关键词素材时需要添加对应标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义文本过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义文本关键词素材时需要添加对应标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -115,8 +115,8 @@ export interface UserDefineOcrTextReviewTemplateInfoForUpdate {
  */
 export interface AiAnalysisTaskClassificationInput {
     /**
-     * 视频智能分类模板 ID。
-     */
+      * 视频智能分类模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -124,28 +124,28 @@ export interface AiAnalysisTaskClassificationInput {
  */
 export interface SvgWatermarkInput {
     /**
-        * 水印的宽度，支持 px，%，W%，H%，S%，L% 六种格式：
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素；当填 0px 且
-   Height 不为 0px 时，表示水印的宽度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的宽度取原始 SVG 图像的宽度；</li>
-  <li>当字符串以 W% 结尾，表示水印 Width 为视频宽度的百分比大小，如 10W% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 H% 结尾，表示水印 Width 为视频高度的百分比大小，如 10H% 表示 Width 为视频高度的 10%；</li>
-  <li>当字符串以 S% 结尾，表示水印 Width 为视频短边的百分比大小，如 10S% 表示 Width 为视频短边的 10%；</li>
-  <li>当字符串以 L% 结尾，表示水印 Width 为视频长边的百分比大小，如 10L% 表示 Width 为视频长边的 10%；</li>
-  <li>当字符串以 % 结尾时，含义同 W%。</li>
-  默认值为 10W%。
-        */
+      * 水印的宽度，支持 px，%，W%，H%，S%，L% 六种格式：
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素；当填 0px 且
+ Height 不为 0px 时，表示水印的宽度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的宽度取原始 SVG 图像的宽度；</li>
+<li>当字符串以 W% 结尾，表示水印 Width 为视频宽度的百分比大小，如 10W% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 H% 结尾，表示水印 Width 为视频高度的百分比大小，如 10H% 表示 Width 为视频高度的 10%；</li>
+<li>当字符串以 S% 结尾，表示水印 Width 为视频短边的百分比大小，如 10S% 表示 Width 为视频短边的 10%；</li>
+<li>当字符串以 L% 结尾，表示水印 Width 为视频长边的百分比大小，如 10L% 表示 Width 为视频长边的 10%；</li>
+<li>当字符串以 % 结尾时，含义同 W%。</li>
+默认值为 10W%。
+      */
     Width?: string;
     /**
-        * 水印的高度，支持 px，W%，H%，S%，L% 六种格式：
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
-   Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
-  <li>当字符串以 W% 结尾，表示水印 Height 为视频宽度的百分比大小，如 10W% 表示 Height 为视频宽度的 10%；</li>
-  <li>当字符串以 H% 结尾，表示水印 Height 为视频高度的百分比大小，如 10H% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
-  <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
-  <li>当字符串以 % 结尾时，含义同 H%。</li>
-  默认值为 0px。
-        */
+      * 水印的高度，支持 px，W%，H%，S%，L% 六种格式：
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
+ Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
+<li>当字符串以 W% 结尾，表示水印 Height 为视频宽度的百分比大小，如 10W% 表示 Height 为视频宽度的 10%；</li>
+<li>当字符串以 H% 结尾，表示水印 Height 为视频高度的百分比大小，如 10H% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
+<li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
+<li>当字符串以 % 结尾时，含义同 H%。</li>
+默认值为 0px。
+      */
     Height?: string;
 }
 /**
@@ -153,68 +153,68 @@ export interface SvgWatermarkInput {
  */
 export interface WorkflowInfo {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId: number;
     /**
-     * 工作流名称。
-     */
+      * 工作流名称。
+      */
     WorkflowName: string;
     /**
-        * 工作流状态，取值范围：
-  <li>Enabled：已启用，</li>
-  <li>Disabled：已禁用。</li>
-        */
+      * 工作流状态，取值范围：
+<li>Enabled：已启用，</li>
+<li>Disabled：已禁用。</li>
+      */
     Status: string;
     /**
-     * 工作流绑定的输入规则，当上传视频命中该规则到该对象时即触发工作流。
-     */
+      * 工作流绑定的输入规则，当上传视频命中该规则到该对象时即触发工作流。
+      */
     Trigger: WorkflowTrigger;
     /**
-        * 视频处理的文件输出存储位置。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频处理的文件输出存储位置。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage: TaskOutputStorage;
     /**
-        * 视频处理类型任务参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频处理类型任务参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MediaProcessTask: MediaProcessTaskInput;
     /**
-        * 视频内容审核类型任务参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核类型任务参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AiContentReviewTask: AiContentReviewTaskInput;
     /**
-        * 视频内容分析类型任务参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容分析类型任务参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AiAnalysisTask: AiAnalysisTaskInput;
     /**
-        * 视频内容识别类型任务参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容识别类型任务参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AiRecognitionTask: AiRecognitionTaskInput;
     /**
-        * 任务的事件通知信息，不填代表不获取事件通知。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 任务的事件通知信息，不填代表不获取事件通知。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TaskNotifyConfig: TaskNotifyConfig;
     /**
-     * 任务流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
-     */
+      * 任务流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+      */
     TaskPriority: number;
     /**
-     * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。
-     */
+      * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。
+      */
     OutputDir: string;
     /**
-     * 工作流创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 工作流创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 工作流最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 工作流最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -222,42 +222,42 @@ export interface WorkflowInfo {
  */
 export interface CreateTranscodeTemplateRequest {
     /**
-     * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
-     */
+      * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
+      */
     Container: string;
     /**
-     * 转码模板名称，长度限制：64 个字符。
-     */
+      * 转码模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 是否去除视频数据，可选值：
-  <li>0：保留</li>
-  <li>1：去除</li>
-  默认值：0。
-        */
+      * 是否去除视频数据，可选值：
+<li>0：保留</li>
+<li>1：去除</li>
+默认值：0。
+      */
     RemoveVideo?: number;
     /**
-        * 是否去除音频数据，可选值：
-  <li>0：保留</li>
-  <li>1：去除</li>
-  默认值：0。
-        */
+      * 是否去除音频数据，可选值：
+<li>0：保留</li>
+<li>1：去除</li>
+默认值：0。
+      */
     RemoveAudio?: number;
     /**
-     * 视频流配置参数，当 RemoveVideo 为 0，该字段必填。
-     */
+      * 视频流配置参数，当 RemoveVideo 为 0，该字段必填。
+      */
     VideoTemplate?: VideoTemplateInfo;
     /**
-     * 音频流配置参数，当 RemoveAudio 为 0，该字段必填。
-     */
+      * 音频流配置参数，当 RemoveAudio 为 0，该字段必填。
+      */
     AudioTemplate?: AudioTemplateInfo;
     /**
-     * 极速高清转码参数。
-     */
+      * 极速高清转码参数。
+      */
     TEHDConfig?: TEHDConfig;
 }
 /**
@@ -265,12 +265,12 @@ export interface CreateTranscodeTemplateRequest {
  */
 export interface ProcessLiveStreamResponse {
     /**
-     * 任务 ID
-     */
+      * 任务 ID
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -278,22 +278,22 @@ export interface ProcessLiveStreamResponse {
  */
 export interface DescribeAnimatedGraphicsTemplatesRequest {
     /**
-     * 转动图模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 转动图模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
 }
 /**
@@ -301,28 +301,28 @@ export interface DescribeAnimatedGraphicsTemplatesRequest {
  */
 export interface AiReviewTaskProhibitedAsrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Asr 文字鉴违禁任务输入。
-     */
+      * 内容审核 Asr 文字鉴违禁任务输入。
+      */
     Input: AiReviewProhibitedAsrTaskInput;
     /**
-        * 内容审核 Asr 文字鉴违禁任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Asr 文字鉴违禁任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewProhibitedAsrTaskOutput;
 }
 /**
@@ -330,52 +330,52 @@ export interface AiReviewTaskProhibitedAsrResult {
  */
 export interface AdaptiveDynamicStreamingTemplate {
     /**
-     * 转自适应码流模板唯一标识。
-     */
+      * 转自适应码流模板唯一标识。
+      */
     Definition: number;
     /**
-        * 模板类型，取值范围：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-     * 转自适应码流模板名称。
-     */
+      * 转自适应码流模板名称。
+      */
     Name: string;
     /**
-     * 转自适应码流模板描述信息。
-     */
+      * 转自适应码流模板描述信息。
+      */
     Comment: string;
     /**
-        * 转自适应码流格式，取值范围：
-  <li>HLS，</li>
-  <li>MPEG-DASH。</li>
-        */
+      * 转自适应码流格式，取值范围：
+<li>HLS，</li>
+<li>MPEG-DASH。</li>
+      */
     Format: string;
     /**
-     * 转自适应码流输入流参数信息，最多输入10路流。
-     */
+      * 转自适应码流输入流参数信息，最多输入10路流。
+      */
     StreamInfos: Array<AdaptiveStreamTemplate>;
     /**
-        * 是否禁止视频低码率转高码率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     DisableHigherVideoBitrate: number;
     /**
-        * 是否禁止视频分辨率转高分辨率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     DisableHigherVideoResolution: number;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+      */
     UpdateTime: string;
 }
 /**
@@ -383,8 +383,8 @@ export interface AdaptiveDynamicStreamingTemplate {
  */
 export interface DeleteAnimatedGraphicsTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -392,28 +392,28 @@ export interface DeleteAnimatedGraphicsTemplateResponse {
  */
 export interface AiReviewTaskProhibitedOcrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Ocr 文字鉴违禁任务输入。
-     */
+      * 内容审核 Ocr 文字鉴违禁任务输入。
+      */
     Input: AiReviewProhibitedOcrTaskInput;
     /**
-        * 内容审核 Ocr 文字鉴违禁任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Ocr 文字鉴违禁任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewProhibitedOcrTaskOutput;
 }
 /**
@@ -421,16 +421,16 @@ export interface AiReviewTaskProhibitedOcrResult {
  */
 export interface AiRecognitionTaskAsrFullTextResultOutput {
     /**
-     * 语音全文识别片段列表。
-     */
+      * 语音全文识别片段列表。
+      */
     SegmentSet: Array<AiRecognitionTaskAsrFullTextSegmentItem>;
     /**
-     * 字幕文件地址。
-     */
+      * 字幕文件地址。
+      */
     SubtitlePath: string;
     /**
-     * 字幕文件存储位置。
-     */
+      * 字幕文件存储位置。
+      */
     OutputStorage: TaskOutputStorage;
 }
 /**
@@ -438,19 +438,19 @@ export interface AiRecognitionTaskAsrFullTextResultOutput {
  */
 export interface AiReviewProhibitedOcrTaskOutput {
     /**
-     * Ocr 文字涉违禁评分，分值为0到100。
-     */
+      * Ocr 文字涉违禁评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Ocr 文字涉违禁结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Ocr 文字涉违禁结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Ocr 文字有涉违禁嫌疑的视频片段列表。
-     */
+      * Ocr 文字有涉违禁嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewOcrTextSegmentItem>;
 }
 /**
@@ -458,8 +458,8 @@ export interface AiReviewProhibitedOcrTaskOutput {
  */
 export interface ManageTaskResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -467,8 +467,8 @@ export interface ManageTaskResponse {
  */
 export interface DeleteWorkflowRequest {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId: number;
 }
 /**
@@ -476,12 +476,12 @@ export interface DeleteWorkflowRequest {
  */
 export interface AiAnalysisTaskCoverOutput {
     /**
-     * 智能封面列表。
-     */
+      * 智能封面列表。
+      */
     CoverSet: Array<MediaAiAnalysisCoverItem>;
     /**
-     * 智能封面的存储位置。
-     */
+      * 智能封面的存储位置。
+      */
     OutputStorage: TaskOutputStorage;
 }
 /**
@@ -489,25 +489,25 @@ export interface AiAnalysisTaskCoverOutput {
  */
 export interface AiAnalysisTaskCoverResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 智能封面任务输入。
-     */
+      * 智能封面任务输入。
+      */
     Input: AiAnalysisTaskCoverInput;
     /**
-        * 智能封面任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能封面任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiAnalysisTaskCoverOutput;
 }
 /**
@@ -515,66 +515,66 @@ export interface AiAnalysisTaskCoverResult {
  */
 export interface ModifySampleSnapshotTemplateRequest {
     /**
-     * 采样截图模板唯一标识。
-     */
+      * 采样截图模板唯一标识。
+      */
     Definition: number;
     /**
-     * 采样截图模板名称，长度限制：64 个字符。
-     */
+      * 采样截图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-        * 采样截图类型，取值：
-  <li>Percent：按百分比。</li>
-  <li>Time：按时间间隔。</li>
-        */
+      * 采样截图类型，取值：
+<li>Percent：按百分比。</li>
+<li>Time：按时间间隔。</li>
+      */
     SampleType?: string;
     /**
-        * 采样间隔。
-  <li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
-  <li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
-        */
+      * 采样间隔。
+<li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
+<li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
+      */
     SampleInterval?: number;
     /**
-     * 图片格式，取值为 jpg 和 png。
-     */
+      * 图片格式，取值为 jpg 和 png。
+      */
     Format?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType?: string;
 }
 /**
@@ -582,8 +582,8 @@ export interface ModifySampleSnapshotTemplateRequest {
  */
 export interface AiReviewPoliticalOcrTaskInput {
     /**
-     * 鉴政模板 ID。
-     */
+      * 鉴政模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -591,12 +591,12 @@ export interface AiReviewPoliticalOcrTaskInput {
  */
 export interface MediaInputInfo {
     /**
-     * 输入来源对象的类型，现在仅支持 COS。
-     */
+      * 输入来源对象的类型，现在仅支持 COS。
+      */
     Type: string;
     /**
-     * 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 对象信息。
-     */
+      * 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 对象信息。
+      */
     CosInputInfo?: CosInputInfo;
 }
 /**
@@ -604,44 +604,44 @@ export interface MediaInputInfo {
  */
 export interface CreateWorkflowRequest {
     /**
-     * 工作流名称，最多128字符。同一个用户该名称唯一。
-     */
+      * 工作流名称，最多128字符。同一个用户该名称唯一。
+      */
     WorkflowName: string;
     /**
-     * 工作流绑定的触发规则，当上传视频命中该规则到该对象时即触发工作流。
-     */
+      * 工作流绑定的触发规则，当上传视频命中该规则到该对象时即触发工作流。
+      */
     Trigger: WorkflowTrigger;
     /**
-     * 视频处理的文件输出存储位置。不填则继承 Trigger 中的存储位置。
-     */
+      * 视频处理的文件输出存储位置。不填则继承 Trigger 中的存储位置。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与触发文件所在的目录一致。
-     */
+      * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与触发文件所在的目录一致。
+      */
     OutputDir?: string;
     /**
-     * 视频处理类型任务参数。
-     */
+      * 视频处理类型任务参数。
+      */
     MediaProcessTask?: MediaProcessTaskInput;
     /**
-     * 视频内容审核类型任务参数。
-     */
+      * 视频内容审核类型任务参数。
+      */
     AiContentReviewTask?: AiContentReviewTaskInput;
     /**
-     * 视频内容分析类型任务参数。
-     */
+      * 视频内容分析类型任务参数。
+      */
     AiAnalysisTask?: AiAnalysisTaskInput;
     /**
-     * 视频内容识别类型任务参数。
-     */
+      * 视频内容识别类型任务参数。
+      */
     AiRecognitionTask?: AiRecognitionTaskInput;
     /**
-     * 任务的事件通知配置，不填代表不获取事件通知。
-     */
+      * 任务的事件通知配置，不填代表不获取事件通知。
+      */
     TaskNotifyConfig?: TaskNotifyConfig;
     /**
-     * 工作流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
-     */
+      * 工作流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+      */
     TaskPriority?: number;
 }
 /**
@@ -649,15 +649,15 @@ export interface CreateWorkflowRequest {
  */
 export interface OcrWordsConfigureInfo {
     /**
-        * 文本关键词识别任务开关，可选值：
-  <li>ON：开启文本关键词识别任务；</li>
-  <li>OFF：关闭文本关键词识别任务。</li>
-        */
+      * 文本关键词识别任务开关，可选值：
+<li>ON：开启文本关键词识别任务；</li>
+<li>OFF：关闭文本关键词识别任务。</li>
+      */
     Switch: string;
     /**
-        * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
 }
 /**
@@ -665,33 +665,33 @@ export interface OcrWordsConfigureInfo {
  */
 export interface RawWatermarkParameter {
     /**
-        * 水印类型，可选值：
-  <li>image：图片水印。</li>
-        */
+      * 水印类型，可选值：
+<li>image：图片水印。</li>
+      */
     Type: string;
     /**
-        * 原点位置，目前仅支持：
-  <li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角。</li>
-  默认值：TopLeft。
-        */
+      * 原点位置，目前仅支持：
+<li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角。</li>
+默认值：TopLeft。
+      */
     CoordinateOrigin?: string;
     /**
-        * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
+默认值：0px。
+      */
     XPos?: string;
     /**
-        * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
+默认值：0px。
+      */
     YPos?: string;
     /**
-     * 图片水印模板，当 Type 为 image，该字段必填。当 Type 为 text，该字段无效。
-     */
+      * 图片水印模板，当 Type 为 image，该字段必填。当 Type 为 text，该字段无效。
+      */
     ImageTemplate?: RawImageWatermarkInput;
 }
 /**
@@ -699,25 +699,25 @@ export interface RawWatermarkParameter {
  */
 export interface AiReviewTaskPoliticalOcrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS �� FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS �� FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Ocr 文字鉴政任务输入。
-     */
+      * 内容审核 Ocr 文字鉴政任务输入。
+      */
     Input: AiReviewPoliticalOcrTaskInput;
     /**
-        * 内容审核 Ocr 文字鉴政任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Ocr 文字鉴政任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPoliticalOcrTaskOutput;
 }
 /**
@@ -725,13 +725,13 @@ export interface AiReviewTaskPoliticalOcrResult {
  */
 export interface ManageTaskRequest {
     /**
-        * 操作类型，取值范围：
-  <li>Abort：终止任务。</li>
-        */
+      * 操作类型，取值范围：
+<li>Abort：终止任务。</li>
+      */
     OperationType: string;
     /**
-     * 视频处理的任务 ID。
-     */
+      * 视频处理的任务 ID。
+      */
     TaskId: string;
 }
 /**
@@ -739,64 +739,64 @@ export interface ManageTaskRequest {
  */
 export interface CreateImageSpriteTemplateRequest {
     /**
-        * 采样类型，取值：
-  <li>Percent：按百分比。</li>
-  <li>Time：按时间间隔。</li>
-        */
+      * 采样类型，取值：
+<li>Percent：按百分比。</li>
+<li>Time：按时间间隔。</li>
+      */
     SampleType: string;
     /**
-        * 采样间隔。
-  <li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
-  <li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
-        */
+      * 采样间隔。
+<li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
+<li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
+      */
     SampleInterval: number;
     /**
-     * 雪碧图中小图的行数。
-     */
+      * 雪碧图中小图的行数。
+      */
     RowCount: number;
     /**
-     * 雪碧图中小图的列数。
-     */
+      * 雪碧图中小图的列数。
+      */
     ColumnCount: number;
     /**
-     * 雪碧图模板名称，长度限制：64 个字符。
-     */
+      * 雪碧图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+      */
     FillType?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -804,16 +804,16 @@ export interface CreateImageSpriteTemplateRequest {
  */
 export interface MediaSnapshotByTimePicInfoItem {
     /**
-     * 该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
-     */
+      * 该张截图对应视频文件中的时间偏移，单位为<font color=red>毫秒</font>。
+      */
     TimeOffset: number;
     /**
-     * 该张截图的路径。
-     */
+      * 该张截图的路径。
+      */
     Path: string;
     /**
-     * 截图如果被打上了水印，被打水印的模板 ID 列表。
-     */
+      * 截图如果被打上了水印，被打水印的模板 ID 列表。
+      */
     WaterMarkDefinition: Array<number>;
 }
 /**
@@ -821,23 +821,23 @@ export interface MediaSnapshotByTimePicInfoItem {
  */
 export interface UserDefineFaceReviewTemplateInfo {
     /**
-        * 用户自定义人物审核任务开关，可选值：
-  <li>ON：开启自定义人物审核任务；</li>
-  <li>OFF：关闭自定义人物审核任务。</li>
-        */
+      * 用户自定义人物审核任务开关，可选值：
+<li>ON：开启自定义人物审核任务；</li>
+<li>OFF：关闭自定义人物审核任务。</li>
+      */
     Switch: string;
     /**
-        * 用户自定义人物过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义人物库的时，需要添加对应人物标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义人物过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义人物库的时，需要添加对应人物标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 97 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 97 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 95 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 95 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -845,51 +845,51 @@ export interface UserDefineFaceReviewTemplateInfo {
  */
 export interface ContentReviewTemplateItem {
     /**
-     * 内容审核模板唯一标识。
-     */
+      * 内容审核模板唯一标识。
+      */
     Definition: number;
     /**
-     * 内容审核模板名称，长度限制：64 个字符。
-     */
+      * 内容审核模板名称，长度限制：64 个字符。
+      */
     Name: string;
     /**
-     * 内容审核模板描述信息，长度限制：256 个字符。
-     */
+      * 内容审核模板描述信息，长度限制：256 个字符。
+      */
     Comment: string;
     /**
-        * 鉴黄控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 鉴黄控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PornConfigure: PornConfigureInfo;
     /**
-        * 鉴恐控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 鉴恐控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TerrorismConfigure: TerrorismConfigureInfo;
     /**
-        * 鉴政控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 鉴政控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PoliticalConfigure: PoliticalConfigureInfo;
     /**
-        * 违禁控制参数。违禁内容包括：
-  <li>谩骂；</li>
-  <li>涉毒违法。</li>
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 违禁控制参数。违禁内容包括：
+<li>谩骂；</li>
+<li>涉毒违法。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ProhibitedConfigure: ProhibitedConfigureInfo;
     /**
-        * 用户自定义内容审核控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 用户自定义内容审核控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     UserDefineConfigure: UserDefineConfigureInfo;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -897,8 +897,8 @@ export interface ContentReviewTemplateItem {
  */
 export interface DeleteAIRecognitionTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -906,52 +906,52 @@ export interface DeleteAIRecognitionTemplateResponse {
  */
 export interface MosaicInput {
     /**
-        * 原点位置，目前仅支持：
-  <li>TopLeft：表示坐标原点位于视频图像左上角，马赛克原点为图片或文字的左上角。</li>
-  默认值：TopLeft。
-        */
+      * 原点位置，目前仅支持：
+<li>TopLeft：表示坐标原点位于视频图像左上角，马赛克原点为图片或文字的左上角。</li>
+默认值：TopLeft。
+      */
     CoordinateOrigin?: string;
     /**
-        * 马赛克原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示马赛克 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示马赛克 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 马赛克原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示马赛克 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示马赛克 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
+默认值：0px。
+      */
     XPos?: string;
     /**
-        * 马赛克原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示马赛克 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示马赛克 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 马赛克原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示马赛克 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示马赛克 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
+默认值：0px。
+      */
     YPos?: string;
     /**
-        * 马赛克的宽度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示马赛克 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示马赛克 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-  默认值：10%。
-        */
+      * 马赛克的宽度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示马赛克 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示马赛克 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+默认值：10%。
+      */
     Width?: string;
     /**
-        * 马赛克的高度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示马赛克 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示马赛克 Height 单位为像素，如 100px 表示 Height 为 100 像素。</li>
-  默认值：10%。
-        */
+      * 马赛克的高度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示马赛克 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示马赛克 Height 单位为像素，如 100px 表示 Height 为 100 像素。</li>
+默认值：10%。
+      */
     Height?: string;
     /**
-        * 马赛克的起始时间偏移，单位：秒。不填或填0，表示马赛克从画面出现时开始显现。
-  <li>不填或填0，表示马赛克从画面开始就出现；</li>
-  <li>当数值大于0时（假设为 n），表示马赛克从画面开始的第 n 秒出现；</li>
-  <li>当数值小于0时（假设为 -n），表示马赛克从离画面结束 n 秒前开始出现。</li>
-        */
+      * 马赛克的起始时间偏移，单位：秒。不填或填0，表示马赛克从画面出现时开始显现。
+<li>不填或填0，表示马赛克从画面开始就出现；</li>
+<li>当数值大于0时（假设为 n），表示马赛克从画面开始的第 n 秒出现；</li>
+<li>当数值小于0时（假设为 -n），表示马赛克从离画面结束 n 秒前开始出现。</li>
+      */
     StartTimeOffset?: number;
     /**
-        * 马赛克的结束时间偏移，单位：秒。
-  <li>不填或填0，表示马赛克持续到画面结束；</li>
-  <li>当数值大于0时（假设为 n），表示马赛克持续到第 n 秒时消失；</li>
-  <li>当数值小于0时（假设为 -n），表示马赛克持续到离画面结束 n 秒前消失。</li>
-        */
+      * 马赛克的结束时间偏移，单位：秒。
+<li>不填或填0，表示马赛克持续到画面结束；</li>
+<li>当数值大于0时（假设为 n），表示马赛克持续到第 n 秒时消失；</li>
+<li>当数值小于0时（假设为 -n），表示马赛克持续到离画面结束 n 秒前消失。</li>
+      */
     EndTimeOffset?: number;
 }
 /**
@@ -959,8 +959,8 @@ export interface MosaicInput {
  */
 export interface AiReviewPoliticalTaskInput {
     /**
-     * 鉴政模板 ID。
-     */
+      * 鉴政模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -968,10 +968,10 @@ export interface AiReviewPoliticalTaskInput {
  */
 export interface ClassificationConfigureInfo {
     /**
-        * 智能分类任务开关，可选值：
-  <li>ON：开启智能分类任务；</li>
-  <li>OFF：关闭智能分类任务。</li>
-        */
+      * 智能分类任务开关，可选值：
+<li>ON：开启智能分类任务；</li>
+<li>OFF：关闭智能分类任务。</li>
+      */
     Switch: string;
 }
 /**
@@ -979,12 +979,12 @@ export interface ClassificationConfigureInfo {
  */
 export interface MediaAiAnalysisClassificationItem {
     /**
-     * 智能分类的类别名称。
-     */
+      * 智能分类的类别名称。
+      */
     Classification: string;
     /**
-     * 智能分类的可信度，取值范围是 0 到 100。
-     */
+      * 智能分类的可信度，取值范围是 0 到 100。
+      */
     Confidence: number;
 }
 /**
@@ -992,42 +992,42 @@ export interface MediaAiAnalysisClassificationItem {
  */
 export interface AudioTemplateInfoForUpdate {
     /**
-        * 音频流的编码格式。
-  当外层参数 Container 为 mp3 时，可选值为：
-  <li>libmp3lame。</li>
-  当外层参数 Container 为 ogg 或 flac 时，可选值为：
-  <li>flac。</li>
-  当外层参数 Container 为 m4a 时，可选值为：
-  <li>libfdk_aac；</li>
-  <li>libmp3lame；</li>
-  <li>ac3。</li>
-  当外层参数 Container 为 mp4 或 flv 时，可选值为：
-  <li>libfdk_aac：更适合 mp4；</li>
-  <li>libmp3lame：更适合 flv；</li>
-  <li>mp2。</li>
-  当外层参数 Container 为 hls 时，可选值为：
-  <li>libfdk_aac；</li>
-  <li>libmp3lame。</li>
-        */
+      * 音频流的编码格式。
+当外层参数 Container 为 mp3 时，可选值为：
+<li>libmp3lame。</li>
+当外层参数 Container 为 ogg 或 flac 时，可选值为：
+<li>flac。</li>
+当外层参数 Container 为 m4a 时，可选值为：
+<li>libfdk_aac；</li>
+<li>libmp3lame；</li>
+<li>ac3。</li>
+当外层参数 Container 为 mp4 或 flv 时，可选值为：
+<li>libfdk_aac：更适合 mp4；</li>
+<li>libmp3lame：更适合 flv；</li>
+<li>mp2。</li>
+当外层参数 Container 为 hls 时，可选值为：
+<li>libfdk_aac；</li>
+<li>libmp3lame。</li>
+      */
     Codec?: string;
     /**
-     * 音频流的码率，取值范围：0 和 [26, 256]，单位：kbps。 当取值为 0，表示音频码率和原始音频保持一致。
-     */
+      * 音频流的码率，取值范围：0 和 [26, 256]，单位：kbps。 当取值为 0，表示音频码率和原始音频保持一致。
+      */
     Bitrate?: number;
     /**
-        * 音频流的采样率，可选值：
-  <li>32000</li>
-  <li>44100</li>
-  <li>48000</li>
-  单位：Hz。
-        */
+      * 音频流的采样率，可选值：
+<li>32000</li>
+<li>44100</li>
+<li>48000</li>
+单位：Hz。
+      */
     SampleRate?: number;
     /**
-        * 音频通道方式，可选值：
-  <li>1：单通道</li>
-  <li>2：双通道</li>
-  <li>6：立体声</li>
-        */
+      * 音频通道方式，可选值：
+<li>1：单通道</li>
+<li>2：双通道</li>
+<li>6：立体声</li>
+      */
     AudioChannel?: number;
 }
 /**
@@ -1035,8 +1035,8 @@ export interface AudioTemplateInfoForUpdate {
  */
 export interface DeletePersonSampleRequest {
     /**
-     * 人物 ID。
-     */
+      * 人物 ID。
+      */
     PersonId: string;
 }
 /**
@@ -1044,32 +1044,32 @@ export interface DeletePersonSampleRequest {
  */
 export interface MediaSampleSnapshotItem {
     /**
-     * 采样截图规格 ID，参见[采样截图参数模板](https://cloud.tencent.com/document/product/266/33480#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
-     */
+      * 采样截图规格 ID，参见[采样截图参数模板](https://cloud.tencent.com/document/product/266/33480#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
+      */
     Definition: number;
     /**
-        * 采样方式，取值范围：
-  <li>Percent：根据百分比间隔采样。</li>
-  <li>Time：根据时间间隔采样。</li>
-        */
+      * 采样方式，取值范围：
+<li>Percent：根据百分比间隔采样。</li>
+<li>Time：根据时间间隔采样。</li>
+      */
     SampleType: string;
     /**
-        * 采样间隔
-  <li>当 SampleType 为 Percent 时，该值表示多少百分比一张图。</li>
-  <li>当 SampleType 为 Time 时，该值表示多少时间间隔一张图，单位秒， 第一张图均为视频首帧。</li>
-        */
+      * 采样间隔
+<li>当 SampleType 为 Percent 时，该值表示多少百分比一张图。</li>
+<li>当 SampleType 为 Time 时，该值表示多少时间间隔一张图，单位秒， 第一张图均为视频首帧。</li>
+      */
     Interval: number;
     /**
-     * 截图后文件的存储位置。
-     */
+      * 截图后文件的存储位置。
+      */
     Storage: TaskOutputStorage;
     /**
-     * 生成的截图 path 列表。
-     */
+      * 生成的截图 path 列表。
+      */
     ImagePathSet: Array<string>;
     /**
-     * 截图如果被打上了水印，被打水印的模板 ID 列表。
-     */
+      * 截图如果被打上了水印，被打水印的模板 ID 列表。
+      */
     WaterMarkDefinition: Array<number>;
 }
 /**
@@ -1077,42 +1077,42 @@ export interface MediaSampleSnapshotItem {
  */
 export interface ParseLiveStreamProcessNotificationResponse {
     /**
-        * 直播流处理结果类型，包含：
-  <li>AiReviewResult：内容审核结果；</li>
-  <li>AiRecognitionResult：内容识别结果；</li>
-  <li>ProcessEof：直播流处理结束。</li>
-        */
+      * 直播流处理结果类型，包含：
+<li>AiReviewResult：内容审核结果；</li>
+<li>AiRecognitionResult：内容识别结果；</li>
+<li>ProcessEof：直播流处理结束。</li>
+      */
     NotificationType?: string;
     /**
-     * 视频处理任务 ID。
-     */
+      * 视频处理任务 ID。
+      */
     TaskId?: string;
     /**
-        * 直播流处理错误信息，当 NotificationType 为 ProcessEof 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 直播流处理错误信息，当 NotificationType 为 ProcessEof 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ProcessEofInfo?: LiveStreamProcessErrorInfo;
     /**
-        * 内容审核结果，当 NotificationType 为 AiReviewResult 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核结果，当 NotificationType 为 AiReviewResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AiReviewResultInfo?: LiveStreamAiReviewResultInfo;
     /**
-        * 内容识别结果，当 NotificationType 为 AiRecognitionResult 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容识别结果，当 NotificationType 为 AiRecognitionResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AiRecognitionResultInfo?: LiveStreamAiRecognitionResultInfo;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
+      */
     SessionContext?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1120,8 +1120,8 @@ export interface ParseLiveStreamProcessNotificationResponse {
  */
 export interface AiRecognitionTaskInput {
     /**
-     * 视频智能识别模板 ID 。
-     */
+      * 视频智能识别模板 ID 。
+      */
     Definition: number;
 }
 /**
@@ -1129,43 +1129,43 @@ export interface AiRecognitionTaskInput {
  */
 export interface AudioTemplateInfo {
     /**
-        * 音频流的编码格式。
-  当外层参数 Container 为 mp3 时，可选值为：
-  <li>libmp3lame。</li>
-  当外层参数 Container 为 ogg 或 flac 时，可选值为：
-  <li>flac。</li>
-  当外层参数 Container 为 m4a 时，可选值为：
-  <li>libfdk_aac；</li>
-  <li>libmp3lame；</li>
-  <li>ac3。</li>
-  当外层参数 Container 为 mp4 或 flv 时，可选值为：
-  <li>libfdk_aac：更适合 mp4；</li>
-  <li>libmp3lame：更适合 flv。</li>
-  当外层参数 Container 为 hls 时，可选值为：
-  <li>libfdk_aac；</li>
-  <li>libmp3lame。</li>
-        */
+      * 音频流的编码格式。
+当外层参数 Container 为 mp3 时，可选值为：
+<li>libmp3lame。</li>
+当外层参数 Container 为 ogg 或 flac 时，可选值为：
+<li>flac。</li>
+当外层参数 Container 为 m4a 时，可选值为：
+<li>libfdk_aac；</li>
+<li>libmp3lame；</li>
+<li>ac3。</li>
+当外层参数 Container 为 mp4 或 flv 时，可选值为：
+<li>libfdk_aac：更适合 mp4；</li>
+<li>libmp3lame：更适合 flv。</li>
+当外层参数 Container 为 hls 时，可选值为：
+<li>libfdk_aac；</li>
+<li>libmp3lame。</li>
+      */
     Codec: string;
     /**
-        * 音频流的码率，取值范围：0 和 [26, 256]，单位：kbps。
-  当取值为 0，表示音频码率和原始音频保持一致。
-        */
+      * 音频流的码率，取值范围：0 和 [26, 256]，单位：kbps。
+当取值为 0，表示音频码率和原始音频保持一致。
+      */
     Bitrate: number;
     /**
-        * 音频流的采样率，可选值：
-  <li>32000</li>
-  <li>44100</li>
-  <li>48000</li>
-  单位：Hz。
-        */
+      * 音频流的采样率，可选值：
+<li>32000</li>
+<li>44100</li>
+<li>48000</li>
+单位：Hz。
+      */
     SampleRate: number;
     /**
-        * 音频通道方式，可选值：
-  <li>1：单通道</li>
-  <li>2：双通道</li>
-  <li>6：立体声</li>
-  默认值：2。
-        */
+      * 音频通道方式，可选值：
+<li>1：单通道</li>
+<li>2：双通道</li>
+<li>6：立体声</li>
+默认值：2。
+      */
     AudioChannel?: number;
 }
 /**
@@ -1173,10 +1173,10 @@ export interface AudioTemplateInfo {
  */
 export interface CoverConfigureInfo {
     /**
-        * 智能封面任务开关，可选值：
-  <li>ON：开启智能封面任务；</li>
-  <li>OFF：关闭智能封面任务。</li>
-        */
+      * 智能封面任务开关，可选值：
+<li>ON：开启智能封面任务；</li>
+<li>OFF：关闭智能封面任务。</li>
+      */
     Switch: string;
 }
 /**
@@ -1184,44 +1184,44 @@ export interface CoverConfigureInfo {
  */
 export interface AIRecognitionTemplateItem {
     /**
-     * 视频内容识别模板唯一标识。
-     */
+      * 视频内容识别模板唯一标识。
+      */
     Definition: number;
     /**
-     * 视频内容识别模板名称。
-     */
+      * 视频内容识别模板名称。
+      */
     Name: string;
     /**
-     * 视频内容识别模板描述信息。
-     */
+      * 视频内容识别模板描述信息。
+      */
     Comment: string;
     /**
-     * 人脸识别控制参数。
-     */
+      * 人脸识别控制参数。
+      */
     FaceConfigure: FaceConfigureInfo;
     /**
-     * 文本全文识别控制参数。
-     */
+      * 文本全文识别控制参数。
+      */
     OcrFullTextConfigure: OcrFullTextConfigureInfo;
     /**
-     * 文本关键词识别控制参数。
-     */
+      * 文本关键词识别控制参数。
+      */
     OcrWordsConfigure: OcrWordsConfigureInfo;
     /**
-     * 语音全文识别控制参数。
-     */
+      * 语音全文识别控制参数。
+      */
     AsrFullTextConfigure: AsrFullTextConfigureInfo;
     /**
-     * 语音关键词识别控制参数。
-     */
+      * 语音关键词识别控制参数。
+      */
     AsrWordsConfigure: AsrWordsConfigureInfo;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -1229,8 +1229,8 @@ export interface AIRecognitionTemplateItem {
  */
 export interface AiReviewPornAsrTaskInput {
     /**
-     * 鉴黄模板 ID。
-     */
+      * 鉴黄模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -1238,25 +1238,25 @@ export interface AiReviewPornAsrTaskInput {
  */
 export interface AiRecognitionTaskFaceResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 人脸识别任务输入信息。
-     */
+      * 人脸识别任务输入信息。
+      */
     Input: AiRecognitionTaskFaceResultInput;
     /**
-        * 人脸识别任务输出信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 人脸识别任务输出信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiRecognitionTaskFaceResultOutput;
 }
 /**
@@ -1264,37 +1264,37 @@ export interface AiRecognitionTaskFaceResult {
  */
 export interface CreateAdaptiveDynamicStreamingTemplateRequest {
     /**
-        * 自适应转码格式，取值范围：
-  <li>HLS，</li>
-  <li>MPEG-DASH。</li>
-        */
+      * 自适应转码格式，取值范围：
+<li>HLS，</li>
+<li>MPEG-DASH。</li>
+      */
     Format: string;
     /**
-        * 转自适应码流输出子流参数信息，最多输出10路子流。
-  注意：各个子流的帧率必须保持一致；如果不一致，采用第一个子流的帧率作为输出帧率。
-        */
+      * 转自适应码流输出子流参数信息，最多输出10路子流。
+注意：各个子流的帧率必须保持一致；如果不一致，采用第一个子流的帧率作为输出帧率。
+      */
     StreamInfos: Array<AdaptiveStreamTemplate>;
     /**
-     * 模板名称，长度限制：64 个字符。
-     */
+      * 模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 是否禁止视频低码率转高码率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-  默认为否。
-        */
+      * 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+默认为否。
+      */
     DisableHigherVideoBitrate?: number;
     /**
-        * 是否禁止视频分辨率转高分辨率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-  默认为否。
-        */
+      * 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+默认为否。
+      */
     DisableHigherVideoResolution?: number;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -1302,30 +1302,30 @@ export interface CreateAdaptiveDynamicStreamingTemplateRequest {
  */
 export interface TerrorismImgReviewTemplateInfoForUpdate {
     /**
-        * 画面鉴恐任务开关，可选值：
-  <li>ON：开启画面鉴恐任务；</li>
-  <li>OFF：关闭画面鉴恐任务。</li>
-        */
+      * 画面鉴恐任务开关，可选值：
+<li>ON：开启画面鉴恐任务；</li>
+<li>OFF：关闭画面鉴恐任务。</li>
+      */
     Switch?: string;
     /**
-        * 画面鉴恐过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>guns：武器枪支；</li>
-  <li>crowd：人群聚集；</li>
-  <li>bloody：血腥画面；</li>
-  <li>police：警察部队；</li>
-  <li>banners：暴恐旗帜；</li>
-  <li>militant：武装分子；</li>
-  <li>explosion：爆炸火灾；</li>
-  <li>terrorists：暴恐人物。</li>
-        */
+      * 画面鉴恐过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>guns：武器枪支；</li>
+<li>crowd：人群聚集；</li>
+<li>bloody：血腥画面；</li>
+<li>police：警察部队；</li>
+<li>banners：暴恐旗帜；</li>
+<li>militant：武装分子；</li>
+<li>explosion：爆炸火灾；</li>
+<li>terrorists：暴恐人物。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -1333,8 +1333,8 @@ export interface TerrorismImgReviewTemplateInfoForUpdate {
  */
 export interface AiRecognitionTaskOcrFullTextResultOutput {
     /**
-     * 文本全文识别结果集。
-     */
+      * 文本全文识别结果集。
+      */
     SegmentSet: Array<AiRecognitionTaskOcrFullTextSegmentItem>;
 }
 /**
@@ -1342,8 +1342,8 @@ export interface AiRecognitionTaskOcrFullTextResultOutput {
  */
 export interface DeleteAIAnalysisTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1351,24 +1351,24 @@ export interface DeleteAIAnalysisTemplateResponse {
  */
 export interface TextWatermarkTemplateInputForUpdate {
     /**
-        * 字体类型，目前可以支持两种：
-  <li>simkai.ttf：可以支持中文和英文；</li>
-  <li>arial.ttf：仅支持英文。</li>
-        */
+      * 字体类型，目前可以支持两种：
+<li>simkai.ttf：可以支持中文和英文；</li>
+<li>arial.ttf：仅支持英文。</li>
+      */
     FontType?: string;
     /**
-     * 字体大小，格式：Npx，N 为数值。
-     */
+      * 字体大小，格式：Npx，N 为数值。
+      */
     FontSize?: string;
     /**
-     * 字体颜色，格式：0xRRGGBB，默认值：0xFFFFFF（白色）。
-     */
+      * 字体颜色，格式：0xRRGGBB，默认值：0xFFFFFF（白色）。
+      */
     FontColor?: string;
     /**
-        * 文字透明度，取值范围：(0, 1]
-  <li>0：完全透明</li>
-  <li>1：完全不透明</li>
-        */
+      * 文字透明度，取值范围：(0, 1]
+<li>0：完全透明</li>
+<li>1：完全不透明</li>
+      */
     FontAlpha?: number;
 }
 /**
@@ -1376,8 +1376,8 @@ export interface TextWatermarkTemplateInputForUpdate {
  */
 export interface AiReviewTerrorismOcrTaskInput {
     /**
-     * 鉴恐模板 ID。
-     */
+      * 鉴恐模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -1385,8 +1385,8 @@ export interface AiReviewTerrorismOcrTaskInput {
  */
 export interface AiRecognitionTaskOcrWordsResultInput {
     /**
-     * 文本关键词识别模板 ID。
-     */
+      * 文本关键词识别模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -1394,8 +1394,8 @@ export interface AiRecognitionTaskOcrWordsResultInput {
  */
 export interface DeleteWorkflowResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1403,8 +1403,8 @@ export interface DeleteWorkflowResponse {
  */
 export interface AiReviewPornTaskInput {
     /**
-     * 鉴黄模板 ID。
-     */
+      * 鉴黄模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -1412,30 +1412,30 @@ export interface AiReviewPornTaskInput {
  */
 export interface CreatePersonSampleRequest {
     /**
-     * 人物名称，长度限制：20 个字符。
-     */
+      * 人物名称，长度限制：20 个字符。
+      */
     Name: string;
     /**
-        * 人物应用场景，可选值：
-  1. Recognition：用于内容识别，等价于 Recognition.Face。
-  2. Review：用于内容审核，等价于 Review.Face。
-  3. All：用于内容识别、内容审核，等价于 1+2。
-        */
+      * 人物应用场景，可选值：
+1. Recognition：用于内容识别，等价于 Recognition.Face。
+2. Review：用于内容审核，等价于 Review.Face。
+3. All：用于内容识别、内容审核，等价于 1+2。
+      */
     Usages: Array<string>;
     /**
-     * 人物描述，长度限制：1024 个字符。
-     */
+      * 人物描述，长度限制：1024 个字符。
+      */
     Description?: string;
     /**
-        * 人脸图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串，仅支持 jpeg、png 图片格式。数组长度限制：5 张图片。
-  注意：图片必须是单人像正面人脸较清晰的照片，像素不低于 200*200。
-        */
+      * 人脸图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串，仅支持 jpeg、png 图片格式。数组长度限制：5 张图片。
+注意：图片必须是单人像正面人脸较清晰的照片，像素不低于 200*200。
+      */
     FaceContents?: Array<string>;
     /**
-        * 人物标签
-  <li>数组长度限制：20 个标签；</li>
-  <li>单个标签长度限制：128 个字符。</li>
-        */
+      * 人物标签
+<li>数组长度限制：20 个标签；</li>
+<li>单个标签长度限制：128 个字符。</li>
+      */
     Tags?: Array<string>;
 }
 /**
@@ -1443,12 +1443,12 @@ export interface CreatePersonSampleRequest {
  */
 export interface MediaAiAnalysisCoverItem {
     /**
-     * 智能封面存储路径。
-     */
+      * 智能封面存储路径。
+      */
     CoverPath: string;
     /**
-     * 智能封面的可信度，取值范围是 0 到 100。
-     */
+      * 智能封面的可信度，取值范围是 0 到 100。
+      */
     Confidence: number;
 }
 /**
@@ -1456,16 +1456,16 @@ export interface MediaAiAnalysisCoverItem {
  */
 export interface CosInputInfo {
     /**
-     * 视频处理对象文件所在的 COS Bucket 名，如 TopRankVideo-125xxx88。
-     */
+      * 视频处理对象文件所在的 COS Bucket 名，如 TopRankVideo-125xxx88。
+      */
     Bucket: string;
     /**
-     * 视频处理对象文件所在的 COS Bucket 所属园区，如 ap-chongqing。
-     */
+      * 视频处理对象文件所在的 COS Bucket 所属园区，如 ap-chongqing。
+      */
     Region: string;
     /**
-     * 视频处理对象文件的输入路径，如`/movie/201907/WildAnimal.mov`。
-     */
+      * 视频处理对象文件的输入路径，如`/movie/201907/WildAnimal.mov`。
+      */
     Object: string;
 }
 /**
@@ -1473,10 +1473,10 @@ export interface CosInputInfo {
  */
 export interface TagConfigureInfo {
     /**
-        * 智能标签任务开关，可选值：
-  <li>ON：开启智能标签任务；</li>
-  <li>OFF：关闭智能标签任务。</li>
-        */
+      * 智能标签任务开关，可选值：
+<li>ON：开启智能标签任务；</li>
+<li>OFF：关闭智能标签任务。</li>
+      */
     Switch: string;
 }
 /**
@@ -1484,8 +1484,8 @@ export interface TagConfigureInfo {
  */
 export interface AiRecognitionTaskOcrWordsResultOutput {
     /**
-     * 文本关键词识别结果集。
-     */
+      * 文本关键词识别结果集。
+      */
     ResultSet: Array<AiRecognitionTaskOcrWordsResultItem>;
 }
 /**
@@ -1493,12 +1493,12 @@ export interface AiRecognitionTaskOcrWordsResultOutput {
  */
 export interface AiSampleFaceInfo {
     /**
-     * 人脸图片 ID。
-     */
+      * 人脸图片 ID。
+      */
     FaceId: string;
     /**
-     * 人脸图片地址。
-     */
+      * 人脸图片地址。
+      */
     Url: string;
 }
 /**
@@ -1506,8 +1506,8 @@ export interface AiSampleFaceInfo {
  */
 export interface DeleteAIRecognitionTemplateRequest {
     /**
-     * 视频内容识别模板唯一标识。
-     */
+      * 视频内容识别模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -1515,20 +1515,20 @@ export interface DeleteAIRecognitionTemplateRequest {
  */
 export interface NumberFormat {
     /**
-     * `{number}`变量的起始值，默认为0。
-     */
+      * `{number}`变量的起始值，默认为0。
+      */
     InitialValue?: number;
     /**
-     * `{number}`变量的增长步长，默认为1。
-     */
+      * `{number}`变量的增长步长，默认为1。
+      */
     Increment?: number;
     /**
-     * `{number}`变量的最小长度，不足时补占位符。默认为1。
-     */
+      * `{number}`变量的最小长度，不足时补占位符。默认为1。
+      */
     MinLength?: number;
     /**
-     * `{number}`变量的长度不足时，补充的占位符。默认为"0"。
-     */
+      * `{number}`变量的长度不足时，补充的占位符。默认为"0"。
+      */
     PlaceHolder?: string;
 }
 /**
@@ -1536,8 +1536,8 @@ export interface NumberFormat {
  */
 export interface EnableWorkflowRequest {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId: number;
 }
 /**
@@ -1545,8 +1545,8 @@ export interface EnableWorkflowRequest {
  */
 export interface AiAnalysisTaskClassificationOutput {
     /**
-     * 视频智能分类列表。
-     */
+      * 视频智能分类列表。
+      */
     ClassificationSet: Array<MediaAiAnalysisClassificationItem>;
 }
 /**
@@ -1554,44 +1554,44 @@ export interface AiAnalysisTaskClassificationOutput {
  */
 export interface ModifyTranscodeTemplateRequest {
     /**
-     * 转码模板唯一标识。
-     */
+      * 转码模板唯一标识。
+      */
     Definition: number;
     /**
-     * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
-     */
+      * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
+      */
     Container?: string;
     /**
-     * 转码模板名称，长度限制：64 个字符。
-     */
+      * 转码模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 是否去除视频数据，可选值：
-  <li>0：保留</li>
-  <li>1：去除</li>
-        */
+      * 是否去除视频数据，可选值：
+<li>0：保留</li>
+<li>1：去除</li>
+      */
     RemoveVideo?: number;
     /**
-        * 是否去除音频数据，可选值：
-  <li>0：保留</li>
-  <li>1：去除</li>
-        */
+      * 是否去除音频数据，可选值：
+<li>0：保留</li>
+<li>1：去除</li>
+      */
     RemoveAudio?: number;
     /**
-     * 视频流配置参数。
-     */
+      * 视频流配置参数。
+      */
     VideoTemplate?: VideoTemplateInfoForUpdate;
     /**
-     * 音频流配置参数。
-     */
+      * 音频流配置参数。
+      */
     AudioTemplate?: AudioTemplateInfoForUpdate;
     /**
-     * 极速高清转码参数。
-     */
+      * 极速高清转码参数。
+      */
     TEHDConfig?: TEHDConfigForUpdate;
 }
 /**
@@ -1599,8 +1599,8 @@ export interface ModifyTranscodeTemplateRequest {
  */
 export interface EditMediaTaskInput {
     /**
-     * 输入的视频文件信息。
-     */
+      * 输入的视频文件信息。
+      */
     FileInfoSet: Array<EditMediaFileInfo>;
 }
 /**
@@ -1608,23 +1608,23 @@ export interface EditMediaTaskInput {
  */
 export interface UserDefineAsrTextReviewTemplateInfo {
     /**
-        * 用户自定语音审核任务开关，可选值：
-  <li>ON：开启自定义语音审核任务；</li>
-  <li>OFF：关闭自定义语音审核任务。</li>
-        */
+      * 用户自定语音审核任务开关，可选值：
+<li>ON：开启自定义语音审核任务；</li>
+<li>OFF：关闭自定义语音审核任务。</li>
+      */
     Switch: string;
     /**
-        * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -1632,18 +1632,18 @@ export interface UserDefineAsrTextReviewTemplateInfo {
  */
 export interface DescribeWordSamplesResponse {
     /**
-        * 符合条件的记录总数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的记录总数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-        * 关键词信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 关键词信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     WordSet?: Array<AiSampleWord>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1651,8 +1651,8 @@ export interface DescribeWordSamplesResponse {
  */
 export interface AiAnalysisTaskFrameTagOutput {
     /**
-     * 视频按帧标签列表。
-     */
+      * 视频按帧标签列表。
+      */
     SegmentSet: Array<MediaAiAnalysisFrameTagSegmentItem>;
 }
 /**
@@ -1660,25 +1660,25 @@ export interface AiAnalysisTaskFrameTagOutput {
  */
 export interface MediaProcessTaskAdaptiveDynamicStreamingResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 对视频转自适应码流任务的输入。
-     */
+      * 对视频转自适应码流任务的输入。
+      */
     Input: AdaptiveDynamicStreamingTaskInput;
     /**
-        * 对视频转自适应码流任务的输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频转自适应码流任务的输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AdaptiveDynamicStreamingInfoItem;
 }
 /**
@@ -1686,15 +1686,15 @@ export interface MediaProcessTaskAdaptiveDynamicStreamingResult {
  */
 export interface OcrWordsConfigureInfoForUpdate {
     /**
-        * 文本关键词识别任务开关，可选值：
-  <li>ON：开启文本关键词识别任务；</li>
-  <li>OFF：关闭文本关键词识别任务。</li>
-        */
+      * 文本关键词识别任务开关，可选值：
+<li>ON：开启文本关键词识别任务；</li>
+<li>OFF：关闭文本关键词识别任务。</li>
+      */
     Switch?: string;
     /**
-        * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
 }
 /**
@@ -1702,65 +1702,65 @@ export interface OcrWordsConfigureInfoForUpdate {
  */
 export interface WatermarkTemplate {
     /**
-     * 水印模板唯一标识。
-     */
+      * 水印模板唯一标识。
+      */
     Definition: number;
     /**
-        * 水印类型，取值：
-  <li>image：图片水印；</li>
-  <li>text：文字水印。</li>
-        */
+      * 水印类型，取值：
+<li>image：图片水印；</li>
+<li>text：文字水印。</li>
+      */
     Type: string;
     /**
-     * 水印模板名称。
-     */
+      * 水印模板名称。
+      */
     Name: string;
     /**
-     * 模板描述信息。
-     */
+      * 模板描述信息。
+      */
     Comment: string;
     /**
-        * 水印图片原点距离视频图像原点的水平位置。
-  <li>当字符串以 % 结尾，表示水印 Left 为视频宽度指定百分比的位置，如 10% 表示 Left 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Left 为视频宽度指定像素的位置，如 100px 表示 Left 为 100 像素。</li>
-        */
+      * 水印图片原点距离视频图像原点的水平位置。
+<li>当字符串以 % 结尾，表示水印 Left 为视频宽度指定百分比的位置，如 10% 表示 Left 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Left 为视频宽度指定像素的位置，如 100px 表示 Left 为 100 像素。</li>
+      */
     XPos: string;
     /**
-        * 水印图片原点距离视频图像原点的垂直位置。
-  <li>当字符串以 % 结尾，表示水印 Top 为视频高度指定百分比的位置，如 10% 表示 Top 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Top 为视频高度指定像素的位置，如 100px 表示 Top 为 100 像素。</li>
-        */
+      * 水印图片原点距离视频图像原点的垂直位置。
+<li>当字符串以 % 结尾，表示水印 Top 为视频高度指定百分比的位置，如 10% 表示 Top 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Top 为视频高度指定像素的位置，如 100px 表示 Top 为 100 像素。</li>
+      */
     YPos: string;
     /**
-        * 图片水印模板，仅当 Type 为 image，该字段有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 图片水印模板，仅当 Type 为 image，该字段有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ImageTemplate: ImageWatermarkTemplate;
     /**
-        * 文字水印模板，仅当 Type 为 text，该字段有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文字水印模板，仅当 Type 为 text，该字段有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TextTemplate: TextWatermarkTemplateInput;
     /**
-        * SVG 水印模板，当 Type 为 svg，该字段有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * SVG 水印模板，当 Type 为 svg，该字段有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     SvgTemplate: SvgWatermarkInput;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
     /**
-        * 原点位置，可选值：
-  <li>topLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
-  <li>topRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
-  <li>bottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
-  <li>bottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下。；</li>
-        */
+      * 原点位置，可选值：
+<li>topLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
+<li>topRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
+<li>bottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
+<li>bottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下。；</li>
+      */
     CoordinateOrigin: string;
 }
 /**
@@ -1768,25 +1768,25 @@ export interface WatermarkTemplate {
  */
 export interface TextWatermarkTemplateInput {
     /**
-        * 字体类型，目前可以支持两种：
-  <li>simkai.ttf：可以支持中文和英文；</li>
-  <li>arial.ttf：仅支持英文。</li>
-        */
+      * 字体类型，目前可以支持两种：
+<li>simkai.ttf：可以支持中文和英文；</li>
+<li>arial.ttf：仅支持英文。</li>
+      */
     FontType: string;
     /**
-     * 字体大小，格式：Npx，N 为数值。
-     */
+      * 字体大小，格式：Npx，N 为数值。
+      */
     FontSize: string;
     /**
-     * 字体颜色，格式：0xRRGGBB，默认值：0xFFFFFF（白色）。
-     */
+      * 字体颜色，格式：0xRRGGBB，默认值：0xFFFFFF（白色）。
+      */
     FontColor: string;
     /**
-        * 文字透明度，取值范围：(0, 1]
-  <li>0：完全透明</li>
-  <li>1：完全不透明</li>
-  默认值：1。
-        */
+      * 文字透明度，取值范围：(0, 1]
+<li>0：完全透明</li>
+<li>1：完全不透明</li>
+默认值：1。
+      */
     FontAlpha: number;
 }
 /**
@@ -1794,8 +1794,8 @@ export interface TextWatermarkTemplateInput {
  */
 export interface ModifyAIAnalysisTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1803,16 +1803,16 @@ export interface ModifyAIAnalysisTemplateResponse {
  */
 export interface DescribeAIRecognitionTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 视频内容识别模板详情列表。
-     */
+      * 视频内容识别模板详情列表。
+      */
     AIRecognitionTemplateSet?: Array<AIRecognitionTemplateItem>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1820,8 +1820,8 @@ export interface DescribeAIRecognitionTemplatesResponse {
  */
 export interface LiveStreamAiReviewResultInfo {
     /**
-     * 内容审核结果列表。
-     */
+      * 内容审核结果列表。
+      */
     ResultSet: Array<LiveStreamAiReviewResultItem>;
 }
 /**
@@ -1829,12 +1829,12 @@ export interface LiveStreamAiReviewResultInfo {
  */
 export interface EditMediaResponse {
     /**
-     * 编辑视频的任务 ID，可以通过该 ID 查询编辑任务的状态。
-     */
+      * 编辑视频的任务 ID，可以通过该 ID 查询编辑任务的状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1842,18 +1842,18 @@ export interface EditMediaResponse {
  */
 export interface PoliticalOcrReviewTemplateInfoForUpdate {
     /**
-        * 文本鉴政任务开关，可选值：
-  <li>ON：开启文本鉴政任务；</li>
-  <li>OFF：关闭文本鉴政任务。</li>
-        */
+      * 文本鉴政任务开关，可选值：
+<li>ON：开启文本鉴政任务；</li>
+<li>OFF：关闭文本鉴政任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -1861,18 +1861,18 @@ export interface PoliticalOcrReviewTemplateInfoForUpdate {
  */
 export interface PornAsrReviewTemplateInfoForUpdate {
     /**
-        * 语音鉴黄任务开关，可选值：
-  <li>ON：开启语音鉴黄任务；</li>
-  <li>OFF：关闭语音鉴黄任务。</li>
-        */
+      * 语音鉴黄任务开关，可选值：
+<li>ON：开启语音鉴黄任务；</li>
+<li>OFF：关闭语音鉴黄任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -1880,22 +1880,22 @@ export interface PornAsrReviewTemplateInfoForUpdate {
  */
 export interface DescribeSnapshotByTimeOffsetTemplatesRequest {
     /**
-     * 指定时间点截图模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 指定时间点截图模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
 }
 /**
@@ -1903,8 +1903,8 @@ export interface DescribeSnapshotByTimeOffsetTemplatesRequest {
  */
 export interface AiRecognitionTaskAsrFullTextResultInput {
     /**
-     * 语音全文识别模板 ID。
-     */
+      * 语音全文识别模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -1912,28 +1912,28 @@ export interface AiRecognitionTaskAsrFullTextResultInput {
  */
 export interface MediaProcessTaskInput {
     /**
-     * 视频转码任务列表。
-     */
+      * 视频转码任务列表。
+      */
     TranscodeTaskSet?: Array<TranscodeTaskInput>;
     /**
-     * 视频转动图任务列表。
-     */
+      * 视频转动图任务列表。
+      */
     AnimatedGraphicTaskSet?: Array<AnimatedGraphicTaskInput>;
     /**
-     * 对视频按时间点截图任务列表。
-     */
+      * 对视频按时间点截图任务列表。
+      */
     SnapshotByTimeOffsetTaskSet?: Array<SnapshotByTimeOffsetTaskInput>;
     /**
-     * 对视频采样截图任务列表。
-     */
+      * 对视频采样截图任务列表。
+      */
     SampleSnapshotTaskSet?: Array<SampleSnapshotTaskInput>;
     /**
-     * 对视频截雪碧图任务列表。
-     */
+      * 对视频截雪碧图任务列表。
+      */
     ImageSpriteTaskSet?: Array<ImageSpriteTaskInput>;
     /**
-     * 转自适应码流任务列表。
-     */
+      * 转自适应码流任务列表。
+      */
     AdaptiveDynamicStreamingTaskSet?: Array<AdaptiveDynamicStreamingTaskInput>;
 }
 /**
@@ -1941,12 +1941,12 @@ export interface MediaProcessTaskInput {
  */
 export interface CosOutputStorage {
     /**
-     * 视频处理生成的文件输出的目标 Bucket 名，如 TopRankVideo-125xxx88。如果不填，表示继承上层。
-     */
+      * 视频处理生成的文件输出的目标 Bucket 名，如 TopRankVideo-125xxx88。如果不填，表示继承上层。
+      */
     Bucket?: string;
     /**
-     * 视频处理生成的文件输出的目标 Bucket 的园区，如 ap-chongqing。如果不填，表示继承上层。
-     */
+      * 视频处理生成的文件输出的目标 Bucket 的园区，如 ap-chongqing。如果不填，表示继承上层。
+      */
     Region?: string;
 }
 /**
@@ -1954,20 +1954,20 @@ export interface CosOutputStorage {
  */
 export interface AiRecognitionTaskFaceSegmentItem {
     /**
-     * 识别片段起始的偏移时间，单位：秒。
-     */
+      * 识别片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 识别片段终止的偏移时间，单位：秒。
-     */
+      * 识别片段终止的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoordSet: Array<number>;
 }
 /**
@@ -1975,12 +1975,12 @@ export interface AiRecognitionTaskFaceSegmentItem {
  */
 export interface ProcessMediaResponse {
     /**
-     * 任务 ID。
-     */
+      * 任务 ID。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1988,8 +1988,8 @@ export interface ProcessMediaResponse {
  */
 export interface CreateWordSamplesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1997,10 +1997,10 @@ export interface CreateWordSamplesResponse {
  */
 export interface ClassificationConfigureInfoForUpdate {
     /**
-        * 智能分类任务开关，可选值：
-  <li>ON：开启智能分类任务；</li>
-  <li>OFF：关闭智能分类任务。</li>
-        */
+      * 智能分类任务开关，可选值：
+<li>ON：开启智能分类任务；</li>
+<li>OFF：关闭智能分类任务。</li>
+      */
     Switch?: string;
 }
 /**
@@ -2008,8 +2008,8 @@ export interface ClassificationConfigureInfoForUpdate {
  */
 export interface DeleteAdaptiveDynamicStreamingTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2017,8 +2017,8 @@ export interface DeleteAdaptiveDynamicStreamingTemplateResponse {
  */
 export interface ParseNotificationRequest {
     /**
-     * 从 CMQ 获取到的事件通知内容。
-     */
+      * 从 CMQ 获取到的事件通知内容。
+      */
     Content: string;
 }
 /**
@@ -2026,20 +2026,20 @@ export interface ParseNotificationRequest {
  */
 export interface CreateWordSamplesRequest {
     /**
-        * <b>关键词应用场景，可选值：</b>
-  1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-  2. Recognition.Asr：通过语音识别技术，进行内容识别；
-  3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-  4. Review.Asr：通过语音识别技术，进行内容审核；
-  <b>可合并简写为：</b>
-  5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-  6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-  7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
-        */
+      * <b>关键词应用场景，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过语音识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行内容审核；
+4. Review.Asr：通过语音识别技术，进行内容审核；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
+7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+      */
     Usages: Array<string>;
     /**
-     * 关键词，数组长度限制：100。
-     */
+      * 关键词，数组长度限制：100。
+      */
     Words: Array<AiSampleWordInfo>;
 }
 /**
@@ -2047,18 +2047,18 @@ export interface CreateWordSamplesRequest {
  */
 export interface PoliticalAsrReviewTemplateInfoForUpdate {
     /**
-        * 语音鉴政任务开关，可选值：
-  <li>ON：开启语音鉴政任务；</li>
-  <li>OFF：关闭语音鉴政任务。</li>
-        */
+      * 语音鉴政任务开关，可选值：
+<li>ON：开启语音鉴政任务；</li>
+<li>OFF：关闭语音鉴政任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -2066,19 +2066,19 @@ export interface PoliticalAsrReviewTemplateInfoForUpdate {
  */
 export interface AiSampleFaceOperation {
     /**
-     * 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。重置操作将清空该人物已有人脸数据，并添加 FaceContents 指定人脸数据。
-     */
+      * 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。重置操作将清空该人物已有人脸数据，并添加 FaceContents 指定人脸数据。
+      */
     Type: string;
     /**
-     * 人脸 ID 集合，当 Type为delete 时，该字段必填。
-     */
+      * 人脸 ID 集合，当 Type为delete 时，该字段必填。
+      */
     FaceIds?: Array<string>;
     /**
-        * 人脸图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串集合。
-  <li>当 Type为add 或 reset 时，该字段必填；</li>
-  <li>数组长度限制：5 张图片。</li>
-  注意：图片必须是单人像正面人脸较清晰的照片，像素不低于 200*200。
-        */
+      * 人脸图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串集合。
+<li>当 Type为add 或 reset 时，该字段必填；</li>
+<li>数组长度限制：5 张图片。</li>
+注意：图片必须是单人像正面人脸较清晰的照片，像素不低于 200*200。
+      */
     FaceContents?: Array<string>;
 }
 /**
@@ -2086,28 +2086,28 @@ export interface AiSampleFaceOperation {
  */
 export interface SvgWatermarkInputForUpdate {
     /**
-        * 水印的宽度，支持 px，%，W%，H%，S%，L% 六种格式：
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素；当填 0px 且
-   Height 不为 0px 时，表示水印的宽度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的宽度取原始 SVG 图像的宽度；</li>
-  <li>当字符串以 W% 结尾，表示水印 Width 为视频宽度的百分比大小，如 10W% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 H% 结尾，表示水印 Width 为视频高度的百分比大小，如 10H% 表示 Width 为视频高度的 10%；</li>
-  <li>当字符串以 S% 结尾，表示水印 Width 为视频短边的百分比大小，如 10S% 表示 Width 为视频短边的 10%；</li>
-  <li>当字符串以 L% 结尾，表示水印 Width 为视频长边的百分比大小，如 10L% 表示 Width 为视频长边的 10%；</li>
-  <li>当字符串以 % 结尾时，含义同 W%。</li>
-  默认值为 10W%。
-        */
+      * 水印的宽度，支持 px，%，W%，H%，S%，L% 六种格式：
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素；当填 0px 且
+ Height 不为 0px 时，表示水印的宽度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的宽度取原始 SVG 图像的宽度；</li>
+<li>当字符串以 W% 结尾，表示水印 Width 为视频宽度的百分比大小，如 10W% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 H% 结尾，表示水印 Width 为视频高度的百分比大小，如 10H% 表示 Width 为视频高度的 10%；</li>
+<li>当字符串以 S% 结尾，表示水印 Width 为视频短边的百分比大小，如 10S% 表示 Width 为视频短边的 10%；</li>
+<li>当字符串以 L% 结尾，表示水印 Width 为视频长边的百分比大小，如 10L% 表示 Width 为视频长边的 10%；</li>
+<li>当字符串以 % 结尾时，含义同 W%。</li>
+默认值为 10W%。
+      */
     Width?: string;
     /**
-        * 水印的高度，支持 px，%，W%，H%，S%，L% 六种格式：
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
-   Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
-  <li>当字符串以 W% 结尾，表示水印 Height 为视频宽度的百分比大小，如 10W% 表示 Height 为视频宽度的 10%；</li>
-  <li>当字符串以 H% 结尾，表示水印 Height 为视频高度的百分比大小，如 10H% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
-  <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
-  <li>当字符串以 % 结尾时，含义同 H%。
-  默认值为 0px。
-        */
+      * 水印的高度，支持 px，%，W%，H%，S%，L% 六种格式：
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
+ Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
+<li>当字符串以 W% 结尾，表示水印 Height 为视频宽度的百分比大小，如 10W% 表示 Height 为视频宽度的 10%；</li>
+<li>当字符串以 H% 结尾，表示水印 Height 为视频高度的百分比大小，如 10H% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
+<li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
+<li>当字符串以 % 结尾时，含义同 H%。
+默认值为 0px。
+      */
     Height?: string;
 }
 /**
@@ -2115,28 +2115,28 @@ export interface SvgWatermarkInputForUpdate {
  */
 export interface AiReviewTaskTerrorismOcrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Ocr 文字鉴恐任务输入。
-     */
+      * 内容审核 Ocr 文字鉴恐任务输入。
+      */
     Input: AiReviewTerrorismOcrTaskInput;
     /**
-        * 内容审核 Ocr 文字鉴恐任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Ocr 文字鉴恐任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewTerrorismOcrTaskOutput;
 }
 /**
@@ -2144,25 +2144,25 @@ export interface AiReviewTaskTerrorismOcrResult {
  */
 export interface AiRecognitionTaskOcrWordsResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 文本关键词识别任务输入信息。
-     */
+      * 文本关键词识别任务输入信息。
+      */
     Input: AiRecognitionTaskOcrWordsResultInput;
     /**
-        * 文本关键词识别任务输出信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文本关键词识别任务输出信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiRecognitionTaskOcrWordsResultOutput;
 }
 /**
@@ -2170,18 +2170,18 @@ export interface AiRecognitionTaskOcrWordsResult {
  */
 export interface PornAsrReviewTemplateInfo {
     /**
-        * 语音鉴黄任务开关，可选值：
-  <li>ON：开启语音鉴黄任务；</li>
-  <li>OFF：关闭语音鉴黄任务。</li>
-        */
+      * 语音鉴黄任务开关，可选值：
+<li>ON：开启语音鉴黄任务；</li>
+<li>OFF：关闭语音鉴黄任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -2189,18 +2189,18 @@ export interface PornAsrReviewTemplateInfo {
  */
 export interface ProhibitedAsrReviewTemplateInfoForUpdate {
     /**
-        * 语音违禁任务开关，可选值：
-  <li>ON：开启语音违禁任务；</li>
-  <li>OFF：关闭语音违禁任务。</li>
-        */
+      * 语音违禁任务开关，可选值：
+<li>ON：开启语音违禁任务；</li>
+<li>OFF：关闭语音违禁任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -2208,8 +2208,8 @@ export interface ProhibitedAsrReviewTemplateInfoForUpdate {
  */
 export interface ModifyAnimatedGraphicsTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2217,8 +2217,8 @@ export interface ModifyAnimatedGraphicsTemplateResponse {
  */
 export interface DeleteAdaptiveDynamicStreamingTemplateRequest {
     /**
-     * 自适应转码模板唯一标识。
-     */
+      * 自适应转码模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -2226,16 +2226,16 @@ export interface DeleteAdaptiveDynamicStreamingTemplateRequest {
  */
 export interface AiRecognitionTaskOcrFullTextSegmentItem {
     /**
-     * 识别片段起始的偏移时间，单位：秒。
-     */
+      * 识别片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 识别片段终止的偏移时间，单位：秒。
-     */
+      * 识别片段终止的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 识别片段结果集。
-     */
+      * 识别片段结果集。
+      */
     TextSet: Array<AiRecognitionTaskOcrFullTextSegmentTextItem>;
 }
 /**
@@ -2243,19 +2243,19 @@ export interface AiRecognitionTaskOcrFullTextSegmentItem {
  */
 export interface AiReviewPornAsrTaskOutput {
     /**
-     * Asr 文字涉黄评分，分值为0到100。
-     */
+      * Asr 文字涉黄评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Asr 文字涉黄结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Asr 文字涉黄结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Asr 文字有涉黄嫌疑的视频片段列表。
-     */
+      * Asr 文字有涉黄嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewAsrTextSegmentItem>;
 }
 /**
@@ -2263,8 +2263,8 @@ export interface AiReviewPornAsrTaskOutput {
  */
 export interface DeleteAIAnalysisTemplateRequest {
     /**
-     * 视频内容分析模板唯一标识。
-     */
+      * 视频内容分析模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -2272,32 +2272,32 @@ export interface DeleteAIAnalysisTemplateRequest {
  */
 export interface EditMediaRequest {
     /**
-     * 输入的视频文件信息。
-     */
+      * 输入的视频文件信息。
+      */
     FileInfos: Array<EditMediaFileInfo>;
     /**
-     * 视频处理输出文件的目标存储。
-     */
+      * 视频处理输出文件的目标存储。
+      */
     OutputStorage: TaskOutputStorage;
     /**
-     * 视频处理输出文件的目标路径。
-     */
+      * 视频处理输出文件的目标路径。
+      */
     OutputObjectPath: string;
     /**
-     * 任务的事件通知信息，不填代表不获取事件通知。
-     */
+      * 任务的事件通知信息，不填代表不获取事件通知。
+      */
     TaskNotifyConfig?: TaskNotifyConfig;
     /**
-     * 任务优先级，数值越大优先级越高，取值范围是-10到 10，不填代表0。
-     */
+      * 任务优先级，数值越大优先级越高，取值范围是-10到 10，不填代表0。
+      */
     TasksPriority?: number;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
+      */
     SessionContext?: string;
 }
 /**
@@ -2305,28 +2305,28 @@ export interface EditMediaRequest {
  */
 export interface MediaProcessTaskImageSpriteResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 对视频截雪碧图任务的输入。
-     */
+      * 对视频截雪碧图任务的输入。
+      */
     Input: ImageSpriteTaskInput;
     /**
-        * 对视频截雪碧图任务的输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频截雪碧图任务的输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: MediaImageSpriteItem;
 }
 /**
@@ -2334,16 +2334,16 @@ export interface MediaProcessTaskImageSpriteResult {
  */
 export interface DescribeAdaptiveDynamicStreamingTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 转自适应码流模板详情列表。
-     */
+      * 转自适应码流模板详情列表。
+      */
     AdaptiveDynamicStreamingTemplateSet?: Array<AdaptiveDynamicStreamingTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2351,40 +2351,40 @@ export interface DescribeAdaptiveDynamicStreamingTemplatesResponse {
  */
 export interface MediaContentReviewOcrTextSegmentItem {
     /**
-     * 嫌疑片段起始的偏移时间，单位：秒。
-     */
+      * 嫌疑片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 嫌疑片段结束的偏移时间，单位：秒。
-     */
+      * 嫌疑片段结束的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 嫌疑片段置信度。
-     */
+      * 嫌疑片段置信度。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段审核结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 嫌疑片段审核结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * 嫌疑关键词列表。
-     */
+      * 嫌疑关键词列表。
+      */
     KeywordSet: Array<string>;
     /**
-     * 嫌疑文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
-     */
+      * 嫌疑文字出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+      */
     AreaCoordSet: Array<number>;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-  PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -2392,22 +2392,22 @@ export interface MediaContentReviewOcrTextSegmentItem {
  */
 export interface DescribeAdaptiveDynamicStreamingTemplatesRequest {
     /**
-     * 转自适应码流模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 转自适应码流模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
 }
 /**
@@ -2415,22 +2415,22 @@ export interface DescribeAdaptiveDynamicStreamingTemplatesRequest {
  */
 export interface ImageWatermarkInput {
     /**
-     * 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
-     */
+      * 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
+      */
     ImageContent: string;
     /**
-        * 水印的宽度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
-  默认值：10%。
-        */
+      * 水印的宽度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
+默认值：10%。
+      */
     Width?: string;
     /**
-        * 水印的高度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-  默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
-        */
+      * 水印的高度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+      */
     Height?: string;
 }
 /**
@@ -2438,15 +2438,15 @@ export interface ImageWatermarkInput {
  */
 export interface AsrFullTextConfigureInfoForUpdate {
     /**
-        * 语音全文识别任务开关，可选值：
-  <li>ON：开启智能语音全文识别任务；</li>
-  <li>OFF：关闭智能语音全文识别任务。</li>
-        */
+      * 语音全文识别任务开关，可选值：
+<li>ON：开启智能语音全文识别任务；</li>
+<li>OFF：关闭智能语音全文识别任务。</li>
+      */
     Switch?: string;
     /**
-        * 生成的字幕文件格式，填空字符串表示不生成字幕文件，可选值：
-  <li>vtt：生成 WebVTT 字幕文件。</li>
-        */
+      * 生成的字幕文件格式，填空字符串表示不生成字幕文件，可选值：
+<li>vtt：生成 WebVTT 字幕文件。</li>
+      */
     SubtitleFormat?: string;
 }
 /**
@@ -2454,16 +2454,16 @@ export interface AsrFullTextConfigureInfoForUpdate {
  */
 export interface CreatePersonSampleResponse {
     /**
-     * 人物信息。
-     */
+      * 人物信息。
+      */
     Person?: AiSamplePerson;
     /**
-     * 处理失败的人脸信息。
-     */
+      * 处理失败的人脸信息。
+      */
     FailFaceInfoSet?: Array<AiSampleFailFaceInfo>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2471,12 +2471,12 @@ export interface CreatePersonSampleResponse {
  */
 export interface CreateContentReviewTemplateResponse {
     /**
-     * 内容审核模板唯一标识。
-     */
+      * 内容审核模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2484,12 +2484,12 @@ export interface CreateContentReviewTemplateResponse {
  */
 export interface ProhibitedConfigureInfoForUpdate {
     /**
-     * 语音违禁控制参数。
-     */
+      * 语音违禁控制参数。
+      */
     AsrReviewInfo?: ProhibitedAsrReviewTemplateInfoForUpdate;
     /**
-     * 文本违禁控制参数。
-     */
+      * 文本违禁控制参数。
+      */
     OcrReviewInfo?: ProhibitedOcrReviewTemplateInfoForUpdate;
 }
 /**
@@ -2497,10 +2497,10 @@ export interface ProhibitedConfigureInfoForUpdate {
  */
 export interface TagConfigureInfoForUpdate {
     /**
-        * 智能标签任务开关，可选值：
-  <li>ON：开启智能标签任务；</li>
-  <li>OFF：关闭智能标签任务。</li>
-        */
+      * 智能标签任务开关，可选值：
+<li>ON：开启智能标签任务；</li>
+<li>OFF：关闭智能标签任务。</li>
+      */
     Switch?: string;
 }
 /**
@@ -2508,8 +2508,8 @@ export interface TagConfigureInfoForUpdate {
  */
 export interface DeleteWordSamplesRequest {
     /**
-     * 关键词，数组长度限制：100 个词。
-     */
+      * 关键词，数组长度限制：100 个词。
+      */
     Keywords: Array<string>;
 }
 /**
@@ -2517,34 +2517,34 @@ export interface DeleteWordSamplesRequest {
  */
 export interface RawTranscodeParameter {
     /**
-     * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
-     */
+      * 封装格式，可选值：mp4、flv、hls、mp3、flac、ogg、m4a。其中，mp3、flac、ogg、m4a 为纯音频文件。
+      */
     Container: string;
     /**
-        * 是否去除视频数据，取值：
-  <li>0：保留；</li>
-  <li>1：去除。</li>
-  默认值：0。
-        */
+      * 是否去除视频数据，取值：
+<li>0：保留；</li>
+<li>1：去除。</li>
+默认值：0。
+      */
     RemoveVideo?: number;
     /**
-        * 是否去除音频数据，取值：
-  <li>0：保留；</li>
-  <li>1：去除。</li>
-  默认值：0。
-        */
+      * 是否去除音频数据，取值：
+<li>0：保留；</li>
+<li>1：去除。</li>
+默认值：0。
+      */
     RemoveAudio?: number;
     /**
-     * 视频流配置参数，当 RemoveVideo 为 0，该字段必填。
-     */
+      * 视频流配置参数，当 RemoveVideo 为 0，该字段必填。
+      */
     VideoTemplate?: VideoTemplateInfo;
     /**
-     * 音频流配置参数，当 RemoveAudio 为 0，该字段必填。
-     */
+      * 音频流配置参数，当 RemoveAudio 为 0，该字段必填。
+      */
     AudioTemplate?: AudioTemplateInfo;
     /**
-     * 极速高清转码参数。
-     */
+      * 极速高清转码参数。
+      */
     TEHDConfig?: TEHDConfig;
 }
 /**
@@ -2552,20 +2552,20 @@ export interface RawTranscodeParameter {
  */
 export interface LiveStreamTaskNotifyConfig {
     /**
-     * CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
-     */
+      * CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
+      */
     CmqModel: string;
     /**
-     * CMQ 的园区，如 sh，bj 等。
-     */
+      * CMQ 的园区，如 sh，bj 等。
+      */
     CmqRegion: string;
     /**
-     * 当模型为 Queue 时有效，表示接收事件通知的 CMQ 的队列名。
-     */
+      * 当模型为 Queue 时有效，表示接收事件通知的 CMQ 的队列名。
+      */
     QueueName?: string;
     /**
-     * 当模型为 Topic 时有效，表示接收事件通知的 CMQ 的主题名。
-     */
+      * 当模型为 Topic 时有效，表示接收事件通知的 CMQ 的主题名。
+      */
     TopicName?: string;
 }
 /**
@@ -2573,59 +2573,59 @@ export interface LiveStreamTaskNotifyConfig {
  */
 export interface VideoTemplateInfo {
     /**
-        * 视频流的编码格式，可选值：
-  <li>libx264：H.264 编码</li>
-  <li>libx265：H.265 编码</li>
-  <li>av1：AOMedia Video 1 编码</li>
-  目前 H.265 编码必须指定分辨率，并且需要在 640*480 以内。av1 编码容器目前只支持 mp4 。
-        */
+      * 视频流的编码格式，可选值：
+<li>libx264：H.264 编码</li>
+<li>libx265：H.265 编码</li>
+<li>av1：AOMedia Video 1 编码</li>
+目前 H.265 编码必须指定分辨率，并且需要在 640*480 以内。av1 编码容器目前只支持 mp4 。
+      */
     Codec: string;
     /**
-        * 视频帧率，取值范围：[0, 100]，单位：Hz。
-  当取值为 0，表示帧率和原始视频保持一致。
-        */
+      * 视频帧率，取值范围：[0, 100]，单位：Hz。
+当取值为 0，表示帧率和原始视频保持一致。
+      */
     Fps: number;
     /**
-        * 视频流的码率，取值范围：0 和 [128, 35000]，单位：kbps。
-  当取值为 0，表示视频码率和原始视频保持一致。
-        */
+      * 视频流的码率，取值范围：0 和 [128, 35000]，单位：kbps。
+当取值为 0，表示视频码率和原始视频保持一致。
+      */
     Bitrate: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-        * 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
-  当填 0 或不填时，系统将自动设置 gop 长度。
-        */
+      * 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。
+当填 0 或不填时，系统将自动设置 gop 长度。
+      */
     Gop?: number;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+      */
     FillType?: string;
 }
 /**
@@ -2633,18 +2633,18 @@ export interface VideoTemplateInfo {
  */
 export interface PoliticalOcrReviewTemplateInfo {
     /**
-        * 文本鉴政任务开关，可选值：
-  <li>ON：开启文本鉴政任务；</li>
-  <li>OFF：关闭文本鉴政任务。</li>
-        */
+      * 文本鉴政任务开关，可选值：
+<li>ON：开启文本鉴政任务；</li>
+<li>OFF：关闭文本鉴政任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -2652,18 +2652,18 @@ export interface PoliticalOcrReviewTemplateInfo {
  */
 export interface PornOcrReviewTemplateInfoForUpdate {
     /**
-        * 文本鉴黄任务开关，可选值：
-  <li>ON：开启文本鉴黄任务；</li>
-  <li>OFF：关闭文本鉴黄任务。</li>
-        */
+      * 文本鉴黄任务开关，可选值：
+<li>ON：开启文本鉴黄任务；</li>
+<li>OFF：关闭文本鉴黄任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -2671,25 +2671,25 @@ export interface PornOcrReviewTemplateInfoForUpdate {
  */
 export interface AiReviewTaskPornOcrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Ocr 文字鉴黄任务输入。
-     */
+      * 内容审核 Ocr 文字鉴黄任务输入。
+      */
     Input: AiReviewPornOcrTaskInput;
     /**
-        * 内容审核 Ocr 文字鉴黄任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Ocr 文字鉴黄任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPornOcrTaskOutput;
 }
 /**
@@ -2697,8 +2697,8 @@ export interface AiReviewTaskPornOcrResult {
  */
 export interface ModifyContentReviewTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2706,24 +2706,24 @@ export interface ModifyContentReviewTemplateResponse {
  */
 export interface DescribeWatermarkTemplatesRequest {
     /**
-     * 水印模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 水印模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-        * 水印类型过滤条件，可选值：
-  <li>image：图片水印；</li>
-  <li>text：文字水印。</li>
-        */
+      * 水印类型过滤条件，可选值：
+<li>image：图片水印；</li>
+<li>text：文字水印。</li>
+      */
     Type?: string;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-        * 返回记录条数
-  <li>默认值：10；</li>
-  <li>最大值：100。</li>
-        */
+      * 返回记录条数
+<li>默认值：10；</li>
+<li>最大值：100。</li>
+      */
     Limit?: number;
 }
 /**
@@ -2731,13 +2731,13 @@ export interface DescribeWatermarkTemplatesRequest {
  */
 export interface TaskOutputStorage {
     /**
-     * 视频处理输出对象存储位置的类型，现在仅支持 COS。
-     */
+      * 视频处理输出对象存储位置的类型，现在仅支持 COS。
+      */
     Type: string;
     /**
-        * 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 当 Type 为 COS 时有效，则该项为必填，表示视频处理 COS 输出位置。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CosOutputStorage?: CosOutputStorage;
 }
 /**
@@ -2745,16 +2745,16 @@ export interface TaskOutputStorage {
  */
 export interface UserDefineConfigureInfo {
     /**
-     * 用户自定义人物审核控制参数。
-     */
+      * 用户自定义人物审核控制参数。
+      */
     FaceReviewInfo?: UserDefineFaceReviewTemplateInfo;
     /**
-     * 用户自定义语音审核控制参数。
-     */
+      * 用户自定义语音审核控制参数。
+      */
     AsrReviewInfo?: UserDefineAsrTextReviewTemplateInfo;
     /**
-     * 用户自定义文本审核控制参数。
-     */
+      * 用户自定义文本审核控制参数。
+      */
     OcrReviewInfo?: UserDefineOcrTextReviewTemplateInfo;
 }
 /**
@@ -2762,8 +2762,8 @@ export interface UserDefineConfigureInfo {
  */
 export interface AiReviewPornOcrTaskInput {
     /**
-     * 鉴黄模板 ID。
-     */
+      * 鉴黄模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -2771,16 +2771,16 @@ export interface AiReviewPornOcrTaskInput {
  */
 export interface MediaSnapshotByTimeOffsetItem {
     /**
-     * 指定时间点截图规格，参见[指定时间点截图参数模板](https://cloud.tencent.com/document/product/266/33480#.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
-     */
+      * 指定时间点截图规格，参见[指定时间点截图参数模板](https://cloud.tencent.com/document/product/266/33480#.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
+      */
     Definition: number;
     /**
-     * 同一规格的截图信息集合，每个元素代表一张截图。
-     */
+      * 同一规格的截图信息集合，每个元素代表一张截图。
+      */
     PicInfoSet: Array<MediaSnapshotByTimePicInfoItem>;
     /**
-     * 指定时间点截图文件的存储位置。
-     */
+      * 指定时间点截图文件的存储位置。
+      */
     Storage: TaskOutputStorage;
 }
 /**
@@ -2788,39 +2788,39 @@ export interface MediaSnapshotByTimeOffsetItem {
  */
 export interface ModifyAdaptiveDynamicStreamingTemplateRequest {
     /**
-     * 转自适应码流模板唯一标识。
-     */
+      * 转自适应码流模板唯一标识。
+      */
     Definition: number;
     /**
-     * 模板名称，长度限制：64 个字符。
-     */
+      * 模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 转自适应码流格式，取值范围：
-  <li>HLS，</li>
-  <li>MPEG-DASH。</li>
-        */
+      * 转自适应码流格式，取值范围：
+<li>HLS，</li>
+<li>MPEG-DASH。</li>
+      */
     Format?: string;
     /**
-        * 是否禁止视频低码率转高码率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     DisableHigherVideoBitrate?: number;
     /**
-        * 是否禁止视频分辨率转高分辨率，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     DisableHigherVideoResolution?: number;
     /**
-        * 转自适应码流输入流参数信息，最多输入10路流。
-  注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
-        */
+      * 转自适应码流输入流参数信息，最多输入10路流。
+注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+      */
     StreamInfos?: Array<AdaptiveStreamTemplate>;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -2828,48 +2828,48 @@ export interface ModifyAdaptiveDynamicStreamingTemplateRequest {
  */
 export interface MediaAnimatedGraphicsItem {
     /**
-     * 转动图文件的存储位置。
-     */
+      * 转动图文件的存储位置。
+      */
     Storage: TaskOutputStorage;
     /**
-     * 转动图的文件路径。
-     */
+      * 转动图的文件路径。
+      */
     Path: string;
     /**
-     * 转动图模板 ID，参见[转动图参数模板](https://cloud.tencent.com/document/product/862/37042#.E9.A2.84.E7.BD.AE.E8.BD.AC.E5.8A.A8.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
-     */
+      * 转动图模板 ID，参见[转动图参数模板](https://cloud.tencent.com/document/product/862/37042#.E9.A2.84.E7.BD.AE.E8.BD.AC.E5.8A.A8.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
+      */
     Definition: number;
     /**
-     * 动图格式，如 gif。
-     */
+      * 动图格式，如 gif。
+      */
     Container: string;
     /**
-     * 动图的高度，单位：px。
-     */
+      * 动图的高度，单位：px。
+      */
     Height: number;
     /**
-     * 动图的宽度，单位：px。
-     */
+      * 动图的宽度，单位：px。
+      */
     Width: number;
     /**
-     * 动图码率，单位：bps。
-     */
+      * 动图码率，单位：bps。
+      */
     Bitrate: number;
     /**
-     * 动图大小，单位：字节。
-     */
+      * 动图大小，单位：字节。
+      */
     Size: number;
     /**
-     * 动图的md5值。
-     */
+      * 动图的md5值。
+      */
     Md5: string;
     /**
-     * 动图在视频中的起始时间偏移，单位：秒。
-     */
+      * 动图在视频中的起始时间偏移，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 动图在视频中的结束时间偏移，单位：秒。
-     */
+      * 动图在视频中的结束时间偏移，单位：秒。
+      */
     EndTimeOffset: number;
 }
 /**
@@ -2877,24 +2877,24 @@ export interface MediaAnimatedGraphicsItem {
  */
 export interface ModifyWordSampleRequest {
     /**
-     * 关键词，长度限制：128 个字符。
-     */
+      * 关键词，长度限制：128 个字符。
+      */
     Keyword: string;
     /**
-        * <b>关键词应用场景，可选值：</b>
-  1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-  2. Recognition.Asr：通过语音识别技术，进行内容识别；
-  3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-  4. Review.Asr：通过语音识别技术，进行内容审核；
-  <b>可合并简写为：</b>
-  5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-  6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-  7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
-        */
+      * <b>关键词应用场景，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过语音识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行内容审核；
+4. Review.Asr：通过语音识别技术，进行内容审核；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
+7. All：通过光学字符识别技术、语音识别技术，进行内容识别、内容审核，等价于 1+2+3+4。
+      */
     Usages?: Array<string>;
     /**
-     * 标签操作信息。
-     */
+      * 标签操作信息。
+      */
     TagOperationInfo?: AiSampleTagOperation;
 }
 /**
@@ -2902,28 +2902,28 @@ export interface ModifyWordSampleRequest {
  */
 export interface MediaProcessTaskAnimatedGraphicResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 转动图任务的输入。
-     */
+      * 转动图任务的输入。
+      */
     Input: AnimatedGraphicTaskInput;
     /**
-        * 转动图任务的输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转动图任务的输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: MediaAnimatedGraphicsItem;
 }
 /**
@@ -2931,25 +2931,25 @@ export interface MediaProcessTaskAnimatedGraphicResult {
  */
 export interface AiAnalysisTaskTagResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 智能标签任务输入。
-     */
+      * 智能标签任务输入。
+      */
     Input: AiAnalysisTaskTagInput;
     /**
-        * 智能标签任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能标签任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiAnalysisTaskTagOutput;
 }
 /**
@@ -2957,8 +2957,8 @@ export interface AiAnalysisTaskTagResult {
  */
 export interface AiAnalysisTaskTagOutput {
     /**
-     * 视频智能标签列表。
-     */
+      * 视频智能标签列表。
+      */
     TagSet: Array<MediaAiAnalysisTagItem>;
 }
 /**
@@ -2966,48 +2966,48 @@ export interface AiAnalysisTaskTagOutput {
  */
 export interface ProcessMediaRequest {
     /**
-     * 视频处理的文件输入信息。
-     */
+      * 视频处理的文件输入信息。
+      */
     InputInfo: MediaInputInfo;
     /**
-     * 视频处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
-     */
+      * 视频处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与 InputInfo 中文件所在的目录一致。
-     */
+      * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与 InputInfo 中文件所在的目录一致。
+      */
     OutputDir?: string;
     /**
-     * 视频处理类型任务参数。
-     */
+      * 视频处理类型任务参数。
+      */
     MediaProcessTask?: MediaProcessTaskInput;
     /**
-     * 视频内容审核类型任务参数。
-     */
+      * 视频内容审核类型任务参数。
+      */
     AiContentReviewTask?: AiContentReviewTaskInput;
     /**
-     * 视频内容分析类型任务参数。
-     */
+      * 视频内容分析类型任务参数。
+      */
     AiAnalysisTask?: AiAnalysisTaskInput;
     /**
-     * 视频内容识别类型任务参数。
-     */
+      * 视频内容识别类型任务参数。
+      */
     AiRecognitionTask?: AiRecognitionTaskInput;
     /**
-     * 任务的事件通知信息，不填代表不获取事件通知。
-     */
+      * 任务的事件通知信息，不填代表不获取事件通知。
+      */
     TaskNotifyConfig?: TaskNotifyConfig;
     /**
-     * 任务流的优先级，数值越大优先级越高，取值范围是-10到 10，不填代表0。
-     */
+      * 任务流的优先级，数值越大优先级越高，取值范围是-10到 10，不填代表0。
+      */
     TasksPriority?: number;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
+      */
     SessionContext?: string;
 }
 /**
@@ -3015,25 +3015,25 @@ export interface ProcessMediaRequest {
  */
 export interface AiRecognitionTaskOcrFullTextResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 文本全文识别任务输入信息。
-     */
+      * 文本全文识别任务输入信息。
+      */
     Input: AiRecognitionTaskOcrFullTextResultInput;
     /**
-        * 文本全文识别任务输出信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文本全文识别任务输出信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiRecognitionTaskOcrFullTextResultOutput;
 }
 /**
@@ -3041,28 +3041,28 @@ export interface AiRecognitionTaskOcrFullTextResult {
  */
 export interface MediaProcessTaskSnapshotByTimeOffsetResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 对视频按指定时间点截图任务输入。
-     */
+      * 对视频按指定时间点截图任务输入。
+      */
     Input: SnapshotByTimeOffsetTaskInput;
     /**
-        * 对视频按指定时间点截图任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频按指定时间点截图任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: MediaSnapshotByTimeOffsetItem;
 }
 /**
@@ -3070,24 +3070,24 @@ export interface MediaProcessTaskSnapshotByTimeOffsetResult {
  */
 export interface AiSampleWord {
     /**
-     * 关键词。
-     */
+      * 关键词。
+      */
     Keyword: string;
     /**
-     * 关键词标签。
-     */
+      * 关键词标签。
+      */
     TagSet: Array<string>;
     /**
-     * 关键词应用场景。
-     */
+      * 关键词应用场景。
+      */
     UsageSet: Array<string>;
     /**
-     * 创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -3095,8 +3095,8 @@ export interface AiSampleWord {
  */
 export interface AiRecognitionTaskAsrWordsResultOutput {
     /**
-     * 语音关键词识别结果集。
-     */
+      * 语音关键词识别结果集。
+      */
     ResultSet: Array<AiRecognitionTaskAsrWordsResultItem>;
 }
 /**
@@ -3104,24 +3104,24 @@ export interface AiRecognitionTaskAsrWordsResultOutput {
  */
 export interface LiveStreamOcrWordsRecognitionResult {
     /**
-     * 文本关键词。
-     */
+      * 文本关键词。
+      */
     Word: string;
     /**
-     * 识别片段起始的 PTS 时间，单位：秒。
-     */
+      * 识别片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 识别片段终止的 PTS 时间，单位：秒。
-     */
+      * 识别片段终止的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoords: Array<number>;
 }
 /**
@@ -3129,14 +3129,14 @@ export interface LiveStreamOcrWordsRecognitionResult {
  */
 export interface LiveStreamProcessErrorInfo {
     /**
-        * 错误码：
-  <li>0表示没有错误；</li>
-  <li>非0表示错误，请参考 Message 错误信息。</li>
-        */
+      * 错误码：
+<li>0表示没有错误；</li>
+<li>非0表示错误，请参考 Message 错误信息。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
 }
 /**
@@ -3144,8 +3144,8 @@ export interface LiveStreamProcessErrorInfo {
  */
 export interface ModifyAdaptiveDynamicStreamingTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3153,28 +3153,28 @@ export interface ModifyAdaptiveDynamicStreamingTemplateResponse {
  */
 export interface MediaProcessTaskTranscodeResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 转码任务的输入。
-     */
+      * 转码任务的输入。
+      */
     Input: TranscodeTaskInput;
     /**
-        * 转码任务的输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转码任务的输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: MediaTranscodeItem;
 }
 /**
@@ -3182,36 +3182,36 @@ export interface MediaProcessTaskTranscodeResult {
  */
 export interface SnapshotByTimeOffsetTaskInput {
     /**
-     * 指定时间点截图模板 ID。
-     */
+      * 指定时间点截图模板 ID。
+      */
     Definition: number;
     /**
-        * 截图时间点列表，时间点支持 s、% 两种格式：
-  <li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
-  <li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
-        */
+      * 截图时间点列表，时间点支持 s、% 两种格式：
+<li>当字符串以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒；</li>
+<li>当字符串以 % 结尾，表示时间点为视频时长的百分比大小，如10%表示时间点为视频前第10%的时间。</li>
+      */
     ExtTimeOffsetSet?: Array<string>;
     /**
-     * 截图时间点列表，单位为<font color=red>秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
-     */
+      * 截图时间点列表，单位为<font color=red>秒</font>。此参数已不再建议使用，建议您使用 ExtTimeOffsetSet 参数。
+      */
     TimeOffsetSet?: Array<number>;
     /**
-     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-     */
+      * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+      */
     WatermarkSet?: Array<WatermarkInput>;
     /**
-        * 时间点截图后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 时间点截图后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 时间点截图后图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_snapshotByTimeOffset_{definition}_{number}.{format}`。
-     */
+      * 时间点截图后图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_snapshotByTimeOffset_{definition}_{number}.{format}`。
+      */
     OutputObjectPath?: string;
     /**
-        * 时间点截图后输出路径中的`{number}`变量的规则。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 时间点截图后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ObjectNumberFormat?: NumberFormat;
 }
 /**
@@ -3219,26 +3219,26 @@ export interface SnapshotByTimeOffsetTaskInput {
  */
 export interface ImageSpriteTaskInput {
     /**
-     * 雪碧图模板 ID。
-     */
+      * 雪碧图模板 ID。
+      */
     Definition: number;
     /**
-        * 截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
-     */
+      * 截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
+      */
     OutputObjectPath?: string;
     /**
-     * 截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
-     */
+      * 截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
+      */
     WebVttObjectName?: string;
     /**
-        * 截取雪碧图后输出路径中的`{number}`变量的规则。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 截取雪碧图后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ObjectNumberFormat?: NumberFormat;
 }
 /**
@@ -3246,8 +3246,8 @@ export interface ImageSpriteTaskInput {
  */
 export interface DeleteContentReviewTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3255,21 +3255,21 @@ export interface DeleteContentReviewTemplateResponse {
  */
 export interface ImageWatermarkTemplate {
     /**
-     * 水印图片地址。
-     */
+      * 水印图片地址。
+      */
     ImageUrl: string;
     /**
-        * 水印的宽度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-        */
+      * 水印的宽度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+      */
     Width: string;
     /**
-        * 水印的高度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；</li>
-  0px：表示 Height 按照 Width 对视频宽度的比例缩放。
-        */
+      * 水印的高度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；</li>
+0px：表示 Height 按照 Width 对视频宽度的比例缩放。
+      */
     Height: string;
 }
 /**
@@ -3277,15 +3277,15 @@ export interface ImageWatermarkTemplate {
  */
 export interface AsrWordsConfigureInfo {
     /**
-        * 语音关键词识别任务开关，可选值：
-  <li>ON：开启语音关键词识别任务；</li>
-  <li>OFF：关闭语音关键词识别任务。</li>
-        */
+      * 语音关键词识别任务开关，可选值：
+<li>ON：开启语音关键词识别任务；</li>
+<li>OFF：关闭语音关键词识别任务。</li>
+      */
     Switch: string;
     /**
-        * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
 }
 /**
@@ -3293,20 +3293,20 @@ export interface AsrWordsConfigureInfo {
  */
 export interface LiveStreamAsrWordsRecognitionResult {
     /**
-     * 语音关键词。
-     */
+      * 语音关键词。
+      */
     Word: string;
     /**
-     * 识别片段起始的 PTS 时间，单位：秒。
-     */
+      * 识别片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 识别片段终止的 PTS 时间，单位：秒。
-     */
+      * 识别片段终止的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
 }
 /**
@@ -3314,36 +3314,36 @@ export interface LiveStreamAsrWordsRecognitionResult {
  */
 export interface AiSamplePerson {
     /**
-     * 人物 ID。
-     */
+      * 人物 ID。
+      */
     PersonId: string;
     /**
-     * 人物名称。
-     */
+      * 人物名称。
+      */
     Name: string;
     /**
-     * 人物描述。
-     */
+      * 人物描述。
+      */
     Description: string;
     /**
-     * 人脸信息。
-     */
+      * 人脸信息。
+      */
     FaceInfoSet: Array<AiSampleFaceInfo>;
     /**
-     * 人物标签。
-     */
+      * 人物标签。
+      */
     TagSet: Array<string>;
     /**
-     * 应用场景。
-     */
+      * 应用场景。
+      */
     UsageSet: Array<string>;
     /**
-     * 创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -3351,16 +3351,16 @@ export interface AiSamplePerson {
  */
 export interface DescribeWorkflowsResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 工作流信息数组。
-     */
+      * 工作流信息数组。
+      */
     WorkflowInfoSet?: Array<WorkflowInfo>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3368,15 +3368,15 @@ export interface DescribeWorkflowsResponse {
  */
 export interface AsrWordsConfigureInfoForUpdate {
     /**
-        * 语音关键词识别任务开关，可选值：
-  <li>ON：开启语音关键词识别任务；</li>
-  <li>OFF：关闭语音关键词识别任务。</li>
-        */
+      * 语音关键词识别任务开关，可选值：
+<li>ON：开启语音关键词识别任务；</li>
+<li>OFF：关闭语音关键词识别任务。</li>
+      */
     Switch?: string;
     /**
-        * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 关键词过滤标签，指定需要返回的关键词的标签。如果未填或者为空，则全部结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
 }
 /**
@@ -3384,8 +3384,8 @@ export interface AsrWordsConfigureInfoForUpdate {
  */
 export interface DeleteImageSpriteTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3393,16 +3393,16 @@ export interface DeleteImageSpriteTemplateResponse {
  */
 export interface DescribeContentReviewTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 内容审核模板详情列表。
-     */
+      * 内容审核模板详情列表。
+      */
     ContentReviewTemplateSet?: Array<ContentReviewTemplateItem>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3410,15 +3410,15 @@ export interface DescribeContentReviewTemplatesResponse {
  */
 export interface TEHDConfig {
     /**
-        * 极速高清类型，可选值：
-  <li>TEHD-100：极速高清-100。</li>
-  不填代表不启用极速高清。
-        */
+      * 极速高清类型，可选值：
+<li>TEHD-100：极速高清-100。</li>
+不填代表不启用极速高清。
+      */
     Type: string;
     /**
-        * 视频码率上限，当 Type 指定了极速高清类型时有效。
-  不填或填0表示不设视频码率上限。
-        */
+      * 视频码率上限，当 Type 指定了极速高清类型时有效。
+不填或填0表示不设视频码率上限。
+      */
     MaxVideoBitrate?: number;
 }
 /**
@@ -3426,67 +3426,67 @@ export interface TEHDConfig {
  */
 export interface AnimatedGraphicsTemplate {
     /**
-     * 转动图模板唯一标识。
-     */
+      * 转动图模板唯一标识。
+      */
     Definition: number;
     /**
-        * 模板类型，取值范围：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-     * 转动图模板名称。
-     */
+      * 转动图模板名称。
+      */
     Name: string;
     /**
-     * 转动图模板描述。
-     */
+      * 转动图模板描述。
+      */
     Comment: string;
     /**
-        * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width: number;
     /**
-        * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive: string;
     /**
-     * 动图格式。
-     */
+      * 动图格式。
+      */
     Format: string;
     /**
-     * 帧率。
-     */
+      * 帧率。
+      */
     Fps: number;
     /**
-     * 图片质量。
-     */
+      * 图片质量。
+      */
     Quality: number;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -3494,13 +3494,13 @@ export interface AnimatedGraphicsTemplate {
  */
 export interface WorkflowTrigger {
     /**
-     * 触发器的类型，目前仅支持 CosFileUpload。
-     */
+      * 触发器的类型，目前仅支持 CosFileUpload。
+      */
     Type: string;
     /**
-        * 当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CosFileUploadTrigger?: CosFileUploadTrigger;
 }
 /**
@@ -3508,8 +3508,8 @@ export interface WorkflowTrigger {
  */
 export interface LiveStreamAiRecognitionResultInfo {
     /**
-     * 内容识别结果列表。
-     */
+      * 内容识别结果列表。
+      */
     ResultSet: Array<LiveStreamAiRecognitionResultItem>;
 }
 /**
@@ -3517,46 +3517,46 @@ export interface LiveStreamAiRecognitionResultInfo {
  */
 export interface LiveStreamAiReviewImagePoliticalResult {
     /**
-     * 嫌疑片段起始的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 嫌疑片段结束的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段结束的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 嫌疑片段涉政分数。
-     */
+      * 嫌疑片段涉政分数。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段鉴黄结果建议，取值范围：
-  <li>pass</li>
-  <li>review</li>
-  <li>block</li>
-        */
+      * 嫌疑片段鉴黄结果建议，取值范围：
+<li>pass</li>
+<li>review</li>
+<li>block</li>
+      */
     Suggestion: string;
     /**
-        * 视频鉴政结果标签，取值范围：
-  <li>politician：政治人物。</li>
-  <li>violation_photo：违规图标。</li>
-        */
+      * 视频鉴政结果标签，取值范围：
+<li>politician：政治人物。</li>
+<li>violation_photo：违规图标。</li>
+      */
     Label: string;
     /**
-     * 涉政人物、违规图标名字。
-     */
+      * 涉政人物、违规图标名字。
+      */
     Name: string;
     /**
-     * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
-     */
+      * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+      */
     AreaCoordSet: Array<number>;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-  PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -3564,18 +3564,18 @@ export interface LiveStreamAiReviewImagePoliticalResult {
  */
 export interface TerrorismOcrReviewTemplateInfoForUpdate {
     /**
-        * 文本鉴恐任务开关，可选值：
-  <li>ON：开启文本鉴恐任务；</li>
-  <li>OFF：关闭文本鉴恐任务。</li>
-        */
+      * 文本鉴恐任务开关，可选值：
+<li>ON：开启文本鉴恐任务；</li>
+<li>OFF：关闭文本鉴恐任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -3583,23 +3583,23 @@ export interface TerrorismOcrReviewTemplateInfoForUpdate {
  */
 export interface UserDefineAsrTextReviewTemplateInfoForUpdate {
     /**
-        * 用户自定语音审核任务开关，可选值：
-  <li>ON：开启自定义语音审核任务；</li>
-  <li>OFF：关闭自定义语音审核任务。</li>
-        */
+      * 用户自定语音审核任务开关，可选值：
+<li>ON：开启自定义语音审核任务；</li>
+<li>OFF：关闭自定义语音审核任务。</li>
+      */
     Switch?: string;
     /**
-        * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -3607,8 +3607,8 @@ export interface UserDefineAsrTextReviewTemplateInfoForUpdate {
  */
 export interface ModifyImageSpriteTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3616,54 +3616,54 @@ export interface ModifyImageSpriteTemplateResponse {
  */
 export interface CreateWatermarkTemplateRequest {
     /**
-        * 水印类型，可选值：
-  <li>image：图片水印；</li>
-  <li>text：文字水印；</li>
-  <li>svg：SVG 水印。</li>
-        */
+      * 水印类型，可选值：
+<li>image：图片水印；</li>
+<li>text：文字水印；</li>
+<li>svg：SVG 水印。</li>
+      */
     Type: string;
     /**
-     * 水印模板名称，长度限制：64 个字符。
-     */
+      * 水印模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 原点位置，可选值：
-  <li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
-  <li>TopRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
-  <li>BottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
-  <li>BottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下角。</li>
-  默认值：TopLeft。
-        */
+      * 原点位置，可选值：
+<li>TopLeft：表示坐标原点位于视频图像左上角，水印原点为图片或文字的左上角；</li>
+<li>TopRight：表示坐标原点位于视频图像的右上角，水印原点为图片或文字的右上角；</li>
+<li>BottomLeft：表示坐标原点位于视频图像的左下角，水印原点为图片或文字的左下角；</li>
+<li>BottomRight：表示坐标原点位于视频图像的右下角，水印原点为图片或文字的右下角。</li>
+默认值：TopLeft。
+      */
     CoordinateOrigin?: string;
     /**
-        * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 水印原点距离视频图像坐标原点的水平位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 XPos 为视频宽度指定百分比，如 10% 表示 XPos 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 XPos 为指定像素，如 100px 表示 XPos 为 100 像素。</li>
+默认值：0px。
+      */
     XPos?: string;
     /**
-        * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
-  默认值：0px。
-        */
+      * 水印原点距离视频图像坐标原点的垂直位置。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 YPos 为视频高度指定百分比，如 10% 表示 YPos 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 YPos 为指定像素，如 100px 表示 YPos 为 100 像素。</li>
+默认值：0px。
+      */
     YPos?: string;
     /**
-     * 图片水印模板，仅当 Type 为 image，该字段必填且有效。
-     */
+      * 图片水印模板，仅当 Type 为 image，该字段必填且有效。
+      */
     ImageTemplate?: ImageWatermarkInput;
     /**
-     * 文字水印模板，仅当 Type 为 text，该字段必填且有效。
-     */
+      * 文字水印模板，仅当 Type 为 text，该字段必填且有效。
+      */
     TextTemplate?: TextWatermarkTemplateInput;
     /**
-     * SVG 水印模板，仅当 Type 为 svg，该字段必填且有效。
-     */
+      * SVG 水印模板，仅当 Type 为 svg，该字段必填且有效。
+      */
     SvgTemplate?: SvgWatermarkInput;
 }
 /**
@@ -3671,12 +3671,12 @@ export interface CreateWatermarkTemplateRequest {
  */
 export interface TerrorismConfigureInfoForUpdate {
     /**
-     * 画面鉴恐任务控制参数。
-     */
+      * 画面鉴恐任务控制参数。
+      */
     ImgReviewInfo?: TerrorismImgReviewTemplateInfoForUpdate;
     /**
-     * 文本鉴恐任务控制参数。
-     */
+      * 文本鉴恐任务控制参数。
+      */
     OcrReviewInfo?: TerrorismOcrReviewTemplateInfoForUpdate;
 }
 /**
@@ -3684,25 +3684,25 @@ export interface TerrorismConfigureInfoForUpdate {
  */
 export interface AnimatedGraphicTaskInput {
     /**
-     * 视频转动图模板 ID。
-     */
+      * 视频转动图模板 ID。
+      */
     Definition: number;
     /**
-     * 动图在视频中的开始时间，单位为秒。
-     */
+      * 动图在视频中的开始时间，单位为秒。
+      */
     StartTimeOffset: number;
     /**
-     * 动图在视频中的结束时间，单位为秒。
-     */
+      * 动图在视频中的结束时间，单位为秒。
+      */
     EndTimeOffset: number;
     /**
-        * 转动图后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转动图后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 转动图后文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_animatedGraphic_{definition}.{format}`。
-     */
+      * 转动图后文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_animatedGraphic_{definition}.{format}`。
+      */
     OutputObjectPath?: string;
 }
 /**
@@ -3710,8 +3710,8 @@ export interface AnimatedGraphicTaskInput {
  */
 export interface DeleteContentReviewTemplateRequest {
     /**
-     * 内容审核模板唯一标识。
-     */
+      * 内容审核模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -3719,44 +3719,44 @@ export interface DeleteContentReviewTemplateRequest {
  */
 export interface AIAnalysisTemplateItem {
     /**
-     * 智能分析模板唯一标识。
-     */
+      * 智能分析模板唯一标识。
+      */
     Definition: number;
     /**
-     * 智能分析模板名称。
-     */
+      * 智能分析模板名称。
+      */
     Name: string;
     /**
-     * 智能分析模板描述信息。
-     */
+      * 智能分析模板描述信息。
+      */
     Comment: string;
     /**
-        * 智能分类任务控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能分类任务控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ClassificationConfigure: ClassificationConfigureInfo;
     /**
-        * 智能标签任务控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能标签任务控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TagConfigure: TagConfigureInfo;
     /**
-        * 智能封面任务控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能封面任务控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CoverConfigure: CoverConfigureInfo;
     /**
-        * 智能按帧标签任务控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能按帧标签任务控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FrameTagConfigure: FrameTagConfigureInfo;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -3764,22 +3764,22 @@ export interface AIAnalysisTemplateItem {
  */
 export interface RawImageWatermarkInput {
     /**
-     * 水印图片的输入内容。支持 jpeg、png 图片格式。
-     */
+      * 水印图片的输入内容。支持 jpeg、png 图片格式。
+      */
     ImageContent: MediaInputInfo;
     /**
-        * 水印的宽度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
-  默认值：10%。
-        */
+      * 水印的宽度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。</li>
+默认值：10%。
+      */
     Width?: string;
     /**
-        * 水印的高度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。</li>
-  默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
-        */
+      * 水印的高度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+      */
     Height?: string;
 }
 /**
@@ -3787,22 +3787,22 @@ export interface RawImageWatermarkInput {
  */
 export interface DescribeImageSpriteTemplatesRequest {
     /**
-     * 雪碧图模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 雪碧图模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
 }
 /**
@@ -3810,12 +3810,12 @@ export interface DescribeImageSpriteTemplatesRequest {
  */
 export interface AiSampleTagOperation {
     /**
-     * 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
-     */
+      * 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
+      */
     Type: string;
     /**
-     * 标签，长度限制：128 个字符。
-     */
+      * 标签，长度限制：128 个字符。
+      */
     Tags: Array<string>;
 }
 /**
@@ -3823,12 +3823,12 @@ export interface AiSampleTagOperation {
  */
 export interface CreateAIRecognitionTemplateResponse {
     /**
-     * 视频内容识别模板唯一标识。
-     */
+      * 视频内容识别模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3836,8 +3836,8 @@ export interface CreateAIRecognitionTemplateResponse {
  */
 export interface DeleteTranscodeTemplateRequest {
     /**
-     * 转码模板唯一标识。
-     */
+      * 转码模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -3845,31 +3845,31 @@ export interface DeleteTranscodeTemplateRequest {
  */
 export interface AiReviewTerrorismTaskOutput {
     /**
-     * 视频暴恐评分，分值为0到100。
-     */
+      * 视频暴恐评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * 暴恐结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 暴恐结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-        * 视频暴恐结果标签，取值范围：
-  <li>guns：武器枪支。</li>
-  <li>crowd：人群聚集。</li>
-  <li>police：警察部队。</li>
-  <li>bloody：血腥画面。</li>
-  <li>banners：暴恐旗帜。</li>
-  <li>militant：武装分子。</li>
-  <li>explosion：爆炸火灾。</li>
-  <li>terrorists：暴恐人物。</li>
-        */
+      * 视频暴恐结果标签，取值范围：
+<li>guns：武器枪支。</li>
+<li>crowd：人群聚集。</li>
+<li>police：警察部队。</li>
+<li>bloody：血腥画面。</li>
+<li>banners：暴恐旗帜。</li>
+<li>militant：武装分子。</li>
+<li>explosion：爆炸火灾。</li>
+<li>terrorists：暴恐人物。</li>
+      */
     Label: string;
     /**
-     * 有暴恐嫌疑的视频片段列表。
-     */
+      * 有暴恐嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewSegmentItem>;
 }
 /**
@@ -3877,14 +3877,14 @@ export interface AiReviewTerrorismTaskOutput {
  */
 export interface ProhibitedConfigureInfo {
     /**
-        * 语音违禁控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 语音违禁控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AsrReviewInfo?: ProhibitedAsrReviewTemplateInfo;
     /**
-        * 文本违禁控制参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文本违禁控制参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OcrReviewInfo?: ProhibitedOcrReviewTemplateInfo;
 }
 /**
@@ -3892,19 +3892,19 @@ export interface ProhibitedConfigureInfo {
  */
 export interface AiReviewTerrorismOcrTaskOutput {
     /**
-     * Ocr 文字涉恐评分，分值为0到100。
-     */
+      * Ocr 文字涉恐评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Ocr 文字涉恐结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Ocr 文字涉恐结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Ocr 文字有涉恐嫌疑的视频片段列表。
-     */
+      * Ocr 文字有涉恐嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewOcrTextSegmentItem>;
 }
 /**
@@ -3912,33 +3912,33 @@ export interface AiReviewTerrorismOcrTaskOutput {
  */
 export interface AiAnalysisResult {
     /**
-        * 任务的类型，可以取的值有：
-  <li>Classification：智能分类</li>
-  <li>Cover：智能封面</li>
-  <li>Tag：智能标签</li>
-  <li>FrameTag：智能按帧标签</li>
-  <li>Highlight：智能精彩集锦</li>
-        */
+      * 任务的类型，可以取的值有：
+<li>Classification：智能分类</li>
+<li>Cover：智能封面</li>
+<li>Tag：智能标签</li>
+<li>FrameTag：智能按帧标签</li>
+<li>Highlight：智能精彩集锦</li>
+      */
     Type: string;
     /**
-        * 视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容分析智能分类任务的查询结果，当任务类型为 Classification 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ClassificationTask: AiAnalysisTaskClassificationResult;
     /**
-        * 视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容分析智能封面任务的查询结果，当任务类型为 Cover 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CoverTask: AiAnalysisTaskCoverResult;
     /**
-        * 视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容分析智能标签任务的查询结果，当任务类型为 Tag 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TagTask: AiAnalysisTaskTagResult;
     /**
-        * 视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容分析智能按帧标签任务的查询结果，当任务类型为 FrameTag 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FrameTagTask: AiAnalysisTaskFrameTagResult;
 }
 /**
@@ -3946,16 +3946,16 @@ export interface AiAnalysisResult {
  */
 export interface DescribeAIAnalysisTemplatesRequest {
     /**
-     * 视频内容分析模板唯一标识过滤条件，数组长度限制：10。
-     */
+      * 视频内容分析模板唯一标识过滤条件，数组长度限制：10。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
 }
 /**
@@ -3963,12 +3963,12 @@ export interface DescribeAIAnalysisTemplatesRequest {
  */
 export interface AiRecognitionTaskOcrWordsResultItem {
     /**
-     * 文本关键词。
-     */
+      * 文本关键词。
+      */
     Word: string;
     /**
-     * 文本关键出现的片段列表。
-     */
+      * 文本关键出现的片段列表。
+      */
     SegmentSet: Array<AiRecognitionTaskOcrWordsSegmentItem>;
 }
 /**
@@ -3976,8 +3976,8 @@ export interface AiRecognitionTaskOcrWordsResultItem {
  */
 export interface DeleteSampleSnapshotTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3985,8 +3985,8 @@ export interface DeleteSampleSnapshotTemplateResponse {
  */
 export interface AiAnalysisTaskTagInput {
     /**
-     * 视频智能标签模板 ID。
-     */
+      * 视频智能标签模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -3994,48 +3994,48 @@ export interface AiAnalysisTaskTagInput {
  */
 export interface ResetWorkflowRequest {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId: number;
     /**
-     * 工作流名称，最多128字符。同一个用户该名称唯一。
-     */
+      * 工作流名称，最多128字符。同一个用户该名称唯一。
+      */
     WorkflowName: string;
     /**
-     * 工作流绑定的触发规则，当上传视频命中该规则到该对象时即触发工作流。
-     */
+      * 工作流绑定的触发规则，当上传视频命中该规则到该对象时即触发工作流。
+      */
     Trigger: WorkflowTrigger;
     /**
-     * 视频处理的文件输出配置。不填则继承 Trigger 中的存储位置。
-     */
+      * 视频处理的文件输出配置。不填则继承 Trigger 中的存储位置。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与触发文件所在的目录一致，即`{inputDir}`。
-     */
+      * 视频处理生成的文件输出的目标目录，如`/movie/201907/`。如果不填，表示与触发文件所在的目录一致，即`{inputDir}`。
+      */
     OutputDir?: string;
     /**
-     * 视频处理类型任务参数。
-     */
+      * 视频处理类型任务参数。
+      */
     MediaProcessTask?: MediaProcessTaskInput;
     /**
-     * 视频内容审核类型任务参数。
-     */
+      * 视频内容审核类型任务参数。
+      */
     AiContentReviewTask?: AiContentReviewTaskInput;
     /**
-     * 视频内容分析类型任务参数。
-     */
+      * 视频内容分析类型任务参数。
+      */
     AiAnalysisTask?: AiAnalysisTaskInput;
     /**
-     * 视频内容识别类型任务参数。
-     */
+      * 视频内容识别类型任务参数。
+      */
     AiRecognitionTask?: AiRecognitionTaskInput;
     /**
-     * 工作流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
-     */
+      * 工作流的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+      */
     TaskPriority?: number;
     /**
-     * 任务的事件通知信息，不填代表不获取事件通知。
-     */
+      * 任务的事件通知信息，不填代表不获取事件通知。
+      */
     TaskNotifyConfig?: TaskNotifyConfig;
 }
 /**
@@ -4043,25 +4043,25 @@ export interface ResetWorkflowRequest {
  */
 export interface AiReviewTaskTerrorismResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核鉴恐任务输入。
-     */
+      * 内容审核鉴恐任务输入。
+      */
     Input: AiReviewTerrorismTaskInput;
     /**
-        * 内容审核鉴恐任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核鉴恐任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewTerrorismTaskOutput;
 }
 /**
@@ -4069,28 +4069,28 @@ export interface AiReviewTaskTerrorismResult {
  */
 export interface LiveStreamAiReviewVoicePornResult {
     /**
-     * 嫌疑片段起始的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 嫌疑片段结束的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段结束的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 嫌疑片段涉黄分数。
-     */
+      * 嫌疑片段涉黄分数。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段鉴黄结果建议，取值范围：
-  <li>pass</li>
-  <li>review</li>
-  <li>block</li>
-        */
+      * 嫌疑片段鉴黄结果建议，取值范围：
+<li>pass</li>
+<li>review</li>
+<li>block</li>
+      */
     Suggestion: string;
     /**
-        * 视频鉴黄结果标签，取值范围：
-  <li>sexual_moan：呻吟。</li>
-        */
+      * 视频鉴黄结果标签，取值范围：
+<li>sexual_moan：呻吟。</li>
+      */
     Label: string;
 }
 /**
@@ -4098,27 +4098,27 @@ export interface LiveStreamAiReviewVoicePornResult {
  */
 export interface MediaContentReviewAsrTextSegmentItem {
     /**
-     * 嫌疑片段起始的偏移时间，单位：秒。
-     */
+      * 嫌疑片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 嫌疑片段结束的偏移时间，单位：秒。
-     */
+      * 嫌疑片段结束的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 嫌疑片段置信度。
-     */
+      * 嫌疑片段置信度。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段审核结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 嫌疑片段审核结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * 嫌疑关键词列表。
-     */
+      * 嫌疑关键词列表。
+      */
     KeywordSet: Array<string>;
 }
 /**
@@ -4126,67 +4126,67 @@ export interface MediaContentReviewAsrTextSegmentItem {
  */
 export interface MediaContentReviewPoliticalSegmentItem {
     /**
-     * 嫌疑片段起始的偏移时间，单位：秒。
-     */
+      * 嫌疑片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 嫌疑片段结束的偏移时间，单位：秒。
-     */
+      * 嫌疑片段结束的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 嫌疑片段涉政分数。
-     */
+      * 嫌疑片段涉政分数。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段鉴政结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 嫌疑片段鉴政结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * 涉政人物、违规图标名字。
-     */
+      * 涉政人物、违规图标名字。
+      */
     Name: string;
     /**
-        * 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
-  violation_photo：
-  <li>violation_photo：违规图标。</li>
-  politician：
-  <li>nation_politician：国家领导人；</li>
-  <li>province_politician: 省部级领导人；</li>
-  <li>bureau_politician：厅局级领导人；</li>
-  <li>county_politician：县处级领导人；</li>
-  <li>rural_politician：乡科级领导人；</li>
-  <li>sensitive_politician：敏感政治人物；</li>
-  <li>foreign_politician：国外领导人。</li>
-  entertainment：
-  <li>sensitive_entertainment：敏感娱乐人物。</li>
-  sport：
-  <li>sensitive_sport：敏感体育人物。</li>
-  entrepreneur：
-  <li>sensitive_entrepreneur：敏感商业人物。</li>
-  scholar：
-  <li>sensitive_scholar：敏感教育学者。</li>
-  celebrity：
-  <li>sensitive_celebrity：敏感知名人物；</li>
-  <li>historical_celebrity：历史知名人物。</li>
-  military：
-  <li>sensitive_military：敏感军事人物。</li>
-        */
+      * 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
+      */
     Label: string;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-   PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+ PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
-     */
+      * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+      */
     AreaCoordSet: Array<number>;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -4194,8 +4194,8 @@ export interface MediaContentReviewPoliticalSegmentItem {
  */
 export interface DeletePersonSampleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4203,12 +4203,12 @@ export interface DeletePersonSampleResponse {
  */
 export interface CreateSnapshotByTimeOffsetTemplateResponse {
     /**
-     * 时间点截图模板唯一标识。
-     */
+      * 时间点截图模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4216,39 +4216,39 @@ export interface CreateSnapshotByTimeOffsetTemplateResponse {
  */
 export interface ModifyContentReviewTemplateRequest {
     /**
-     * 内容审核模板唯一标识。
-     */
+      * 内容审核模板唯一标识。
+      */
     Definition: number;
     /**
-     * 内容审核模板名称，长度限制：64 个字符。
-     */
+      * 内容审核模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 内容审核模板描述信息，长度限制：256 个字符。
-     */
+      * 内容审核模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 鉴黄控制参数。
-     */
+      * 鉴黄控制参数。
+      */
     PornConfigure?: PornConfigureInfoForUpdate;
     /**
-     * 鉴恐控制参数。
-     */
+      * 鉴恐控制参数。
+      */
     TerrorismConfigure?: TerrorismConfigureInfoForUpdate;
     /**
-     * 鉴政控制参数。
-     */
+      * 鉴政控制参数。
+      */
     PoliticalConfigure?: PoliticalConfigureInfoForUpdate;
     /**
-        * 违禁控制参数。违禁内容包括：
-  <li>谩骂；</li>
-  <li>涉毒违法。</li>
-  注意：此参数尚未支持。
-        */
+      * 违禁控制参数。违禁内容包括：
+<li>谩骂；</li>
+<li>涉毒违法。</li>
+注意：此参数尚未支持。
+      */
     ProhibitedConfigure?: ProhibitedConfigureInfoForUpdate;
     /**
-     * 用户自定义内容审核控制参数。
-     */
+      * 用户自定义内容审核控制参数。
+      */
     UserDefineConfigure?: UserDefineConfigureInfoForUpdate;
 }
 /**
@@ -4256,21 +4256,21 @@ export interface ModifyContentReviewTemplateRequest {
  */
 export interface ImageWatermarkInputForUpdate {
     /**
-     * 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
-     */
+      * 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
+      */
     ImageContent?: string;
     /**
-        * 水印的宽度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
-        */
+      * 水印的宽度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Width 为视频宽度的百分比大小，如 10% 表示 Width 为视频宽度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Width 单位为像素，如 100px 表示 Width 为 100 像素。取值范围为[8, 4096]。</li>
+      */
     Width?: string;
     /**
-        * 水印的高度。支持 %、px 两种格式：
-  <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
-  <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-  默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
-        */
+      * 水印的高度。支持 %、px 两种格式：
+<li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
+<li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
+默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+      */
     Height?: string;
 }
 /**
@@ -4278,8 +4278,8 @@ export interface ImageWatermarkInputForUpdate {
  */
 export interface AiContentReviewTaskInput {
     /**
-     * 视频内容审核模板 ID。
-     */
+      * 视频内容审核模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -4287,12 +4287,12 @@ export interface AiContentReviewTaskInput {
  */
 export interface CreateAdaptiveDynamicStreamingTemplateResponse {
     /**
-     * 自适应转码模板唯一标识。
-     */
+      * 自适应转码模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4300,8 +4300,8 @@ export interface CreateAdaptiveDynamicStreamingTemplateResponse {
  */
 export interface DeleteSampleSnapshotTemplateRequest {
     /**
-     * 采样截图模板唯一标识。
-     */
+      * 采样截图模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -4309,8 +4309,8 @@ export interface DeleteSampleSnapshotTemplateRequest {
  */
 export interface AiAnalysisTaskInput {
     /**
-     * 视频内容分析模板 ID。
-     */
+      * 视频内容分析模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -4318,78 +4318,78 @@ export interface AiAnalysisTaskInput {
  */
 export interface ImageSpriteTemplate {
     /**
-     * 雪碧图模板唯一标识。
-     */
+      * 雪碧图模板唯一标识。
+      */
     Definition: number;
     /**
-        * 模板类型，取值范围：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-     * 雪碧图模板名称。
-     */
+      * 雪碧图模板名称。
+      */
     Name: string;
     /**
-        * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width: number;
     /**
-        * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive: string;
     /**
-     * 采样类型。
-     */
+      * 采样类型。
+      */
     SampleType: string;
     /**
-     * 采样间隔。
-     */
+      * 采样间隔。
+      */
     SampleInterval: number;
     /**
-     * 雪碧图中小图的行数。
-     */
+      * 雪碧图中小图的行数。
+      */
     RowCount: number;
     /**
-     * 雪碧图中小图的列数。
-     */
+      * 雪碧图中小图的列数。
+      */
     ColumnCount: number;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+      */
     FillType: string;
     /**
-     * 模板描述信息。
-     */
+      * 模板描述信息。
+      */
     Comment: string;
 }
 /**
@@ -4397,16 +4397,16 @@ export interface ImageSpriteTemplate {
  */
 export interface AiRecognitionTaskOcrFullTextSegmentTextItem {
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoordSet: Array<number>;
     /**
-     * 识别文本。
-     */
+      * 识别文本。
+      */
     Text: string;
 }
 /**
@@ -4414,20 +4414,20 @@ export interface AiRecognitionTaskOcrFullTextSegmentTextItem {
  */
 export interface LiveStreamAsrFullTextRecognitionResult {
     /**
-     * 识别文本。
-     */
+      * 识别文本。
+      */
     Text: string;
     /**
-     * 识别片段起始的 PTS 时间，单位：秒。
-     */
+      * 识别片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 识别片段终止的 PTS 时间，单位：秒。
-     */
+      * 识别片段终止的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
 }
 /**
@@ -4435,19 +4435,19 @@ export interface LiveStreamAsrFullTextRecognitionResult {
  */
 export interface AiReviewPornOcrTaskOutput {
     /**
-     * Ocr 文字涉黄评分，分值为0到100。
-     */
+      * Ocr 文字涉黄评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Ocr 文字涉黄结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Ocr 文字涉黄结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Ocr 文字有涉黄嫌疑的视频片段列表。
-     */
+      * Ocr 文字有涉黄嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewOcrTextSegmentItem>;
 }
 /**
@@ -4455,12 +4455,12 @@ export interface AiReviewPornOcrTaskOutput {
  */
 export interface CreateSampleSnapshotTemplateResponse {
     /**
-     * 采样截图模板唯一标识。
-     */
+      * 采样截图模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4468,18 +4468,18 @@ export interface CreateSampleSnapshotTemplateResponse {
  */
 export interface ProhibitedAsrReviewTemplateInfo {
     /**
-        * 语音违禁任务开关，可选值：
-  <li>ON：开启语音违禁任务；</li>
-  <li>OFF：关闭语音违禁任务。</li>
-        */
+      * 语音违禁任务开关，可选值：
+<li>ON：开启语音违禁任务；</li>
+<li>OFF：关闭语音违禁任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -4487,8 +4487,8 @@ export interface ProhibitedAsrReviewTemplateInfo {
  */
 export interface AiReviewPoliticalAsrTaskInput {
     /**
-     * 鉴政模板 ID。
-     */
+      * 鉴政模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -4496,12 +4496,12 @@ export interface AiReviewPoliticalAsrTaskInput {
  */
 export interface MediaAiAnalysisTagItem {
     /**
-     * 标签名称。
-     */
+      * 标签名称。
+      */
     Tag: string;
     /**
-     * 标签的可信度，取值范围是 0 到 100。
-     */
+      * 标签的可信度，取值范围是 0 到 100。
+      */
     Confidence: number;
 }
 /**
@@ -4509,65 +4509,65 @@ export interface MediaAiAnalysisTagItem {
  */
 export interface TranscodeTemplate {
     /**
-     * 转码模板唯一标识。
-     */
+      * 转码模板唯一标识。
+      */
     Definition: string;
     /**
-     * 封装格式，取值：mp4、flv、hls、mp3、flac、ogg。
-     */
+      * 封装格式，取值：mp4、flv、hls、mp3、flac、ogg。
+      */
     Container: string;
     /**
-     * 转码模板名称。
-     */
+      * 转码模板名称。
+      */
     Name: string;
     /**
-     * 模板描述信息。
-     */
+      * 模板描述信息。
+      */
     Comment: string;
     /**
-        * 模板类型，取值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-        * 是否去除视频数据，取值：
-  <li>0：保留；</li>
-  <li>1：去除。</li>
-        */
+      * 是否去除视频数据，取值：
+<li>0：保留；</li>
+<li>1：去除。</li>
+      */
     RemoveVideo: number;
     /**
-        * 是否去除音频数据，取值：
-  <li>0：保留；</li>
-  <li>1：去除。</li>
-        */
+      * 是否去除音频数据，取值：
+<li>0：保留；</li>
+<li>1：去除。</li>
+      */
     RemoveAudio: number;
     /**
-     * 视频流配置参数，仅当 RemoveVideo 为 0，该字段有效。
-     */
+      * 视频流配置参数，仅当 RemoveVideo 为 0，该字段有效。
+      */
     VideoTemplate: VideoTemplateInfo;
     /**
-     * 音频流配置参数，仅当 RemoveAudio 为 0，该字段有效 。
-     */
+      * 音频流配置参数，仅当 RemoveAudio 为 0，该字段有效 。
+      */
     AudioTemplate: AudioTemplateInfo;
     /**
-        * 极速高清转码参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 极速高清转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TEHDConfig: TEHDConfig;
     /**
-        * 封装格式过滤条件，可选值：
-  <li>Video：视频格式，可以同时包含视频流和音频流的封装格式；</li>
-  <li>PureAudio：纯音频格式，只能包含音频流的封装格式板。</li>
-        */
+      * 封装格式过滤条件，可选值：
+<li>Video：视频格式，可以同时包含视频流和音频流的封装格式；</li>
+<li>PureAudio：纯音频格式，只能包含音频流的封装格式板。</li>
+      */
     ContainerType: string;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
 }
 /**
@@ -4575,18 +4575,18 @@ export interface TranscodeTemplate {
  */
 export interface PornOcrReviewTemplateInfo {
     /**
-        * 文本鉴黄任务开关，可选值：
-  <li>ON：开启文本鉴黄任务；</li>
-  <li>OFF：关闭文本鉴黄任务。</li>
-        */
+      * 文本鉴黄任务开关，可选值：
+<li>ON：开启文本鉴黄任务；</li>
+<li>OFF：关闭文本鉴黄任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -4594,25 +4594,25 @@ export interface PornOcrReviewTemplateInfo {
  */
 export interface AiReviewTaskPoliticalAsrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Asr 文字鉴政任务输入。
-     */
+      * 内容审核 Asr 文字鉴政任务输入。
+      */
     Input: AiReviewPoliticalAsrTaskInput;
     /**
-        * 内容审核 Asr 文字鉴政任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Asr 文字鉴政任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPoliticalAsrTaskOutput;
 }
 /**
@@ -4620,16 +4620,16 @@ export interface AiReviewTaskPoliticalAsrResult {
  */
 export interface AiRecognitionTaskAsrWordsSegmentItem {
     /**
-     * 识别片段起始的偏移时间，单位：秒。
-     */
+      * 识别片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 识别片段终止的偏移时间，单位：秒。
-     */
+      * 识别片段终止的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
 }
 /**
@@ -4637,16 +4637,16 @@ export interface AiRecognitionTaskAsrWordsSegmentItem {
  */
 export interface PornConfigureInfoForUpdate {
     /**
-     * 画面鉴黄控制参数。
-     */
+      * 画面鉴黄控制参数。
+      */
     ImgReviewInfo?: PornImgReviewTemplateInfoForUpdate;
     /**
-     * 语音鉴黄控制参数。
-     */
+      * 语音鉴黄控制参数。
+      */
     AsrReviewInfo?: PornAsrReviewTemplateInfoForUpdate;
     /**
-     * 文本鉴黄控制参数。
-     */
+      * 文本鉴黄控制参数。
+      */
     OcrReviewInfo?: PornOcrReviewTemplateInfoForUpdate;
 }
 /**
@@ -4654,8 +4654,8 @@ export interface PornConfigureInfoForUpdate {
  */
 export interface AiReviewProhibitedAsrTaskInput {
     /**
-     * 鉴违禁模板 ID。
-     */
+      * 鉴违禁模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -4663,36 +4663,36 @@ export interface AiReviewProhibitedAsrTaskInput {
  */
 export interface MediaContentReviewSegmentItem {
     /**
-     * 嫌疑片段起始的偏移时间，单位：秒。
-     */
+      * 嫌疑片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 嫌疑片段结束的偏移时间，单位：秒。
-     */
+      * 嫌疑片段结束的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 嫌疑片段涉黄分数。
-     */
+      * 嫌疑片段涉黄分数。
+      */
     Confidence: number;
     /**
-     * 嫌疑片段鉴黄结果标签。
-     */
+      * 嫌疑片段鉴黄结果标签。
+      */
     Label: string;
     /**
-        * 嫌疑片段鉴黄结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 嫌疑片段鉴黄结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-   PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+ PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -4700,18 +4700,18 @@ export interface MediaContentReviewSegmentItem {
  */
 export interface TerrorismOcrReviewTemplateInfo {
     /**
-        * 文本鉴恐任务开关，可选值：
-  <li>ON：开启文本鉴恐任务；</li>
-  <li>OFF：关闭文本鉴恐任务。</li>
-        */
+      * 文本鉴恐任务开关，可选值：
+<li>ON：开启文本鉴恐任务；</li>
+<li>OFF：关闭文本鉴恐任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -4719,25 +4719,25 @@ export interface TerrorismOcrReviewTemplateInfo {
  */
 export interface AiReviewTaskPornResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核鉴黄任务输入。
-     */
+      * 内容审核鉴黄任务输入。
+      */
     Input: AiReviewPornTaskInput;
     /**
-        * 内容审核鉴黄任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核鉴黄任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPornTaskOutput;
 }
 /**
@@ -4745,19 +4745,19 @@ export interface AiReviewTaskPornResult {
  */
 export interface AiReviewProhibitedAsrTaskOutput {
     /**
-     * Asr 文字涉违禁评分，分值为0到100。
-     */
+      * Asr 文字涉违禁评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Asr 文字涉违禁结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Asr 文字涉违禁结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Asr 文字有涉违禁嫌疑的视频片段列表。
-     */
+      * Asr 文字有涉违禁嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewAsrTextSegmentItem>;
 }
 /**
@@ -4765,33 +4765,33 @@ export interface AiReviewProhibitedAsrTaskOutput {
  */
 export interface LiveStreamFaceRecognitionResult {
     /**
-     * 人物唯一标识 ID。
-     */
+      * 人物唯一标识 ID。
+      */
     Id: string;
     /**
-     * 人物名称。
-     */
+      * 人物名称。
+      */
     Name: string;
     /**
-        * 人物库类型，表示识别出的人物来自哪个人物库：
-  <li>Default：默认人物库；</li><li>UserDefine：用户自定义人物库。</li>
-        */
+      * 人物库类型，表示识别出的人物来自哪个人物库：
+<li>Default：默认人物库；</li><li>UserDefine：用户自定义人物库。</li>
+      */
     Type: string;
     /**
-     * 识别片段起始的 PTS 时间，单位：秒。
-     */
+      * 识别片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 识别片段终止的 PTS 时间，单位：秒。
-     */
+      * 识别片段终止的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoordSet: Array<number>;
 }
 /**
@@ -4799,22 +4799,22 @@ export interface LiveStreamFaceRecognitionResult {
  */
 export interface DescribeSampleSnapshotTemplatesRequest {
     /**
-     * 采样截图模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 采样截图模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
 }
 /**
@@ -4822,10 +4822,10 @@ export interface DescribeSampleSnapshotTemplatesRequest {
  */
 export interface CoverConfigureInfoForUpdate {
     /**
-        * 智能封面任务开关，可选值：
-  <li>ON：开启智能封面任务；</li>
-  <li>OFF：关闭智能封面任务。</li>
-        */
+      * 智能封面任务开关，可选值：
+<li>ON：开启智能封面任务；</li>
+<li>OFF：关闭智能封面任务。</li>
+      */
     Switch?: string;
 }
 /**
@@ -4833,8 +4833,8 @@ export interface CoverConfigureInfoForUpdate {
  */
 export interface DisableWorkflowResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4842,76 +4842,76 @@ export interface DisableWorkflowResponse {
  */
 export interface SampleSnapshotTemplate {
     /**
-     * 采样截图模板唯一标识。
-     */
+      * 采样截图模板唯一标识。
+      */
     Definition: number;
     /**
-        * 模板类型，取值范围：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-     * 采样截图模板名称。
-     */
+      * 采样截图模板名称。
+      */
     Name: string;
     /**
-     * 模板描述信息。
-     */
+      * 模板描述信息。
+      */
     Comment: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive: string;
     /**
-     * 图片格式。
-     */
+      * 图片格式。
+      */
     Format: string;
     /**
-     * 采样截图类型。
-     */
+      * 采样截图类型。
+      */
     SampleType: string;
     /**
-     * 采样间隔。
-     */
+      * 采样间隔。
+      */
     SampleInterval: number;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType: string;
 }
 /**
@@ -4919,30 +4919,30 @@ export interface SampleSnapshotTemplate {
  */
 export interface PoliticalImgReviewTemplateInfoForUpdate {
     /**
-        * 画面鉴政任务开关，可选值：
-  <li>ON：开启画面鉴政任务；</li>
-  <li>OFF：关闭画面鉴政任务。</li>
-        */
+      * 画面鉴政任务开关，可选值：
+<li>ON：开启画面鉴政任务；</li>
+<li>OFF：关闭画面鉴政任务。</li>
+      */
     Switch?: string;
     /**
-        * 画面鉴政过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>violation_photo：违规图标；</li>
-  <li>politician：政治人物；</li>
-  <li>entertainment：娱乐人物；</li>
-  <li>sport：体育人物；</li>
-  <li>entrepreneur：商业人物；</li>
-  <li>scholar：教育学者；</li>
-  <li>celebrity：知名人物；</li>
-  <li>military：军事人物。</li>
-        */
+      * 画面鉴政过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>violation_photo：违规图标；</li>
+<li>politician：政治人物；</li>
+<li>entertainment：娱乐人物；</li>
+<li>sport：体育人物；</li>
+<li>entrepreneur：商业人物；</li>
+<li>scholar：教育学者；</li>
+<li>celebrity：知名人物；</li>
+<li>military：军事人物。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -4950,23 +4950,23 @@ export interface PoliticalImgReviewTemplateInfoForUpdate {
  */
 export interface UserDefineOcrTextReviewTemplateInfo {
     /**
-        * 用户自定文本审核任务开关，可选值：
-  <li>ON：开启自定义文本审核任务；</li>
-  <li>OFF：关闭自定义文本审核任务。</li>
-        */
+      * 用户自定文本审核任务开关，可选值：
+<li>ON：开启自定义文本审核任务；</li>
+<li>OFF：关闭自定义文本审核任务。</li>
+      */
     Switch: string;
     /**
-        * 用户自定义文本过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义文本关键词素材时需要添加对应标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义文本过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义文本关键词素材时需要添加对应标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -4974,24 +4974,24 @@ export interface UserDefineOcrTextReviewTemplateInfo {
  */
 export interface AdaptiveStreamTemplate {
     /**
-     * 视频参数信息。
-     */
+      * 视频参数信息。
+      */
     Video: VideoTemplateInfo;
     /**
-     * 音频参数信息。
-     */
+      * 音频参数信息。
+      */
     Audio: AudioTemplateInfo;
     /**
-        * 是否移除音频流，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否移除音频流，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     RemoveAudio?: number;
     /**
-        * 是否移除视频流，取值范围：
-  <li>0：否，</li>
-  <li>1：是。</li>
-        */
+      * 是否移除视频流，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+      */
     RemoveVideo?: number;
 }
 /**
@@ -4999,41 +4999,41 @@ export interface AdaptiveStreamTemplate {
  */
 export interface TranscodeTaskInput {
     /**
-     * 视频转码模板 ID。
-     */
+      * 视频转码模板 ID。
+      */
     Definition: number;
     /**
-        * 视频转码自定义参数，当 Definition 填 0 时有效。
-  该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频转码自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定转码参数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     RawParameter?: RawTranscodeParameter;
     /**
-        * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     WatermarkSet?: Array<WatermarkInput>;
     /**
-     * 马赛克列表，最大可支持 10 张。
-     */
+      * 马赛克列表，最大可支持 10 张。
+      */
     MosaicSet?: Array<MosaicInput>;
     /**
-        * 转码后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转码后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
-     */
+      * 转码后主文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_transcode_{definition}.{format}`。
+      */
     OutputObjectPath?: string;
     /**
-     * 转码后分片文件的输出路径（转码 HLS 时 ts 的路径），只能为相对路径。如果不填，则默认为：`{inputName}_transcode_{definition}_{number}.{format}`。
-     */
+      * 转码后分片文件的输出路径（转码 HLS 时 ts 的路径），只能为相对路径。如果不填，则默认为：`{inputName}_transcode_{definition}_{number}.{format}`。
+      */
     SegmentObjectName?: string;
     /**
-        * 转码后输出路径中的`{number}`变量的规则。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转码后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ObjectNumberFormat?: NumberFormat;
 }
 /**
@@ -5041,36 +5041,36 @@ export interface TranscodeTaskInput {
  */
 export interface ModifyAIRecognitionTemplateRequest {
     /**
-     * 视频内容识别模板唯一标识。
-     */
+      * 视频内容识别模板唯一标识。
+      */
     Definition: number;
     /**
-     * 视频内容识别模板名称，长度限制：64 个字符。
-     */
+      * 视频内容识别模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 视频内容识别模板描述信息，长度限制：256 个字符。
-     */
+      * 视频内容识别模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 人脸识别控制参数。
-     */
+      * 人脸识别控制参数。
+      */
     FaceConfigure?: FaceConfigureInfoForUpdate;
     /**
-     * 文本全文识别控制参数。
-     */
+      * 文本全文识别控制参数。
+      */
     OcrFullTextConfigure?: OcrFullTextConfigureInfoForUpdate;
     /**
-     * 文本关键词识别控制参数。
-     */
+      * 文本关键词识别控制参数。
+      */
     OcrWordsConfigure?: OcrWordsConfigureInfoForUpdate;
     /**
-     * 语音全文识别控制参数。
-     */
+      * 语音全文识别控制参数。
+      */
     AsrFullTextConfigure?: AsrFullTextConfigureInfoForUpdate;
     /**
-     * 语音关键词识别控制参数。
-     */
+      * 语音关键词识别控制参数。
+      */
     AsrWordsConfigure?: AsrWordsConfigureInfoForUpdate;
 }
 /**
@@ -5078,32 +5078,32 @@ export interface ModifyAIRecognitionTemplateRequest {
  */
 export interface ParseNotificationResponse {
     /**
-        * 支持事件类型，目前取值有：
-  <li>WorkflowTask：视频工作流处理任务。</li>
-  <li>EditMediaTask：视频编辑任务。</li>
-        */
+      * 支持事件类型，目前取值有：
+<li>WorkflowTask：视频工作流处理任务。</li>
+<li>EditMediaTask：视频编辑任务。</li>
+      */
     EventType?: string;
     /**
-        * 视频处理任务信息，仅当 TaskType 为 WorkflowTask，该字段有值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频处理任务信息，仅当 TaskType 为 WorkflowTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     WorkflowTaskEvent?: WorkflowTask;
     /**
-        * 视频编辑任务信息，仅当 TaskType 为 EditMediaTask，该字段有值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频编辑任务信息，仅当 TaskType 为 EditMediaTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     EditMediaTaskEvent?: EditMediaTask;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
+      */
     SessionContext?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5111,8 +5111,8 @@ export interface ParseNotificationResponse {
  */
 export interface ResetWorkflowResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5120,12 +5120,12 @@ export interface ResetWorkflowResponse {
  */
 export interface CreateAIAnalysisTemplateResponse {
     /**
-     * 视频内容分析模板唯一标识。
-     */
+      * 视频内容分析模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5133,28 +5133,28 @@ export interface CreateAIAnalysisTemplateResponse {
  */
 export interface MediaProcessTaskSampleSnapshotResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-        * 错误码，0 表示成功，其他值表示失败：
-  <li>40000：输入参数不合法，请检查输入参数；</li>
-  <li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
-  <li>70000：内部服务错误，建议重试。</li>
-        */
+      * 错误码，0 表示成功，其他值表示失败：
+<li>40000：输入参数不合法，请检查输入参数；</li>
+<li>60000：源文件错误（如视频数据损坏），请确认源文件是否正常；</li>
+<li>70000：内部服务错误，建议重试。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 对视频做采样截图任务输入。
-     */
+      * 对视频做采样截图任务输入。
+      */
     Input: SampleSnapshotTaskInput;
     /**
-        * 对视频做采样截图任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频做采样截图任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: MediaSampleSnapshotItem;
 }
 /**
@@ -5162,16 +5162,16 @@ export interface MediaProcessTaskSampleSnapshotResult {
  */
 export interface UserDefineConfigureInfoForUpdate {
     /**
-     * 用户自定义人物审核控制参数。
-     */
+      * 用户自定义人物审核控制参数。
+      */
     FaceReviewInfo: UserDefineFaceReviewTemplateInfoForUpdate;
     /**
-     * 用户自定义语音审核控制参数。
-     */
+      * 用户自定义语音审核控制参数。
+      */
     AsrReviewInfo: UserDefineAsrTextReviewTemplateInfoForUpdate;
     /**
-     * 用户自定义文本审核控制参数。
-     */
+      * 用户自定义文本审核控制参数。
+      */
     OcrReviewInfo: UserDefineOcrTextReviewTemplateInfoForUpdate;
 }
 /**
@@ -5179,20 +5179,20 @@ export interface UserDefineConfigureInfoForUpdate {
  */
 export interface CosFileUploadTrigger {
     /**
-     * 工作流绑定的 COS Bucket 名，如 TopRankVideo-125xxx88。
-     */
+      * 工作流绑定的 COS Bucket 名，如 TopRankVideo-125xxx88。
+      */
     Bucket: string;
     /**
-     * 工作流绑定的 COS Bucket 所属园区，如 ap-chongiqng。
-     */
+      * 工作流绑定的 COS Bucket 所属园区，如 ap-chongiqng。
+      */
     Region: string;
     /**
-     * 工作流绑定的输入路径目录，必须为绝对路径，即以 `/` 开头和结尾。如`/movie/201907/`，不填代表根目录`/`。
-     */
+      * 工作流绑定的输入路径目录，必须为绝对路径，即以 `/` 开头和结尾。如`/movie/201907/`，不填代表根目录`/`。
+      */
     Dir?: string;
     /**
-     * 工作流允许触发的文件格式列表，如 ["mp4", "flv", "mov"]。不填代表所有格式的文件都可以触发工作流。
-     */
+      * 工作流允许触发的文件格式列表，如 ["mp4", "flv", "mov"]。不填代表所有格式的文件都可以触发工作流。
+      */
     Formats?: Array<string>;
 }
 /**
@@ -5200,19 +5200,19 @@ export interface CosFileUploadTrigger {
  */
 export interface AiReviewPoliticalAsrTaskOutput {
     /**
-     * Asr 文字涉政、敏感评分，分值为0到100。
-     */
+      * Asr 文字涉政、敏感评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Asr 文字涉政、敏感结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Asr 文字涉政、敏感结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Asr 文字有涉政、敏感嫌疑的视频片段列表。
-     */
+      * Asr 文字有涉政、敏感嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewAsrTextSegmentItem>;
 }
 /**
@@ -5220,14 +5220,14 @@ export interface AiReviewPoliticalAsrTaskOutput {
  */
 export interface TEHDConfigForUpdate {
     /**
-        * 极速高清类型，可选值：
-  <li>TEHD-100：极速高清-100。</li>
-  不填代表不修改。
-        */
+      * 极速高清类型，可选值：
+<li>TEHD-100：极速高清-100。</li>
+不填代表不修改。
+      */
     Type?: string;
     /**
-     * 视频码率上限，不填代表不修改。
-     */
+      * 视频码率上限，不填代表不修改。
+      */
     MaxVideoBitrate?: number;
 }
 /**
@@ -5235,31 +5235,31 @@ export interface TEHDConfigForUpdate {
  */
 export interface ModifyPersonSampleRequest {
     /**
-     * 人物 ID。
-     */
+      * 人物 ID。
+      */
     PersonId: string;
     /**
-     * 名称，长度限制：128 个字符。
-     */
+      * 名称，长度限制：128 个字符。
+      */
     Name?: string;
     /**
-     * 描述，长度限制：1024 个字符。
-     */
+      * 描述，长度限制：1024 个字符。
+      */
     Description?: string;
     /**
-        * 人物应用场景，可选值：
-  1. Recognition：用于内容识别，等价于 Recognition.Face。
-  2. Review：用于内容审核，等价于 Review.Face。
-  3. All：用于内容识别、内容审核，等价于 1+2。
-        */
+      * 人物应用场景，可选值：
+1. Recognition：用于内容识别，等价于 Recognition.Face。
+2. Review：用于内容审核，等价于 Review.Face。
+3. All：用于内容识别、内容审核，等价于 1+2。
+      */
     Usages?: Array<string>;
     /**
-     * 人脸操作信息。
-     */
+      * 人脸操作信息。
+      */
     FaceOperationInfo?: AiSampleFaceOperation;
     /**
-     * 标签操作信息。
-     */
+      * 标签操作信息。
+      */
     TagOperationInfo?: AiSampleTagOperation;
 }
 /**
@@ -5267,15 +5267,15 @@ export interface ModifyPersonSampleRequest {
  */
 export interface AsrFullTextConfigureInfo {
     /**
-        * 语音全文识别任务开关，可选值：
-  <li>ON：开启智能语音全文识别任务；</li>
-  <li>OFF：关闭智能语音全文识别任务。</li>
-        */
+      * 语音全文识别任务开关，可选值：
+<li>ON：开启智能语音全文识别任务；</li>
+<li>OFF：关闭智能语音全文识别任务。</li>
+      */
     Switch: string;
     /**
-        * 生成的字幕文件格式，不填或者填空字符串表示不生成字幕文件，可选值：
-  <li>vtt：生成 WebVTT 字幕文件。</li>
-        */
+      * 生成的字幕文件格式，不填或者填空字符串表示不生成字幕文件，可选值：
+<li>vtt：生成 WebVTT 字幕文件。</li>
+      */
     SubtitleFormat?: string;
 }
 /**
@@ -5283,12 +5283,12 @@ export interface AsrFullTextConfigureInfo {
  */
 export interface DescribeMediaMetaDataResponse {
     /**
-     * 媒体元信息。
-     */
+      * 媒体元信息。
+      */
     MetaData?: MediaMetaData;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5296,32 +5296,32 @@ export interface DescribeMediaMetaDataResponse {
  */
 export interface CreateAIRecognitionTemplateRequest {
     /**
-     * 视频内容识别模板名称，长度限制：64 个字符。
-     */
+      * 视频内容识别模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 视频内容识别模板描述信息，长度限制：256 个字符。
-     */
+      * 视频内容识别模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 人脸识别控制参数。
-     */
+      * 人脸识别控制参数。
+      */
     FaceConfigure?: FaceConfigureInfo;
     /**
-     * 文本全文识别控制参数。
-     */
+      * 文本全文识别控制参数。
+      */
     OcrFullTextConfigure?: OcrFullTextConfigureInfo;
     /**
-     * 文本关键词识别控制参数。
-     */
+      * 文本关键词识别控制参数。
+      */
     OcrWordsConfigure?: OcrWordsConfigureInfo;
     /**
-     * 语音全文识别控制参数。
-     */
+      * 语音全文识别控制参数。
+      */
     AsrFullTextConfigure?: AsrFullTextConfigureInfo;
     /**
-     * 语音关键词识别控制参数。
-     */
+      * 语音关键词识别控制参数。
+      */
     AsrWordsConfigure?: AsrWordsConfigureInfo;
 }
 /**
@@ -5329,8 +5329,8 @@ export interface CreateAIRecognitionTemplateRequest {
  */
 export interface DescribeTaskDetailRequest {
     /**
-     * 视频处理任务的任务 ID。
-     */
+      * 视频处理任务的任务 ID。
+      */
     TaskId: string;
 }
 /**
@@ -5338,25 +5338,25 @@ export interface DescribeTaskDetailRequest {
  */
 export interface AiAnalysisTaskFrameTagResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 智能按帧标签任务输入。
-     */
+      * 智能按帧标签任务输入。
+      */
     Input: AiAnalysisTaskFrameTagInput;
     /**
-        * 智能按帧标签任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能按帧标签任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiAnalysisTaskFrameTagOutput;
 }
 /**
@@ -5364,27 +5364,27 @@ export interface AiAnalysisTaskFrameTagResult {
  */
 export interface AiReviewPornTaskOutput {
     /**
-     * 视频鉴黄评分，分值为0到100。
-     */
+      * 视频鉴黄评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * 鉴黄结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 鉴黄结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-        * 视频鉴黄结果标签，取值范围：
-  <li>porn：色情。</li>
-  <li>sexy：性感。</li>
-  <li>vulgar：低俗。</li>
-  <li>intimacy：亲密行为。</li>
-        */
+      * 视频鉴黄结果标签，取值范围：
+<li>porn：色情。</li>
+<li>sexy：性感。</li>
+<li>vulgar：低俗。</li>
+<li>intimacy：亲密行为。</li>
+      */
     Label: string;
     /**
-     * 有涉黄嫌疑的视频片段列表。
-     */
+      * 有涉黄嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewSegmentItem>;
 }
 /**
@@ -5392,12 +5392,12 @@ export interface AiReviewPornTaskOutput {
  */
 export interface CreateWorkflowResponse {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5405,25 +5405,25 @@ export interface CreateWorkflowResponse {
  */
 export interface AiRecognitionTaskAsrFullTextResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 语音全文识别任务输入信息。
-     */
+      * 语音全文识别任务输入信息。
+      */
     Input: AiRecognitionTaskAsrFullTextResultInput;
     /**
-        * 语音全文识别任务输出信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 语音全文识别任务输出信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiRecognitionTaskAsrFullTextResultOutput;
 }
 /**
@@ -5431,8 +5431,8 @@ export interface AiRecognitionTaskAsrFullTextResult {
  */
 export interface ModifyAIRecognitionTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5440,30 +5440,30 @@ export interface ModifyAIRecognitionTemplateResponse {
  */
 export interface PoliticalImgReviewTemplateInfo {
     /**
-        * 画面鉴政任务开关，可选值：
-  <li>ON：开启画面鉴政任务；</li>
-  <li>OFF：关闭画面鉴政任务。</li>
-        */
+      * 画面鉴政任务开关，可选值：
+<li>ON：开启画面鉴政任务；</li>
+<li>OFF：关闭画面鉴政任务。</li>
+      */
     Switch: string;
     /**
-        * 画面鉴政过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>violation_photo：违规图标；</li>
-  <li>politician：政治人物；</li>
-  <li>entertainment：娱乐人物；</li>
-  <li>sport：体育人物；</li>
-  <li>entrepreneur：商业人物；</li>
-  <li>scholar：教育学者；</li>
-  <li>celebrity：知名人物；</li>
-  <li>military：军事人物。</li>
-        */
+      * 画面鉴政过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>violation_photo：违规图标；</li>
+<li>politician：政治人物；</li>
+<li>entertainment：娱乐人物；</li>
+<li>sport：体育人物；</li>
+<li>entrepreneur：商业人物；</li>
+<li>scholar：教育学者；</li>
+<li>celebrity：知名人物；</li>
+<li>military：军事人物。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 97 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 97 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 95 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 95 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -5471,16 +5471,16 @@ export interface PoliticalImgReviewTemplateInfo {
  */
 export interface PoliticalConfigureInfo {
     /**
-     * 画面鉴政控制参数。
-     */
+      * 画面鉴政控制参数。
+      */
     ImgReviewInfo?: PoliticalImgReviewTemplateInfo;
     /**
-     * 语音鉴政控制参数。
-     */
+      * 语音鉴政控制参数。
+      */
     AsrReviewInfo?: PoliticalAsrReviewTemplateInfo;
     /**
-     * 文本鉴政控制参数。
-     */
+      * 文本鉴政控制参数。
+      */
     OcrReviewInfo?: PoliticalOcrReviewTemplateInfo;
 }
 /**
@@ -5488,53 +5488,53 @@ export interface PoliticalConfigureInfo {
  */
 export interface ModifyAnimatedGraphicsTemplateRequest {
     /**
-     * 转动图模板唯一标识。
-     */
+      * 转动图模板唯一标识。
+      */
     Definition: number;
     /**
-     * 转动图模板名称，长度限制：64 个字符。
-     */
+      * 转动图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-     * 动图格式，取值为 gif 和 webp。
-     */
+      * 动图格式，取值为 gif 和 webp。
+      */
     Format?: string;
     /**
-     * 帧率，取值范围：[1, 30]，单位：Hz。
-     */
+      * 帧率，取值范围：[1, 30]，单位：Hz。
+      */
     Fps?: number;
     /**
-     * 图片质量，取值范围：[1, 100]，默认值为 75。
-     */
+      * 图片质量，取值范围：[1, 100]，默认值为 75。
+      */
     Quality?: number;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -5542,20 +5542,20 @@ export interface ModifyAnimatedGraphicsTemplateRequest {
  */
 export interface AiRecognitionTaskOcrWordsSegmentItem {
     /**
-     * 识别片段起始的偏移时间，单位：秒。
-     */
+      * 识别片段起始的偏移时间，单位：秒。
+      */
     StartTimeOffset: number;
     /**
-     * 识别片段终止的偏移时间，单位：秒。
-     */
+      * 识别片段终止的偏移时间，单位：秒。
+      */
     EndTimeOffset: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoordSet: Array<number>;
 }
 /**
@@ -5563,45 +5563,45 @@ export interface AiRecognitionTaskOcrWordsSegmentItem {
  */
 export interface MediaProcessTaskResult {
     /**
-        * 任务的类型，可以取的值有：
-  <li>Transcode：转码</li>
-  <li>AnimatedGraphics：转动图</li>
-  <li>SnapshotByTimeOffset：时间点截图</li>
-  <li>SampleSnapshot：采样截图</li>
-  <li>ImageSprites：雪碧图</li>
-  <li>CoverBySnapshot：截图做封面</li>
-  <li>AdaptiveDynamicStreaming：自适应码流</li>
-        */
+      * 任务的类型，可以取的值有：
+<li>Transcode：转码</li>
+<li>AnimatedGraphics：转动图</li>
+<li>SnapshotByTimeOffset：时间点截图</li>
+<li>SampleSnapshot：采样截图</li>
+<li>ImageSprites：雪碧图</li>
+<li>CoverBySnapshot：截图做封面</li>
+<li>AdaptiveDynamicStreaming：自适应码流</li>
+      */
     Type: string;
     /**
-        * 视频转码任务的查询结果，当任务类型为 Transcode 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频转码任务的查询结果，当任务类型为 Transcode 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TranscodeTask: MediaProcessTaskTranscodeResult;
     /**
-        * 视频转动图任务的查询结果，当任务类型为 AnimatedGraphics 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频转动图任务的查询结果，当任务类型为 AnimatedGraphics 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AnimatedGraphicTask: MediaProcessTaskAnimatedGraphicResult;
     /**
-        * 对视频按时间点截图任务的查询结果，当任务类型为 SnapshotByTimeOffset 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频按时间点截图任务的查询结果，当任务类型为 SnapshotByTimeOffset 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     SnapshotByTimeOffsetTask: MediaProcessTaskSnapshotByTimeOffsetResult;
     /**
-        * 对视频采样截图任务的查询结果，当任务类型为 SampleSnapshot 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频采样截图任务的查询结果，当任务类型为 SampleSnapshot 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     SampleSnapshotTask: MediaProcessTaskSampleSnapshotResult;
     /**
-        * 对视频截雪碧图任务的查询结果，当任务类型为 ImageSprite 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对视频截雪碧图任务的查询结果，当任务类型为 ImageSprite 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ImageSpriteTask: MediaProcessTaskImageSpriteResult;
     /**
-        * 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转自适应码流任务查询结果，当任务类型为 AdaptiveDynamicStreaming 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AdaptiveDynamicStreamingTask: MediaProcessTaskAdaptiveDynamicStreamingResult;
 }
 /**
@@ -5609,8 +5609,8 @@ export interface MediaProcessTaskResult {
  */
 export interface DeleteWordSamplesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5618,35 +5618,35 @@ export interface DeleteWordSamplesResponse {
  */
 export interface WatermarkInput {
     /**
-     * 水印模板 ID。
-     */
+      * 水印模板 ID。
+      */
     Definition: number;
     /**
-        * 水印自定义参数，当 Definition 填 0 时有效。
-  该参数用于高度定制场景，建议您优先使用 Definition 指定水印参数。
-        */
+      * 水印自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定水印参数。
+      */
     RawParameter?: RawWatermarkParameter;
     /**
-     * 文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
-     */
+      * 文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
+      */
     TextContent?: string;
     /**
-     * SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
-     */
+      * SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
+      */
     SvgContent?: string;
     /**
-        * 水印的起始时间偏移，单位：秒。不填或填0，表示水印从画面出现时开始显现。
-  <li>不填或填0，表示水印从画面开始就出现；</li>
-  <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
-  <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
-        */
+      * 水印的起始时间偏移，单位：秒。不填或填0，表示水印从画面出现时开始显现。
+<li>不填或填0，表示水印从画面开始就出现；</li>
+<li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
+<li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
+      */
     StartTimeOffset?: number;
     /**
-        * 水印的结束时间偏移，单位：秒。
-  <li>不填或填0，表示水印持续到画面结束；</li>
-  <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
-  <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
-        */
+      * 水印的结束时间偏移，单位：秒。
+<li>不填或填0，表示水印持续到画面结束；</li>
+<li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
+<li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
+      */
     EndTimeOffset?: number;
 }
 /**
@@ -5654,8 +5654,8 @@ export interface WatermarkInput {
  */
 export interface EnableWorkflowResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5663,14 +5663,14 @@ export interface EnableWorkflowResponse {
  */
 export interface AiSampleWordInfo {
     /**
-     * 关键词，长度限制：20 个字符。
-     */
+      * 关键词，长度限制：20 个字符。
+      */
     Keyword: string;
     /**
-        * 关键词标签
-  <li>数组长度限制：20 个标签；</li>
-  <li>单个标签长度限制：128 个字符。</li>
-        */
+      * 关键词标签
+<li>数组长度限制：20 个标签；</li>
+<li>单个标签长度限制：128 个字符。</li>
+      */
     Tags?: Array<string>;
 }
 /**
@@ -5678,20 +5678,20 @@ export interface AiSampleWordInfo {
  */
 export interface AdaptiveDynamicStreamingInfoItem {
     /**
-     * 转自适应码流规格。
-     */
+      * 转自适应码流规格。
+      */
     Definition: number;
     /**
-     * 打包格式，可能为 HLS和 MPEG-DASH 两种。
-     */
+      * 打包格式，可能为 HLS和 MPEG-DASH 两种。
+      */
     Package: string;
     /**
-     * 播放路径。
-     */
+      * 播放路径。
+      */
     Path: string;
     /**
-     * 自适应码流文件的存储位置。
-     */
+      * 自适应码流文件的存储位置。
+      */
     Storage: TaskOutputStorage;
 }
 /**
@@ -5699,18 +5699,18 @@ export interface AdaptiveDynamicStreamingInfoItem {
  */
 export interface ProhibitedOcrReviewTemplateInfo {
     /**
-        * 文本违禁任务开关，可选值：
-  <li>ON：开启文本违禁任务；</li>
-  <li>OFF：关闭文本违禁任务。</li>
-        */
+      * 文本违禁任务开关，可选值：
+<li>ON：开启文本违禁任务；</li>
+<li>OFF：关闭文本违禁任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -5718,24 +5718,24 @@ export interface ProhibitedOcrReviewTemplateInfo {
  */
 export interface LiveStreamOcrFullTextRecognitionResult {
     /**
-     * 语音文本。
-     */
+      * 语音文本。
+      */
     Text: string;
     /**
-     * 识别片段起始的 PTS 时间，单位：秒。
-     */
+      * 识别片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 识别片段终止的 PTS 时间，单位：秒。
-     */
+      * 识别片段终止的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 识别片段置信度。取值：0~100。
-     */
+      * 识别片段置信度。取值：0~100。
+      */
     Confidence: number;
     /**
-     * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
-     */
+      * 识别结果的区域坐标。数组包含 4 个元素 [x1,y1,x2,y2]，依次表示区域左上点、右下点的横纵坐标。
+      */
     AreaCoordSet: Array<number>;
 }
 /**
@@ -5743,8 +5743,8 @@ export interface LiveStreamOcrFullTextRecognitionResult {
  */
 export interface ModifyTranscodeTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5752,48 +5752,48 @@ export interface ModifyTranscodeTemplateResponse {
  */
 export interface MediaMetaData {
     /**
-     * 上传的媒体文件大小（视频为 HLS 时，大小是 m3u8 和 ts 文件大小的总和），单位：字节。
-     */
+      * 上传的媒体文件大小（视频为 HLS 时，大小是 m3u8 和 ts 文件大小的总和），单位：字节。
+      */
     Size: number;
     /**
-     * 容器类型，例如 m4a，mp4 等。
-     */
+      * 容器类型，例如 m4a，mp4 等。
+      */
     Container: string;
     /**
-     * 视频流码率平均值与音频流码率平均值之和，单位：bps。
-     */
+      * 视频流码率平均值与音频流码率平均值之和，单位：bps。
+      */
     Bitrate: number;
     /**
-     * 视频流高度的最大值，单位：px。
-     */
+      * 视频流高度的最大值，单位：px。
+      */
     Height: number;
     /**
-     * 视频流宽度的最大值，单位：px。
-     */
+      * 视频流宽度的最大值，单位：px。
+      */
     Width: number;
     /**
-     * 视频时长，单位：秒。
-     */
+      * 视频时长，单位：秒。
+      */
     Duration: number;
     /**
-     * 视频拍摄时的选择角度，单位：度。
-     */
+      * 视频拍摄时的选择角度，单位：度。
+      */
     Rotate: number;
     /**
-     * 视频流信息。
-     */
+      * 视频流信息。
+      */
     VideoStreamSet: Array<MediaVideoStreamItem>;
     /**
-     * 音频流信息。
-     */
+      * 音频流信息。
+      */
     AudioStreamSet: Array<MediaAudioStreamItem>;
     /**
-     * 视频时长，单位：秒。
-     */
+      * 视频时长，单位：秒。
+      */
     VideoDuration: number;
     /**
-     * 音频时长，单位：秒。
-     */
+      * 音频时长，单位：秒。
+      */
     AudioDuration: number;
 }
 /**
@@ -5801,50 +5801,50 @@ export interface MediaMetaData {
  */
 export interface VideoTemplateInfoForUpdate {
     /**
-        * 视频流的编码格式，可选值：
-  <li>libx264：H.264 编码</li>
-  <li>libx265：H.265 编码</li>
-  <li>av1：AOMedia Video 1 编码</li>
-  目前 H.265 编码必须指定分辨率，并且需要在 640*480 以内。av1 编码容器目前只支持 mp4 。
-        */
+      * 视频流的编码格式，可选值：
+<li>libx264：H.264 编码</li>
+<li>libx265：H.265 编码</li>
+<li>av1：AOMedia Video 1 编码</li>
+目前 H.265 编码必须指定分辨率，并且需要在 640*480 以内。av1 编码容器目前只支持 mp4 。
+      */
     Codec?: string;
     /**
-        * 视频帧率，取值范围：[0, 100]，单位：Hz。
-  当取值为 0，表示帧率和原始视频保持一致。
-        */
+      * 视频帧率，取值范围：[0, 100]，单位：Hz。
+当取值为 0，表示帧率和原始视频保持一致。
+      */
     Fps?: number;
     /**
-        * 视频流的码率，取值范围：0 和 [128, 35000]，单位：kbps。
-  当取值为 0，表示视频码率和原始视频保持一致。
-        */
+      * 视频流的码率，取值范围：0 和 [128, 35000]，单位：kbps。
+当取值为 0，表示视频码率和原始视频保持一致。
+      */
     Bitrate?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+      */
     ResolutionAdaptive?: string;
     /**
-        * 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-        */
+      * 视频流宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+      */
     Width?: number;
     /**
-     * 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-     */
+      * 视频流高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+      */
     Height?: number;
     /**
-     * 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。当填 0 时，系统将自动设置 gop 长度。
-     */
+      * 关键帧 I 帧之间的间隔，取值范围：0 和 [1, 100000]，单位：帧数。当填 0 时，系统将自动设置 gop 长度。
+      */
     Gop?: number;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+      */
     FillType?: string;
 }
 /**
@@ -5852,35 +5852,35 @@ export interface VideoTemplateInfoForUpdate {
  */
 export interface CreateContentReviewTemplateRequest {
     /**
-     * 内容审核模板名称，长度限制：64 个字符。
-     */
+      * 内容审核模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 内容审核模板描述信息，长度限制：256 个字符。
-     */
+      * 内容审核模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 鉴黄控制参数。
-     */
+      * 鉴黄控制参数。
+      */
     PornConfigure?: PornConfigureInfo;
     /**
-     * 鉴恐控制参数。
-     */
+      * 鉴恐控制参数。
+      */
     TerrorismConfigure?: TerrorismConfigureInfo;
     /**
-     * 鉴政控制参数。
-     */
+      * 鉴政控制参数。
+      */
     PoliticalConfigure?: PoliticalConfigureInfo;
     /**
-        * 违禁控制参数。违禁内容包括：
-  <li>谩骂；</li>
-  <li>涉毒违法。</li>
-  注意：此参数尚未支持。
-        */
+      * 违禁控制参数。违禁内容包括：
+<li>谩骂；</li>
+<li>涉毒违法。</li>
+注意：此参数尚未支持。
+      */
     ProhibitedConfigure?: ProhibitedConfigureInfo;
     /**
-     * 用户自定义内容审核控制参数。
-     */
+      * 用户自定义内容审核控制参数。
+      */
     UserDefineConfigure?: UserDefineConfigureInfo;
 }
 /**
@@ -5888,16 +5888,16 @@ export interface CreateContentReviewTemplateRequest {
  */
 export interface DescribeContentReviewTemplatesRequest {
     /**
-     * 内容审核模板唯一标识过滤条件，数组长度限制：50。
-     */
+      * 内容审核模板唯一标识过滤条件，数组长度限制：50。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：50。
-     */
+      * 返回记录条数，默认值：10，最大值：50。
+      */
     Limit?: number;
 }
 /**
@@ -5905,29 +5905,29 @@ export interface DescribeContentReviewTemplatesRequest {
  */
 export interface AdaptiveDynamicStreamingTaskInput {
     /**
-     * 转自适应码流模板 ID。
-     */
+      * 转自适应码流模板 ID。
+      */
     Definition: number;
     /**
-     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-     */
+      * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+      */
     WatermarkSet?: Array<WatermarkInput>;
     /**
-        * 转自适应码流后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 转自适应码流后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
-     */
+      * 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
+      */
     OutputObjectPath?: string;
     /**
-     * 转自适应码流后，子流文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}_{subStreamNumber}.{format}`。
-     */
+      * 转自适应码流后，子流文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}_{subStreamNumber}.{format}`。
+      */
     SubStreamObjectName?: string;
     /**
-     * 转自适应码流（仅 HLS）后，分片文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}_{subStreamNumber}_{segmentNumber}.{format}`。
-     */
+      * 转自适应码流（仅 HLS）后，分片文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}_{subStreamNumber}_{segmentNumber}.{format}`。
+      */
     SegmentObjectName?: string;
 }
 /**
@@ -5935,16 +5935,16 @@ export interface AdaptiveDynamicStreamingTaskInput {
  */
 export interface DescribeImageSpriteTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 雪碧图模板详情列表。
-     */
+      * 雪碧图模板详情列表。
+      */
     ImageSpriteTemplateSet?: Array<ImageSpriteTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5952,24 +5952,24 @@ export interface DescribeImageSpriteTemplatesResponse {
  */
 export interface TaskNotifyConfig {
     /**
-     * CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
-     */
+      * CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
+      */
     CmqModel: string;
     /**
-     * CMQ 的园区，如 sh，bj 等。
-     */
+      * CMQ 的园区，如 sh，bj 等。
+      */
     CmqRegion: string;
     /**
-     * 当模型为 Queue 时有效，表示接收事件通知的 CMQ 的队列名。
-     */
+      * 当模型为 Queue 时有效，表示接收事件通知的 CMQ 的队列名。
+      */
     QueueName?: string;
     /**
-     * 当模型为 Topic 时有效，表示接收事件通知的 CMQ 的主题名。
-     */
+      * 当模型为 Topic 时有效，表示接收事件通知的 CMQ 的主题名。
+      */
     TopicName?: string;
     /**
-     * 工作流通知的模式，可取值有 Finish 和 Change，不填代表 Finish。
-     */
+      * 工作流通知的模式，可取值有 Finish 和 Change，不填代表 Finish。
+      */
     NotifyMode?: string;
 }
 /**
@@ -5977,25 +5977,25 @@ export interface TaskNotifyConfig {
  */
 export interface AiReviewTaskPoliticalResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核鉴政任务输入。
-     */
+      * 内容审核鉴政任务输入。
+      */
     Input: AiReviewPoliticalTaskInput;
     /**
-        * 内容审核鉴政任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核鉴政任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPoliticalTaskOutput;
 }
 /**
@@ -6003,8 +6003,8 @@ export interface AiReviewTaskPoliticalResult {
  */
 export interface AiAnalysisTaskFrameTagInput {
     /**
-     * 视频智能按帧标签模板 ID。
-     */
+      * 视频智能按帧标签模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6012,16 +6012,16 @@ export interface AiAnalysisTaskFrameTagInput {
  */
 export interface MediaAiAnalysisFrameTagSegmentItem {
     /**
-     * 按帧标签起始的偏移时间。
-     */
+      * 按帧标签起始的偏移时间。
+      */
     StartTimeOffset: number;
     /**
-     * 按帧标签结束的偏移时间。
-     */
+      * 按帧标签结束的偏移时间。
+      */
     EndTimeOffset: number;
     /**
-     * 时间片段内的标签列表。
-     */
+      * 时间片段内的标签列表。
+      */
     TagSet: Array<MediaAiAnalysisFrameTagItem>;
 }
 /**
@@ -6029,12 +6029,12 @@ export interface MediaAiAnalysisFrameTagSegmentItem {
  */
 export interface AiRecognitionTaskAsrWordsResultItem {
     /**
-     * 语音关键词。
-     */
+      * 语音关键词。
+      */
     Word: string;
     /**
-     * 语音关键词出现的时间片段列表。
-     */
+      * 语音关键词出现的时间片段列表。
+      */
     SegmentSet: Array<AiRecognitionTaskAsrWordsSegmentItem>;
 }
 /**
@@ -6042,70 +6042,70 @@ export interface AiRecognitionTaskAsrWordsResultItem {
  */
 export interface DescribeTaskDetailResponse {
     /**
-        * 任务类型，目前取值有：
-  <li>WorkflowTask：视频工作流处理任务。</li>
-  <li>EditMediaTask：视频编辑任务。</li>
-  <li>LiveStreamProcessTask：直播流处理任务。</li>
-        */
+      * 任务类型，目前取值有：
+<li>WorkflowTask：视频工作流处理任务。</li>
+<li>EditMediaTask：视频编辑任务。</li>
+<li>LiveStreamProcessTask：直播流处理任务。</li>
+      */
     TaskType?: string;
     /**
-        * 任务状态，取值：
-  <li>WAITING：等待中；</li>
-  <li>PROCESSING：处理中；</li>
-  <li>FINISH：已完成。</li>
-        */
+      * 任务状态，取值：
+<li>WAITING：等待中；</li>
+<li>PROCESSING：处理中；</li>
+<li>FINISH：已完成。</li>
+      */
     Status?: string;
     /**
-     * 任务的创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 任务的创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime?: string;
     /**
-     * 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     BeginProcessTime?: string;
     /**
-     * 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     FinishTime?: string;
     /**
-        * 视频处理任务信息，仅当 TaskType 为 WorkflowTask，该字段有值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频处理任务信息，仅当 TaskType 为 WorkflowTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     WorkflowTask?: WorkflowTask;
     /**
-        * 视频编辑任务信息，仅当 TaskType 为 EditMediaTask，该字段有值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频编辑任务信息，仅当 TaskType 为 EditMediaTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     EditMediaTask?: EditMediaTask;
     /**
-        * 直播流处理任务信息，仅当 TaskType 为 LiveStreamProcessTask，该字段有值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 直播流处理任务信息，仅当 TaskType 为 LiveStreamProcessTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     LiveStreamProcessTask?: LiveStreamProcessTask;
     /**
-        * 任务的事件通知信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 任务的事件通知信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TaskNotifyConfig?: TaskNotifyConfig;
     /**
-     * 任务流的优先级，取值范围为 [-10, 10]。
-     */
+      * 任务流的优先级，取值范围为 [-10, 10]。
+      */
     TasksPriority?: number;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长1000个字符。
+      */
     SessionContext?: string;
     /**
-     * 扩展信息字段，仅用于特定场景。
-     */
+      * 扩展信息字段，仅用于特定场景。
+      */
     ExtInfo?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6113,38 +6113,38 @@ export interface DescribeTaskDetailResponse {
  */
 export interface LiveStreamAiRecognitionResultItem {
     /**
-        * 结果的类型，取值范围：
-  <li>FaceRecognition：人脸识别，</li>
-  <li>AsrWordsRecognition：语音关键词识别，</li>
-  <li>OcrWordsRecognition：文本关键词识别，</li>
-  <li>AsrFullTextRecognition：语音全文识别，</li>
-  <li>OcrFullTextRecognition：文本全文识别。</li>
-        */
+      * 结果的类型，取值范围：
+<li>FaceRecognition：人脸识别，</li>
+<li>AsrWordsRecognition：语音关键词识别，</li>
+<li>OcrWordsRecognition：文本关键词识别，</li>
+<li>AsrFullTextRecognition：语音全文识别，</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
+      */
     Type: string;
     /**
-        * 人脸识别结果，当 Type 为
-  FaceRecognition 时有效。
-        */
+      * 人脸识别结果，当 Type 为
+FaceRecognition 时有效。
+      */
     FaceRecognitionResultSet: Array<LiveStreamFaceRecognitionResult>;
     /**
-        * 语音关键词识别结果，当 Type 为
-  AsrWordsRecognition 时有效。
-        */
+      * 语音关键词识别结果，当 Type 为
+AsrWordsRecognition 时有效。
+      */
     AsrWordsRecognitionResultSet: Array<LiveStreamAsrWordsRecognitionResult>;
     /**
-        * 文本关键词识别结果，当 Type 为
-  OcrWordsRecognition 时有效。
-        */
+      * 文本关键词识别结果，当 Type 为
+OcrWordsRecognition 时有效。
+      */
     OcrWordsRecognitionResultSet: Array<LiveStreamOcrWordsRecognitionResult>;
     /**
-        * 语音全文识别结果，当 Type 为
-  AsrFullTextRecognition 时有效。
-        */
+      * 语音全文识别结果，当 Type 为
+AsrFullTextRecognition 时有效。
+      */
     AsrFullTextRecognitionResultSet: Array<LiveStreamAsrFullTextRecognitionResult>;
     /**
-        * 文本全文识别结果，当 Type 为
-  OcrFullTextRecognition 时有效。
-        */
+      * 文本全文识别结果，当 Type 为
+OcrFullTextRecognition 时有效。
+      */
     OcrFullTextRecognitionResultSet: Array<LiveStreamOcrFullTextRecognitionResult>;
 }
 /**
@@ -6152,8 +6152,8 @@ export interface LiveStreamAiRecognitionResultItem {
  */
 export interface DeleteImageSpriteTemplateRequest {
     /**
-     * 雪碧图模板唯一标识。
-     */
+      * 雪碧图模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -6161,18 +6161,18 @@ export interface DeleteImageSpriteTemplateRequest {
  */
 export interface AiSampleFailFaceInfo {
     /**
-     * 对应入参 FaceContents 中错误图片下标，从 0 开始。
-     */
+      * 对应入参 FaceContents 中错误图片下标，从 0 开始。
+      */
     Index: number;
     /**
-        * 错误码，取值：
-  <li>0：成功；</li>
-  <li>其他：失败。</li>
-        */
+      * 错误码，取值：
+<li>0：成功；</li>
+<li>其他：失败。</li>
+      */
     ErrCode: number;
     /**
-     * 错误描述。
-     */
+      * 错误描述。
+      */
     Message: string;
 }
 /**
@@ -6180,23 +6180,23 @@ export interface AiSampleFailFaceInfo {
  */
 export interface UserDefineFaceReviewTemplateInfoForUpdate {
     /**
-        * 用户自定义人物审核任务开关，可选值：
-  <li>ON：开启自定义人物审核任务；</li>
-  <li>OFF：关闭自定义人物审核任务。</li>
-        */
+      * 用户自定义人物审核任务开关，可选值：
+<li>ON：开启自定义人物审核任务；</li>
+<li>OFF：关闭自定义人物审核任务。</li>
+      */
     Switch?: string;
     /**
-        * 用户自定义人物过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义人物库的时，需要添加对应人物标签。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义人物过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义人物库的时，需要添加对应人物标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -6204,10 +6204,10 @@ export interface UserDefineFaceReviewTemplateInfoForUpdate {
  */
 export interface OcrFullTextConfigureInfoForUpdate {
     /**
-        * 文本全文识别任务开关，可选值：
-  <li>ON：开启智能文本全文识别任务；</li>
-  <li>OFF：关闭智能文本全文识别任务。</li>
-        */
+      * 文本全文识别任务开关，可选值：
+<li>ON：开启智能文本全文识别任务；</li>
+<li>OFF：关闭智能文本全文识别任务。</li>
+      */
     Switch?: string;
 }
 /**
@@ -6215,8 +6215,8 @@ export interface OcrFullTextConfigureInfoForUpdate {
  */
 export interface AiRecognitionTaskOcrFullTextResultInput {
     /**
-     * 文本全文识别模板 ID。
-     */
+      * 文本全文识别模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6224,16 +6224,16 @@ export interface AiRecognitionTaskOcrFullTextResultInput {
  */
 export interface DescribeTasksResponse {
     /**
-     * 任务概要列表。
-     */
+      * 任务概要列表。
+      */
     TaskSet?: Array<TaskSimpleInfo>;
     /**
-     * 翻页标识，当请求未返回所有数据，该字段表示下一条记录的 ID。当该字段为空字符串，说明已无更多数据。
-     */
+      * 翻页标识，当请求未返回所有数据，该字段表示下一条记录的 ID。当该字段为空字符串，说明已无更多数据。
+      */
     ScrollToken?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6241,8 +6241,8 @@ export interface DescribeTasksResponse {
  */
 export interface AiRecognitionTaskFaceResultInput {
     /**
-     * 人脸识别模板 ID。
-     */
+      * 人脸识别模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6250,27 +6250,27 @@ export interface AiRecognitionTaskFaceResultInput {
  */
 export interface AiReviewPoliticalTaskOutput {
     /**
-     * 视频涉政评分，分值为0到100。
-     */
+      * 视频涉政评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * 涉政结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * 涉政结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-        * 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#AiReviewPoliticalTaskOutput)里 LabelSet 参数与此参数取值范围的对应关系：
-  violation_photo：
-  <li>violation_photo：违规图标。</li>
-  其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
-  <li>politician：政治人物。</li>
-        */
+      * 视频鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/862/37615#AiReviewPoliticalTaskOutput)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+其他（即 politician/entertainment/sport/entrepreneur/scholar/celebrity/military）：
+<li>politician：政治人物。</li>
+      */
     Label: string;
     /**
-     * 有涉政嫌疑的视频片段列表。
-     */
+      * 有涉政嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewPoliticalSegmentItem>;
 }
 /**
@@ -6278,40 +6278,40 @@ export interface AiReviewPoliticalTaskOutput {
  */
 export interface LiveStreamAiReviewImagePornResult {
     /**
-     * 嫌疑片段起始的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 嫌疑片段结束的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段结束的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 嫌疑片段涉黄分数。
-     */
+      * 嫌疑片段涉黄分数。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段鉴黄结果建议，取值范围：
-  <li>pass</li>
-  <li>review</li>
-  <li>block</li>
-        */
+      * 嫌疑片段鉴黄结果建议，取值范围：
+<li>pass</li>
+<li>review</li>
+<li>block</li>
+      */
     Suggestion: string;
     /**
-        * 视频鉴黄结果标签，取值范围：
-  <li>porn：色情。</li>
-  <li>sexy：性感。</li>
-  <li>vulgar：低俗。</li>
-  <li>intimacy：亲密行为。</li>
-        */
+      * 视频鉴黄结果标签，取值范围：
+<li>porn：色情。</li>
+<li>sexy：性感。</li>
+<li>vulgar：低俗。</li>
+<li>intimacy：亲密行为。</li>
+      */
     Label: string;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-  PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -6319,54 +6319,54 @@ export interface LiveStreamAiReviewImagePornResult {
  */
 export interface ModifySnapshotByTimeOffsetTemplateRequest {
     /**
-     * 指定时间点截图模板唯一标识。
-     */
+      * 指定时间点截图模板唯一标识。
+      */
     Definition: number;
     /**
-     * 指定时间点截图模板名称，长度限制：64 个字符。
-     */
+      * 指定时间点截图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-     * 图片格式，取值可以为 jpg 和 png。
-     */
+      * 图片格式，取值可以为 jpg 和 png。
+      */
     Format?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType?: string;
 }
 /**
@@ -6374,28 +6374,28 @@ export interface ModifySnapshotByTimeOffsetTemplateRequest {
  */
 export interface LiveStreamAiReviewResultItem {
     /**
-        * 审核结果的类型，可以取的值有：
-  <li>ImagePorn：图片鉴黄</li>
-  <li>ImageTerrorism：图片鉴恐</li>
-  <li>ImagePolitical：图片鉴政</li>
-  <li>PornVoice：声音鉴黄</li>
-        */
+      * 审核结果的类型，可以取的值有：
+<li>ImagePorn：图片鉴黄</li>
+<li>ImageTerrorism：图片鉴恐</li>
+<li>ImagePolitical：图片鉴政</li>
+<li>PornVoice：声音鉴黄</li>
+      */
     Type: string;
     /**
-     * 图片鉴黄的结果，当 Type 为 ImagePorn 时有效。
-     */
+      * 图片鉴黄的结果，当 Type 为 ImagePorn 时有效。
+      */
     ImagePornResultSet: Array<LiveStreamAiReviewImagePornResult>;
     /**
-     * 图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
-     */
+      * 图片鉴恐的结果，当 Type 为 ImageTerrorism 时有效。
+      */
     ImageTerrorismResultSet: Array<LiveStreamAiReviewImageTerrorismResult>;
     /**
-     * 图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
-     */
+      * 图片鉴政的结果，当 Type 为 ImagePolitical 时有效。
+      */
     ImagePoliticalResultSet: Array<LiveStreamAiReviewImagePoliticalResult>;
     /**
-     * 声音鉴黄的结果，当 Type 为 PornVoice 时有效。
-     */
+      * 声音鉴黄的结果，当 Type 为 PornVoice 时有效。
+      */
     VoicePornResultSet: Array<LiveStreamAiReviewVoicePornResult>;
 }
 /**
@@ -6403,27 +6403,27 @@ export interface LiveStreamAiReviewResultItem {
  */
 export interface TaskSimpleInfo {
     /**
-     * 任务 ID。
-     */
+      * 任务 ID。
+      */
     TaskId: string;
     /**
-        * 任务类型，包含：
-  <li> WorkflowTask：工作流处理任务；</li>
-  <li> EditMediaTask：视频编辑任务；</li>
-  <li> LiveProcessTask：直播处理任务。</li>
-        */
+      * 任务类型，包含：
+<li> WorkflowTask：工作流处理任务；</li>
+<li> EditMediaTask：视频编辑任务；</li>
+<li> LiveProcessTask：直播处理任务。</li>
+      */
     TaskType: string;
     /**
-     * 任务创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 任务创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。若任务尚未开始，该字段为：0000-00-00T00:00:00Z。
-     */
+      * 任务开始执行时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。若任务尚未开始，该字段为：0000-00-00T00:00:00Z。
+      */
     BeginProcessTime: string;
     /**
-     * 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。若任务尚未完成，该字段为：0000-00-00T00:00:00Z。
-     */
+      * 任务结束时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。若任务尚未完成，该字段为：0000-00-00T00:00:00Z。
+      */
     FinishTime: string;
 }
 /**
@@ -6431,16 +6431,16 @@ export interface TaskSimpleInfo {
  */
 export interface DescribeSnapshotByTimeOffsetTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 指定时间点截图模板详情列表。
-     */
+      * 指定时间点截图模板详情列表。
+      */
     SnapshotByTimeOffsetTemplateSet?: Array<SnapshotByTimeOffsetTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6448,24 +6448,24 @@ export interface DescribeSnapshotByTimeOffsetTemplatesResponse {
  */
 export interface MediaVideoStreamItem {
     /**
-     * 视频流的码率，单位：bps。
-     */
+      * 视频流的码率，单位：bps。
+      */
     Bitrate: number;
     /**
-     * 视频流的高度，单位：px。
-     */
+      * 视频流的高度，单位：px。
+      */
     Height: number;
     /**
-     * 视频流的宽度，单位：px。
-     */
+      * 视频流的宽度，单位：px。
+      */
     Width: number;
     /**
-     * 视频流的编码格式，例如 h264。
-     */
+      * 视频流的编码格式，例如 h264。
+      */
     Codec: string;
     /**
-     * 帧率，单位：hz。
-     */
+      * 帧率，单位：hz。
+      */
     Fps: number;
 }
 /**
@@ -6473,68 +6473,68 @@ export interface MediaVideoStreamItem {
  */
 export interface SnapshotByTimeOffsetTemplate {
     /**
-     * 时间点截图模板唯一标识。
-     */
+      * 时间点截图模板唯一标识。
+      */
     Definition: number;
     /**
-        * 模板类型，取值范围：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type: string;
     /**
-     * 时间点截图模板名称。
-     */
+      * 时间点截图模板名称。
+      */
     Name: string;
     /**
-     * 模板描述信息。
-     */
+      * 模板描述信息。
+      */
     Comment: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive: string;
     /**
-     * 图片格式。
-     */
+      * 图片格式。
+      */
     Format: string;
     /**
-     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     CreateTime: string;
     /**
-     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     UpdateTime: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>black：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>black：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>black：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>black：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType: string;
 }
 /**
@@ -6542,8 +6542,8 @@ export interface SnapshotByTimeOffsetTemplate {
  */
 export interface DeleteSnapshotByTimeOffsetTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6551,18 +6551,18 @@ export interface DeleteSnapshotByTimeOffsetTemplateResponse {
  */
 export interface ProhibitedOcrReviewTemplateInfoForUpdate {
     /**
-        * 文本违禁任务开关，可选值：
-  <li>ON：开启文本违禁任务；</li>
-  <li>OFF：关闭文本违禁任务。</li>
-        */
+      * 文本违禁任务开关，可选值：
+<li>ON：开启文本违禁任务；</li>
+<li>OFF：关闭文本违禁任务。</li>
+      */
     Switch?: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -6570,16 +6570,16 @@ export interface ProhibitedOcrReviewTemplateInfoForUpdate {
  */
 export interface DescribeTasksRequest {
     /**
-     * 过滤条件：任务状态，可选值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
-     */
+      * 过滤条件：任务状态，可选值：WAITING（等待中）、PROCESSING（处理中）、FINISH（已完成）。
+      */
     Status: string;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
     /**
-     * 翻页标识，分批拉取时使用：当单次请求无法拉取所有数据，接口将会返回 ScrollToken，下一次请求携带该 Token，将会从下一条记录开始获取。
-     */
+      * 翻页标识，分批拉取时使用：当单次请求无法拉取所有数据，接口将会返回 ScrollToken，下一次请求携带该 Token，将会从下一条记录开始获取。
+      */
     ScrollToken?: string;
 }
 /**
@@ -6587,33 +6587,33 @@ export interface DescribeTasksRequest {
  */
 export interface FaceConfigureInfoForUpdate {
     /**
-        * 人脸识别任务开关，可选值：
-  <li>ON：开启智能人脸识别任务；</li>
-  <li>OFF：关闭智能人脸识别任务。</li>
-        */
+      * 人脸识别任务开关，可选值：
+<li>ON：开启智能人脸识别任务；</li>
+<li>OFF：关闭智能人脸识别任务。</li>
+      */
     Switch?: string;
     /**
-     * 人脸识别过滤分数，当识别结果达到该分数以上，返回识别结果。取值范围：0-100。
-     */
+      * 人脸识别过滤分数，当识别结果达到该分数以上，返回识别结果。取值范围：0-100。
+      */
     Score?: number;
     /**
-        * 默认人物过滤标签，指定需要返回的默认人物的标签。如果未填或者为空，则全部默认人物结果都返回。标签可选值：
-  <li>entertainment：娱乐明星；</li>
-  <li>sport：体育明星；</li>
-  <li>politician：政治人物。</li>
-        */
+      * 默认人物过滤标签，指定需要返回的默认人物的标签。如果未填或者为空，则全部默认人物结果都返回。标签可选值：
+<li>entertainment：娱乐明星；</li>
+<li>sport：体育明星；</li>
+<li>politician：政治人物。</li>
+      */
     DefaultLibraryLabelSet?: Array<string>;
     /**
-        * 用户自定义人物过滤标签，指定需要返回的用户自定义人物的标签。如果未填或者为空，则全部自定义人物结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义人物过滤标签，指定需要返回的用户自定义人物的标签。如果未填或者为空，则全部自定义人物结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     UserDefineLibraryLabelSet?: Array<string>;
     /**
-        * 人物库选择，可选值：
-  <li>Default：使用默认人物库；</li>
-  <li>UserDefine：使用用户自定义人物库。</li>
-  <li>All：同时使用默认人物库和用户自定义人物库。</li>
-        */
+      * 人物库选择，可选值：
+<li>Default：使用默认人物库；</li>
+<li>UserDefine：使用用户自定义人物库。</li>
+<li>All：同时使用默认人物库和用户自定义人物库。</li>
+      */
     FaceLibrary?: string;
 }
 /**
@@ -6621,12 +6621,12 @@ export interface FaceConfigureInfoForUpdate {
  */
 export interface CreateTranscodeTemplateResponse {
     /**
-     * 转码模板唯一标识。
-     */
+      * 转码模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6634,8 +6634,8 @@ export interface CreateTranscodeTemplateResponse {
  */
 export interface AiRecognitionTaskAsrWordsResultInput {
     /**
-     * 语音关键词识别模板 ID。
-     */
+      * 语音关键词识别模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6643,28 +6643,28 @@ export interface AiRecognitionTaskAsrWordsResultInput {
  */
 export interface CreateAIAnalysisTemplateRequest {
     /**
-     * 视频内容分析模板名称，长度限制：64 个字符。
-     */
+      * 视频内容分析模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 视频内容分析模板描述信息，长度限制：256 个字符。
-     */
+      * 视频内容分析模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 智能分类任务控制参数。
-     */
+      * 智能分类任务控制参数。
+      */
     ClassificationConfigure?: ClassificationConfigureInfo;
     /**
-     * 智能标签任务控制参数。
-     */
+      * 智能标签任务控制参数。
+      */
     TagConfigure?: TagConfigureInfo;
     /**
-     * 智能封面任务控制参数。
-     */
+      * 智能封面任务控制参数。
+      */
     CoverConfigure?: CoverConfigureInfo;
     /**
-     * 智能按帧标签任务控制参数。
-     */
+      * 智能按帧标签任务控制参数。
+      */
     FrameTagConfigure?: FrameTagConfigureInfo;
 }
 /**
@@ -6672,8 +6672,8 @@ export interface CreateAIAnalysisTemplateRequest {
  */
 export interface AiReviewTerrorismTaskInput {
     /**
-     * 鉴恐模板 ID。
-     */
+      * 鉴恐模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6681,23 +6681,23 @@ export interface AiReviewTerrorismTaskInput {
  */
 export interface DescribeWorkflowsRequest {
     /**
-     * 工作流 ID 过滤条件，数组长度限制：100。
-     */
+      * 工作流 ID 过滤条件，数组长度限制：100。
+      */
     WorkflowIds?: Array<number>;
     /**
-        * 工作流状态，取值范围：
-  <li>Enabled：已启用，</li>
-  <li>Disabled：已禁用。</li>
-  不填此参数，则不区分工作流状态。
-        */
+      * 工作流状态，取值范围：
+<li>Enabled：已启用，</li>
+<li>Disabled：已禁用。</li>
+不填此参数，则不区分工作流状态。
+      */
     Status?: string;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
 }
 /**
@@ -6705,16 +6705,16 @@ export interface DescribeWorkflowsRequest {
  */
 export interface MediaAudioStreamItem {
     /**
-     * 音频流的码率，单位：bps。
-     */
+      * 音频流的码率，单位：bps。
+      */
     Bitrate: number;
     /**
-     * 音频流的采样率，单位：hz。
-     */
+      * 音频流的采样率，单位：hz。
+      */
     SamplingRate: number;
     /**
-     * 音频流的编码格式，例如 aac。
-     */
+      * 音频流的编码格式，例如 aac。
+      */
     Codec: string;
 }
 /**
@@ -6722,44 +6722,44 @@ export interface MediaAudioStreamItem {
  */
 export interface LiveStreamAiReviewImageTerrorismResult {
     /**
-     * 嫌疑片段起始的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段起始的 PTS 时间，单位：秒。
+      */
     StartPtsTime: number;
     /**
-     * 嫌疑片段结束的 PTS 时间，单位：秒。
-     */
+      * 嫌疑片段结束的 PTS 时间，单位：秒。
+      */
     EndPtsTime: number;
     /**
-     * 嫌疑片段涉恐分数。
-     */
+      * 嫌疑片段涉恐分数。
+      */
     Confidence: number;
     /**
-        * 嫌疑片段鉴恐结果建议，取值范围：
-  <li>pass</li>
-  <li>review</li>
-  <li>block</li>
-        */
+      * 嫌疑片段鉴恐结果建议，取值范围：
+<li>pass</li>
+<li>review</li>
+<li>block</li>
+      */
     Suggestion: string;
     /**
-        * 视频暴恐结果标签，取值范围：
-  <li>guns：武器枪支。</li>
-  <li>crowd：人群聚集。</li>
-  <li>police：警察部队。</li>
-  <li>bloody：血腥画面。</li>
-  <li>banners：暴恐旗帜。</li>
-  <li>militant：武装分子。</li>
-  <li>explosion：爆炸火灾。</li>
-  <li>terrorists：暴恐人物。</li>
-        */
+      * 视频暴恐结果标签，取值范围：
+<li>guns：武器枪支。</li>
+<li>crowd：人群聚集。</li>
+<li>police：警察部队。</li>
+<li>bloody：血腥画面。</li>
+<li>banners：暴恐旗帜。</li>
+<li>militant：武装分子。</li>
+<li>explosion：爆炸火灾。</li>
+<li>terrorists：暴恐人物。</li>
+      */
     Label: string;
     /**
-        * 嫌疑图片 URL （图片不会永久存储，到达
-  PicUrlExpireTime 时间点后图片将被删除）。
-        */
+      * 嫌疑图片 URL （图片不会永久存储，到达
+PicUrlExpireTime 时间点后图片将被删除）。
+      */
     Url: string;
     /**
-     * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
+      * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
+      */
     PicUrlExpireTime: string;
 }
 /**
@@ -6767,36 +6767,36 @@ export interface LiveStreamAiReviewImageTerrorismResult {
  */
 export interface ProcessLiveStreamRequest {
     /**
-     * 直播流 URL（必须是直播文件地址，支持 rtmp，hls 和 flv 等）。
-     */
+      * 直播流 URL（必须是直播文件地址，支持 rtmp，hls 和 flv 等）。
+      */
     Url: string;
     /**
-     * 任务的事件通知信息，用于指定直播流处理的结果。
-     */
+      * 任务的事件通知信息，用于指定直播流处理的结果。
+      */
     TaskNotifyConfig: LiveStreamTaskNotifyConfig;
     /**
-     * 直播流处理输出文件的目标存储。如处理有文件输出，该参数为必填项。
-     */
+      * 直播流处理输出文件的目标存储。如处理有文件输出，该参数为必填项。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 直播流处理生成的文件输出的目标目录，如`/movie/201909/`，如果不填为 `/` 目录。
-     */
+      * 直播流处理生成的文件输出的目标目录，如`/movie/201909/`，如果不填为 `/` 目录。
+      */
     OutputDir?: string;
     /**
-     * 视频内容审核类型任务参数。
-     */
+      * 视频内容审核类型任务参数。
+      */
     AiContentReviewTask?: AiContentReviewTaskInput;
     /**
-     * 视频内容识别类型任务参数。
-     */
+      * 视频内容识别类型任务参数。
+      */
     AiRecognitionTask?: AiRecognitionTaskInput;
     /**
-     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     */
+      * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+      */
     SessionId?: string;
     /**
-     * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
-     */
+      * 来源上下文，用于透传用户请求信息，任务流状态变更回调将返回该字段值，最长 1000 个字符。
+      */
     SessionContext?: string;
 }
 /**
@@ -6804,68 +6804,68 @@ export interface ProcessLiveStreamRequest {
  */
 export interface ModifyImageSpriteTemplateRequest {
     /**
-     * 雪碧图模板唯一标识。
-     */
+      * 雪碧图模板唯一标识。
+      */
     Definition: number;
     /**
-     * 雪碧图模板名称，长度限制：64 个字符。
-     */
+      * 雪碧图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 雪碧图中小图的高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-        * 采样类型，取值：
-  <li>Percent：按百分比。</li>
-  <li>Time：按时间间隔。</li>
-        */
+      * 采样类型，取值：
+<li>Percent：按百分比。</li>
+<li>Time：按时间间隔。</li>
+      */
     SampleType?: string;
     /**
-        * 采样间隔。
-  <li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
-  <li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
-        */
+      * 采样间隔。
+<li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
+<li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
+      */
     SampleInterval?: number;
     /**
-     * 雪碧图中小图的行数。
-     */
+      * 雪碧图中小图的行数。
+      */
     RowCount?: number;
     /**
-     * 雪碧图中小图的列数。
-     */
+      * 雪碧图中小图的列数。
+      */
     ColumnCount?: number;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+默认值：black 。
+      */
     FillType?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -6873,8 +6873,8 @@ export interface ModifyImageSpriteTemplateRequest {
  */
 export interface AiReviewProhibitedOcrTaskInput {
     /**
-     * 鉴违禁模板 ID。
-     */
+      * 鉴违禁模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -6882,8 +6882,8 @@ export interface AiReviewProhibitedOcrTaskInput {
  */
 export interface DeleteWatermarkTemplateRequest {
     /**
-     * 水印模板唯一标识。
-     */
+      * 水印模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -6891,32 +6891,32 @@ export interface DeleteWatermarkTemplateRequest {
  */
 export interface DescribeWordSamplesRequest {
     /**
-        * <b>关键词应用场景过滤条件，可选值：</b>
-  1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
-  2. Recognition.Asr：通过语音识别技术，进行内容识别；
-  3. Review.Ocr：通过光学字符识别技术，进行内容审核；
-  4. Review.Asr：通过语音识别技术，进行内容审核；
-  <b>可合并简写为：</b>
-  5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
-  6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
-  可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
-        */
+      * <b>关键词应用场景过滤条件，可选值：</b>
+1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
+2. Recognition.Asr：通过语音识别技术，进行内容识别；
+3. Review.Ocr：通过光学字符识别技术，进行内容审核；
+4. Review.Asr：通过语音识别技术，进行内容审核；
+<b>可合并简写为：</b>
+5. Recognition：通过光学字符识别技术、语音识别技术，进行内容识别，等价于 1+2；
+6. Review：通过光学字符识别技术、语音识别技术，进行内容审核，等价于 3+4；
+可多选，元素间关系为 or，即关键词的应用场景包含该字段集合中任意元素的记录，均符合该条件。
+      */
     Usages?: Array<string>;
     /**
-     * 关键词过滤条件，数组长度限制：100 个词。
-     */
+      * 关键词过滤条件，数组长度限制：100 个词。
+      */
     Keywords?: Array<string>;
     /**
-     * 标签过滤条件，数组长度限制：20 个词。
-     */
+      * 标签过滤条件，数组长度限制：20 个词。
+      */
     Tags?: Array<string>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：100，最大值：100。
-     */
+      * 返回记录条数，默认值：100，最大值：100。
+      */
     Limit?: number;
 }
 /**
@@ -6924,32 +6924,32 @@ export interface DescribeWordSamplesRequest {
  */
 export interface ModifyAIAnalysisTemplateRequest {
     /**
-     * 视频内容分析模板唯一标识。
-     */
+      * 视频内容分析模板唯一标识。
+      */
     Definition: number;
     /**
-     * 视频内容分析模板名称，长度限制：64 个字符。
-     */
+      * 视频内容分析模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 视频内容分析模板描述信息，长度限制：256 个字符。
-     */
+      * 视频内容分析模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-     * 智能分类任务控制参数。
-     */
+      * 智能分类任务控制参数。
+      */
     ClassificationConfigure?: ClassificationConfigureInfoForUpdate;
     /**
-     * 智能标签任务控制参数。
-     */
+      * 智能标签任务控制参数。
+      */
     TagConfigure?: TagConfigureInfoForUpdate;
     /**
-     * 智能封面任务控制参数。
-     */
+      * 智能封面任务控制参数。
+      */
     CoverConfigure?: CoverConfigureInfoForUpdate;
     /**
-     * 智能按帧标签任务控制参数。
-     */
+      * 智能按帧标签任务控制参数。
+      */
     FrameTagConfigure?: FrameTagConfigureInfoForUpdate;
 }
 /**
@@ -6957,26 +6957,26 @@ export interface ModifyAIAnalysisTemplateRequest {
  */
 export interface LiveStreamProcessTask {
     /**
-     * 视频处理任务 ID。
-     */
+      * 视频处理任务 ID。
+      */
     TaskId: string;
     /**
-        * 任务流状态，取值：
-  <li>PROCESSING：处理中；</li>
-  <li>FINISH：已完成。</li>
-        */
+      * 任务流状态，取值：
+<li>PROCESSING：处理中；</li>
+<li>FINISH：已完成。</li>
+      */
     Status: string;
     /**
-     * 错误码，0 表示成功，其他值表示失败。
-     */
+      * 错误码，0 表示成功，其他值表示失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 直播流 URL。
-     */
+      * 直播流 URL。
+      */
     Url: string;
 }
 /**
@@ -6984,16 +6984,16 @@ export interface LiveStreamProcessTask {
  */
 export interface CreateWatermarkTemplateResponse {
     /**
-     * 水印模板唯一标识。
-     */
+      * 水印模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 水印图片地址，仅当 Type 为 image，该字段有效。
-     */
+      * 水印图片地址，仅当 Type 为 image，该字段有效。
+      */
     ImageUrl?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7001,16 +7001,16 @@ export interface CreateWatermarkTemplateResponse {
  */
 export interface DescribeSampleSnapshotTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 采样截图模板详情列表。
-     */
+      * 采样截图模板详情列表。
+      */
     SampleSnapshotTemplateSet?: Array<SampleSnapshotTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7018,8 +7018,8 @@ export interface DescribeSampleSnapshotTemplatesResponse {
  */
 export interface ModifyWordSampleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7027,76 +7027,76 @@ export interface ModifyWordSampleResponse {
  */
 export interface AiContentReviewResult {
     /**
-        * 任务的类型，可以取的值有：
-  <li>Porn：图片鉴黄</li>
-  <li>Terrorism：图片鉴恐</li>
-  <li>Political：图片鉴政</li>
-  <li>Porn.Asr：Asr 文字鉴黄</li>
-  <li>Porn.Ocr：Ocr 文字鉴黄</li>
-  <li>Political.Asr：Asr 文字鉴政</li>
-  <li>Political.Ocr：Ocr 文字鉴政</li>
-  <li>Terrorism.Ocr：Ocr 文字鉴恐</li>
-  <li>Prohibited.Asr：Asr 文字鉴违禁</li>
-  <li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
-        */
+      * 任务的类型，可以取的值有：
+<li>Porn：图片鉴黄</li>
+<li>Terrorism：图片鉴恐</li>
+<li>Political：图片鉴政</li>
+<li>Porn.Asr：Asr 文字鉴黄</li>
+<li>Porn.Ocr：Ocr 文字鉴黄</li>
+<li>Political.Asr：Asr 文字鉴政</li>
+<li>Political.Ocr：Ocr 文字鉴政</li>
+<li>Terrorism.Ocr：Ocr 文字鉴恐</li>
+<li>Prohibited.Asr：Asr 文字鉴违禁</li>
+<li>Prohibited.Ocr：Ocr 文字鉴违禁</li>
+      */
     Type: string;
     /**
-     * 采样频率，即对视频每秒截取进行审核的帧数。
-     */
+      * 采样频率，即对视频每秒截取进行审核的帧数。
+      */
     SampleRate: number;
     /**
-     * 审核的视频时长，单位：秒。
-     */
+      * 审核的视频时长，单位：秒。
+      */
     Duration: number;
     /**
-        * 视频内容审核智能画面鉴黄任务的查询结果，当任务类型为 Porn 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核智能画面鉴黄任务的查询结果，当任务类型为 Porn 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PornTask: AiReviewTaskPornResult;
     /**
-        * 视频内容审核智能画面鉴恐任务的查询结果，当任务类型为 Terrorism 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核智能画面鉴恐任务的查询结果，当任务类型为 Terrorism 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TerrorismTask: AiReviewTaskTerrorismResult;
     /**
-        * 视频内容审核智能画面鉴政任务的查询结果，当任务类型为 Political 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核智能画面鉴政任务的查询结果，当任务类型为 Political 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PoliticalTask: AiReviewTaskPoliticalResult;
     /**
-        * 视频内容审核 Asr 文字鉴黄任务的查询结果，当任务类型为 Porn.Asr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Asr 文字鉴黄任务的查询结果，当任务类型为 Porn.Asr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PornAsrTask: AiReviewTaskPornAsrResult;
     /**
-        * 视频内容审核 Ocr 文字鉴黄任务的查询结果，当任务类型为 Porn.Ocr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Ocr 文字鉴黄任务的查询结果，当任务类型为 Porn.Ocr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PornOcrTask: AiReviewTaskPornOcrResult;
     /**
-        * 视频内容审核 Asr 文字鉴政任务的查询结果，当任务类型为 Political.Asr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Asr 文字鉴政任务的查询结果，当任务类型为 Political.Asr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PoliticalAsrTask: AiReviewTaskPoliticalAsrResult;
     /**
-        * 视频内容审核 Ocr 文字鉴政任务的查询结果，当任务类型为 Political.Ocr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Ocr 文字鉴政任务的查询结果，当任务类型为 Political.Ocr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PoliticalOcrTask: AiReviewTaskPoliticalOcrResult;
     /**
-        * 视频内容审核 Ocr 文字鉴恐任务的查询结果，当任务类型为 Terrorism.Ocr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Ocr 文字鉴恐任务的查询结果，当任务类型为 Terrorism.Ocr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TerrorismOcrTask: AiReviewTaskTerrorismOcrResult;
     /**
-        * 视频内容审核 Asr 文字鉴违禁任务的查询结果，当任务类型为 Prohibited.Asr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Asr 文字鉴违禁任务的查询结果，当任务类型为 Prohibited.Asr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ProhibitedAsrTask: AiReviewTaskProhibitedAsrResult;
     /**
-        * 视频内容审核 Ocr 文字鉴违禁任务的查询结果，当任务类型为 Prohibited.Ocr 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频内容审核 Ocr 文字鉴违禁任务的查询结果，当任务类型为 Prohibited.Ocr 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ProhibitedOcrTask: AiReviewTaskProhibitedOcrResult;
 }
 /**
@@ -7104,30 +7104,30 @@ export interface AiContentReviewResult {
  */
 export interface TerrorismImgReviewTemplateInfo {
     /**
-        * 画面鉴恐任务开关，可选值：
-  <li>ON：开启画面鉴恐任务；</li>
-  <li>OFF：关闭画面鉴恐任务。</li>
-        */
+      * 画面鉴恐任务开关，可选值：
+<li>ON：开启画面鉴恐任务；</li>
+<li>OFF：关闭画面鉴恐任务。</li>
+      */
     Switch: string;
     /**
-        * 画面鉴恐过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>guns：武器枪支；</li>
-  <li>crowd：人群聚集；</li>
-  <li>bloody：血腥画面；</li>
-  <li>police：警察部队；</li>
-  <li>banners：暴恐旗帜；</li>
-  <li>militant：武装分子；</li>
-  <li>explosion：爆炸火灾；</li>
-  <li>terrorists：暴恐人物。</li>
-        */
+      * 画面鉴恐过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>guns：武器枪支；</li>
+<li>crowd：人群聚集；</li>
+<li>bloody：血腥画面；</li>
+<li>police：警察部队；</li>
+<li>banners：暴恐旗帜；</li>
+<li>militant：武装分子；</li>
+<li>explosion：爆炸火灾；</li>
+<li>terrorists：暴恐人物。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -7135,34 +7135,34 @@ export interface TerrorismImgReviewTemplateInfo {
  */
 export interface DescribeTranscodeTemplatesRequest {
     /**
-     * 转码模板唯一标识过滤条件，数组长度限制：100。
-     */
+      * 转码模板唯一标识过滤条件，数组长度限制：100。
+      */
     Definitions?: Array<number>;
     /**
-        * 模板类型过滤条件，可选值：
-  <li>Preset：系统预置模板；</li>
-  <li>Custom：用户自定义模板。</li>
-        */
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
     Type?: string;
     /**
-        * 封装格式过滤条件，可选值：
-  <li>Video：视频格式，可以同时包含视频流和音频流的封装格式板；</li>
-  <li>PureAudio：纯音频格式，只能包含音频流的封装格式。</li>
-        */
+      * 封装格式过滤条件，可选值：
+<li>Video：视频格式，可以同时包含视频流和音频流的封装格式板；</li>
+<li>PureAudio：纯音频格式，只能包含音频流的封装格式。</li>
+      */
     ContainerType?: string;
     /**
-        * 极速高清过滤条件，用于过滤普通转码或极速高清转码模板，可选值：
-  <li>Common：普通转码模板；</li>
-  <li>TEHD：极速高清模板。</li>
-        */
+      * 极速高清过滤条件，用于过滤普通转码或极速高清转码模板，可选值：
+<li>Common：普通转码模板；</li>
+<li>TEHD：极速高清模板。</li>
+      */
     TEHDType?: string;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：100。
-     */
+      * 返回记录条数，默认值：10，最大值：100。
+      */
     Limit?: number;
 }
 /**
@@ -7170,8 +7170,8 @@ export interface DescribeTranscodeTemplatesRequest {
  */
 export interface DisableWorkflowRequest {
     /**
-     * 工作流 ID。
-     */
+      * 工作流 ID。
+      */
     WorkflowId: number;
 }
 /**
@@ -7179,16 +7179,16 @@ export interface DisableWorkflowRequest {
  */
 export interface PoliticalConfigureInfoForUpdate {
     /**
-     * 画面鉴政控制参数。
-     */
+      * 画面鉴政控制参数。
+      */
     ImgReviewInfo?: PoliticalImgReviewTemplateInfoForUpdate;
     /**
-     * 语音鉴政控制参数。
-     */
+      * 语音鉴政控制参数。
+      */
     AsrReviewInfo?: PoliticalAsrReviewTemplateInfoForUpdate;
     /**
-     * 文本鉴政控制参数。
-     */
+      * 文本鉴政控制参数。
+      */
     OcrReviewInfo?: PoliticalOcrReviewTemplateInfoForUpdate;
 }
 /**
@@ -7196,16 +7196,16 @@ export interface PoliticalConfigureInfoForUpdate {
  */
 export interface DescribeWatermarkTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 水印模板详情列表。
-     */
+      * 水印模板详情列表。
+      */
     WatermarkTemplateSet?: Array<WatermarkTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7213,49 +7213,49 @@ export interface DescribeWatermarkTemplatesResponse {
  */
 export interface CreateAnimatedGraphicsTemplateRequest {
     /**
-     * 帧率，取值范围：[1, 30]，单位：Hz。
-     */
+      * 帧率，取值范围：[1, 30]，单位：Hz。
+      */
     Fps: number;
     /**
-        * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-     * 动图格式，取值为 gif 和 webp。默认为 gif。
-     */
+      * 动图格式，取值为 gif 和 webp。默认为 gif。
+      */
     Format?: string;
     /**
-     * 图片质量，取值范围：[1, 100]，默认值为 75。
-     */
+      * 图片质量，取值范围：[1, 100]，默认值为 75。
+      */
     Quality?: number;
     /**
-     * 转动图模板名称，长度限制：64 个字符。
-     */
+      * 转动图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
 }
 /**
@@ -7263,10 +7263,10 @@ export interface CreateAnimatedGraphicsTemplateRequest {
  */
 export interface FrameTagConfigureInfo {
     /**
-        * 智能按帧标签任务开关，可选值：
-  <li>ON：开启智能按帧标签任务；</li>
-  <li>OFF：关闭智能按帧标签任务。</li>
-        */
+      * 智能按帧标签任务开关，可选值：
+<li>ON：开启智能按帧标签任务；</li>
+<li>OFF：关闭智能按帧标签任务。</li>
+      */
     Switch: string;
 }
 /**
@@ -7274,17 +7274,17 @@ export interface FrameTagConfigureInfo {
  */
 export interface ModifyPersonSampleResponse {
     /**
-     * 人物信息。
-     */
+      * 人物信息。
+      */
     Person?: AiSamplePerson;
     /**
-        * 处理失败的人脸信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 处理失败的人脸信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FailFaceInfoSet?: Array<AiSampleFailFaceInfo>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7292,8 +7292,8 @@ export interface ModifyPersonSampleResponse {
  */
 export interface DeleteTranscodeTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7301,52 +7301,52 @@ export interface DeleteTranscodeTemplateResponse {
  */
 export interface MediaTranscodeItem {
     /**
-     * 转码后文件的目标存储。
-     */
+      * 转码后文件的目标存储。
+      */
     OutputStorage: TaskOutputStorage;
     /**
-     * 转码后的视频文件路径。
-     */
+      * 转码后的视频文件路径。
+      */
     Path: string;
     /**
-     * 转码规格 ID，参见[转码参数模板](https://cloud.tencent.com/document/product/862/37042)。
-     */
+      * 转码规格 ID，参见[转码参数模板](https://cloud.tencent.com/document/product/862/37042)。
+      */
     Definition: number;
     /**
-     * 视频流码率平均值与音频流码率平均值之和， 单位：bps。
-     */
+      * 视频流码率平均值与音频流码率平均值之和， 单位：bps。
+      */
     Bitrate: number;
     /**
-     * 视频流高度的最大值，单位：px。
-     */
+      * 视频流高度的最大值，单位：px。
+      */
     Height: number;
     /**
-     * 视频流宽度的最大值，单位：px。
-     */
+      * 视频流宽度的最大值，单位：px。
+      */
     Width: number;
     /**
-     * 媒体文件总大小（视频为 HLS 时，大小是 m3u8 和 ts 文件大小的总和），单位：字节。
-     */
+      * 媒体文件总大小（视频为 HLS 时，大小是 m3u8 和 ts 文件大小的总和），单位：字节。
+      */
     Size: number;
     /**
-     * 视频时长，单位：秒。
-     */
+      * 视频时长，单位：秒。
+      */
     Duration: number;
     /**
-     * 容器类型，例如 m4a，mp4 等。
-     */
+      * 容器类型，例如 m4a，mp4 等。
+      */
     Container: string;
     /**
-     * 视频的 md5 值。
-     */
+      * 视频的 md5 值。
+      */
     Md5: string;
     /**
-     * 音频流信息。
-     */
+      * 音频流信息。
+      */
     AudioStreamSet: Array<MediaAudioStreamItem>;
     /**
-     * 视频流信息。
-     */
+      * 视频流信息。
+      */
     VideoStreamSet: Array<MediaVideoStreamItem>;
 }
 /**
@@ -7354,16 +7354,16 @@ export interface MediaTranscodeItem {
  */
 export interface DescribePersonSamplesResponse {
     /**
-     * 符合条件的记录总数。
-     */
+      * 符合条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 人物信息。
-     */
+      * 人物信息。
+      */
     PersonSet?: Array<AiSamplePerson>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7371,16 +7371,16 @@ export interface DescribePersonSamplesResponse {
  */
 export interface PornConfigureInfo {
     /**
-     * 画面鉴黄控制参数。
-     */
+      * 画面鉴黄控制参数。
+      */
     ImgReviewInfo?: PornImgReviewTemplateInfo;
     /**
-     * 语音鉴黄控制参数。
-     */
+      * 语音鉴黄控制参数。
+      */
     AsrReviewInfo?: PornAsrReviewTemplateInfo;
     /**
-     * 文本鉴黄控制参数。
-     */
+      * 文本鉴黄控制参数。
+      */
     OcrReviewInfo?: PornOcrReviewTemplateInfo;
 }
 /**
@@ -7388,16 +7388,16 @@ export interface PornConfigureInfo {
  */
 export interface DescribeAIAnalysisTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 视频内容分析模板详情列表。
-     */
+      * 视频内容分析模板详情列表。
+      */
     AIAnalysisTemplateSet?: Array<AIAnalysisTemplateItem>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7405,50 +7405,50 @@ export interface DescribeAIAnalysisTemplatesResponse {
  */
 export interface CreateSnapshotByTimeOffsetTemplateRequest {
     /**
-     * 指定时间点截图模板名称，长度限制：64 个字符。
-     */
+      * 指定时间点截图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-     * 图片格式，取值可以为 jpg 和 png。默认为 jpg。
-     */
+      * 图片格式，取值可以为 jpg 和 png。默认为 jpg。
+      */
     Format?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType?: string;
 }
 /**
@@ -7456,8 +7456,8 @@ export interface CreateSnapshotByTimeOffsetTemplateRequest {
  */
 export interface ParseLiveStreamProcessNotificationRequest {
     /**
-     * 从 CMQ 获取到的直播流事件通知内容。
-     */
+      * 从 CMQ 获取到的直播流事件通知内容。
+      */
     Content: string;
 }
 /**
@@ -7465,25 +7465,25 @@ export interface ParseLiveStreamProcessNotificationRequest {
  */
 export interface AiRecognitionTaskAsrWordsResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 语音关键词识别任务输入信息。
-     */
+      * 语音关键词识别任务输入信息。
+      */
     Input: AiRecognitionTaskAsrWordsResultInput;
     /**
-        * 语音关键词识别任务输出信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 语音关键词识别任务输出信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiRecognitionTaskAsrWordsResultOutput;
 }
 /**
@@ -7491,62 +7491,62 @@ export interface AiRecognitionTaskAsrWordsResult {
  */
 export interface CreateSampleSnapshotTemplateRequest {
     /**
-        * 采样截图类型，取值：
-  <li>Percent：按百分比。</li>
-  <li>Time：按时间间隔。</li>
-        */
+      * 采样截图类型，取值：
+<li>Percent：按百分比。</li>
+<li>Time：按时间间隔。</li>
+      */
     SampleType: string;
     /**
-        * 采样间隔。
-  <li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
-  <li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
-        */
+      * 采样间隔。
+<li>当 SampleType 为 Percent 时，指定采样间隔的百分比。</li>
+<li>当 SampleType 为 Time 时，指定采样间隔的时间，单位为秒。</li>
+      */
     SampleInterval: number;
     /**
-     * 采样截图模板名称，长度限制：64 个字符。
-     */
+      * 采样截图模板名称，长度限制：64 个字符。
+      */
     Name?: string;
     /**
-        * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Width?: number;
     /**
-        * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-  <li>当 Width、Height 均为 0，则分辨率同源；</li>
-  <li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-  <li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-  <li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-  默认值：0。
-        */
+      * 截图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
     Height?: number;
     /**
-        * 分辨率自适应，可选值：
-  <li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-  <li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-  默认值：open。
-        */
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
     ResolutionAdaptive?: string;
     /**
-     * 图片格式，取值为 jpg 和 png。默认为 jpg。
-     */
+      * 图片格式，取值为 jpg 和 png。默认为 jpg。
+      */
     Format?: string;
     /**
-     * 模板描述信息，长度限制：256 个字符。
-     */
+      * 模板描述信息，长度限制：256 个字符。
+      */
     Comment?: string;
     /**
-        * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-  <li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-  <li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-  <li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
-  <li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
-  默认值：black 。
-        */
+      * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
+<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
+<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
+<li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li>
+<li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>
+默认值：black 。
+      */
     FillType?: string;
 }
 /**
@@ -7554,48 +7554,48 @@ export interface CreateSampleSnapshotTemplateRequest {
  */
 export interface WorkflowTask {
     /**
-     * 视频处理任务 ID。
-     */
+      * 视频处理任务 ID。
+      */
     TaskId: string;
     /**
-        * 任务流状态，取值：
-  <li>PROCESSING：处理中；</li>
-  <li>FINISH：已完成。</li>
-        */
+      * 任务流状态，取值：
+<li>PROCESSING：处理中；</li>
+<li>FINISH：已完成。</li>
+      */
     Status: string;
     /**
-     * 已弃用，请使用各个具体任务的 ErrCode。
-     */
+      * 已弃用，请使用各个具体任务的 ErrCode。
+      */
     ErrCode: number;
     /**
-     * 已弃用，请使用各个具体任务的 Message。
-     */
+      * 已弃用，请使用各个具体任务的 Message。
+      */
     Message: string;
     /**
-        * 视频处理的目标文件信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频处理的目标文件信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     InputInfo: MediaInputInfo;
     /**
-        * 原始视频的元信息。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 原始视频的元信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MetaData: MediaMetaData;
     /**
-     * 视频处理任务的执行状态与结果。
-     */
+      * 视频处理任务的执行状态与结果。
+      */
     MediaProcessResultSet: Array<MediaProcessTaskResult>;
     /**
-     * 视频内容审核任务的执行状态与结果。
-     */
+      * 视频内容审核任务的执行状态与结果。
+      */
     AiContentReviewResultSet: Array<AiContentReviewResult>;
     /**
-     * 视频内容分析任务的执行状态与结果。
-     */
+      * 视频内容分析任务的执行状态与结果。
+      */
     AiAnalysisResultSet: Array<AiAnalysisResult>;
     /**
-     * 视频内容识别任务的执行状态与结果。
-     */
+      * 视频内容识别任务的执行状态与结果。
+      */
     AiRecognitionResultSet: Array<AiRecognitionResult>;
 }
 /**
@@ -7603,25 +7603,25 @@ export interface WorkflowTask {
  */
 export interface AiReviewTaskPornAsrResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 内容审核 Asr 文字鉴黄任务输入。
-     */
+      * 内容审核 Asr 文字鉴黄任务输入。
+      */
     Input: AiReviewPornAsrTaskInput;
     /**
-        * 内容审核 Asr 文字鉴黄任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 内容审核 Asr 文字鉴黄任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiReviewPornAsrTaskOutput;
 }
 /**
@@ -7629,16 +7629,16 @@ export interface AiReviewTaskPornAsrResult {
  */
 export interface EditMediaFileInfo {
     /**
-     * 视频的输入信息。
-     */
+      * 视频的输入信息。
+      */
     InputInfo: MediaInputInfo;
     /**
-     * 视频剪辑的起始时间偏移，单位：秒。
-     */
+      * 视频剪辑的起始时间偏移，单位：秒。
+      */
     StartTimeOffset?: number;
     /**
-     * 视频剪辑的结束时间偏移，单位：秒。
-     */
+      * 视频剪辑的结束时间偏移，单位：秒。
+      */
     EndTimeOffset?: number;
 }
 /**
@@ -7646,34 +7646,34 @@ export interface EditMediaFileInfo {
  */
 export interface FaceConfigureInfo {
     /**
-        * 人脸识别任务开关，可选值：
-  <li>ON：开启智能人脸识别任务；</li>
-  <li>OFF：关闭智能人脸识别任务。</li>
-        */
+      * 人脸识别任务开关，可选值：
+<li>ON：开启智能人脸识别任务；</li>
+<li>OFF：关闭智能人脸识别任务。</li>
+      */
     Switch: string;
     /**
-     * 人脸识别过滤分数，当识别结果达到该分数以上，返回识别结果。默认 95 分。取值范围：0 - 100。
-     */
+      * 人脸识别过滤分数，当识别结果达到该分数以上，返回识别结果。默认 95 分。取值范围：0 - 100。
+      */
     Score?: number;
     /**
-        * 默认人物过滤标签，指定需要返回的默认人物的标签。如果未填或者为空，则全部默认人物结果都返回。标签可选值：
-  <li>entertainment：娱乐明星；</li>
-  <li>sport：体育明星；</li>
-  <li>politician：政治人物。</li>
-        */
+      * 默认人物过滤标签，指定需要返回的默认人物的标签。如果未填或者为空，则全部默认人物结果都返回。标签可选值：
+<li>entertainment：娱乐明星；</li>
+<li>sport：体育明星；</li>
+<li>politician：政治人物。</li>
+      */
     DefaultLibraryLabelSet?: Array<string>;
     /**
-        * 用户自定义人物过滤标签，指定需要返回的用户自定义人物的标签。如果未填或者为空，则全部自定义人物结果都返回。
-  标签个数最多 10 个，每个标签长度最多 16 个字符。
-        */
+      * 用户自定义人物过滤标签，指定需要返回的用户自定义人物的标签。如果未填或者为空，则全部自定义人物结果都返回。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
     UserDefineLibraryLabelSet?: Array<string>;
     /**
-        * 人物库选择，可选值：
-  <li>Default：使用默认人物库；</li>
-  <li>UserDefine：使用用户自定义人物库。</li>
-  <li>All：同时使用默认人物库和用户自定义人物库。</li>
-  默认值：All，使用系统默认人物库及用户自定义人物库。
-        */
+      * 人物库选择，可选值：
+<li>Default：使用默认人物库；</li>
+<li>UserDefine：使用用户自定义人物库。</li>
+<li>All：同时使用默认人物库和用户自定义人物库。</li>
+默认值：All，使用系统默认人物库及用户自定义人物库。
+      */
     FaceLibrary?: string;
 }
 /**
@@ -7681,8 +7681,8 @@ export interface FaceConfigureInfo {
  */
 export interface AiRecognitionTaskFaceResultOutput {
     /**
-     * 智能人脸识别结果集。
-     */
+      * 智能人脸识别结果集。
+      */
     ResultSet: Array<AiRecognitionTaskFaceResultItem>;
 }
 /**
@@ -7690,26 +7690,26 @@ export interface AiRecognitionTaskFaceResultOutput {
  */
 export interface PornImgReviewTemplateInfoForUpdate {
     /**
-        * 画面鉴黄任务开关，可选值：
-  <li>ON：开启画面鉴黄任务；</li>
-  <li>OFF：关闭画面鉴黄任务。</li>
-        */
+      * 画面鉴黄任务开关，可选值：
+<li>ON：开启画面鉴黄任务；</li>
+<li>OFF：关闭画面鉴黄任务。</li>
+      */
     Switch?: string;
     /**
-        * 画面鉴黄过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>porn：色情；</li>
-  <li>vulgar：低俗；</li>
-  <li>intimacy：亲密行为；</li>
-  <li>sexy：性感。</li>
-        */
+      * 画面鉴黄过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>porn：色情；</li>
+<li>vulgar：低俗；</li>
+<li>intimacy：亲密行为；</li>
+<li>sexy：性感。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -7717,33 +7717,33 @@ export interface PornImgReviewTemplateInfoForUpdate {
  */
 export interface EditMediaTask {
     /**
-     * 任务 ID。
-     */
+      * 任务 ID。
+      */
     TaskId: string;
     /**
-        * 任务状态，取值：
-  <li>PROCESSING：处理中；</li>
-  <li>FINISH：已完成。</li>
-        */
+      * 任务状态，取值：
+<li>PROCESSING：处理中；</li>
+<li>FINISH：已完成。</li>
+      */
     Status: string;
     /**
-        * 错误码
-  <li>0：成功；</li>
-  <li>其他值：失败。</li>
-        */
+      * 错误码
+<li>0：成功；</li>
+<li>其他值：失败。</li>
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 视频编辑任务的输入。
-     */
+      * 视频编辑任务的输入。
+      */
     Input: EditMediaTaskInput;
     /**
-        * 视频编辑任务的输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 视频编辑任务的输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: EditMediaTaskOutput;
 }
 /**
@@ -7751,26 +7751,26 @@ export interface EditMediaTask {
  */
 export interface PornImgReviewTemplateInfo {
     /**
-        * 画面鉴黄任务开关，可选值：
-  <li>ON：开启画面鉴黄任务；</li>
-  <li>OFF：关闭画面鉴黄任务。</li>
-        */
+      * 画面鉴黄任务开关，可选值：
+<li>ON：开启画面鉴黄任务；</li>
+<li>OFF：关闭画面鉴黄任务。</li>
+      */
     Switch: string;
     /**
-        * 画面鉴黄过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
-  <li>porn：色情；</li>
-  <li>vulgar：低俗；</li>
-  <li>intimacy：亲密行为；</li>
-  <li>sexy：性感。</li>
-        */
+      * 画面鉴黄过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+<li>porn：色情；</li>
+<li>vulgar：低俗；</li>
+<li>intimacy：亲密行为；</li>
+<li>sexy：性感。</li>
+      */
     LabelSet?: Array<string>;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 0 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 0 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -7778,19 +7778,19 @@ export interface PornImgReviewTemplateInfo {
  */
 export interface AiReviewPoliticalOcrTaskOutput {
     /**
-     * Ocr 文字涉政、敏感评分，分值为0到100。
-     */
+      * Ocr 文字涉政、敏感评分，分值为0到100。
+      */
     Confidence: number;
     /**
-        * Ocr 文字涉政、敏感结果建议，取值范围：
-  <li>pass。</li>
-  <li>review。</li>
-  <li>block。</li>
-        */
+      * Ocr 文字涉政、敏感结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
+      */
     Suggestion: string;
     /**
-     * Ocr 文字有涉政、敏感嫌疑的视频片段列表。
-     */
+      * Ocr 文字有涉政、敏感嫌疑的视频片段列表。
+      */
     SegmentSet: Array<MediaContentReviewOcrTextSegmentItem>;
 }
 /**
@@ -7798,10 +7798,10 @@ export interface AiReviewPoliticalOcrTaskOutput {
  */
 export interface OcrFullTextConfigureInfo {
     /**
-        * 文本全文识别任务开关，可选值：
-  <li>ON：开启智能文本全文识别任务；</li>
-  <li>OFF：关闭智能文本全文识别任务。</li>
-        */
+      * 文本全文识别任务开关，可选值：
+<li>ON：开启智能文本全文识别任务；</li>
+<li>OFF：关闭智能文本全文识别任务。</li>
+      */
     Switch: string;
 }
 /**
@@ -7809,16 +7809,16 @@ export interface OcrFullTextConfigureInfo {
  */
 export interface DescribeTranscodeTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 转码模板详情列表。
-     */
+      * 转码模板详情列表。
+      */
     TranscodeTemplateSet?: Array<TranscodeTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7826,8 +7826,8 @@ export interface DescribeTranscodeTemplatesResponse {
  */
 export interface DeleteAnimatedGraphicsTemplateRequest {
     /**
-     * 转动图模板唯一标识。
-     */
+      * 转动图模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -7835,8 +7835,8 @@ export interface DeleteAnimatedGraphicsTemplateRequest {
  */
 export interface DeleteSnapshotByTimeOffsetTemplateRequest {
     /**
-     * 指定时间点截图模板唯一标识。
-     */
+      * 指定时间点截图模板唯一标识。
+      */
     Definition: number;
 }
 /**
@@ -7844,16 +7844,16 @@ export interface DeleteSnapshotByTimeOffsetTemplateRequest {
  */
 export interface DescribeAnimatedGraphicsTemplatesResponse {
     /**
-     * 符合过滤条件的记录总数。
-     */
+      * 符合过滤条件的记录总数。
+      */
     TotalCount?: number;
     /**
-     * 转动图模板详情列表。
-     */
+      * 转动图模板详情列表。
+      */
     AnimatedGraphicsTemplateSet?: Array<AnimatedGraphicsTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7861,17 +7861,17 @@ export interface DescribeAnimatedGraphicsTemplatesResponse {
  */
 export interface MediaAiAnalysisFrameTagItem {
     /**
-     * 按帧标签名称。
-     */
+      * 按帧标签名称。
+      */
     Tag: string;
     /**
-        * 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
-  比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
-        */
+      * 按帧标签名称的分类列表，CategorySet.N 表示第 N+1级分类。
+比如 Tag 为“塔楼”时，CategorySet 包含两个元素：CategorySet.0 为“场景”，CategorySet.1为 “建筑”，表示按帧标签为“塔楼”，且第1级分类是“场景”，第2级分类是“建筑”。
+      */
     CategorySet: Array<string>;
     /**
-     * 按帧标签的可信度，取值范围是 0 到 100。
-     */
+      * 按帧标签的可信度，取值范围是 0 到 100。
+      */
     Confidence: number;
 }
 /**
@@ -7879,26 +7879,26 @@ export interface MediaAiAnalysisFrameTagItem {
  */
 export interface SampleSnapshotTaskInput {
     /**
-     * 采样截图模板 ID。
-     */
+      * 采样截图模板 ID。
+      */
     Definition: number;
     /**
-     * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
-     */
+      * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+      */
     WatermarkSet?: Array<WatermarkInput>;
     /**
-        * 采样截图后文件的目标存储，不填则继承上层的 OutputStorage 值。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 采样截图后文件的目标存储，不填则继承上层的 OutputStorage 值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OutputStorage?: TaskOutputStorage;
     /**
-     * 采样截图后图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_sampleSnapshot_{definition}_{number}.{format}`。
-     */
+      * 采样截图后图片文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_sampleSnapshot_{definition}_{number}.{format}`。
+      */
     OutputObjectPath?: string;
     /**
-        * 采样截图后输出路径中的`{number}`变量的规则。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 采样截图后输出路径中的`{number}`变量的规则。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ObjectNumberFormat?: NumberFormat;
 }
 /**
@@ -7906,12 +7906,12 @@ export interface SampleSnapshotTaskInput {
  */
 export interface TerrorismConfigureInfo {
     /**
-     * 画面鉴恐任务控制参数。
-     */
+      * 画面鉴恐任务控制参数。
+      */
     ImgReviewInfo?: TerrorismImgReviewTemplateInfo;
     /**
-     * 文本鉴恐任务控制参数。
-     */
+      * 文本鉴恐任务控制参数。
+      */
     OcrReviewInfo: TerrorismOcrReviewTemplateInfo;
 }
 /**
@@ -7919,18 +7919,18 @@ export interface TerrorismConfigureInfo {
  */
 export interface PoliticalAsrReviewTemplateInfo {
     /**
-        * 语音鉴政任务开关，可选值：
-  <li>ON：开启语音鉴政任务；</li>
-  <li>OFF：关闭语音鉴政任务。</li>
-        */
+      * 语音鉴政任务开关，可选值：
+<li>ON：开启语音鉴政任务；</li>
+<li>OFF：关闭语音鉴政任务。</li>
+      */
     Switch: string;
     /**
-     * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
-     */
+      * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 100 分。取值范围：0~100。
+      */
     BlockConfidence?: number;
     /**
-     * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
-     */
+      * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 75 分。取值范围：0~100。
+      */
     ReviewConfidence?: number;
 }
 /**
@@ -7938,12 +7938,12 @@ export interface PoliticalAsrReviewTemplateInfo {
  */
 export interface CreateAnimatedGraphicsTemplateResponse {
     /**
-     * 转动图模板唯一标识。
-     */
+      * 转动图模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7951,25 +7951,25 @@ export interface CreateAnimatedGraphicsTemplateResponse {
  */
 export interface AiAnalysisTaskClassificationResult {
     /**
-     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
-     */
+      * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+      */
     Status: string;
     /**
-     * 错误码，0：成功，其他值：失败。
-     */
+      * 错误码，0：成功，其他值：失败。
+      */
     ErrCode: number;
     /**
-     * 错误信息。
-     */
+      * 错误信息。
+      */
     Message: string;
     /**
-     * 智能分类任务输入。
-     */
+      * 智能分类任务输入。
+      */
     Input: AiAnalysisTaskClassificationInput;
     /**
-        * 智能分类任务输出。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 智能分类任务输出。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Output: AiAnalysisTaskClassificationOutput;
 }
 /**
@@ -7977,32 +7977,32 @@ export interface AiAnalysisTaskClassificationResult {
  */
 export interface MediaImageSpriteItem {
     /**
-     * 雪碧图规格，参见[雪碧图参数模板](https://cloud.tencent.com/document/product/266/33480#.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
-     */
+      * 雪碧图规格，参见[雪碧图参数模板](https://cloud.tencent.com/document/product/266/33480#.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.A8.A1.E6.9D.BF)。
+      */
     Definition: number;
     /**
-     * 雪碧图小图的高度。
-     */
+      * 雪碧图小图的高度。
+      */
     Height: number;
     /**
-     * 雪碧图小图的宽度。
-     */
+      * 雪碧图小图的宽度。
+      */
     Width: number;
     /**
-     * 每一张雪碧图大图里小图的数量。
-     */
+      * 每一张雪碧图大图里小图的数量。
+      */
     TotalCount: number;
     /**
-     * 每一张雪碧图大图的路径。
-     */
+      * 每一张雪碧图大图的路径。
+      */
     ImagePathSet: Array<string>;
     /**
-     * 雪碧图子图位置与时间关系的 WebVtt 文件路径。WebVtt 文件表明了各个雪碧图小图对应的时间点，以及在雪碧大图里的坐标位置，一般被播放器用于实现预览。
-     */
+      * 雪碧图子图位置与时间关系的 WebVtt 文件路径。WebVtt 文件表明了各个雪碧图小图对应的时间点，以及在雪碧大图里的坐标位置，一般被播放器用于实现预览。
+      */
     WebVttPath: string;
     /**
-     * 雪碧图文件的存储位置。
-     */
+      * 雪碧图文件的存储位置。
+      */
     Storage: TaskOutputStorage;
 }
 /**
@@ -8010,33 +8010,33 @@ export interface MediaImageSpriteItem {
  */
 export interface DescribePersonSamplesRequest {
     /**
-        * 拉取的人物类型，可选值：
-  <li>UserDefine：用户自定义人物库；</li>
-  <li>Default：系统默认人物库。</li>
-  
-  默认值：UserDefine，拉取用户自定义人物库人物。
-  说明：如果是拉取系统默认人物库，只能使用人物名字或者人物 ID + 人物名字的方式进行拉取，且人脸图片只返回一张。
-        */
+      * 拉取的人物类型，可选值：
+<li>UserDefine：用户自定义人物库；</li>
+<li>Default：系统默认人物库。</li>
+
+默认值：UserDefine，拉取用户自定义人物库人物。
+说明：如果是拉取系统默认人物库，只能使用人物名字或者人物 ID + 人物名字的方式进行拉取，且人脸图片只返回一张。
+      */
     Type?: string;
     /**
-     * 人物 ID，数组长度限制：100。
-     */
+      * 人物 ID，数组长度限制：100。
+      */
     PersonIds?: Array<string>;
     /**
-     * 人物名称，数组长度限制：20。
-     */
+      * 人物名称，数组长度限制：20。
+      */
     Names?: Array<string>;
     /**
-     * 人物标签，数组长度限制：20。
-     */
+      * 人物标签，数组长度限制：20。
+      */
     Tags?: Array<string>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：100，最大值：100。
-     */
+      * 返回记录条数，默认值：100，最大值：100。
+      */
     Limit?: number;
 }
 /**
@@ -8044,22 +8044,22 @@ export interface DescribePersonSamplesRequest {
  */
 export interface AiRecognitionTaskFaceResultItem {
     /**
-     * 人物唯一标识 ID。
-     */
+      * 人物唯一标识 ID。
+      */
     Id: string;
     /**
-        * 人物库类型，表示识别出的人物来自哪个人物库：
-  <li>Default：默认人物库；</li>
-  <li>UserDefine：用户自定义人物库。</li>
-        */
+      * 人物库类型，表示识别出的人物来自哪个人物库：
+<li>Default：默认人物库；</li>
+<li>UserDefine：用户自定义人物库。</li>
+      */
     Type: string;
     /**
-     * 人物名称。
-     */
+      * 人物名称。
+      */
     Name: string;
     /**
-     * 人物出现的片段结果集。
-     */
+      * 人物出现的片段结果集。
+      */
     SegmentSet: Array<AiRecognitionTaskFaceSegmentItem>;
 }
 /**
@@ -8067,8 +8067,8 @@ export interface AiRecognitionTaskFaceResultItem {
  */
 export interface AiAnalysisTaskCoverInput {
     /**
-     * 视频智能封面模板 ID。
-     */
+      * 视频智能封面模板 ID。
+      */
     Definition: number;
 }
 /**
@@ -8076,12 +8076,12 @@ export interface AiAnalysisTaskCoverInput {
  */
 export interface EditMediaTaskOutput {
     /**
-     * 编辑后文件的目标存储。
-     */
+      * 编辑后文件的目标存储。
+      */
     OutputStorage: TaskOutputStorage;
     /**
-     * 编辑后的视频文件路径。
-     */
+      * 编辑后的视频文件路径。
+      */
     Path: string;
 }
 /**
@@ -8089,8 +8089,8 @@ export interface EditMediaTaskOutput {
  */
 export interface DeleteWatermarkTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8098,8 +8098,8 @@ export interface DeleteWatermarkTemplateResponse {
  */
 export interface DescribeMediaMetaDataRequest {
     /**
-     * 需要获取元信息的文件输入信息。
-     */
+      * 需要获取元信息的文件输入信息。
+      */
     InputInfo: MediaInputInfo;
 }
 /**
@@ -8107,10 +8107,10 @@ export interface DescribeMediaMetaDataRequest {
  */
 export interface FrameTagConfigureInfoForUpdate {
     /**
-        * 智能按帧标签任务开关，可选值：
-  <li>ON：开启智能按帧标签任务；</li>
-  <li>OFF：关闭智能按帧标签任务。</li>
-        */
+      * 智能按帧标签任务开关，可选值：
+<li>ON：开启智能按帧标签任务；</li>
+<li>OFF：关闭智能按帧标签任务。</li>
+      */
     Switch?: string;
 }
 /**
@@ -8118,12 +8118,12 @@ export interface FrameTagConfigureInfoForUpdate {
  */
 export interface CreateImageSpriteTemplateResponse {
     /**
-     * 雪碧图模板唯一标识。
-     */
+      * 雪碧图模板唯一标识。
+      */
     Definition?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8131,16 +8131,16 @@ export interface CreateImageSpriteTemplateResponse {
  */
 export interface DescribeAIRecognitionTemplatesRequest {
     /**
-     * 视频内容识别模板唯一标识过滤条件，数组长度限制：10。
-     */
+      * 视频内容识别模板唯一标识过滤条件，数组长度限制：10。
+      */
     Definitions?: Array<number>;
     /**
-     * 分页偏移量，默认值：0。
-     */
+      * 分页偏移量，默认值：0。
+      */
     Offset?: number;
     /**
-     * 返回记录条数，默认值：10，最大值：50。
-     */
+      * 返回记录条数，默认值：10，最大值：50。
+      */
     Limit?: number;
 }
 /**
@@ -8148,12 +8148,12 @@ export interface DescribeAIRecognitionTemplatesRequest {
  */
 export interface ModifyWatermarkTemplateResponse {
     /**
-     * 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有效。
-     */
+      * 图片水印地址，仅当 ImageTemplate.ImageContent 非空，该字段有效。
+      */
     ImageUrl?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8161,42 +8161,42 @@ export interface ModifyWatermarkTemplateResponse {
  */
 export interface AiRecognitionResult {
     /**
-        * 任务的类型，取值范围：
-  <li>FaceRecognition：人脸识别，</li>
-  <li>AsrWordsRecognition：语音关键词识别，</li>
-  <li>OcrWordsRecognition：文本关键词识别，</li>
-  <li>AsrFullTextRecognition：语音全文识别，</li>
-  <li>OcrFullTextRecognition：文本全文识别。</li>
-        */
+      * 任务的类型，取值范围：
+<li>FaceRecognition：人脸识别，</li>
+<li>AsrWordsRecognition：语音关键词识别，</li>
+<li>OcrWordsRecognition：文本关键词识别，</li>
+<li>AsrFullTextRecognition：语音全文识别，</li>
+<li>OcrFullTextRecognition：文本全文识别。</li>
+      */
     Type: string;
     /**
-        * 人脸识别结果，当 Type 为
-   FaceRecognition 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 人脸识别结果，当 Type 为
+ FaceRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FaceTask: AiRecognitionTaskFaceResult;
     /**
-        * 语音关键词识别结果，当 Type 为
-   AsrWordsRecognition 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 语音关键词识别结果，当 Type 为
+ AsrWordsRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AsrWordsTask: AiRecognitionTaskAsrWordsResult;
     /**
-        * 语音全文识别结果，当 Type 为
-   AsrFullTextRecognition 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 语音全文识别结果，当 Type 为
+ AsrFullTextRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AsrFullTextTask: AiRecognitionTaskAsrFullTextResult;
     /**
-        * 文本关键词识别结果，当 Type 为
-   OcrWordsRecognition 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文本关键词识别结果，当 Type 为
+ OcrWordsRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OcrWordsTask: AiRecognitionTaskOcrWordsResult;
     /**
-        * 文本全文识别结果，当 Type 为
-   OcrFullTextRecognition 时有效。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 文本全文识别结果，当 Type 为
+ OcrFullTextRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OcrFullTextTask: AiRecognitionTaskOcrFullTextResult;
 }

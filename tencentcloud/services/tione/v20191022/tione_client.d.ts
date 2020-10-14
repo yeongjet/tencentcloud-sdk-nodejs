@@ -65,7 +65,7 @@ export declare class Client extends AbstractClient {
     /**
      * 查询Notebook概览数据
      */
-    DescribeNotebookSummary(req: DescribeNotebookSummaryRequest, cb?: (error: string, rep: DescribeNotebookSummaryResponse) => void): Promise<DescribeNotebookSummaryResponse>;
+    DescribeNotebookSummary(req?: DescribeNotebookSummaryRequest, cb?: (error: string, rep: DescribeNotebookSummaryResponse) => void): Promise<DescribeNotebookSummaryResponse>;
     /**
      * 创建Notebook生命周期脚本
      */

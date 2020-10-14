@@ -304,7 +304,7 @@ export class Client extends AbstractClient {
    * 查询水印列表。
    */
   async DescribeLiveWatermarks(
-    req: DescribeLiveWatermarksRequest,
+    req?: DescribeLiveWatermarksRequest,
     cb?: (error: string, rep: DescribeLiveWatermarksResponse) => void
   ): Promise<DescribeLiveWatermarksResponse> {
     return this.request("DescribeLiveWatermarks", req, cb)
@@ -452,7 +452,7 @@ export class Client extends AbstractClient {
    * 获取截图规则列表
    */
   async DescribeLiveSnapshotRules(
-    req: DescribeLiveSnapshotRulesRequest,
+    req?: DescribeLiveSnapshotRulesRequest,
     cb?: (error: string, rep: DescribeLiveSnapshotRulesResponse) => void
   ): Promise<DescribeLiveSnapshotRulesResponse> {
     return this.request("DescribeLiveSnapshotRules", req, cb)
@@ -864,7 +864,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取转码规则列表
    */
   async DescribeLiveTranscodeRules(
-    req: DescribeLiveTranscodeRulesRequest,
+    req?: DescribeLiveTranscodeRulesRequest,
     cb?: (error: string, rep: DescribeLiveTranscodeRulesResponse) => void
   ): Promise<DescribeLiveTranscodeRulesResponse> {
     return this.request("DescribeLiveTranscodeRules", req, cb)
@@ -884,7 +884,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取回调模板列表
    */
   async DescribeLiveCallbackTemplates(
-    req: DescribeLiveCallbackTemplatesRequest,
+    req?: DescribeLiveCallbackTemplatesRequest,
     cb?: (error: string, rep: DescribeLiveCallbackTemplatesResponse) => void
   ): Promise<DescribeLiveCallbackTemplatesResponse> {
     return this.request("DescribeLiveCallbackTemplates", req, cb)
@@ -904,7 +904,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取截图模板列表。
    */
   async DescribeLiveSnapshotTemplates(
-    req: DescribeLiveSnapshotTemplatesRequest,
+    req?: DescribeLiveSnapshotTemplatesRequest,
     cb?: (error: string, rep: DescribeLiveSnapshotTemplatesResponse) => void
   ): Promise<DescribeLiveSnapshotTemplatesResponse> {
     return this.request("DescribeLiveSnapshotTemplates", req, cb)
@@ -994,7 +994,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取录制规则列表
    */
   async DescribeLiveRecordRules(
-    req: DescribeLiveRecordRulesRequest,
+    req?: DescribeLiveRecordRulesRequest,
     cb?: (error: string, rep: DescribeLiveRecordRulesResponse) => void
   ): Promise<DescribeLiveRecordRulesResponse> {
     return this.request("DescribeLiveRecordRules", req, cb)
@@ -1004,7 +1004,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取直播延播列表。
    */
   async DescribeLiveDelayInfoList(
-    req: DescribeLiveDelayInfoListRequest,
+    req?: DescribeLiveDelayInfoListRequest,
     cb?: (error: string, rep: DescribeLiveDelayInfoListResponse) => void
   ): Promise<DescribeLiveDelayInfoListResponse> {
     return this.request("DescribeLiveDelayInfoList", req, cb)
@@ -1056,7 +1056,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取回调规则列表
    */
   async DescribeLiveCallbackRules(
-    req: DescribeLiveCallbackRulesRequest,
+    req?: DescribeLiveCallbackRulesRequest,
     cb?: (error: string, rep: DescribeLiveCallbackRulesResponse) => void
   ): Promise<DescribeLiveCallbackRulesResponse> {
     return this.request("DescribeLiveCallbackRules", req, cb)
@@ -1150,7 +1150,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取转码模板列表。
    */
   async DescribeLiveTranscodeTemplates(
-    req: DescribeLiveTranscodeTemplatesRequest,
+    req?: DescribeLiveTranscodeTemplatesRequest,
     cb?: (error: string, rep: DescribeLiveTranscodeTemplatesResponse) => void
   ): Promise<DescribeLiveTranscodeTemplatesResponse> {
     return this.request("DescribeLiveTranscodeTemplates", req, cb)
@@ -1202,7 +1202,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取水印规则列表。
    */
   async DescribeLiveWatermarkRules(
-    req: DescribeLiveWatermarkRulesRequest,
+    req?: DescribeLiveWatermarkRulesRequest,
     cb?: (error: string, rep: DescribeLiveWatermarkRulesResponse) => void
   ): Promise<DescribeLiveWatermarkRulesResponse> {
     return this.request("DescribeLiveWatermarkRules", req, cb)
@@ -1323,7 +1323,7 @@ DomainName+AppName+StreamName+TemplateId唯一标识单个转码规则，如需�
    * 获取证书信息列表
    */
   async DescribeLiveCerts(
-    req: DescribeLiveCertsRequest,
+    req?: DescribeLiveCertsRequest,
     cb?: (error: string, rep: DescribeLiveCertsResponse) => void
   ): Promise<DescribeLiveCertsResponse> {
     return this.request("DescribeLiveCerts", req, cb)

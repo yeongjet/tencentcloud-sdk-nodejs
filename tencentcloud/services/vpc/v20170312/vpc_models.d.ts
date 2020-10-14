@@ -3,12 +3,12 @@
  */
 export interface CreateNetworkAclResponse {
     /**
-     * 网络ACL实例。
-     */
+      * 网络ACL实例。
+      */
     NetworkAcl?: NetworkAcl;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -16,32 +16,32 @@ export interface CreateNetworkAclResponse {
  */
 export interface NetworkAcl {
     /**
-     * `VPC`实例`ID`。
-     */
+      * `VPC`实例`ID`。
+      */
     VpcId: string;
     /**
-     * 网络ACL实例`ID`。
-     */
+      * 网络ACL实例`ID`。
+      */
     NetworkAclId: string;
     /**
-     * 网络ACL名称，最大长度为60。
-     */
+      * 网络ACL名称，最大长度为60。
+      */
     NetworkAclName: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
     /**
-     * 网络ACL关联的子网数组。
-     */
+      * 网络ACL关联的子网数组。
+      */
     SubnetSet: Array<Subnet>;
     /**
-     * 网络ACl入站规则。
-     */
+      * 网络ACl入站规则。
+      */
     IngressEntries: Array<NetworkAclEntry>;
     /**
-     * 网络ACL出站规则。
-     */
+      * 网络ACL出站规则。
+      */
     EgressEntries: Array<NetworkAclEntry>;
 }
 /**
@@ -49,8 +49,8 @@ export interface NetworkAcl {
  */
 export interface ModifyAddressTemplateAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -58,8 +58,8 @@ export interface ModifyAddressTemplateAttributeResponse {
  */
 export interface DisassociateDhcpIpWithAddressIpRequest {
     /**
-     * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。必须是已绑定`EIP`的`DhcpIp`。
-     */
+      * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。必须是已绑定`EIP`的`DhcpIp`。
+      */
     DhcpIpId: string;
 }
 /**
@@ -67,24 +67,24 @@ export interface DisassociateDhcpIpWithAddressIpRequest {
  */
 export interface SecurityGroupLimitSet {
     /**
-     * 每个项目每个地域可创建安全组数
-     */
+      * 每个项目每个地域可创建安全组数
+      */
     SecurityGroupLimit: number;
     /**
-     * 安全组下的最大规则数
-     */
+      * 安全组下的最大规则数
+      */
     SecurityGroupPolicyLimit: number;
     /**
-     * 安全组下嵌套安全组规则数
-     */
+      * 安全组下嵌套安全组规则数
+      */
     ReferedSecurityGroupLimit: number;
     /**
-     * 单安全组关联实例数
-     */
+      * 单安全组关联实例数
+      */
     SecurityGroupInstanceLimit: number;
     /**
-     * 实例关联安全组数
-     */
+      * 实例关联安全组数
+      */
     InstanceSecurityGroupLimit: number;
 }
 /**
@@ -92,12 +92,12 @@ export interface SecurityGroupLimitSet {
  */
 export interface CreateRoutesRequest {
     /**
-     * 路由表实例ID。
-     */
+      * 路由表实例ID。
+      */
     RouteTableId: string;
     /**
-     * 路由策略对象。
-     */
+      * 路由策略对象。
+      */
     Routes: Array<Route>;
 }
 /**
@@ -105,16 +105,16 @@ export interface CreateRoutesRequest {
  */
 export interface DescribeHaVipsResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * `HAVIP`对象数组。
-     */
+      * `HAVIP`对象数组。
+      */
     HaVipSet?: Array<HaVip>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -122,36 +122,36 @@ export interface DescribeHaVipsResponse {
  */
 export interface SecurityGroupAssociationStatistics {
     /**
-     * 安全组实例ID。
-     */
+      * 安全组实例ID。
+      */
     SecurityGroupId: string;
     /**
-     * 云服务器实例数。
-     */
+      * 云服务器实例数。
+      */
     CVM: number;
     /**
-     * 数据库实例数。
-     */
+      * 数据库实例数。
+      */
     CDB: number;
     /**
-     * 弹性网卡实例数。
-     */
+      * 弹性网卡实例数。
+      */
     ENI: number;
     /**
-     * 被安全组引用数。
-     */
+      * 被安全组引用数。
+      */
     SG: number;
     /**
-     * 负载均衡实例数。
-     */
+      * 负载均衡实例数。
+      */
     CLB: number;
     /**
-     * 全量实例的绑定统计。
-     */
+      * 全量实例的绑定统计。
+      */
     InstanceStatistics: Array<InstanceStatistic>;
     /**
-     * 所有资源的总计数（不包含被安全组引用数）。
-     */
+      * 所有资源的总计数（不包含被安全组引用数）。
+      */
     TotalCount: number;
 }
 /**
@@ -159,8 +159,8 @@ export interface SecurityGroupAssociationStatistics {
  */
 export interface DeleteServiceTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -168,12 +168,12 @@ export interface DeleteServiceTemplateResponse {
  */
 export interface CreateServiceTemplateRequest {
     /**
-     * 协议端口模板名称
-     */
+      * 协议端口模板名称
+      */
     ServiceTemplateName: string;
     /**
-     * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
-     */
+      * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
+      */
     Services: Array<string>;
 }
 /**
@@ -181,13 +181,13 @@ export interface CreateServiceTemplateRequest {
  */
 export interface DescribeIp6TranslatorQuotaResponse {
     /**
-        * 账户在指定地域的IPV6转换实例及规则配额信息
-  QUOTAID属性是TOTAL_TRANSLATOR_QUOTA，表示账户在指定地域的IPV6转换实例配额信息；QUOTAID属性是IPV6转换实例唯一ID（形如ip6-xxxxxxxx），表示账户在该转换实例允许创建的转换规则配额
-        */
+      * 账户在指定地域的IPV6转换实例及规则配额信息
+QUOTAID属性是TOTAL_TRANSLATOR_QUOTA，表示账户在指定地域的IPV6转换实例配额信息；QUOTAID属性是IPV6转换实例唯一ID（形如ip6-xxxxxxxx），表示账户在该转换实例允许创建的转换规则配额
+      */
     QuotaSet?: Array<Quota>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -195,8 +195,8 @@ export interface DescribeIp6TranslatorQuotaResponse {
  */
 export interface TransformAddressResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -204,25 +204,25 @@ export interface TransformAddressResponse {
  */
 export interface DescribeVpnConnectionsRequest {
     /**
-     * VPN通道实例ID。形如：vpnx-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpnConnectionIds和Filters。
-     */
+      * VPN通道实例ID。形如：vpnx-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpnConnectionIds和Filters。
+      */
     VpnConnectionIds?: Array<string>;
     /**
-        * 过滤条件。每次请求的Filters的上限为10，Filter.Values的上限为5。参数不支持同时指定VpnConnectionIds和Filters。
-  <li>vpc-id - String - VPC实例ID，形如：`vpc-0a36uwkr`。</li>
-  <li>vpn-gateway-id - String - VPN网关实例ID，形如：`vpngw-p4lmqawn`。</li>
-  <li>customer-gateway-id - String - 对端网关实例ID，形如：`cgw-l4rblw63`。</li>
-  <li>vpn-connection-name - String - 通道名称，形如：`test-vpn`。</li>
-  <li>vpn-connection-id - String - 通道实例ID，形如：`vpnx-5p7vkch8"`。</li>
-        */
+      * 过滤条件。每次请求的Filters的上限为10，Filter.Values的上限为5。参数不支持同时指定VpnConnectionIds和Filters。
+<li>vpc-id - String - VPC实例ID，形如：`vpc-0a36uwkr`。</li>
+<li>vpn-gateway-id - String - VPN网关实例ID，形如：`vpngw-p4lmqawn`。</li>
+<li>customer-gateway-id - String - 对端网关实例ID，形如：`cgw-l4rblw63`。</li>
+<li>vpn-connection-name - String - 通道名称，形如：`test-vpn`。</li>
+<li>vpn-connection-id - String - 通道实例ID，形如：`vpnx-5p7vkch8"`。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
-     */
+      * 偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -230,12 +230,12 @@ export interface DescribeVpnConnectionsRequest {
  */
 export interface CreateAssistantCidrRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     */
+      * CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+      */
     CidrBlocks: Array<string>;
 }
 /**
@@ -243,32 +243,32 @@ export interface CreateAssistantCidrRequest {
  */
 export interface DescribeNetworkInterfacesRequest {
     /**
-     * 弹性网卡实例ID查询。形如：eni-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定NetworkInterfaceIds和Filters。
-     */
+      * 弹性网卡实例ID查询。形如：eni-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定NetworkInterfaceIds和Filters。
+      */
     NetworkInterfaceIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-  <li>subnet-id - String - （过滤条件）所属子网实例ID，形如：subnet-f49l6u0z。</li>
-  <li>network-interface-id - String - （过滤条件）弹性网卡实例ID，形如：eni-5k56k7k7。</li>
-  <li>attachment.instance-id - String - （过滤条件）绑定的云服务器实例ID，形如：ins-3nqpdn3i。</li>
-  <li>groups.security-group-id - String - （过滤条件）绑定的安全组实例ID，例如：sg-f9ekbxeq。</li>
-  <li>network-interface-name - String - （过滤条件）网卡实例名称。</li>
-  <li>network-interface-description - String - （过滤条件）网卡实例描述。</li>
-  <li>address-ip - String - （过滤条件）内网IPv4地址，单IP后缀模糊匹配，多IP精确匹配。可以与`ip-exact-match`配合做单IP的精确匹配查询。</li>
-  <li>ip-exact-match - Boolean - （过滤条件）内网IPv4精确匹配查询，存在多值情况，只取第一个。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。使用请参考示例2</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3。</li>
-  <li>is-primary - Boolean - 是否必填：否 - （过滤条件）按照是否主网卡进行过滤。值为true时，仅过滤主网卡；值为false时，仅过滤辅助网卡；此过滤参数未提供时，同时过滤主网卡和辅助网卡。</li>
-        */
+      * 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+<li>subnet-id - String - （过滤条件）所属子网实例ID，形如：subnet-f49l6u0z。</li>
+<li>network-interface-id - String - （过滤条件）弹性网卡实例ID，形如：eni-5k56k7k7。</li>
+<li>attachment.instance-id - String - （过滤条件）绑定的云服务器实例ID，形如：ins-3nqpdn3i。</li>
+<li>groups.security-group-id - String - （过滤条件）绑定的安全组实例ID，例如：sg-f9ekbxeq。</li>
+<li>network-interface-name - String - （过滤条件）网卡实例名称。</li>
+<li>network-interface-description - String - （过滤条件）网卡实例描述。</li>
+<li>address-ip - String - （过滤条件）内网IPv4地址，单IP后缀模糊匹配，多IP精确匹配。可以与`ip-exact-match`配合做单IP的精确匹配查询。</li>
+<li>ip-exact-match - Boolean - （过滤条件）内网IPv4精确匹配查询，存在多值情况，只取第一个。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。使用请参考示例2</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3。</li>
+<li>is-primary - Boolean - 是否必填：否 - （过滤条件）按照是否主网卡进行过滤。值为true时，仅过滤主网卡；值为false时，仅过滤辅助网卡；此过滤参数未提供时，同时过滤主网卡和辅助网卡。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -276,8 +276,8 @@ export interface DescribeNetworkInterfacesRequest {
  */
 export interface DescribeVpcLimitsRequest {
     /**
-     * 配额名称。每次最大查询100个配额类型。
-     */
+      * 配额名称。每次最大查询100个配额类型。
+      */
     LimitTypes: Array<string>;
 }
 /**
@@ -285,12 +285,12 @@ export interface DescribeVpcLimitsRequest {
  */
 export interface ReleaseIp6AddressesBandwidthResponse {
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -298,20 +298,20 @@ export interface ReleaseIp6AddressesBandwidthResponse {
  */
 export interface DescribeVpcIpv6AddressesRequest {
     /**
-     * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
-     */
+      * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
     /**
-     * `IP`地址列表，批量查询单次请求最多支持`10`个。
-     */
+      * `IP`地址列表，批量查询单次请求最多支持`10`个。
+      */
     Ipv6Addresses?: Array<string>;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: number;
     /**
-     * 返回数量。
-     */
+      * 返回数量。
+      */
     Limit?: number;
 }
 /**
@@ -319,23 +319,23 @@ export interface DescribeVpcIpv6AddressesRequest {
  */
 export interface DescribeCustomerGatewaysRequest {
     /**
-     * 对端网关ID，例如：cgw-2wqq41m9。每次请求的实例的上限为100。参数不支持同时指定CustomerGatewayIds和Filters。
-     */
+      * 对端网关ID，例如：cgw-2wqq41m9。每次请求的实例的上限为100。参数不支持同时指定CustomerGatewayIds和Filters。
+      */
     CustomerGatewayIds?: Array<string>;
     /**
-        * 过滤条件，详见下表：实例过滤条件表。每次请求的Filters的上限为10，Filter.Values的上限为5。参数不支持同时指定CustomerGatewayIds和Filters。
-  <li>customer-gateway-id - String - （过滤条件）用户网关唯一ID形如：`cgw-mgp33pll`。</li>
-  <li>customer-gateway-name - String - （过滤条件）用户网关名称形如：`test-cgw`。</li>
-  <li>ip-address - String - （过滤条件）公网地址形如：`58.211.1.12`。</li>
-        */
+      * 过滤条件，详见下表：实例过滤条件表。每次请求的Filters的上限为10，Filter.Values的上限为5。参数不支持同时指定CustomerGatewayIds和Filters。
+<li>customer-gateway-id - String - （过滤条件）用户网关唯一ID形如：`cgw-mgp33pll`。</li>
+<li>customer-gateway-name - String - （过滤条件）用户网关名称形如：`test-cgw`。</li>
+<li>ip-address - String - （过滤条件）公网地址形如：`58.211.1.12`。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
-     */
+      * 偏移量，默认为0。关于Offset的更进一步介绍请参考 API 简介中的相关小节。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -343,8 +343,8 @@ export interface DescribeCustomerGatewaysRequest {
  */
 export interface ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -352,8 +352,8 @@ export interface ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse {
  */
 export interface ModifyIp6RuleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -361,8 +361,8 @@ export interface ModifyIp6RuleResponse {
  */
 export interface ModifyNetworkAclAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -370,16 +370,16 @@ export interface ModifyNetworkAclAttributeResponse {
  */
 export interface DescribeVpnGatewaysResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * VPN网关实例详细信息列表。
-     */
+      * VPN网关实例详细信息列表。
+      */
     VpnGatewaySet?: Array<VpnGateway>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -387,24 +387,24 @@ export interface DescribeVpnGatewaysResponse {
  */
 export interface ServiceTemplateGroup {
     /**
-     * 协议端口模板集合实例ID，例如：ppmg-2klmrefu。
-     */
+      * 协议端口模板集合实例ID，例如：ppmg-2klmrefu。
+      */
     ServiceTemplateGroupId: string;
     /**
-     * 协议端口模板集合名称。
-     */
+      * 协议端口模板集合名称。
+      */
     ServiceTemplateGroupName: string;
     /**
-     * 协议端口模板实例ID。
-     */
+      * 协议端口模板实例ID。
+      */
     ServiceTemplateIdSet: Array<string>;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * 协议端口模板实例信息。
-     */
+      * 协议端口模板实例信息。
+      */
     ServiceTemplateSet: Array<ServiceTemplate>;
 }
 /**
@@ -412,12 +412,12 @@ export interface ServiceTemplateGroup {
  */
 export interface CreateDhcpIpResponse {
     /**
-     * 新创建的`DhcpIp`信息
-     */
+      * 新创建的`DhcpIp`信息
+      */
     DhcpIpSet?: Array<DhcpIp>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -425,44 +425,44 @@ export interface CreateDhcpIpResponse {
  */
 export interface FlowLog {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId?: string;
     /**
-     * 流日志唯一ID
-     */
+      * 流日志唯一ID
+      */
     FlowLogId?: string;
     /**
-     * 流日志实例名字
-     */
+      * 流日志实例名字
+      */
     FlowLogName?: string;
     /**
-     * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
-     */
+      * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+      */
     ResourceType?: string;
     /**
-     * 资源唯一ID
-     */
+      * 资源唯一ID
+      */
     ResourceId?: string;
     /**
-     * 流日志采集类型，ACCEPT|REJECT|ALL
-     */
+      * 流日志采集类型，ACCEPT|REJECT|ALL
+      */
     TrafficType?: string;
     /**
-     * 流日志存储ID
-     */
+      * 流日志存储ID
+      */
     CloudLogId?: string;
     /**
-     * 流日志存储ID状态
-     */
+      * 流日志存储ID状态
+      */
     CloudLogState?: string;
     /**
-     * 流日志描述信息
-     */
+      * 流日志描述信息
+      */
     FlowLogDescription?: string;
     /**
-     * 流日志创建时间
-     */
+      * 流日志创建时间
+      */
     CreatedTime?: string;
 }
 /**
@@ -470,8 +470,8 @@ export interface FlowLog {
  */
 export interface CreateDefaultSecurityGroupRequest {
     /**
-     * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-     */
+      * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+      */
     ProjectId?: string;
 }
 /**
@@ -479,16 +479,16 @@ export interface CreateDefaultSecurityGroupRequest {
  */
 export interface DescribeServiceTemplateGroupsResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 协议端口模板集合。
-     */
+      * 协议端口模板集合。
+      */
     ServiceTemplateGroupSet?: Array<ServiceTemplateGroup>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -496,12 +496,12 @@ export interface DescribeServiceTemplateGroupsResponse {
  */
 export interface DetachClassicLinkVpcRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * CVM实例ID查询。形如：ins-r8hr2upy。
-     */
+      * CVM实例ID查询。形如：ins-r8hr2upy。
+      */
     InstanceIds: Array<string>;
 }
 /**
@@ -509,8 +509,8 @@ export interface DetachClassicLinkVpcRequest {
  */
 export interface DeleteBandwidthPackageResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -518,16 +518,16 @@ export interface DeleteBandwidthPackageResponse {
  */
 export interface ModifyNatGatewayAttributeRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * NAT网关的名称，形如：`test_nat`。
-     */
+      * NAT网关的名称，形如：`test_nat`。
+      */
     NatGatewayName?: string;
     /**
-     * NAT网关最大外网出带宽(单位:Mbps)。
-     */
+      * NAT网关最大外网出带宽(单位:Mbps)。
+      */
     InternetMaxBandwidthOut?: number;
 }
 /**
@@ -535,12 +535,12 @@ export interface ModifyNatGatewayAttributeRequest {
  */
 export interface DescribeVpcLimitsResponse {
     /**
-     * 私有网络配额
-     */
+      * 私有网络配额
+      */
     VpcLimitSet?: Array<VpcLimit>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -548,24 +548,24 @@ export interface DescribeVpcLimitsResponse {
  */
 export interface AddBandwidthPackageResourcesRequest {
     /**
-     * 资源唯一ID，当前支持EIP资源和LB资源，形如'eip-xxxx', 'lb-xxxx'
-     */
+      * 资源唯一ID，当前支持EIP资源和LB资源，形如'eip-xxxx', 'lb-xxxx'
+      */
     ResourceIds: Array<string>;
     /**
-     * 带宽包唯一标识ID，形如'bwp-xxxx'
-     */
+      * 带宽包唯一标识ID，形如'bwp-xxxx'
+      */
     BandwidthPackageId?: string;
     /**
-     * 带宽包类型，当前支持'BGP'类型，表示内部资源是BGP IP。
-     */
+      * 带宽包类型，当前支持'BGP'类型，表示内部资源是BGP IP。
+      */
     NetworkType?: string;
     /**
-     * 资源类型，包括'Address', 'LoadBalance'
-     */
+      * 资源类型，包括'Address', 'LoadBalance'
+      */
     ResourceType?: string;
     /**
-     * 带宽包协议类型。当前支持'ipv4'和'ipv6'协议类型。
-     */
+      * 带宽包协议类型。当前支持'ipv4'和'ipv6'协议类型。
+      */
     Protocol?: string;
 }
 /**
@@ -573,12 +573,12 @@ export interface AddBandwidthPackageResourcesRequest {
  */
 export interface AssignIpv6SubnetCidrBlockRequest {
     /**
-     * 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
-     */
+      * 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
     /**
-     * 分配 `IPv6` 子网段列表。
-     */
+      * 分配 `IPv6` 子网段列表。
+      */
     Ipv6SubnetCidrBlocks: Array<Ipv6SubnetCidrBlock>;
 }
 /**
@@ -586,12 +586,12 @@ export interface AssignIpv6SubnetCidrBlockRequest {
  */
 export interface CreateVpcResponse {
     /**
-     * Vpc对象。
-     */
+      * Vpc对象。
+      */
     Vpc?: Vpc;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -599,21 +599,21 @@ export interface CreateVpcResponse {
  */
 export interface AssistantCidr {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * 辅助CIDR。形如：`172.16.0.0/16`
-     */
+      * 辅助CIDR。形如：`172.16.0.0/16`
+      */
     CidrBlock: string;
     /**
-     * 辅助CIDR类型（0：普通辅助CIDR，1：容器辅助CIDR），默认都是0。
-     */
+      * 辅助CIDR类型（0：普通辅助CIDR，1：容器辅助CIDR），默认都是0。
+      */
     AssistantType: number;
     /**
-        * 辅助CIDR拆分的子网。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 辅助CIDR拆分的子网。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     SubnetSet: Array<Subnet>;
 }
 /**
@@ -621,12 +621,12 @@ export interface AssistantCidr {
  */
 export interface ModifyNetworkAclEntriesRequest {
     /**
-     * 网络ACL实例ID。例如：acl-12345678。
-     */
+      * 网络ACL实例ID。例如：acl-12345678。
+      */
     NetworkAclId: string;
     /**
-     * 网络ACL规则集。
-     */
+      * 网络ACL规则集。
+      */
     NetworkAclEntrySet: NetworkAclEntrySet;
 }
 /**
@@ -634,12 +634,12 @@ export interface ModifyNetworkAclEntriesRequest {
  */
 export interface DescribeVpcPrivateIpAddressesRequest {
     /**
-     * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
-     */
+      * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
     /**
-     * 内网`IP`地址列表，批量查询单次请求最多支持`10`个。
-     */
+      * 内网`IP`地址列表，批量查询单次请求最多支持`10`个。
+      */
     PrivateIpAddresses: Array<string>;
 }
 /**
@@ -647,20 +647,20 @@ export interface DescribeVpcPrivateIpAddressesRequest {
  */
 export interface AddressTemplate {
     /**
-     * IP地址模板名称。
-     */
+      * IP地址模板名称。
+      */
     AddressTemplateName: string;
     /**
-     * IP地址模板实例唯一ID。
-     */
+      * IP地址模板实例唯一ID。
+      */
     AddressTemplateId: string;
     /**
-     * IP地址信息。
-     */
+      * IP地址信息。
+      */
     AddressSet: Array<string>;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
 }
 /**
@@ -668,52 +668,52 @@ export interface AddressTemplate {
  */
 export interface IKEOptionsSpecification {
     /**
-     * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
-     */
+      * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBS-192', 'AES-CBC-256', 'DES-CBC'，默认为3DES-CBC
+      */
     PropoEncryAlgorithm?: string;
     /**
-     * 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
-     */
+      * 认证算法：可选值：'MD5', 'SHA1'，默认为MD5
+      */
     PropoAuthenAlgorithm?: string;
     /**
-     * 协商模式：可选值：'AGGRESSIVE', 'MAIN'，默认为MAIN
-     */
+      * 协商模式：可选值：'AGGRESSIVE', 'MAIN'，默认为MAIN
+      */
     ExchangeMode?: string;
     /**
-     * 本端标识类型：可选值：'ADDRESS', 'FQDN'，默认为ADDRESS
-     */
+      * 本端标识类型：可选值：'ADDRESS', 'FQDN'，默认为ADDRESS
+      */
     LocalIdentity?: string;
     /**
-     * 对端标识类型：可选值：'ADDRESS', 'FQDN'，默认为ADDRESS
-     */
+      * 对端标识类型：可选值：'ADDRESS', 'FQDN'，默认为ADDRESS
+      */
     RemoteIdentity?: string;
     /**
-     * 本端标识，当LocalIdentity选为ADDRESS时，LocalAddress必填。localAddress默认为vpn网关公网IP
-     */
+      * 本端标识，当LocalIdentity选为ADDRESS时，LocalAddress必填。localAddress默认为vpn网关公网IP
+      */
     LocalAddress?: string;
     /**
-     * 对端标识，当RemoteIdentity选为ADDRESS时，RemoteAddress必填
-     */
+      * 对端标识，当RemoteIdentity选为ADDRESS时，RemoteAddress必填
+      */
     RemoteAddress?: string;
     /**
-     * 本端标识，当LocalIdentity选为FQDN时，LocalFqdnName必填
-     */
+      * 本端标识，当LocalIdentity选为FQDN时，LocalFqdnName必填
+      */
     LocalFqdnName?: string;
     /**
-     * 对端标识，当remoteIdentity选为FQDN时，RemoteFqdnName必填
-     */
+      * 对端标识，当remoteIdentity选为FQDN时，RemoteFqdnName必填
+      */
     RemoteFqdnName?: string;
     /**
-     * DH group，指定IKE交换密钥时使用的DH组，可选值：'GROUP1', 'GROUP2', 'GROUP5', 'GROUP14', 'GROUP24'，
-     */
+      * DH group，指定IKE交换密钥时使用的DH组，可选值：'GROUP1', 'GROUP2', 'GROUP5', 'GROUP14', 'GROUP24'，
+      */
     DhGroupName?: string;
     /**
-     * IKE SA Lifetime，单位：秒，设置IKE SA的生存周期，取值范围：60-604800
-     */
+      * IKE SA Lifetime，单位：秒，设置IKE SA的生存周期，取值范围：60-604800
+      */
     IKESaLifetimeSeconds?: number;
     /**
-     * IKE版本
-     */
+      * IKE版本
+      */
     IKEVersion?: string;
 }
 /**
@@ -721,16 +721,16 @@ export interface IKEOptionsSpecification {
  */
 export interface VpnGatewayQuota {
     /**
-     * 带宽配额
-     */
+      * 带宽配额
+      */
     Bandwidth: number;
     /**
-     * 配额中文名称
-     */
+      * 配额中文名称
+      */
     Cname: string;
     /**
-     * 配额英文名称
-     */
+      * 配额英文名称
+      */
     Name: string;
 }
 /**
@@ -738,8 +738,8 @@ export interface VpnGatewayQuota {
  */
 export interface UnassignIpv6AddressesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -747,12 +747,12 @@ export interface UnassignIpv6AddressesResponse {
  */
 export interface CreateIp6TranslatorsResponse {
     /**
-     * 转换实例的唯一ID数组，形如"ip6-xxxxxxxx"
-     */
+      * 转换实例的唯一ID数组，形如"ip6-xxxxxxxx"
+      */
     Ip6TranslatorSet?: Array<string>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -760,58 +760,58 @@ export interface CreateIp6TranslatorsResponse {
  */
 export interface DescribeFlowLogsRequest {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId?: string;
     /**
-     * 流日志唯一ID
-     */
+      * 流日志唯一ID
+      */
     FlowLogId?: string;
     /**
-     * 流日志实例名字
-     */
+      * 流日志实例名字
+      */
     FlowLogName?: string;
     /**
-     * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
-     */
+      * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+      */
     ResourceType?: string;
     /**
-     * 资源唯一ID
-     */
+      * 资源唯一ID
+      */
     ResourceId?: string;
     /**
-     * 流日志采集类型，ACCEPT|REJECT|ALL
-     */
+      * 流日志采集类型，ACCEPT|REJECT|ALL
+      */
     TrafficType?: string;
     /**
-     * 流日志存储ID
-     */
+      * 流日志存储ID
+      */
     CloudLogId?: string;
     /**
-     * 流日志存储ID状态
-     */
+      * 流日志存储ID状态
+      */
     CloudLogState?: string;
     /**
-     * 按某个字段排序,支持字段：flowLogName,createTime，默认按createTime
-     */
+      * 按某个字段排序,支持字段：flowLogName,createTime，默认按createTime
+      */
     OrderField?: string;
     /**
-     * 升序（asc）还是降序（desc）,默认：desc
-     */
+      * 升序（asc）还是降序（desc）,默认：desc
+      */
     OrderDirection?: string;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 每页行数，默认为10
-     */
+      * 每页行数，默认为10
+      */
     Limit?: number;
     /**
-        * 过滤条件，参数不支持同时指定FlowLogIds和Filters。
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
-        */
+      * 过滤条件，参数不支持同时指定FlowLogIds和Filters。
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
+      */
     Filters?: Filter;
 }
 /**
@@ -819,20 +819,20 @@ export interface DescribeFlowLogsRequest {
  */
 export interface AssociateNatGatewayAddressRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * 需要申请的弹性IP个数，系统会按您的要求生产N个弹性IP, 其中AddressCount和PublicAddresses至少传递一个。
-     */
+      * 需要申请的弹性IP个数，系统会按您的要求生产N个弹性IP, 其中AddressCount和PublicAddresses至少传递一个。
+      */
     AddressCount?: number;
     /**
-     * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
-     */
+      * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
+      */
     PublicIpAddresses?: Array<string>;
     /**
-     * 弹性IP可用区，自动分配弹性IP时传递。
-     */
+      * 弹性IP可用区，自动分配弹性IP时传递。
+      */
     Zone?: string;
 }
 /**
@@ -840,25 +840,25 @@ export interface AssociateNatGatewayAddressRequest {
  */
 export interface CreateDirectConnectGatewayRequest {
     /**
-     * 专线网关名称
-     */
+      * 专线网关名称
+      */
     DirectConnectGatewayName: string;
     /**
-        * 关联网络类型，可选值：
-  <li>VPC - 私有网络</li>
-  <li>CCN - 云联网</li>
-        */
+      * 关联网络类型，可选值：
+<li>VPC - 私有网络</li>
+<li>CCN - 云联网</li>
+      */
     NetworkType: string;
     /**
-        * <li>NetworkType 为 VPC 时，这里传值为私有网络实例ID</li>
-  <li>NetworkType 为 CCN 时，这里传值为云联网实例ID</li>
-        */
+      * <li>NetworkType 为 VPC 时，这里传值为私有网络实例ID</li>
+<li>NetworkType 为 CCN 时，这里传值为云联网实例ID</li>
+      */
     NetworkInstanceId: string;
     /**
-        * 网关类型，可选值：
-  <li>NORMAL - （默认）标准型，注：云联网只支持标准型</li>
-  <li>NAT - NAT型</li>NAT类型支持网络地址转换配置，类型确定后不能修改；一个私有网络可以创建一个NAT类型的专线网关和一个非NAT类型的专线网关
-        */
+      * 网关类型，可选值：
+<li>NORMAL - （默认）标准型，注：云联网只支持标准型</li>
+<li>NAT - NAT型</li>NAT类型支持网络地址转换配置，类型确定后不能修改；一个私有网络可以创建一个NAT类型的专线网关和一个非NAT类型的专线网关
+      */
     GatewayType?: string;
 }
 /**
@@ -866,16 +866,16 @@ export interface CreateDirectConnectGatewayRequest {
  */
 export interface ModifyBandwidthPackageAttributeRequest {
     /**
-     * 带宽包唯一标识ID
-     */
+      * 带宽包唯一标识ID
+      */
     BandwidthPackageId: string;
     /**
-     * 带宽包名称
-     */
+      * 带宽包名称
+      */
     BandwidthPackageName: string;
     /**
-     * 带宽包计费模式
-     */
+      * 带宽包计费模式
+      */
     ChargeType?: string;
 }
 /**
@@ -883,12 +883,12 @@ export interface ModifyBandwidthPackageAttributeRequest {
  */
 export interface DisassociateNetworkInterfaceSecurityGroupsRequest {
     /**
-     * 弹性网卡实例ID。形如：eni-pxir56ns。每次请求的实例的上限为100。
-     */
+      * 弹性网卡实例ID。形如：eni-pxir56ns。每次请求的实例的上限为100。
+      */
     NetworkInterfaceIds: Array<string>;
     /**
-     * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。
-     */
+      * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。
+      */
     SecurityGroupIds: Array<string>;
 }
 /**
@@ -896,16 +896,16 @@ export interface DisassociateNetworkInterfaceSecurityGroupsRequest {
  */
 export interface SecurityGroupPolicySet {
     /**
-     * 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
-     */
+      * 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
+      */
     Version?: string;
     /**
-     * 出站规则。
-     */
+      * 出站规则。
+      */
     Egress?: Array<SecurityGroupPolicy>;
     /**
-     * 入站规则。
-     */
+      * 入站规则。
+      */
     Ingress?: Array<SecurityGroupPolicy>;
 }
 /**
@@ -913,20 +913,20 @@ export interface SecurityGroupPolicySet {
  */
 export interface ModifyFlowLogAttributeRequest {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId: string;
     /**
-     * 流日志唯一ID
-     */
+      * 流日志唯一ID
+      */
     FlowLogId: string;
     /**
-     * 流日志实例名字
-     */
+      * 流日志实例名字
+      */
     FlowLogName?: string;
     /**
-     * 流日志实例描述
-     */
+      * 流日志实例描述
+      */
     FlowLogDescription?: string;
 }
 /**
@@ -934,8 +934,8 @@ export interface ModifyFlowLogAttributeRequest {
  */
 export interface AssociateNetworkAclSubnetsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -943,12 +943,12 @@ export interface AssociateNetworkAclSubnetsResponse {
  */
 export interface DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * NAT网关的端口转换规则。
-     */
+      * NAT网关的端口转换规则。
+      */
     DestinationIpPortTranslationNatRules: Array<DestinationIpPortTranslationNatRule>;
 }
 /**
@@ -956,16 +956,16 @@ export interface DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest {
  */
 export interface ResetRoutesRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 路由表名称，最大长度不能超过60个字节。
-     */
+      * 路由表名称，最大长度不能超过60个字节。
+      */
     RouteTableName: string;
     /**
-     * 路由策略。
-     */
+      * 路由策略。
+      */
     Routes: Array<Route>;
 }
 /**
@@ -973,8 +973,8 @@ export interface ResetRoutesRequest {
  */
 export interface CheckDefaultSubnetRequest {
     /**
-     * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
-     */
+      * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
+      */
     Zone?: string;
 }
 /**
@@ -982,42 +982,42 @@ export interface CheckDefaultSubnetRequest {
  */
 export interface CheckNetDetectStateRequest {
     /**
-     * 探测目的IPv4地址数组，最多两个。
-     */
+      * 探测目的IPv4地址数组，最多两个。
+      */
     DetectDestinationIp: Array<string>;
     /**
-        * 下一跳类型，目前我们支持的类型有：
-  VPN：VPN网关；
-  DIRECTCONNECT：专线网关；
-  PEERCONNECTION：对等连接；
-  NAT：NAT网关；
-  NORMAL_CVM：普通云服务器；
-        */
+      * 下一跳类型，目前我们支持的类型有：
+VPN：VPN网关；
+DIRECTCONNECT：专线网关；
+PEERCONNECTION：对等连接；
+NAT：NAT网关；
+NORMAL_CVM：普通云服务器；
+      */
     NextHopType: string;
     /**
-        * 下一跳目的网关，取值与“下一跳类型”相关：
-  下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
-  下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
-  下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
-  下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
-  下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
-        */
+      * 下一跳目的网关，取值与“下一跳类型”相关：
+下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
+下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
+下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
+下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
+下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+      */
     NextHopDestination: string;
     /**
-     * 网络探测实例ID。形如：netd-12345678。该参数与（VpcId，SubnetId，NetDetectName），至少要有一个。当NetDetectId存在时，使用NetDetectId。
-     */
+      * 网络探测实例ID。形如：netd-12345678。该参数与（VpcId，SubnetId，NetDetectName），至少要有一个。当NetDetectId存在时，使用NetDetectId。
+      */
     NetDetectId?: string;
     /**
-     * `VPC`实例`ID`。形如：`vpc-12345678`。该参数与（SubnetId，NetDetectName）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
-     */
+      * `VPC`实例`ID`。形如：`vpc-12345678`。该参数与（SubnetId，NetDetectName）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
+      */
     VpcId?: string;
     /**
-     * 子网实例ID。形如：subnet-12345678。该参数与（VpcId，NetDetectName）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
-     */
+      * 子网实例ID。形如：subnet-12345678。该参数与（VpcId，NetDetectName）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
+      */
     SubnetId?: string;
     /**
-     * 网络探测名称，最大长度不能超过60个字节。该参数与（VpcId，SubnetId）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
-     */
+      * 网络探测名称，最大长度不能超过60个字节。该参数与（VpcId，SubnetId）配合使用，与NetDetectId至少要有一个。当NetDetectId存在时，使用NetDetectId。
+      */
     NetDetectName?: string;
 }
 /**
@@ -1025,12 +1025,12 @@ export interface CheckNetDetectStateRequest {
  */
 export interface RouteTableAssociation {
     /**
-     * 子网实例ID。
-     */
+      * 子网实例ID。
+      */
     SubnetId: string;
     /**
-     * 路由表实例ID。
-     */
+      * 路由表实例ID。
+      */
     RouteTableId: string;
 }
 /**
@@ -1038,12 +1038,12 @@ export interface RouteTableAssociation {
  */
 export interface ModifyCustomerGatewayAttributeRequest {
     /**
-     * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
-     */
+      * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
+      */
     CustomerGatewayId: string;
     /**
-     * 对端网关名称，可任意命名，但不得超过60个字符。
-     */
+      * 对端网关名称，可任意命名，但不得超过60个字符。
+      */
     CustomerGatewayName: string;
 }
 /**
@@ -1051,16 +1051,16 @@ export interface ModifyCustomerGatewayAttributeRequest {
  */
 export interface DescribeRouteTablesResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 路由表对象。
-     */
+      * 路由表对象。
+      */
     RouteTableSet?: Array<RouteTable>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1068,8 +1068,8 @@ export interface DescribeRouteTablesResponse {
  */
 export interface DeleteCcnResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1077,20 +1077,20 @@ export interface DeleteCcnResponse {
  */
 export interface ServiceTemplate {
     /**
-     * 协议端口实例ID，例如：ppm-f5n1f8da。
-     */
+      * 协议端口实例ID，例如：ppm-f5n1f8da。
+      */
     ServiceTemplateId: string;
     /**
-     * 模板名称。
-     */
+      * 模板名称。
+      */
     ServiceTemplateName: string;
     /**
-     * 协议端口信息。
-     */
+      * 协议端口信息。
+      */
     ServiceSet: Array<string>;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
 }
 /**
@@ -1098,32 +1098,32 @@ export interface ServiceTemplate {
  */
 export interface DescribeCcnAttachedInstancesRequest {
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
     /**
-        * 过滤条件：
-  <li>ccn-id - String -（过滤条件）CCN实例ID。</li>
-  <li>instance-type - String -（过滤条件）关联实例类型。</li>
-  <li>instance-region - String -（过滤条件）关联实例所属地域。</li>
-  <li>instance-id - String -（过滤条件）关联实例实例ID。</li>
-        */
+      * 过滤条件：
+<li>ccn-id - String -（过滤条件）CCN实例ID。</li>
+<li>instance-type - String -（过滤条件）关联实例类型。</li>
+<li>instance-region - String -（过滤条件）关联实例所属地域。</li>
+<li>instance-id - String -（过滤条件）关联实例实例ID。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 云联网实例ID
-     */
+      * 云联网实例ID
+      */
     CcnId?: string;
     /**
-     * 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
-     */
+      * 排序字段。支持：`CcnId` `InstanceType` `InstanceId` `InstanceName` `InstanceRegion` `AttachedTime` `State`。
+      */
     OrderField?: string;
     /**
-     * 排序方法。顺序：`ASC`，倒序：`DESC`。
-     */
+      * 排序方法。顺序：`ASC`，倒序：`DESC`。
+      */
     OrderDirection?: string;
 }
 /**
@@ -1131,24 +1131,24 @@ export interface DescribeCcnAttachedInstancesRequest {
  */
 export interface DescribeNatGatewaysRequest {
     /**
-     * NAT网关统一 ID，形如：`nat-123xx454`。
-     */
+      * NAT网关统一 ID，形如：`nat-123xx454`。
+      */
     NatGatewayIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NatGatewayIds和Filters。
-  <li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
-  <li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
-  <li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
-  <li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
-        */
+      * 过滤条件，参数不支持同时指定NatGatewayIds和Filters。
+<li>nat-gateway-id - String - （过滤条件）协议端口模板实例ID，形如：`nat-123xx454`。</li>
+<li>vpc-id - String - （过滤条件）私有网络 唯一ID，形如：`vpc-123xx454`。</li>
+<li>nat-gateway-name - String - （过滤条件）协议端口模板实例ID，形如：`test_nat`。</li>
+<li>tag-key - String - （过滤条件）标签键，形如：`test-key`。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -1156,8 +1156,8 @@ export interface DescribeNatGatewaysRequest {
  */
 export interface ModifyFlowLogAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1165,16 +1165,16 @@ export interface ModifyFlowLogAttributeResponse {
  */
 export interface DescribeBandwidthPackagesResponse {
     /**
-     * 符合条件的带宽包数量
-     */
+      * 符合条件的带宽包数量
+      */
     TotalCount?: number;
     /**
-     * 描述带宽包详细信息
-     */
+      * 描述带宽包详细信息
+      */
     BandwidthPackageSet?: Array<BandwidthPackage>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1182,27 +1182,27 @@ export interface DescribeBandwidthPackagesResponse {
  */
 export interface DescribeDirectConnectGatewaysRequest {
     /**
-     * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
-     */
+      * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
+      */
     DirectConnectGatewayIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定`DirectConnectGatewayIds`和`Filters`。
-  <li>direct-connect-gateway-id - String - 专线网关唯一`ID`，形如：`dcg-9o233uri`。</li>
-  <li>direct-connect-gateway-name - String - 专线网关名称，默认模糊查询。</li>
-  <li>direct-connect-gateway-ip - String - 专线网关`IP`。</li>
-  <li>gateway-type - String - 网关类型，可选值：`NORMAL`（普通型）、`NAT`（NAT型）。</li>
-  <li>network-type- String - 网络类型，可选值：`VPC`（私有网络类型）、`CCN`（云联网类型）。</li>
-  <li>ccn-id - String - 专线网关所在云联网`ID`。</li>
-  <li>vpc-id - String - 专线网关所在私有网络`ID`。</li>
-        */
+      * 过滤条件，参数不支持同时指定`DirectConnectGatewayIds`和`Filters`。
+<li>direct-connect-gateway-id - String - 专线网关唯一`ID`，形如：`dcg-9o233uri`。</li>
+<li>direct-connect-gateway-name - String - 专线网关名称，默认模糊查询。</li>
+<li>direct-connect-gateway-ip - String - 专线网关`IP`。</li>
+<li>gateway-type - String - 网关类型，可选值：`NORMAL`（普通型）、`NAT`（NAT型）。</li>
+<li>network-type- String - 网络类型，可选值：`VPC`（私有网络类型）、`CCN`（云联网类型）。</li>
+<li>ccn-id - String - 专线网关所在云联网`ID`。</li>
+<li>vpc-id - String - 专线网关所在私有网络`ID`。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: number;
     /**
-     * 返回数量。
-     */
+      * 返回数量。
+      */
     Limit?: number;
 }
 /**
@@ -1210,8 +1210,8 @@ export interface DescribeDirectConnectGatewaysRequest {
  */
 export interface ModifyIp6TranslatorResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1219,8 +1219,8 @@ export interface ModifyIp6TranslatorResponse {
  */
 export interface DeleteIp6TranslatorsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1228,26 +1228,26 @@ export interface DeleteIp6TranslatorsResponse {
  */
 export interface DescribeVpcsRequest {
     /**
-     * VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
-     */
+      * VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
+      */
     VpcIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定VpcIds和Filters。
-  <li>vpc-name - String - （过滤条件）VPC实例名称。</li>
-  <li>is-default - String - （过滤条件）是否默认VPC。</li>
-  <li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-  <li>cidr-block - String - （过滤条件）vpc的cidr。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
-        */
+      * 过滤条件，参数不支持同时指定VpcIds和Filters。
+<li>vpc-name - String - （过滤条件）VPC实例名称。</li>
+<li>is-default - String - （过滤条件）是否默认VPC。</li>
+<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
+<li>cidr-block - String - （过滤条件）vpc的cidr。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -1255,12 +1255,12 @@ export interface DescribeVpcsRequest {
  */
 export interface DescribeRouteConflictsResponse {
     /**
-     * 路由策略冲突列表
-     */
+      * 路由策略冲突列表
+      */
     RouteConflictSet?: Array<RouteConflict>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1268,12 +1268,12 @@ export interface DescribeRouteConflictsResponse {
  */
 export interface AcceptAttachCcnInstancesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * 接受关联实例列表。
-     */
+      * 接受关联实例列表。
+      */
     Instances: Array<CcnInstance>;
 }
 /**
@@ -1281,16 +1281,16 @@ export interface AcceptAttachCcnInstancesRequest {
  */
 export interface DescribeGatewayFlowMonitorDetailResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * 网关流量监控明细。
-     */
+      * 网关流量监控明细。
+      */
     GatewayFlowMonitorDetailSet?: Array<GatewayFlowMonitorDetail>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1298,12 +1298,12 @@ export interface DescribeGatewayFlowMonitorDetailResponse {
  */
 export interface DeleteFlowLogRequest {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId: string;
     /**
-     * 流日志唯一ID
-     */
+      * 流日志唯一ID
+      */
     FlowLogId: string;
 }
 /**
@@ -1311,12 +1311,12 @@ export interface DeleteFlowLogRequest {
  */
 export interface NetDetectState {
     /**
-     * 网络探测实例ID。形如：netd-12345678。
-     */
+      * 网络探测实例ID。形如：netd-12345678。
+      */
     NetDetectId: string;
     /**
-     * 网络探测目的IP验证结果对象数组。
-     */
+      * 网络探测目的IP验证结果对象数组。
+      */
     NetDetectIpStateSet: Array<NetDetectIpState>;
 }
 /**
@@ -1324,8 +1324,8 @@ export interface NetDetectState {
  */
 export interface HaVipDisassociateAddressIpResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1333,12 +1333,12 @@ export interface HaVipDisassociateAddressIpResponse {
  */
 export interface DescribeTaskResultRequest {
     /**
-     * 异步任务ID。TaskId和DealName必填一个参数
-     */
+      * 异步任务ID。TaskId和DealName必填一个参数
+      */
     TaskId?: number;
     /**
-     * 计费订单号。TaskId和DealName必填一个参数
-     */
+      * 计费订单号。TaskId和DealName必填一个参数
+      */
     DealName?: string;
 }
 /**
@@ -1346,8 +1346,8 @@ export interface DescribeTaskResultRequest {
  */
 export interface ModifyAddressInternetChargeTypeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1355,12 +1355,12 @@ export interface ModifyAddressInternetChargeTypeResponse {
  */
 export interface UnassignIpv6SubnetCidrBlockRequest {
     /**
-     * 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
-     */
+      * 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
     /**
-     * `IPv6` 子网段列表。
-     */
+      * `IPv6` 子网段列表。
+      */
     Ipv6SubnetCidrBlocks: Array<Ipv6SubnetCidrBlock>;
 }
 /**
@@ -1368,24 +1368,24 @@ export interface UnassignIpv6SubnetCidrBlockRequest {
  */
 export interface ModifyVpcAttributeRequest {
     /**
-     * VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
-     */
+      * VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
+      */
     VpcId: string;
     /**
-     * 私有网络名称，可任意命名，但不得超过60个字符。
-     */
+      * 私有网络名称，可任意命名，但不得超过60个字符。
+      */
     VpcName?: string;
     /**
-     * 是否开启组播。true: 开启, false: 关闭。
-     */
+      * 是否开启组播。true: 开启, false: 关闭。
+      */
     EnableMulticast?: string;
     /**
-     * DNS地址，最多支持4个，第1个默认为主，其余为备
-     */
+      * DNS地址，最多支持4个，第1个默认为主，其余为备
+      */
     DnsServers?: Array<string>;
     /**
-     * 域名
-     */
+      * 域名
+      */
     DomainName?: string;
 }
 /**
@@ -1393,8 +1393,8 @@ export interface ModifyVpcAttributeRequest {
  */
 export interface AssignIpv6CidrBlockRequest {
     /**
-     * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
-     */
+      * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
 }
 /**
@@ -1402,8 +1402,8 @@ export interface AssignIpv6CidrBlockRequest {
  */
 export interface CreateSecurityGroupPoliciesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1411,12 +1411,12 @@ export interface CreateSecurityGroupPoliciesResponse {
  */
 export interface HaVipAssociateAddressIpRequest {
     /**
-     * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。必须是没有绑定`EIP`的`HAVIP`
-     */
+      * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。必须是没有绑定`EIP`的`HAVIP`
+      */
     HaVipId: string;
     /**
-     * 弹性公网`IP`。必须是没有绑定`HAVIP`的`EIP`
-     */
+      * 弹性公网`IP`。必须是没有绑定`HAVIP`的`EIP`
+      */
     AddressIp: string;
 }
 /**
@@ -1424,8 +1424,8 @@ export interface HaVipAssociateAddressIpRequest {
  */
 export interface DisassociateNatGatewayAddressResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1433,8 +1433,8 @@ export interface DisassociateNatGatewayAddressResponse {
  */
 export interface DeleteRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1442,68 +1442,68 @@ export interface DeleteRoutesResponse {
  */
 export interface DescribeCrossBorderComplianceRequest {
     /**
-     * （精确匹配）服务商，可选值：`UNICOM`。
-     */
+      * （精确匹配）服务商，可选值：`UNICOM`。
+      */
     ServiceProvider?: string;
     /**
-     * （精确匹配）合规化审批单`ID`。
-     */
+      * （精确匹配）合规化审批单`ID`。
+      */
     ComplianceId?: number;
     /**
-     * （模糊查询）公司名称。
-     */
+      * （模糊查询）公司名称。
+      */
     Company?: string;
     /**
-     * （精确匹配）统一社会信用代码。
-     */
+      * （精确匹配）统一社会信用代码。
+      */
     UniformSocialCreditCode?: string;
     /**
-     * （模糊查询）法定代表人。
-     */
+      * （模糊查询）法定代表人。
+      */
     LegalPerson?: string;
     /**
-     * （模糊查询）发证机关。
-     */
+      * （模糊查询）发证机关。
+      */
     IssuingAuthority?: string;
     /**
-     * （模糊查询）营业执照住所。
-     */
+      * （模糊查询）营业执照住所。
+      */
     BusinessAddress?: string;
     /**
-     * （精确匹配）邮编。
-     */
+      * （精确匹配）邮编。
+      */
     PostCode?: number;
     /**
-     * （模糊查询）经办人。
-     */
+      * （模糊查询）经办人。
+      */
     Manager?: string;
     /**
-     * （精确查询）经办人身份证号。
-     */
+      * （精确查询）经办人身份证号。
+      */
     ManagerId?: string;
     /**
-     * （模糊查询）经办人身份证地址。
-     */
+      * （模糊查询）经办人身份证地址。
+      */
     ManagerAddress?: string;
     /**
-     * （精确匹配）经办人联系电话。
-     */
+      * （精确匹配）经办人联系电话。
+      */
     ManagerTelephone?: string;
     /**
-     * （精确匹配）电子邮箱。
-     */
+      * （精确匹配）电子邮箱。
+      */
     Email?: string;
     /**
-     * （精确匹配）服务开始日期，如：`2020-07-28`。
-     */
+      * （精确匹配）服务开始日期，如：`2020-07-28`。
+      */
     ServiceStartDate?: string;
     /**
-     * （精确匹配）服务结束日期，如：`2021-07-28`。
-     */
+      * （精确匹配）服务结束日期，如：`2021-07-28`。
+      */
     ServiceEndDate?: string;
     /**
-     * （精确匹配）状态。待审批：`PENDING`，通过：`APPROVED `，拒绝：`DENY`。
-     */
+      * （精确匹配）状态。待审批：`PENDING`，通过：`APPROVED `，拒绝：`DENY`。
+      */
     State?: string;
 }
 /**
@@ -1511,12 +1511,12 @@ export interface DescribeCrossBorderComplianceRequest {
  */
 export interface DescribeSecurityGroupAssociationStatisticsResponse {
     /**
-     * 安全组关联实例统计。
-     */
+      * 安全组关联实例统计。
+      */
     SecurityGroupAssociationStatisticsSet?: Array<SecurityGroupAssociationStatistics>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1524,13 +1524,13 @@ export interface DescribeSecurityGroupAssociationStatisticsResponse {
  */
 export interface ModifyAssistantCidrResponse {
     /**
-        * 辅助CIDR数组。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 辅助CIDR数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AssistantCidrSet?: Array<AssistantCidr>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1538,16 +1538,16 @@ export interface ModifyAssistantCidrResponse {
  */
 export interface NatGatewayAddress {
     /**
-     * 弹性公网IP（EIP）的唯一 ID，形如：`eip-11112222`。
-     */
+      * 弹性公网IP（EIP）的唯一 ID，形如：`eip-11112222`。
+      */
     AddressId?: string;
     /**
-     * 外网IP地址，形如：`123.121.34.33`。
-     */
+      * 外网IP地址，形如：`123.121.34.33`。
+      */
     PublicIpAddress?: string;
     /**
-     * 资源封堵状态。true表示弹性ip处于封堵状态，false表示弹性ip处于未封堵状态。
-     */
+      * 资源封堵状态。true表示弹性ip处于封堵状态，false表示弹性ip处于未封堵状态。
+      */
     IsBlocked?: boolean;
 }
 /**
@@ -1555,8 +1555,8 @@ export interface NatGatewayAddress {
  */
 export interface ModifyNetworkAclEntriesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1564,12 +1564,12 @@ export interface ModifyNetworkAclEntriesResponse {
  */
 export interface DescribeFlowLogRequest {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId: string;
     /**
-     * 流日志唯一ID
-     */
+      * 流日志唯一ID
+      */
     FlowLogId: string;
 }
 /**
@@ -1577,22 +1577,22 @@ export interface DescribeFlowLogRequest {
  */
 export interface DescribeIp6AddressesRequest {
     /**
-     * 标识 IPV6 的唯一 ID 列表。IPV6 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`Ip6AddressIds`和`Filters`。
-     */
+      * 标识 IPV6 的唯一 ID 列表。IPV6 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`Ip6AddressIds`和`Filters`。
+      */
     Ip6AddressIds?: Array<string>;
     /**
-        * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
-  <li> address-ip - String - 是否必填：否 - （过滤条件）按照 EIP 的 IP 地址过滤。</li>
-  <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照弹性网卡的唯一ID过滤。</li>
-        */
+      * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
+<li> address-ip - String - 是否必填：否 - （过滤条件）按照 EIP 的 IP 地址过滤。</li>
+<li> network-interface-id - String - 是否必填：否 - （过滤条件）按照弹性网卡的唯一ID过滤。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Limit?: number;
 }
 /**
@@ -1600,16 +1600,16 @@ export interface DescribeIp6AddressesRequest {
  */
 export interface AddIp6RulesRequest {
     /**
-     * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
-     */
+      * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorId: string;
     /**
-     * IPV6转换规则信息
-     */
+      * IPV6转换规则信息
+      */
     Ip6RuleInfos: Array<Ip6RuleInfo>;
     /**
-     * IPV6转换规则名称
-     */
+      * IPV6转换规则名称
+      */
     Ip6RuleName?: string;
 }
 /**
@@ -1617,12 +1617,12 @@ export interface AddIp6RulesRequest {
  */
 export interface DescribeAccountAttributesResponse {
     /**
-     * 用户账号属性对象
-     */
+      * 用户账号属性对象
+      */
     AccountAttributeSet?: Array<AccountAttribute>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1630,12 +1630,12 @@ export interface DescribeAccountAttributesResponse {
  */
 export interface AssignPrivateIpAddressesResponse {
     /**
-     * 内网IP详细信息。
-     */
+      * 内网IP详细信息。
+      */
     PrivateIpAddressSet?: Array<PrivateIpAddressSpecification>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1643,25 +1643,25 @@ export interface AssignPrivateIpAddressesResponse {
  */
 export interface DescribeSecurityGroupsRequest {
     /**
-     * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。参数不支持同时指定SecurityGroupIds和Filters。
-     */
+      * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。参数不支持同时指定SecurityGroupIds和Filters。
+      */
     SecurityGroupIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定SecurityGroupIds和Filters。
-  <li>security-group-id - String - （过滤条件）安全组ID。</li>
-  <li>project-id - Integer - （过滤条件）项目ID。</li>
-  <li>security-group-name - String - （过滤条件）安全组名称。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。使用请参考示例2。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3。</li>
-        */
+      * 过滤条件，参数不支持同时指定SecurityGroupIds和Filters。
+<li>security-group-id - String - （过滤条件）安全组ID。</li>
+<li>project-id - Integer - （过滤条件）项目ID。</li>
+<li>security-group-name - String - （过滤条件）安全组名称。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。使用请参考示例2。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -1669,28 +1669,28 @@ export interface DescribeSecurityGroupsRequest {
  */
 export interface DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest {
     /**
-     * NAT网关ID。
-     */
+      * NAT网关ID。
+      */
     NatGatewayIds?: Array<string>;
     /**
-        * 过滤条件:
-  参数不支持同时指定NatGatewayIds和Filters。
-  <li> nat-gateway-id，NAT网关的ID，如`nat-0yi4hekt`</li>
-  <li> vpc-id，私有网络VPC的ID，如`vpc-0yi4hekt`</li>
-  <li> public-ip-address， 弹性IP，如`139.199.232.238`。</li>
-  <li>public-port， 公网端口。</li>
-  <li>private-ip-address， 内网IP，如`10.0.0.1`。</li>
-  <li>private-port， 内网端口。</li>
-  <li>description，规则描述。</li>
-        */
+      * 过滤条件:
+参数不支持同时指定NatGatewayIds和Filters。
+<li> nat-gateway-id，NAT网关的ID，如`nat-0yi4hekt`</li>
+<li> vpc-id，私有网络VPC的ID，如`vpc-0yi4hekt`</li>
+<li> public-ip-address， 弹性IP，如`139.199.232.238`。</li>
+<li>public-port， 公网端口。</li>
+<li>private-ip-address， 内网IP，如`10.0.0.1`。</li>
+<li>private-port， 内网端口。</li>
+<li>description，规则描述。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -1698,8 +1698,8 @@ export interface DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest {
  */
 export interface AddBandwidthPackageResourcesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1707,8 +1707,8 @@ export interface AddBandwidthPackageResourcesResponse {
  */
 export interface DisassociateNetworkAclSubnetsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1716,12 +1716,12 @@ export interface DisassociateNetworkAclSubnetsResponse {
  */
 export interface SetCcnRegionBandwidthLimitsRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * 云联网（CCN）各地域出带宽上限。
-     */
+      * 云联网（CCN）各地域出带宽上限。
+      */
     CcnRegionBandwidthLimits: Array<CcnRegionBandwidthLimit>;
 }
 /**
@@ -1729,20 +1729,20 @@ export interface SetCcnRegionBandwidthLimitsRequest {
  */
 export interface ModifyAddressInternetChargeTypeRequest {
     /**
-     * 弹性公网IP的唯一ID，形如eip-xxx
-     */
+      * 弹性公网IP的唯一ID，形如eip-xxx
+      */
     AddressId: string;
     /**
-     * 弹性公网IP调整目标计费模式，只支持"BANDWIDTH_PREPAID_BY_MONTH"和"TRAFFIC_POSTPAID_BY_HOUR"
-     */
+      * 弹性公网IP调整目标计费模式，只支持"BANDWIDTH_PREPAID_BY_MONTH"和"TRAFFIC_POSTPAID_BY_HOUR"
+      */
     InternetChargeType: string;
     /**
-     * 弹性公网IP调整目标带宽值
-     */
+      * 弹性公网IP调整目标带宽值
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * 包月带宽网络计费模式参数。弹性公网IP的调整目标计费模式是"BANDWIDTH_PREPAID_BY_MONTH"时，必传该参数。
-     */
+      * 包月带宽网络计费模式参数。弹性公网IP的调整目标计费模式是"BANDWIDTH_PREPAID_BY_MONTH"时，必传该参数。
+      */
     AddressChargePrepaid?: AddressChargePrepaid;
 }
 /**
@@ -1750,16 +1750,16 @@ export interface ModifyAddressInternetChargeTypeRequest {
  */
 export interface ModifyIp6AddressesBandwidthRequest {
     /**
-     * 修改的目标带宽，单位Mbps
-     */
+      * 修改的目标带宽，单位Mbps
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * IPV6地址。Ip6Addresses和Ip6AddressId必须且只能传一个
-     */
+      * IPV6地址。Ip6Addresses和Ip6AddressId必须且只能传一个
+      */
     Ip6Addresses?: Array<string>;
     /**
-     * IPV6地址对应的唯一ID，形如eip-xxxxxxxx。Ip6Addresses和Ip6AddressId必须且只能传一个
-     */
+      * IPV6地址对应的唯一ID，形如eip-xxxxxxxx。Ip6Addresses和Ip6AddressId必须且只能传一个
+      */
     Ip6AddressIds?: Array<string>;
 }
 /**
@@ -1767,16 +1767,16 @@ export interface ModifyIp6AddressesBandwidthRequest {
  */
 export interface DescribeDirectConnectGatewaysResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * 专线网关对象数组。
-     */
+      * 专线网关对象数组。
+      */
     DirectConnectGatewaySet?: Array<DirectConnectGateway>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1784,28 +1784,28 @@ export interface DescribeDirectConnectGatewaysResponse {
  */
 export interface ModifyVpnConnectionAttributeRequest {
     /**
-     * VPN通道实例ID。形如：vpnx-f49l6u0z。
-     */
+      * VPN通道实例ID。形如：vpnx-f49l6u0z。
+      */
     VpnConnectionId: string;
     /**
-     * VPN通道名称，可任意命名，但不得超过60个字符。
-     */
+      * VPN通道名称，可任意命名，但不得超过60个字符。
+      */
     VpnConnectionName?: string;
     /**
-     * 预共享密钥。
-     */
+      * 预共享密钥。
+      */
     PreShareKey?: string;
     /**
-     * SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
-     */
+      * SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
+      */
     SecurityPolicyDatabases?: Array<SecurityPolicyDatabase>;
     /**
-     * IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议。
-     */
+      * IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议。
+      */
     IKEOptionsSpecification?: IKEOptionsSpecification;
     /**
-     * IPSec配置，腾讯云提供IPSec安全会话设置。
-     */
+      * IPSec配置，腾讯云提供IPSec安全会话设置。
+      */
     IPSECOptionsSpecification?: IPSECOptionsSpecification;
 }
 /**
@@ -1813,20 +1813,20 @@ export interface ModifyVpnConnectionAttributeRequest {
  */
 export interface Ip6RuleInfo {
     /**
-     * IPV6端口号，可在0~65535范围取值
-     */
+      * IPV6端口号，可在0~65535范围取值
+      */
     Vport6: number;
     /**
-     * 协议类型，支持TCP/UDP
-     */
+      * 协议类型，支持TCP/UDP
+      */
     Protocol: string;
     /**
-     * IPV4地址
-     */
+      * IPV4地址
+      */
     Vip: string;
     /**
-     * IPV4端口号，可在0~65535范围取值
-     */
+      * IPV4端口号，可在0~65535范围取值
+      */
     Vport: number;
 }
 /**
@@ -1834,12 +1834,12 @@ export interface Ip6RuleInfo {
  */
 export interface CreateSecurityGroupWithPoliciesResponse {
     /**
-     * 安全组对象。
-     */
+      * 安全组对象。
+      */
     SecurityGroup?: SecurityGroup;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1847,8 +1847,8 @@ export interface CreateSecurityGroupWithPoliciesResponse {
  */
 export interface DeleteAddressTemplateResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1856,8 +1856,8 @@ export interface DeleteAddressTemplateResponse {
  */
 export interface ModifySubnetAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1865,12 +1865,12 @@ export interface ModifySubnetAttributeResponse {
  */
 export interface ResetNatGatewayConnectionRequest {
     /**
-     * NAT网关ID。
-     */
+      * NAT网关ID。
+      */
     NatGatewayId: string;
     /**
-     * NAT网关并发连接上限，形如：1000000、3000000、10000000。
-     */
+      * NAT网关并发连接上限，形如：1000000、3000000、10000000。
+      */
     MaxConcurrentConnection: number;
 }
 /**
@@ -1878,8 +1878,8 @@ export interface ResetNatGatewayConnectionRequest {
  */
 export interface ReplaceDirectConnectGatewayCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1887,8 +1887,8 @@ export interface ReplaceDirectConnectGatewayCcnRoutesResponse {
  */
 export interface DeleteAddressTemplateRequest {
     /**
-     * IP地址模板实例ID，例如：ipm-09o5m8kc。
-     */
+      * IP地址模板实例ID，例如：ipm-09o5m8kc。
+      */
     AddressTemplateId: string;
 }
 /**
@@ -1896,74 +1896,74 @@ export interface DeleteAddressTemplateRequest {
  */
 export interface NetworkInterface {
     /**
-     * 弹性网卡实例ID，例如：eni-f1xjkw1b。
-     */
+      * 弹性网卡实例ID，例如：eni-f1xjkw1b。
+      */
     NetworkInterfaceId: string;
     /**
-     * 弹性网卡名称。
-     */
+      * 弹性网卡名称。
+      */
     NetworkInterfaceName: string;
     /**
-     * 弹性网卡描述。
-     */
+      * 弹性网卡描述。
+      */
     NetworkInterfaceDescription?: string;
     /**
-     * 子网实例ID。
-     */
+      * 子网实例ID。
+      */
     SubnetId: string;
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * 绑定的安全组。
-     */
+      * 绑定的安全组。
+      */
     GroupSet?: Array<string>;
     /**
-     * 是否是主网卡。
-     */
+      * 是否是主网卡。
+      */
     Primary?: boolean;
     /**
-     * MAC地址。
-     */
+      * MAC地址。
+      */
     MacAddress: string;
     /**
-        * 弹性网卡状态：
-  <li>`PENDING`：创建中</li>
-  <li>`AVAILABLE`：可用的</li>
-  <li>`ATTACHING`：绑定中</li>
-  <li>`DETACHING`：解绑中</li>
-  <li>`DELETING`：删除中</li>
-        */
+      * 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+      */
     State: string;
     /**
-     * 内网IP信息。
-     */
+      * 内网IP信息。
+      */
     PrivateIpAddressSet: Array<PrivateIpAddressSpecification>;
     /**
-        * 绑定的云服务器对象。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 绑定的云服务器对象。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Attachment?: NetworkInterfaceAttachment;
     /**
-     * 可用区。
-     */
+      * 可用区。
+      */
     Zone?: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * `IPv6`地址列表。
-     */
+      * `IPv6`地址列表。
+      */
     Ipv6AddressSet: Array<Ipv6Address>;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet: Array<Tag>;
     /**
-     * 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
-     */
+      * 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
+      */
     EniType: number;
 }
 /**
@@ -1971,8 +1971,8 @@ export interface NetworkInterface {
  */
 export interface TransformAddressRequest {
     /**
-     * 待操作有普通公网 IP 的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/9389) 接口返回值中的`InstanceId`获取。
-     */
+      * 待操作有普通公网 IP 的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/9389) 接口返回值中的`InstanceId`获取。
+      */
     InstanceId: string;
 }
 /**
@@ -1980,12 +1980,12 @@ export interface TransformAddressRequest {
  */
 export interface ReplaceDirectConnectGatewayCcnRoutesRequest {
     /**
-     * 专线网关ID，形如：dcg-prpqlmg1
-     */
+      * 专线网关ID，形如：dcg-prpqlmg1
+      */
     DirectConnectGatewayId: string;
     /**
-     * 需要连通的IDC网段列表
-     */
+      * 需要连通的IDC网段列表
+      */
     Routes: Array<DirectConnectGatewayCcnRoute>;
 }
 /**
@@ -1993,12 +1993,12 @@ export interface ReplaceDirectConnectGatewayCcnRoutesRequest {
  */
 export interface ReferredSecurityGroup {
     /**
-     * 安全组实例ID。
-     */
+      * 安全组实例ID。
+      */
     SecurityGroupId: string;
     /**
-     * 引用安全组实例ID（SecurityGroupId）的所有安全组实例ID。
-     */
+      * 引用安全组实例ID（SecurityGroupId）的所有安全组实例ID。
+      */
     ReferredSecurityGroupIds: Array<string>;
 }
 /**
@@ -2006,16 +2006,16 @@ export interface ReferredSecurityGroup {
  */
 export interface ModifyAddressTemplateAttributeRequest {
     /**
-     * IP地址模板实例ID，例如：ipm-mdunqeb6。
-     */
+      * IP地址模板实例ID，例如：ipm-mdunqeb6。
+      */
     AddressTemplateId: string;
     /**
-     * IP地址模板名称。
-     */
+      * IP地址模板名称。
+      */
     AddressTemplateName?: string;
     /**
-     * 地址信息，支持 IP、CIDR、IP 范围。
-     */
+      * 地址信息，支持 IP、CIDR、IP 范围。
+      */
     Addresses?: Array<string>;
 }
 /**
@@ -2023,16 +2023,16 @@ export interface ModifyAddressTemplateAttributeRequest {
  */
 export interface CreateNatGatewayResponse {
     /**
-     * NAT网关对象数组。
-     */
+      * NAT网关对象数组。
+      */
     NatGatewaySet?: Array<NatGateway>;
     /**
-     * 符合条件的 NAT网关对象数量。
-     */
+      * 符合条件的 NAT网关对象数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2040,16 +2040,16 @@ export interface CreateNatGatewayResponse {
  */
 export interface DescribeVpcsResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * VPC对象。
-     */
+      * VPC对象。
+      */
     VpcSet?: Array<Vpc>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2057,16 +2057,16 @@ export interface DescribeVpcsResponse {
  */
 export interface ModifySecurityGroupAttributeRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组名称，可任意命名，但不得超过60个字符。
-     */
+      * 安全组名称，可任意命名，但不得超过60个字符。
+      */
     GroupName?: string;
     /**
-     * 安全组备注，最多100个字符。
-     */
+      * 安全组备注，最多100个字符。
+      */
     GroupDescription?: string;
 }
 /**
@@ -2074,38 +2074,38 @@ export interface ModifySecurityGroupAttributeRequest {
  */
 export interface ModifyNetDetectRequest {
     /**
-     * 网络探测实例`ID`。形如：`netd-12345678`
-     */
+      * 网络探测实例`ID`。形如：`netd-12345678`
+      */
     NetDetectId: string;
     /**
-     * 网络探测名称，最大长度不能超过60个字节。
-     */
+      * 网络探测名称，最大长度不能超过60个字节。
+      */
     NetDetectName?: string;
     /**
-     * 探测目的IPv4地址数组，最多两个。
-     */
+      * 探测目的IPv4地址数组，最多两个。
+      */
     DetectDestinationIp?: Array<string>;
     /**
-        * 下一跳类型，目前我们支持的类型有：
-  VPN：VPN网关；
-  DIRECTCONNECT：专线网关；
-  PEERCONNECTION：对等连接；
-  NAT：NAT网关；
-  NORMAL_CVM：普通云服务器；
-        */
+      * 下一跳类型，目前我们支持的类型有：
+VPN：VPN网关；
+DIRECTCONNECT：专线网关；
+PEERCONNECTION：对等连接；
+NAT：NAT网关；
+NORMAL_CVM：普通云服务器；
+      */
     NextHopType?: string;
     /**
-        * 下一跳目的网关，取值与“下一跳类型”相关：
-  下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
-  下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
-  下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
-  下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
-  下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
-        */
+      * 下一跳目的网关，取值与“下一跳类型”相关：
+下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
+下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
+下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
+下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
+下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+      */
     NextHopDestination?: string;
     /**
-     * 网络探测描述。
-     */
+      * 网络探测描述。
+      */
     NetDetectDescription?: string;
 }
 /**
@@ -2113,12 +2113,12 @@ export interface ModifyNetDetectRequest {
  */
 export interface DescribeVpcResourceDashboardResponse {
     /**
-     * 资源对象列表。
-     */
+      * 资源对象列表。
+      */
     ResourceDashboardSet?: Array<ResourceDashboard>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2126,16 +2126,16 @@ export interface DescribeVpcResourceDashboardResponse {
  */
 export interface AllocateIp6AddressesBandwidthResponse {
     /**
-     * 弹性公网 IPV6 的唯一 ID 列表。
-     */
+      * 弹性公网 IPV6 的唯一 ID 列表。
+      */
     AddressSet?: Array<string>;
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2143,21 +2143,21 @@ export interface AllocateIp6AddressesBandwidthResponse {
  */
 export interface DescribeNetDetectStatesRequest {
     /**
-     * 网络探测实例`ID`数组。形如：[`netd-12345678`]
-     */
+      * 网络探测实例`ID`数组。形如：[`netd-12345678`]
+      */
     NetDetectIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NetDetectIds和Filters。
-  <li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
-        */
+      * 过滤条件，参数不支持同时指定NetDetectIds和Filters。
+<li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -2165,16 +2165,16 @@ export interface DescribeNetDetectStatesRequest {
  */
 export interface DescribeNatGatewaysResponse {
     /**
-     * NAT网关对象数组。
-     */
+      * NAT网关对象数组。
+      */
     NatGatewaySet?: Array<NatGateway>;
     /**
-     * 符合条件的NAT网关对象个数。
-     */
+      * 符合条件的NAT网关对象个数。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2182,12 +2182,12 @@ export interface DescribeNatGatewaysResponse {
  */
 export interface DescribeFlowLogResponse {
     /**
-     * 流日志信息
-     */
+      * 流日志信息
+      */
     FlowLog?: Array<FlowLog>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2195,8 +2195,8 @@ export interface DescribeFlowLogResponse {
  */
 export interface HaVipAssociateAddressIpResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2204,27 +2204,27 @@ export interface HaVipAssociateAddressIpResponse {
  */
 export interface DescribeBandwidthPackagesRequest {
     /**
-     * 带宽包唯一ID列表
-     */
+      * 带宽包唯一ID列表
+      */
     BandwidthPackageIds?: Array<string>;
     /**
-        * 每次请求的`Filters`的上限为10。参数不支持同时指定`BandwidthPackageIds`和`Filters`。详细的过滤条件如下：
-  <li> bandwidth-package_id - String - 是否必填：否 - （过滤条件）按照带宽包的唯一标识ID过滤。</li>
-  <li> bandwidth-package-name - String - 是否必填：否 - （过滤条件）按照 带宽包名称过滤。不支持模糊过滤。</li>
-  <li> network-type - String - 是否必填：否 - （过滤条件）按照带宽包的类型过滤。类型包括'BGP','SINGLEISP'和'ANYCAST'。</li>
-  <li> charge-type - String - 是否必填：否 - （过滤条件）按照带宽包的计费类型过滤。计费类型包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'</li>
-  <li> resource.resource-type - String - 是否必填：否 - （过滤条件）按照带宽包资源类型过滤。资源类型包括'Address'和'LoadBalance'</li>
-  <li> resource.resource-id - String - 是否必填：否 - （过滤条件）按照带宽包资源Id过滤。资源Id形如'eip-xxxx','lb-xxxx'</li>
-  <li> resource.address-ip - String - 是否必填：否 - （过滤条件）按照带宽包资源Ip过滤。</li>
-        */
+      * 每次请求的`Filters`的上限为10。参数不支持同时指定`BandwidthPackageIds`和`Filters`。详细的过滤条件如下：
+<li> bandwidth-package_id - String - 是否必填：否 - （过滤条件）按照带宽包的唯一标识ID过滤。</li>
+<li> bandwidth-package-name - String - 是否必填：否 - （过滤条件）按照 带宽包名称过滤。不支持模糊过滤。</li>
+<li> network-type - String - 是否必填：否 - （过滤条件）按照带宽包的类型过滤。类型包括'BGP','SINGLEISP'和'ANYCAST'。</li>
+<li> charge-type - String - 是否必填：否 - （过滤条件）按照带宽包的计费类型过滤。计费类型包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'</li>
+<li> resource.resource-type - String - 是否必填：否 - （过滤条件）按照带宽包资源类型过滤。资源类型包括'Address'和'LoadBalance'</li>
+<li> resource.resource-id - String - 是否必填：否 - （过滤条件）按照带宽包资源Id过滤。资源Id形如'eip-xxxx','lb-xxxx'</li>
+<li> resource.address-ip - String - 是否必填：否 - （过滤条件）按照带宽包资源Ip过滤。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 查询带宽包偏移量
-     */
+      * 查询带宽包偏移量
+      */
     Offset?: number;
     /**
-     * 查询带宽包数量限制
-     */
+      * 查询带宽包数量限制
+      */
     Limit?: number;
 }
 /**
@@ -2232,8 +2232,8 @@ export interface DescribeBandwidthPackagesRequest {
  */
 export interface DeleteDirectConnectGatewayCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2241,17 +2241,17 @@ export interface DeleteDirectConnectGatewayCcnRoutesResponse {
  */
 export interface DescribeAssistantCidrResponse {
     /**
-        * 符合条件的辅助CIDR数组。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的辅助CIDR数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AssistantCidrSet?: Array<AssistantCidr>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2259,12 +2259,12 @@ export interface DescribeAssistantCidrResponse {
  */
 export interface InstanceStatistic {
     /**
-     * 实例的类型
-     */
+      * 实例的类型
+      */
     InstanceType: string;
     /**
-     * 实例的个数
-     */
+      * 实例的个数
+      */
     InstanceCount: number;
 }
 /**
@@ -2272,40 +2272,40 @@ export interface InstanceStatistic {
  */
 export interface CreateVpnConnectionRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
-     */
+      * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
+      */
     CustomerGatewayId: string;
     /**
-     * 通道名称，可任意命名，但不得超过60个字符。
-     */
+      * 通道名称，可任意命名，但不得超过60个字符。
+      */
     VpnConnectionName: string;
     /**
-     * 预共享密钥。
-     */
+      * 预共享密钥。
+      */
     PreShareKey: string;
     /**
-     * SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
-     */
+      * SPD策略组，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信。
+      */
     SecurityPolicyDatabases: Array<SecurityPolicyDatabase>;
     /**
-     * IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
-     */
+      * IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自我保护机制，用户配置网络安全协议
+      */
     IKEOptionsSpecification?: IKEOptionsSpecification;
     /**
-     * IPSec配置，腾讯云提供IPSec安全会话设置
-     */
+      * IPSec配置，腾讯云提供IPSec安全会话设置
+      */
     IPSECOptionsSpecification?: IPSECOptionsSpecification;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -2313,56 +2313,56 @@ export interface CreateVpnConnectionRequest {
  */
 export interface CcnRoute {
     /**
-     * 路由策略ID
-     */
+      * 路由策略ID
+      */
     RouteId?: string;
     /**
-     * 目的端
-     */
+      * 目的端
+      */
     DestinationCidrBlock: string;
     /**
-     * 下一跳类型（关联实例类型），所有类型：VPC、DIRECTCONNECT
-     */
+      * 下一跳类型（关联实例类型），所有类型：VPC、DIRECTCONNECT
+      */
     InstanceType: string;
     /**
-     * 下一跳（关联实例）
-     */
+      * 下一跳（关联实例）
+      */
     InstanceId: string;
     /**
-     * 下一跳名称（关联实例名称）
-     */
+      * 下一跳名称（关联实例名称）
+      */
     InstanceName: string;
     /**
-     * 下一跳所属地域（关联实例所属地域）
-     */
+      * 下一跳所属地域（关联实例所属地域）
+      */
     InstanceRegion: string;
     /**
-     * 更新时间
-     */
+      * 更新时间
+      */
     UpdateTime: string;
     /**
-     * 路由是否启用
-     */
+      * 路由是否启用
+      */
     Enabled: boolean;
     /**
-     * 关联实例所属UIN（根账号）
-     */
+      * 关联实例所属UIN（根账号）
+      */
     InstanceUin: string;
     /**
-     * 路由的扩展状态
-     */
+      * 路由的扩展状态
+      */
     ExtraState: string;
     /**
-     * 是否动态路由
-     */
+      * 是否动态路由
+      */
     IsBgp: boolean;
     /**
-     * 路由优先级
-     */
+      * 路由优先级
+      */
     RoutePriority: number;
     /**
-     * 下一跳扩展名称（关联实例的扩展名称）
-     */
+      * 下一跳扩展名称（关联实例的扩展名称）
+      */
     InstanceExtraName: string;
 }
 /**
@@ -2370,12 +2370,12 @@ export interface CcnRoute {
  */
 export interface DeleteSecurityGroupPoliciesRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组规则集合。一个请求中只能删除单个方向的一条或多条规则。支持指定索引（PolicyIndex） 匹配删除和安全组规则匹配删除两种方式，一个请求中只能使用一种匹配方式。
-     */
+      * 安全组规则集合。一个请求中只能删除单个方向的一条或多条规则。支持指定索引（PolicyIndex） 匹配删除和安全组规则匹配删除两种方式，一个请求中只能使用一种匹配方式。
+      */
     SecurityGroupPolicySet: SecurityGroupPolicySet;
 }
 /**
@@ -2383,64 +2383,64 @@ export interface DeleteSecurityGroupPoliciesRequest {
  */
 export interface VpnConnection {
     /**
-     * 通道实例ID。
-     */
+      * 通道实例ID。
+      */
     VpnConnectionId: string;
     /**
-     * 通道名称。
-     */
+      * 通道名称。
+      */
     VpnConnectionName: string;
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 对端网关实例ID。
-     */
+      * 对端网关实例ID。
+      */
     CustomerGatewayId: string;
     /**
-     * 预共享密钥。
-     */
+      * 预共享密钥。
+      */
     PreShareKey: string;
     /**
-     * 通道传输协议。
-     */
+      * 通道传输协议。
+      */
     VpnProto: string;
     /**
-     * 通道加密协议。
-     */
+      * 通道加密协议。
+      */
     EncryptProto: string;
     /**
-     * 路由类型。
-     */
+      * 路由类型。
+      */
     RouteType: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
     /**
-     * 通道的生产状态，PENDING：生产中，AVAILABLE：运行中，DELETING：删除中。
-     */
+      * 通道的生产状态，PENDING：生产中，AVAILABLE：运行中，DELETING：删除中。
+      */
     State: string;
     /**
-     * 通道连接状态，AVAILABLE：已连接。
-     */
+      * 通道连接状态，AVAILABLE：已连接。
+      */
     NetStatus: string;
     /**
-     * SPD。
-     */
+      * SPD。
+      */
     SecurityPolicyDatabaseSet: Array<SecurityPolicyDatabase>;
     /**
-     * IKE选项。
-     */
+      * IKE选项。
+      */
     IKEOptionsSpecification: IKEOptionsSpecification;
     /**
-     * IPSEC选择。
-     */
+      * IPSEC选择。
+      */
     IPSECOptionsSpecification: IPSECOptionsSpecification;
 }
 /**
@@ -2448,34 +2448,34 @@ export interface VpnConnection {
  */
 export interface DescribeCcnsRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定CcnIds和Filters。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定CcnIds和Filters。
+      */
     CcnIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定CcnIds和Filters。
-  <li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
-  <li>ccn-name - String - （过滤条件）CCN名称。</li>
-  <li>ccn-description - String - （过滤条件）CCN描述。</li>
-  <li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例：查询绑定了标签的CCN列表。</li>
-        */
+      * 过滤条件，参数不支持同时指定CcnIds和Filters。
+<li>ccn-id - String - （过滤条件）CCN唯一ID，形如：vpc-f49l6u0z。</li>
+<li>ccn-name - String - （过滤条件）CCN名称。</li>
+<li>ccn-description - String - （过滤条件）CCN描述。</li>
+<li>state - String - （过滤条件）实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例：查询绑定了标签的CCN列表。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
     /**
-     * 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
-     */
+      * 排序字段。支持：`CcnId` `CcnName` `CreateTime` `State` `QosLevel`
+      */
     OrderField?: string;
     /**
-     * 排序方法。顺序：`ASC`，倒序：`DESC`。
-     */
+      * 排序方法。顺序：`ASC`，倒序：`DESC`。
+      */
     OrderDirection?: string;
 }
 /**
@@ -2483,8 +2483,8 @@ export interface DescribeCcnsRequest {
  */
 export interface ModifyNatGatewayAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2492,24 +2492,24 @@ export interface ModifyNatGatewayAttributeResponse {
  */
 export interface DescribeNetDetectsRequest {
     /**
-     * 网络探测实例`ID`数组。形如：[`netd-12345678`]
-     */
+      * 网络探测实例`ID`数组。形如：[`netd-12345678`]
+      */
     NetDetectIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NetDetectIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678</li>
-  <li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
-  <li>subnet-id - String - （过滤条件）子网实例ID，形如：subnet-12345678</li>
-  <li>net-detect-name - String - （过滤条件）网络探测名称</li>
-        */
+      * 过滤条件，参数不支持同时指定NetDetectIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678</li>
+<li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
+<li>subnet-id - String - （过滤条件）子网实例ID，形如：subnet-12345678</li>
+<li>net-detect-name - String - （过滤条件）网络探测名称</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -2517,12 +2517,12 @@ export interface DescribeNetDetectsRequest {
  */
 export interface CreateAddressTemplateGroupRequest {
     /**
-     * IP地址模版集合名称。
-     */
+      * IP地址模版集合名称。
+      */
     AddressTemplateGroupName: string;
     /**
-     * IP地址模版实例ID，例如：ipm-mdunqeb6。
-     */
+      * IP地址模版实例ID，例如：ipm-mdunqeb6。
+      */
     AddressTemplateIds: Array<string>;
 }
 /**
@@ -2530,12 +2530,12 @@ export interface CreateAddressTemplateGroupRequest {
  */
 export interface DescribeCustomerGatewayVendorsResponse {
     /**
-     * 对端网关厂商信息对象。
-     */
+      * 对端网关厂商信息对象。
+      */
     CustomerGatewayVendorSet?: Array<CustomerGatewayVendor>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2543,16 +2543,16 @@ export interface DescribeCustomerGatewayVendorsResponse {
  */
 export interface RouteConflict {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 要检查的与之冲突的目的端
-     */
+      * 要检查的与之冲突的目的端
+      */
     DestinationCidrBlock: string;
     /**
-     * 冲突的路由策略列表
-     */
+      * 冲突的路由策略列表
+      */
     ConflictSet: Array<Route>;
 }
 /**
@@ -2560,8 +2560,8 @@ export interface RouteConflict {
  */
 export interface DeleteSubnetResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2569,57 +2569,57 @@ export interface DeleteSubnetResponse {
  */
 export interface Vpc {
     /**
-     * `VPC`名称。
-     */
+      * `VPC`名称。
+      */
     VpcName: string;
     /**
-     * `VPC`实例`ID`，例如：vpc-azd4dt1c。
-     */
+      * `VPC`实例`ID`，例如：vpc-azd4dt1c。
+      */
     VpcId: string;
     /**
-     * `VPC`的`IPv4` `CIDR`。
-     */
+      * `VPC`的`IPv4` `CIDR`。
+      */
     CidrBlock: string;
     /**
-     * 是否默认`VPC`。
-     */
+      * 是否默认`VPC`。
+      */
     IsDefault?: boolean;
     /**
-     * 是否开启组播。
-     */
+      * 是否开启组播。
+      */
     EnableMulticast: boolean;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * `DNS`列表。
-     */
+      * `DNS`列表。
+      */
     DnsServerSet: Array<string>;
     /**
-     * `DHCP`域名选项值。
-     */
+      * `DHCP`域名选项值。
+      */
     DomainName: string;
     /**
-     * `DHCP`选项集`ID`。
-     */
+      * `DHCP`选项集`ID`。
+      */
     DhcpOptionsId: string;
     /**
-     * 是否开启`DHCP`。
-     */
+      * 是否开启`DHCP`。
+      */
     EnableDhcp: boolean;
     /**
-     * `VPC`的`IPv6` `CIDR`。
-     */
+      * `VPC`的`IPv6` `CIDR`。
+      */
     Ipv6CidrBlock: string;
     /**
-     * 标签键值对
-     */
+      * 标签键值对
+      */
     TagSet: Array<Tag>;
     /**
-        * 辅助CIDR
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 辅助CIDR
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AssistantCidrSet: Array<AssistantCidr>;
 }
 /**
@@ -2627,12 +2627,12 @@ export interface Vpc {
  */
 export interface CreateVpnGatewayResponse {
     /**
-     * VPN网关对象
-     */
+      * VPN网关对象
+      */
     VpnGateway?: VpnGateway;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2640,16 +2640,16 @@ export interface CreateVpnGatewayResponse {
  */
 export interface DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse {
     /**
-     * NAT网关端口转发规则对象数组。
-     */
+      * NAT网关端口转发规则对象数组。
+      */
     NatGatewayDestinationIpPortTranslationNatRuleSet?: Array<NatGatewayDestinationIpPortTranslationNatRule>;
     /**
-     * 符合条件的NAT网关端口转发规则对象数目。
-     */
+      * 符合条件的NAT网关端口转发规则对象数目。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2657,16 +2657,16 @@ export interface DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse 
  */
 export interface DescribeVpcIpv6AddressesResponse {
     /**
-     * `IPv6`地址列表。
-     */
+      * `IPv6`地址列表。
+      */
     Ipv6AddressSet?: Array<VpcIpv6Address>;
     /**
-     * `IPv6`地址总数。
-     */
+      * `IPv6`地址总数。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2674,8 +2674,8 @@ export interface DescribeVpcIpv6AddressesResponse {
  */
 export interface ResetAttachCcnInstancesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2683,12 +2683,12 @@ export interface ResetAttachCcnInstancesResponse {
  */
 export interface RejectAttachCcnInstancesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * 拒绝关联实例列表。
-     */
+      * 拒绝关联实例列表。
+      */
     Instances: Array<CcnInstance>;
 }
 /**
@@ -2696,12 +2696,12 @@ export interface RejectAttachCcnInstancesRequest {
  */
 export interface ModifyCcnRegionBandwidthLimitsTypeRequest {
     /**
-     * 云联网实例ID。
-     */
+      * 云联网实例ID。
+      */
     CcnId: string;
     /**
-     * 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
-     */
+      * 云联网限速类型，INTER_REGION_LIMIT：地域间限速，OUTER_REGION_LIMIT：地域出口限速。
+      */
     BandwidthLimitType?: string;
 }
 /**
@@ -2709,8 +2709,8 @@ export interface ModifyCcnRegionBandwidthLimitsTypeRequest {
  */
 export interface DescribeVpcResourceDashboardRequest {
     /**
-     * Vpc实例ID，例如：vpc-f1xjkw1b。
-     */
+      * Vpc实例ID，例如：vpc-f1xjkw1b。
+      */
     VpcIds: Array<string>;
 }
 /**
@@ -2718,24 +2718,24 @@ export interface DescribeVpcResourceDashboardRequest {
  */
 export interface ModifyIp6RuleRequest {
     /**
-     * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
-     */
+      * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorId: string;
     /**
-     * IPV6转换规则唯一ID，形如rule6-xxxxxxxx
-     */
+      * IPV6转换规则唯一ID，形如rule6-xxxxxxxx
+      */
     Ip6RuleId: string;
     /**
-     * IPV6转换规则修改后的名称
-     */
+      * IPV6转换规则修改后的名称
+      */
     Ip6RuleName?: string;
     /**
-     * IPV6转换规则修改后的IPV4地址
-     */
+      * IPV6转换规则修改后的IPV4地址
+      */
     Vip?: string;
     /**
-     * IPV6转换规则修改后的IPV4端口号
-     */
+      * IPV6转换规则修改后的IPV4端口号
+      */
     Vport?: number;
 }
 /**
@@ -2743,12 +2743,12 @@ export interface ModifyIp6RuleRequest {
  */
 export interface ReplaceRouteTableAssociationRequest {
     /**
-     * 子网实例ID，例如：subnet-3x5lf5q0。可通过DescribeSubnets接口查询。
-     */
+      * 子网实例ID，例如：subnet-3x5lf5q0。可通过DescribeSubnets接口查询。
+      */
     SubnetId: string;
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
 }
 /**
@@ -2756,12 +2756,12 @@ export interface ReplaceRouteTableAssociationRequest {
  */
 export interface AssociateNetworkAclSubnetsRequest {
     /**
-     * 网络ACL实例ID。例如：acl-12345678。
-     */
+      * 网络ACL实例ID。例如：acl-12345678。
+      */
     NetworkAclId: string;
     /**
-     * 子网实例ID数组。例如：[subnet-12345678]
-     */
+      * 子网实例ID数组。例如：[subnet-12345678]
+      */
     SubnetIds: Array<string>;
 }
 /**
@@ -2769,16 +2769,16 @@ export interface AssociateNetworkAclSubnetsRequest {
  */
 export interface CheckAssistantCidrRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。入参NewCidrBlocks和OldCidrBlocks至少需要其一。
-     */
+      * 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+      */
     NewCidrBlocks?: Array<string>;
     /**
-     * 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。入参NewCidrBlocks和OldCidrBlocks至少需要其一。
-     */
+      * 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]。入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+      */
     OldCidrBlocks?: Array<string>;
 }
 /**
@@ -2786,12 +2786,12 @@ export interface CheckAssistantCidrRequest {
  */
 export interface RenewVpnGatewayRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 预付费计费模式。
-     */
+      * 预付费计费模式。
+      */
     InstanceChargePrepaid: InstanceChargePrepaid;
 }
 /**
@@ -2799,48 +2799,48 @@ export interface RenewVpnGatewayRequest {
  */
 export interface SecurityGroupPolicy {
     /**
-     * 安全组规则索引号，值会随着安全组规则的变更动态变化。使用PolicyIndex时，请先调用`DescribeSecurityGroupPolicies`获取到规则的PolicyIndex，并且结合返回值中的Version一起使用处理规则。
-     */
+      * 安全组规则索引号，值会随着安全组规则的变更动态变化。使用PolicyIndex时，请先调用`DescribeSecurityGroupPolicies`获取到规则的PolicyIndex，并且结合返回值中的Version一起使用处理规则。
+      */
     PolicyIndex?: number;
     /**
-     * 协议, 取值: TCP,UDP,ICMP,ICMPv6,ALL。
-     */
+      * 协议, 取值: TCP,UDP,ICMP,ICMPv6,ALL。
+      */
     Protocol?: string;
     /**
-     * 端口(all, 离散port,  range)。
-     */
+      * 端口(all, 离散port,  range)。
+      */
     Port?: string;
     /**
-     * 协议端口ID或者协议端口组ID。ServiceTemplate和Protocol+Port互斥。
-     */
+      * 协议端口ID或者协议端口组ID。ServiceTemplate和Protocol+Port互斥。
+      */
     ServiceTemplate?: ServiceTemplateSpecification;
     /**
-     * 网段或IP(互斥)。
-     */
+      * 网段或IP(互斥)。
+      */
     CidrBlock?: string;
     /**
-     * 网段或IPv6(互斥)。
-     */
+      * 网段或IPv6(互斥)。
+      */
     Ipv6CidrBlock?: string;
     /**
-     * 安全组实例ID，例如：sg-ohuuioma。
-     */
+      * 安全组实例ID，例如：sg-ohuuioma。
+      */
     SecurityGroupId?: string;
     /**
-     * IP地址ID或者ID地址组ID。
-     */
+      * IP地址ID或者ID地址组ID。
+      */
     AddressTemplate?: AddressTemplateSpecification;
     /**
-     * ACCEPT 或 DROP。
-     */
+      * ACCEPT 或 DROP。
+      */
     Action?: string;
     /**
-     * 安全组规则描述。
-     */
+      * 安全组规则描述。
+      */
     PolicyDescription?: string;
     /**
-     * 安全组最近修改时间。
-     */
+      * 安全组最近修改时间。
+      */
     ModifyTime?: string;
 }
 /**
@@ -2848,8 +2848,8 @@ export interface SecurityGroupPolicy {
  */
 export interface DeleteVpcRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
 }
 /**
@@ -2857,8 +2857,8 @@ export interface DeleteVpcRequest {
  */
 export interface ModifyServiceTemplateAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2866,16 +2866,16 @@ export interface ModifyServiceTemplateAttributeResponse {
  */
 export interface DescribeCcnsResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * CCN对象。
-     */
+      * CCN对象。
+      */
     CcnSet?: Array<CCN>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2883,20 +2883,20 @@ export interface DescribeCcnsResponse {
  */
 export interface TemplateLimit {
     /**
-     * 参数模板IP地址成员配额。
-     */
+      * 参数模板IP地址成员配额。
+      */
     AddressTemplateMemberLimit: number;
     /**
-     * 参数模板IP地址组成员配额。
-     */
+      * 参数模板IP地址组成员配额。
+      */
     AddressTemplateGroupMemberLimit: number;
     /**
-     * 参数模板I协议端口成员配额。
-     */
+      * 参数模板I协议端口成员配额。
+      */
     ServiceTemplateMemberLimit: number;
     /**
-     * 参数模板协议端口组成员配额。
-     */
+      * 参数模板协议端口组成员配额。
+      */
     ServiceTemplateGroupMemberLimit: number;
 }
 /**
@@ -2904,12 +2904,12 @@ export interface TemplateLimit {
  */
 export interface CreateSubnetResponse {
     /**
-     * 子网对象。
-     */
+      * 子网对象。
+      */
     Subnet?: Subnet;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2917,12 +2917,12 @@ export interface CreateSubnetResponse {
  */
 export interface DescribeSecurityGroupPoliciesResponse {
     /**
-     * 安全组规则集合。
-     */
+      * 安全组规则集合。
+      */
     SecurityGroupPolicySet?: SecurityGroupPolicySet;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2930,18 +2930,18 @@ export interface DescribeSecurityGroupPoliciesResponse {
  */
 export interface GetCcnRegionBandwidthLimitsResponse {
     /**
-        * 云联网（CCN）各地域出带宽带宽详情。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 云联网（CCN）各地域出带宽带宽详情。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CcnBandwidthSet?: Array<CcnBandwidthInfo>;
     /**
-        * 符合条件的对象数。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的对象数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2949,16 +2949,16 @@ export interface GetCcnRegionBandwidthLimitsResponse {
  */
 export interface ModifySecurityGroupPoliciesRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组规则集合。 SecurityGroupPolicySet对象必须同时指定新的出（Egress）入（Ingress）站规则。 SecurityGroupPolicy对象不支持自定义索引（PolicyIndex）。
-     */
+      * 安全组规则集合。 SecurityGroupPolicySet对象必须同时指定新的出（Egress）入（Ingress）站规则。 SecurityGroupPolicy对象不支持自定义索引（PolicyIndex）。
+      */
     SecurityGroupPolicySet: SecurityGroupPolicySet;
     /**
-     * 排序安全组标识。值为True时，支持安全组排序；SortPolicys不存在或SortPolicys为False时，为修改安全组规则。
-     */
+      * 排序安全组标识。值为True时，支持安全组排序；SortPolicys不存在或SortPolicys为False时，为修改安全组规则。
+      */
     SortPolicys?: boolean;
 }
 /**
@@ -2966,8 +2966,8 @@ export interface ModifySecurityGroupPoliciesRequest {
  */
 export interface RemoveIp6RulesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -2975,12 +2975,12 @@ export interface RemoveIp6RulesResponse {
  */
 export interface AssociateDhcpIpWithAddressIpRequest {
     /**
-     * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。必须是没有绑定`EIP`的`DhcpIp`
-     */
+      * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。必须是没有绑定`EIP`的`DhcpIp`
+      */
     DhcpIpId: string;
     /**
-     * 弹性公网`IP`。必须是没有绑定`DhcpIp`的`EIP`
-     */
+      * 弹性公网`IP`。必须是没有绑定`DhcpIp`的`EIP`
+      */
     AddressIp: string;
 }
 /**
@@ -2988,12 +2988,12 @@ export interface AssociateDhcpIpWithAddressIpRequest {
  */
 export interface ReplaceRoutesRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 路由策略对象。需要指定路由策略ID（RouteId）。
-     */
+      * 路由策略对象。需要指定路由策略ID（RouteId）。
+      */
     Routes: Array<Route>;
 }
 /**
@@ -3001,12 +3001,12 @@ export interface ReplaceRoutesRequest {
  */
 export interface CreateCustomerGatewayResponse {
     /**
-     * 对端网关对象
-     */
+      * 对端网关对象
+      */
     CustomerGateway?: CustomerGateway;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3014,8 +3014,8 @@ export interface CreateCustomerGatewayResponse {
  */
 export interface DeleteServiceTemplateGroupResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3023,12 +3023,12 @@ export interface DeleteServiceTemplateGroupResponse {
  */
 export interface DisassociateAddressRequest {
     /**
-     * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
-     */
+      * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+      */
     AddressId: string;
     /**
-     * 表示解绑 EIP 之后是否分配普通公网 IP。取值范围：<br><li>TRUE：表示解绑 EIP 之后分配普通公网 IP。<br><li>FALSE：表示解绑 EIP 之后不分配普通公网 IP。<br>默认取值：FALSE。<br><br>只有满足以下条件时才能指定该参数：<br><li> 只有在解绑主网卡的主内网 IP 上的 EIP 时才能指定该参数。<br><li>解绑 EIP 后重新分配普通公网 IP 操作一个账号每天最多操作 10 次；详情可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/api/213/1378) 接口获取。
-     */
+      * 表示解绑 EIP 之后是否分配普通公网 IP。取值范围：<br><li>TRUE：表示解绑 EIP 之后分配普通公网 IP。<br><li>FALSE：表示解绑 EIP 之后不分配普通公网 IP。<br>默认取值：FALSE。<br><br>只有满足以下条件时才能指定该参数：<br><li> 只有在解绑主网卡的主内网 IP 上的 EIP 时才能指定该参数。<br><li>解绑 EIP 后重新分配普通公网 IP 操作一个账号每天最多操作 10 次；详情可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/api/213/1378) 接口获取。
+      */
     ReallocateNormalPublicIp?: boolean;
 }
 /**
@@ -3036,12 +3036,12 @@ export interface DisassociateAddressRequest {
  */
 export interface NetworkAclEntrySet {
     /**
-     * 入站规则。
-     */
+      * 入站规则。
+      */
     Ingress?: Array<NetworkAclEntry>;
     /**
-     * 出站规则。
-     */
+      * 出站规则。
+      */
     Egress?: Array<NetworkAclEntry>;
 }
 /**
@@ -3049,8 +3049,8 @@ export interface NetworkAclEntrySet {
  */
 export interface DeleteVpnConnectionResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3058,12 +3058,12 @@ export interface DeleteVpnConnectionResponse {
  */
 export interface CreateCcnResponse {
     /**
-     * 云联网（CCN）对象。
-     */
+      * 云联网（CCN）对象。
+      */
     Ccn?: CCN;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3071,12 +3071,12 @@ export interface CreateCcnResponse {
  */
 export interface EnableCcnRoutesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
-     */
+      * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+      */
     RouteIds: Array<string>;
 }
 /**
@@ -3084,14 +3084,14 @@ export interface EnableCcnRoutesRequest {
  */
 export interface Tag {
     /**
-        * 标签键
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 标签键
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Key: string;
     /**
-        * 标签值
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 标签值
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Value?: string;
 }
 /**
@@ -3099,12 +3099,12 @@ export interface Tag {
  */
 export interface DescribeVpcPrivateIpAddressesResponse {
     /**
-     * 内网`IP`地址信息列表。
-     */
+      * 内网`IP`地址信息列表。
+      */
     VpcPrivateIpAddressSet?: Array<VpcPrivateIpAddress>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3112,12 +3112,12 @@ export interface DescribeVpcPrivateIpAddressesResponse {
  */
 export interface DefaultVpcSubnet {
     /**
-     * 默认VpcId
-     */
+      * 默认VpcId
+      */
     VpcId: string;
     /**
-     * 默认SubnetId
-     */
+      * 默认SubnetId
+      */
     SubnetId: string;
 }
 /**
@@ -3125,24 +3125,24 @@ export interface DefaultVpcSubnet {
  */
 export interface DescribeIp6TranslatorsRequest {
     /**
-     * IPV6转换实例唯一ID数组，形如ip6-xxxxxxxx
-     */
+      * IPV6转换实例唯一ID数组，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorIds?: Array<string>;
     /**
-        * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`Ip6TranslatorIds`和`Filters`。详细的过滤条件如下：
-  <li> ip6-translator-id - String - 是否必填：否 - （过滤条件）按照IPV6转换实例的唯一ID过滤,形如ip6-xxxxxxx。</li>
-  <li> ip6-translator-vip6 - String - 是否必填：否 - （过滤条件）按照IPV6地址过滤。不支持模糊过滤。</li>
-  <li> ip6-translator-name - String - 是否必填：否 - （过滤条件）按照IPV6转换实例名称过滤。不支持模糊过滤。</li>
-  <li> ip6-translator-status - String - 是否必填：否 - （过滤条件）按照IPV6转换实例的状态过滤。状态取值范围为"CREATING","RUNNING","DELETING","MODIFYING"
-        */
+      * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`Ip6TranslatorIds`和`Filters`。详细的过滤条件如下：
+<li> ip6-translator-id - String - 是否必填：否 - （过滤条件）按照IPV6转换实例的唯一ID过滤,形如ip6-xxxxxxx。</li>
+<li> ip6-translator-vip6 - String - 是否必填：否 - （过滤条件）按照IPV6地址过滤。不支持模糊过滤。</li>
+<li> ip6-translator-name - String - 是否必填：否 - （过滤条件）按照IPV6转换实例名称过滤。不支持模糊过滤。</li>
+<li> ip6-translator-status - String - 是否必填：否 - （过滤条件）按照IPV6转换实例的状态过滤。状态取值范围为"CREATING","RUNNING","DELETING","MODIFYING"
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Limit?: number;
 }
 /**
@@ -3150,12 +3150,12 @@ export interface DescribeIp6TranslatorsRequest {
  */
 export interface CreateSubnetsResponse {
     /**
-     * 新创建的子网列表。
-     */
+      * 新创建的子网列表。
+      */
     SubnetSet?: Array<Subnet>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3163,40 +3163,40 @@ export interface CreateSubnetsResponse {
  */
 export interface DescribeGatewayFlowMonitorDetailRequest {
     /**
-     * 时间点。表示要查询这分钟内的明细。如：`2019-02-28 18:15:20`，将查询 `18:15` 这一分钟内的明细。
-     */
+      * 时间点。表示要查询这分钟内的明细。如：`2019-02-28 18:15:20`，将查询 `18:15` 这一分钟内的明细。
+      */
     TimePoint: string;
     /**
-     * VPN网关实例ID，形如：`vpn-ltjahce6`。
-     */
+      * VPN网关实例ID，形如：`vpn-ltjahce6`。
+      */
     VpnId?: string;
     /**
-     * 专线网关实例ID，形如：`dcg-ltjahce6`。
-     */
+      * 专线网关实例ID，形如：`dcg-ltjahce6`。
+      */
     DirectConnectGatewayId?: string;
     /**
-     * 对等连接实例ID，形如：`pcx-ltjahce6`。
-     */
+      * 对等连接实例ID，形如：`pcx-ltjahce6`。
+      */
     PeeringConnectionId?: string;
     /**
-     * NAT网关实例ID，形如：`nat-ltjahce6`。
-     */
+      * NAT网关实例ID，形如：`nat-ltjahce6`。
+      */
     NatId?: string;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: number;
     /**
-     * 返回数量。
-     */
+      * 返回数量。
+      */
     Limit?: number;
     /**
-     * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
-     */
+      * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。
+      */
     OrderField?: string;
     /**
-     * 排序方法。顺序：`ASC`，倒序：`DESC`。
-     */
+      * 排序方法。顺序：`ASC`，倒序：`DESC`。
+      */
     OrderDirection?: string;
 }
 /**
@@ -3204,12 +3204,12 @@ export interface DescribeGatewayFlowMonitorDetailRequest {
  */
 export interface InquiryPriceCreateVpnGatewayResponse {
     /**
-     * 商品价格。
-     */
+      * 商品价格。
+      */
     Price?: Price;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3217,12 +3217,12 @@ export interface InquiryPriceCreateVpnGatewayResponse {
  */
 export interface DescribeSecurityGroupLimitsResponse {
     /**
-     * 用户安全组配额限制。
-     */
+      * 用户安全组配额限制。
+      */
     SecurityGroupLimitSet?: SecurityGroupLimitSet;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3230,12 +3230,12 @@ export interface DescribeSecurityGroupLimitsResponse {
  */
 export interface FilterObject {
     /**
-     * 属性名称, 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
-     */
+      * 属性名称, 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
+      */
     Name: string;
     /**
-     * 属性值, 若同一个Filter存在多个Values，同一Filter下Values间的关系为逻辑或（OR）关系。
-     */
+      * 属性值, 若同一个Filter存在多个Values，同一Filter下Values间的关系为逻辑或（OR）关系。
+      */
     Values: Array<string>;
 }
 /**
@@ -3243,16 +3243,16 @@ export interface FilterObject {
  */
 export interface ModifyDirectConnectGatewayAttributeRequest {
     /**
-     * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
-     */
+      * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
+      */
     DirectConnectGatewayId: string;
     /**
-     * 专线网关名称，可任意命名，但不得超过60个字符。
-     */
+      * 专线网关名称，可任意命名，但不得超过60个字符。
+      */
     DirectConnectGatewayName?: string;
     /**
-     * 云联网路由学习类型，可选值：`BGP`（自动学习）、`STATIC`（静态，即用户配置）。只有云联网类型专线网关且开启了BGP功能才支持修改`CcnRouteType`。
-     */
+      * 云联网路由学习类型，可选值：`BGP`（自动学习）、`STATIC`（静态，即用户配置）。只有云联网类型专线网关且开启了BGP功能才支持修改`CcnRouteType`。
+      */
     CcnRouteType?: string;
 }
 /**
@@ -3260,8 +3260,8 @@ export interface ModifyDirectConnectGatewayAttributeRequest {
  */
 export interface ModifyBandwidthPackageAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3269,8 +3269,8 @@ export interface ModifyBandwidthPackageAttributeResponse {
  */
 export interface DetachNetworkInterfaceResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3278,8 +3278,8 @@ export interface DetachNetworkInterfaceResponse {
  */
 export interface ResetRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3287,8 +3287,8 @@ export interface ResetRoutesResponse {
  */
 export interface DeleteNetworkAclRequest {
     /**
-     * 网络ACL实例ID。例如：acl-12345678。
-     */
+      * 网络ACL实例ID。例如：acl-12345678。
+      */
     NetworkAclId: string;
 }
 /**
@@ -3296,43 +3296,43 @@ export interface DeleteNetworkAclRequest {
  */
 export interface NatGatewayDestinationIpPortTranslationNatRule {
     /**
-     * 网络协议，可选值：`TCP`、`UDP`。
-     */
+      * 网络协议，可选值：`TCP`、`UDP`。
+      */
     IpProtocol?: string;
     /**
-     * 弹性IP。
-     */
+      * 弹性IP。
+      */
     PublicIpAddress: string;
     /**
-     * 公网端口。
-     */
+      * 公网端口。
+      */
     PublicPort: number;
     /**
-     * 内网地址。
-     */
+      * 内网地址。
+      */
     PrivateIpAddress: string;
     /**
-     * 内网端口。
-     */
+      * 内网端口。
+      */
     PrivatePort: number;
     /**
-     * NAT网关转发规则描述。
-     */
+      * NAT网关转发规则描述。
+      */
     Description?: string;
     /**
-        * NAT网关的ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * NAT网关的ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NatGatewayId: string;
     /**
-        * 私有网络VPC的ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 私有网络VPC的ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     VpcId: string;
     /**
-        * NAT网关转发规则创建时间。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * NAT网关转发规则创建时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CreatedTime: string;
 }
 /**
@@ -3340,18 +3340,18 @@ export interface NatGatewayDestinationIpPortTranslationNatRule {
  */
 export interface DescribeNetDetectStatesResponse {
     /**
-        * 符合条件的网络探测验证结果对象数组。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的网络探测验证结果对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NetDetectStateSet?: Array<NetDetectState>;
     /**
-        * 符合条件的网络探测验证结果对象数量。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的网络探测验证结果对象数量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3359,12 +3359,12 @@ export interface DescribeNetDetectStatesResponse {
  */
 export interface ModifyDhcpIpAttributeRequest {
     /**
-     * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。
-     */
+      * `DhcpIp`唯一`ID`，形如：`dhcpip-9o233uri`。
+      */
     DhcpIpId: string;
     /**
-     * `DhcpIp`名称，可任意命名，但不得超过60个字符。
-     */
+      * `DhcpIp`名称，可任意命名，但不得超过60个字符。
+      */
     DhcpIpName: string;
 }
 /**
@@ -3372,12 +3372,12 @@ export interface ModifyDhcpIpAttributeRequest {
  */
 export interface ModifyIp6TranslatorRequest {
     /**
-     * IPV6转换实例唯一ID，形如ip6-xxxxxxxxx
-     */
+      * IPV6转换实例唯一ID，形如ip6-xxxxxxxxx
+      */
     Ip6TranslatorId: string;
     /**
-     * IPV6转换实例修改名称
-     */
+      * IPV6转换实例修改名称
+      */
     Ip6TranslatorName?: string;
 }
 /**
@@ -3385,12 +3385,12 @@ export interface ModifyIp6TranslatorRequest {
  */
 export interface CreateVpnConnectionResponse {
     /**
-     * 通道实例对象。
-     */
+      * 通道实例对象。
+      */
     VpnConnection?: VpnConnection;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3398,12 +3398,12 @@ export interface CreateVpnConnectionResponse {
  */
 export interface AddressTemplateSpecification {
     /**
-     * IP地址ID，例如：ipm-2uw6ujo6。
-     */
+      * IP地址ID，例如：ipm-2uw6ujo6。
+      */
     AddressId: string;
     /**
-     * IP地址组ID，例如：ipmg-2uw6ujo6。
-     */
+      * IP地址组ID，例如：ipmg-2uw6ujo6。
+      */
     AddressGroupId: string;
 }
 /**
@@ -3411,20 +3411,20 @@ export interface AddressTemplateSpecification {
  */
 export interface VpcIpv6Address {
     /**
-     * `VPC`内`IPv6`地址。
-     */
+      * `VPC`内`IPv6`地址。
+      */
     Ipv6Address: string;
     /**
-     * 所属子网 `IPv6` `CIDR`。
-     */
+      * 所属子网 `IPv6` `CIDR`。
+      */
     CidrBlock: string;
     /**
-     * `IPv6`类型。
-     */
+      * `IPv6`类型。
+      */
     Ipv6AddressType: string;
     /**
-     * `IPv6`申请时间。
-     */
+      * `IPv6`申请时间。
+      */
     CreatedTime: string;
 }
 /**
@@ -3432,16 +3432,16 @@ export interface VpcIpv6Address {
  */
 export interface AssignIpv6AddressesRequest {
     /**
-     * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     */
+      * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
-     */
+      * 指定的`IPv6`地址列表，单次最多指定10个。与入参`Ipv6AddressCount`合并计算配额。与Ipv6AddressCount必填一个。
+      */
     Ipv6Addresses?: Array<Ipv6Address>;
     /**
-     * 自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
-     */
+      * 自动分配`IPv6`地址个数，内网IP地址个数总和不能超过配数。与入参`Ipv6Addresses`合并计算配额。与Ipv6Addresses必填一个。
+      */
     Ipv6AddressCount?: number;
 }
 /**
@@ -3449,12 +3449,12 @@ export interface AssignIpv6AddressesRequest {
  */
 export interface CreateServiceTemplateGroupResponse {
     /**
-     * 协议端口模板集合对象。
-     */
+      * 协议端口模板集合对象。
+      */
     ServiceTemplateGroup?: ServiceTemplateGroup;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3462,69 +3462,69 @@ export interface CreateServiceTemplateGroupResponse {
  */
 export interface NetDetect {
     /**
-     * `VPC`实例`ID`。形如：`vpc-12345678`
-     */
+      * `VPC`实例`ID`。形如：`vpc-12345678`
+      */
     VpcId: string;
     /**
-     * `VPC`实例名称。
-     */
+      * `VPC`实例名称。
+      */
     VpcName: string;
     /**
-     * 子网实例ID。形如：subnet-12345678。
-     */
+      * 子网实例ID。形如：subnet-12345678。
+      */
     SubnetId: string;
     /**
-     * 子网实例名称。
-     */
+      * 子网实例名称。
+      */
     SubnetName: string;
     /**
-     * 网络探测实例ID。形如：netd-12345678。
-     */
+      * 网络探测实例ID。形如：netd-12345678。
+      */
     NetDetectId: string;
     /**
-     * 网络探测名称，最大长度不能超过60个字节。
-     */
+      * 网络探测名称，最大长度不能超过60个字节。
+      */
     NetDetectName: string;
     /**
-     * 探测目的IPv4地址数组，最多两个。
-     */
+      * 探测目的IPv4地址数组，最多两个。
+      */
     DetectDestinationIp: Array<string>;
     /**
-     * 系统自动分配的探测源IPv4数组。长度为2。
-     */
+      * 系统自动分配的探测源IPv4数组。长度为2。
+      */
     DetectSourceIp: Array<string>;
     /**
-        * 下一跳类型，目前我们支持的类型有：
-  VPN：VPN网关；
-  DIRECTCONNECT：专线网关；
-  PEERCONNECTION：对等连接；
-  NAT：NAT网关；
-  NORMAL_CVM：普通云服务器；
-        */
+      * 下一跳类型，目前我们支持的类型有：
+VPN：VPN网关；
+DIRECTCONNECT：专线网关；
+PEERCONNECTION：对等连接；
+NAT：NAT网关；
+NORMAL_CVM：普通云服务器；
+      */
     NextHopType: string;
     /**
-        * 下一跳目的网关，取值与“下一跳类型”相关：
-  下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
-  下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
-  下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
-  下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
-  下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
-        */
+      * 下一跳目的网关，取值与“下一跳类型”相关：
+下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
+下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
+下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
+下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
+下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+      */
     NextHopDestination: string;
     /**
-        * 下一跳网关名称。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 下一跳网关名称。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NextHopName: string;
     /**
-        * 网络探测描述。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 网络探测描述。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NetDetectDescription: string;
     /**
-        * 创建时间。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 创建时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CreateTime: string;
 }
 /**
@@ -3532,8 +3532,8 @@ export interface NetDetect {
  */
 export interface ModifyIpv6AddressesAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3541,12 +3541,12 @@ export interface ModifyIpv6AddressesAttributeResponse {
  */
 export interface ReplaceSecurityGroupPolicyRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组规则集合对象。
-     */
+      * 安全组规则集合对象。
+      */
     SecurityGroupPolicySet: SecurityGroupPolicySet;
 }
 /**
@@ -3554,64 +3554,64 @@ export interface ReplaceSecurityGroupPolicyRequest {
  */
 export interface NatGateway {
     /**
-     * NAT网关的ID。
-     */
+      * NAT网关的ID。
+      */
     NatGatewayId: string;
     /**
-     * NAT网关的名称。
-     */
+      * NAT网关的名称。
+      */
     NatGatewayName: string;
     /**
-     * NAT网关创建的时间。
-     */
+      * NAT网关创建的时间。
+      */
     CreatedTime: string;
     /**
-        * NAT网关的状态。
-   'PENDING'：生产中，'DELETING'：删除中，'AVAILABLE'：运行中，'UPDATING'：升级中，
-  ‘FAILED’：失败。
-        */
+      * NAT网关的状态。
+ 'PENDING'：生产中，'DELETING'：删除中，'AVAILABLE'：运行中，'UPDATING'：升级中，
+‘FAILED’：失败。
+      */
     State: string;
     /**
-     * 网关最大外网出带宽(单位:Mbps)。
-     */
+      * 网关最大外网出带宽(单位:Mbps)。
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * 网关并发连接上限。
-     */
+      * 网关并发连接上限。
+      */
     MaxConcurrentConnection: number;
     /**
-     * 绑定NAT网关的公网IP对象数组。
-     */
+      * 绑定NAT网关的公网IP对象数组。
+      */
     PublicIpAddressSet: Array<NatGatewayAddress>;
     /**
-     * NAT网关网络状态。“AVAILABLE”:运行中, “UNAVAILABLE”:不可用, “INSUFFICIENT”:欠费停服。
-     */
+      * NAT网关网络状态。“AVAILABLE”:运行中, “UNAVAILABLE”:不可用, “INSUFFICIENT”:欠费停服。
+      */
     NetworkState: string;
     /**
-     * NAT网关的端口转发规则。
-     */
+      * NAT网关的端口转发规则。
+      */
     DestinationIpPortTranslationNatRuleSet: Array<DestinationIpPortTranslationNatRule>;
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * NAT网关所在的可用区。
-     */
+      * NAT网关所在的可用区。
+      */
     Zone: string;
     /**
-        * 绑定的专线网关ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 绑定的专线网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DirectConnectGatewayIds: Array<string>;
     /**
-        * 所属子网ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 所属子网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     SubnetId: string;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet: Array<Tag>;
 }
 /**
@@ -3619,172 +3619,172 @@ export interface NatGateway {
  */
 export interface ResourceDashboard {
     /**
-     * Vpc实例ID，例如：vpc-f1xjkw1b。
-     */
+      * Vpc实例ID，例如：vpc-f1xjkw1b。
+      */
     VpcId: string;
     /**
-     * 子网实例ID，例如：subnet-bthucmmy。
-     */
+      * 子网实例ID，例如：subnet-bthucmmy。
+      */
     SubnetId: string;
     /**
-     * 基础网络互通。
-     */
+      * 基础网络互通。
+      */
     Classiclink: number;
     /**
-     * 专线网关。
-     */
+      * 专线网关。
+      */
     Dcg: number;
     /**
-     * 对等连接。
-     */
+      * 对等连接。
+      */
     Pcx: number;
     /**
-     * 当前已使用的IP总数。
-     */
+      * 当前已使用的IP总数。
+      */
     Ip: number;
     /**
-     * NAT网关。
-     */
+      * NAT网关。
+      */
     Nat: number;
     /**
-     * VPN网关。
-     */
+      * VPN网关。
+      */
     Vpngw: number;
     /**
-     * 流日志。
-     */
+      * 流日志。
+      */
     FlowLog: number;
     /**
-     * 网络探测。
-     */
+      * 网络探测。
+      */
     NetworkDetect: number;
     /**
-     * 网络ACL。
-     */
+      * 网络ACL。
+      */
     NetworkACL: number;
     /**
-     * 云主机。
-     */
+      * 云主机。
+      */
     CVM: number;
     /**
-     * 负载均衡。
-     */
+      * 负载均衡。
+      */
     LB: number;
     /**
-     * 关系型数据库。
-     */
+      * 关系型数据库。
+      */
     CDB: number;
     /**
-     * 云数据库 TencentDB for Memcached。
-     */
+      * 云数据库 TencentDB for Memcached。
+      */
     Cmem: number;
     /**
-     * 时序数据库。
-     */
+      * 时序数据库。
+      */
     CTSDB: number;
     /**
-     * 数据库 TencentDB for MariaDB（TDSQL）。
-     */
+      * 数据库 TencentDB for MariaDB（TDSQL）。
+      */
     MariaDB: number;
     /**
-     * 数据库 TencentDB for SQL Server。
-     */
+      * 数据库 TencentDB for SQL Server。
+      */
     SQLServer: number;
     /**
-     * 云数据库 TencentDB for PostgreSQL。
-     */
+      * 云数据库 TencentDB for PostgreSQL。
+      */
     Postgres: number;
     /**
-     * 网络附加存储。
-     */
+      * 网络附加存储。
+      */
     NAS: number;
     /**
-     * Snova云数据仓库。
-     */
+      * Snova云数据仓库。
+      */
     Greenplumn: number;
     /**
-     * 消息队列 CKAFKA。
-     */
+      * 消息队列 CKAFKA。
+      */
     Ckafka: number;
     /**
-     * Grocery。
-     */
+      * Grocery。
+      */
     Grocery: number;
     /**
-     * 数据加密服务。
-     */
+      * 数据加密服务。
+      */
     HSM: number;
     /**
-     * 游戏存储 Tcaplus。
-     */
+      * 游戏存储 Tcaplus。
+      */
     Tcaplus: number;
     /**
-     * Cnas。
-     */
+      * Cnas。
+      */
     Cnas: number;
     /**
-     * HTAP 数据库 TiDB。
-     */
+      * HTAP 数据库 TiDB。
+      */
     TiDB: number;
     /**
-     * EMR 集群。
-     */
+      * EMR 集群。
+      */
     Emr: number;
     /**
-     * SEAL。
-     */
+      * SEAL。
+      */
     SEAL: number;
     /**
-     * 文件存储 CFS。
-     */
+      * 文件存储 CFS。
+      */
     CFS: number;
     /**
-     * Oracle。
-     */
+      * Oracle。
+      */
     Oracle: number;
     /**
-     * ElasticSearch服务。
-     */
+      * ElasticSearch服务。
+      */
     ElasticSearch: number;
     /**
-     * 区块链服务。
-     */
+      * 区块链服务。
+      */
     TBaaS: number;
     /**
-     * Itop。
-     */
+      * Itop。
+      */
     Itop: number;
     /**
-     * 云数据库审计。
-     */
+      * 云数据库审计。
+      */
     DBAudit: number;
     /**
-     * 企业级云数据库 CynosDB for Postgres。
-     */
+      * 企业级云数据库 CynosDB for Postgres。
+      */
     CynosDBPostgres: number;
     /**
-     * 数据库 TencentDB for Redis。
-     */
+      * 数据库 TencentDB for Redis。
+      */
     Redis: number;
     /**
-     * 数据库 TencentDB for MongoDB。
-     */
+      * 数据库 TencentDB for MongoDB。
+      */
     MongoDB: number;
     /**
-     * 分布式数据库 TencentDB for TDSQL。
-     */
+      * 分布式数据库 TencentDB for TDSQL。
+      */
     DCDB: number;
     /**
-     * 企业级云数据库 CynosDB for MySQL。
-     */
+      * 企业级云数据库 CynosDB for MySQL。
+      */
     CynosDBMySQL: number;
     /**
-     * 子网。
-     */
+      * 子网。
+      */
     Subnet: number;
     /**
-     * 路由表。
-     */
+      * 路由表。
+      */
     RouteTable: number;
 }
 /**
@@ -3792,16 +3792,16 @@ export interface ResourceDashboard {
  */
 export interface DescribeCcnAttachedInstancesResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * 关联实例列表。
-     */
+      * 关联实例列表。
+      */
     InstanceSet?: Array<CcnAttachedInstance>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3809,8 +3809,8 @@ export interface DescribeCcnAttachedInstancesResponse {
  */
 export interface DeleteCustomerGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3818,42 +3818,42 @@ export interface DeleteCustomerGatewayResponse {
  */
 export interface CreateNetDetectRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-12345678`
-     */
+      * `VPC`实例`ID`。形如：`vpc-12345678`
+      */
     VpcId: string;
     /**
-     * 子网实例ID。形如：subnet-12345678。
-     */
+      * 子网实例ID。形如：subnet-12345678。
+      */
     SubnetId: string;
     /**
-     * 网络探测名称，最大长度不能超过60个字节。
-     */
+      * 网络探测名称，最大长度不能超过60个字节。
+      */
     NetDetectName: string;
     /**
-     * 探测目的IPv4地址数组。最多两个。
-     */
+      * 探测目的IPv4地址数组。最多两个。
+      */
     DetectDestinationIp: Array<string>;
     /**
-        * 下一跳类型，目前我们支持的类型有：
-  VPN：VPN网关；
-  DIRECTCONNECT：专线网关；
-  PEERCONNECTION：对等连接；
-  NAT：NAT网关；
-  NORMAL_CVM：普通云服务器；
-        */
+      * 下一跳类型，目前我们支持的类型有：
+VPN：VPN网关；
+DIRECTCONNECT：专线网关；
+PEERCONNECTION：对等连接；
+NAT：NAT网关；
+NORMAL_CVM：普通云服务器；
+      */
     NextHopType?: string;
     /**
-        * 下一跳目的网关，取值与“下一跳类型”相关：
-  下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
-  下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
-  下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
-  下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
-  下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
-        */
+      * 下一跳目的网关，取值与“下一跳类型”相关：
+下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
+下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
+下一跳类型为PEERCONNECTION，取值对等连接ID，形如：pcx-12345678；
+下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
+下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
+      */
     NextHopDestination?: string;
     /**
-     * 网络探测描述。
-     */
+      * 网络探测描述。
+      */
     NetDetectDescription?: string;
 }
 /**
@@ -3861,12 +3861,12 @@ export interface CreateNetDetectRequest {
  */
 export interface CreateAddressTemplateResponse {
     /**
-     * IP地址模板对象。
-     */
+      * IP地址模板对象。
+      */
     AddressTemplate?: AddressTemplate;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3874,8 +3874,8 @@ export interface CreateAddressTemplateResponse {
  */
 export interface CreateNatGatewayDestinationIpPortTranslationNatRuleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3883,8 +3883,8 @@ export interface CreateNatGatewayDestinationIpPortTranslationNatRuleResponse {
  */
 export interface DeleteAddressTemplateGroupRequest {
     /**
-     * IP地址模板集合实例ID，例如：ipmg-90cex8mq。
-     */
+      * IP地址模板集合实例ID，例如：ipmg-90cex8mq。
+      */
     AddressTemplateGroupId: string;
 }
 /**
@@ -3892,8 +3892,8 @@ export interface DeleteAddressTemplateGroupRequest {
  */
 export interface DescribeNetworkInterfaceLimitRequest {
     /**
-     * 要查询的CVM实例ID或弹性网卡ID
-     */
+      * 要查询的CVM实例ID或弹性网卡ID
+      */
     InstanceId: string;
 }
 /**
@@ -3901,32 +3901,32 @@ export interface DescribeNetworkInterfaceLimitRequest {
  */
 export interface CreateBandwidthPackageRequest {
     /**
-     * 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
-     */
+      * 带宽包类型，包括'BGP'，'SINGLEISP'，'ANYCAST'
+      */
     NetworkType?: string;
     /**
-     * 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
-     */
+      * 带宽包计费类型，包括‘TOP5_POSTPAID_BY_MONTH’，‘PERCENT95_POSTPAID_BY_MONTH’
+      */
     ChargeType?: string;
     /**
-     * 带宽包名字
-     */
+      * 带宽包名字
+      */
     BandwidthPackageName?: string;
     /**
-     * 带宽包数量(非上移账户只能填1)
-     */
+      * 带宽包数量(非上移账户只能填1)
+      */
     BandwidthPackageCount?: number;
     /**
-     * 带宽包限速大小。单位：Mbps，-1表示不限速。
-     */
+      * 带宽包限速大小。单位：Mbps，-1表示不限速。
+      */
     InternetMaxBandwidth?: number;
     /**
-     * 需要关联的标签列表。
-     */
+      * 需要关联的标签列表。
+      */
     Tags?: Array<Tag>;
     /**
-     * 带宽包协议类型。当前支持'ipv4'和'ipv6'协议带宽包，默认值是'ipv4'。
-     */
+      * 带宽包协议类型。当前支持'ipv4'和'ipv6'协议带宽包，默认值是'ipv4'。
+      */
     Protocol?: string;
 }
 /**
@@ -3934,16 +3934,16 @@ export interface CreateBandwidthPackageRequest {
  */
 export interface DescribeIp6AddressesResponse {
     /**
-     * 符合条件的 IPV6 数量。
-     */
+      * 符合条件的 IPV6 数量。
+      */
     TotalCount?: number;
     /**
-     * IPV6 详细信息列表。
-     */
+      * IPV6 详细信息列表。
+      */
     AddressSet?: Array<Address>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3951,12 +3951,12 @@ export interface DescribeIp6AddressesResponse {
  */
 export interface ModifyRouteTableAttributeRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 路由表名称。
-     */
+      * 路由表名称。
+      */
     RouteTableName: string;
 }
 /**
@@ -3964,8 +3964,8 @@ export interface ModifyRouteTableAttributeRequest {
  */
 export interface ModifyDirectConnectGatewayAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -3973,27 +3973,27 @@ export interface ModifyDirectConnectGatewayAttributeResponse {
  */
 export interface DescribeVpnGatewaysRequest {
     /**
-     * VPN网关实例ID。形如：vpngw-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpnGatewayIds和Filters。
-     */
+      * VPN网关实例ID。形如：vpngw-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpnGatewayIds和Filters。
+      */
     VpnGatewayIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定VpnGatewayIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
-  <li>vpn-gateway-id - String - （过滤条件）VPN实例ID形如：vpngw-5aluhh9t。</li>
-  <li>vpn-gateway-name - String - （过滤条件）VPN实例名称。</li>
-  <li>type - String - （过滤条件）VPN网关类型：'IPSEC', 'SSL'。</li>
-  <li>public-ip-address- String - （过滤条件）公网IP。</li>
-  <li>renew-flag - String - （过滤条件）网关续费类型，手动续费：'NOTIFY_AND_MANUAL_RENEW'、自动续费：'NOTIFY_AND_AUTO_RENEW'。</li>
-  <li>zone - String - （过滤条件）VPN所在可用区，形如：ap-guangzhou-2。</li>
-        */
+      * 过滤条件，参数不支持同时指定VpnGatewayIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID形如：vpc-f49l6u0z。</li>
+<li>vpn-gateway-id - String - （过滤条件）VPN实例ID形如：vpngw-5aluhh9t。</li>
+<li>vpn-gateway-name - String - （过滤条件）VPN实例名称。</li>
+<li>type - String - （过滤条件）VPN网关类型：'IPSEC', 'SSL'。</li>
+<li>public-ip-address- String - （过滤条件）公网IP。</li>
+<li>renew-flag - String - （过滤条件）网关续费类型，手动续费：'NOTIFY_AND_MANUAL_RENEW'、自动续费：'NOTIFY_AND_AUTO_RENEW'。</li>
+<li>zone - String - （过滤条件）VPN所在可用区，形如：ap-guangzhou-2。</li>
+      */
     Filters?: Array<FilterObject>;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 请求对象个数
-     */
+      * 请求对象个数
+      */
     Limit?: number;
 }
 /**
@@ -4001,25 +4001,25 @@ export interface DescribeVpnGatewaysRequest {
  */
 export interface NetDetectIpState {
     /**
-     * 探测目的IPv4地址。
-     */
+      * 探测目的IPv4地址。
+      */
     DetectDestinationIp: string;
     /**
-        * 探测结果。
-  0：成功；
-  -1：查询不到路由丢包；
-  -2：外出ACL丢包；
-  -3：IN ACL丢包；
-  -4：其他错误；
-        */
+      * 探测结果。
+0：成功；
+-1：查询不到路由丢包；
+-2：外出ACL丢包；
+-3：IN ACL丢包；
+-4：其他错误；
+      */
     State: number;
     /**
-     * 时延，单位毫秒
-     */
+      * 时延，单位毫秒
+      */
     Delay: number;
     /**
-     * 丢包率
-     */
+      * 丢包率
+      */
     PacketLossRate: number;
 }
 /**
@@ -4027,8 +4027,8 @@ export interface NetDetectIpState {
  */
 export interface ModifyIp6AddressesBandwidthResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4036,16 +4036,16 @@ export interface ModifyIp6AddressesBandwidthResponse {
  */
 export interface CreateSubnetsRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * 子网对象列表。
-     */
+      * 子网对象列表。
+      */
     Subnets: Array<SubnetInput>;
     /**
-     * 指定绑定的标签列表，注意这里的标签集合为列表中所有子网对象所共享，不能为每个子网对象单独指定标签，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，注意这里的标签集合为列表中所有子网对象所共享，不能为每个子网对象单独指定标签，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -4053,16 +4053,16 @@ export interface CreateSubnetsRequest {
  */
 export interface ModifyServiceTemplateAttributeRequest {
     /**
-     * 协议端口模板实例ID，例如：ppm-529nwwj8。
-     */
+      * 协议端口模板实例ID，例如：ppm-529nwwj8。
+      */
     ServiceTemplateId: string;
     /**
-     * 协议端口模板名称。
-     */
+      * 协议端口模板名称。
+      */
     ServiceTemplateName?: string;
     /**
-     * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
-     */
+      * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
+      */
     Services?: Array<string>;
 }
 /**
@@ -4070,12 +4070,12 @@ export interface ModifyServiceTemplateAttributeRequest {
  */
 export interface AssociateAddressResponse {
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4083,8 +4083,8 @@ export interface AssociateAddressResponse {
  */
 export interface ResetVpnConnectionResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4092,12 +4092,12 @@ export interface ResetVpnConnectionResponse {
  */
 export interface CreateNetworkAclRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * 网络ACL名称，最大长度不能超过60个字节。
-     */
+      * 网络ACL名称，最大长度不能超过60个字节。
+      */
     NetworkAclName: string;
 }
 /**
@@ -4105,28 +4105,28 @@ export interface CreateNetworkAclRequest {
  */
 export interface DescribeAddressesRequest {
     /**
-     * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
-     */
+      * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。
+      */
     AddressIds?: Array<string>;
     /**
-        * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
-  <li> address-id - String - 是否必填：否 - （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：eip-11112222。</li>
-  <li> address-name - String - 是否必填：否 - （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。</li>
-  <li> address-ip - String - 是否必填：否 - （过滤条件）按照 EIP 的 IP 地址过滤。</li>
-  <li> address-status - String - 是否必填：否 - （过滤条件）按照 EIP 的状态过滤。状态包含：'CREATING'，'BINDING'，'BIND'，'UNBINDING'，'UNBIND'，'OFFLINING'，'BIND_ENI'。</li>
-  <li> instance-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的实例 ID 过滤。实例 ID 形如：ins-11112222。</li>
-  <li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
-  <li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
-  <li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
-        */
+      * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
+<li> address-id - String - 是否必填：否 - （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：eip-11112222。</li>
+<li> address-name - String - 是否必填：否 - （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。</li>
+<li> address-ip - String - 是否必填：否 - （过滤条件）按照 EIP 的 IP 地址过滤。</li>
+<li> address-status - String - 是否必填：否 - （过滤条件）按照 EIP 的状态过滤。状态包含：'CREATING'，'BINDING'，'BIND'，'UNBINDING'，'UNBIND'，'OFFLINING'，'BIND_ENI'。</li>
+<li> instance-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的实例 ID 过滤。实例 ID 形如：ins-11112222。</li>
+<li> private-ip-address - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的内网 IP 过滤。</li>
+<li> network-interface-id - String - 是否必填：否 - （过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：eni-11112222。</li>
+<li> is-arrears - String - 是否必填：否 - （过滤条件）按照 EIP 是否欠费进行过滤。（TRUE：EIP 处于欠费状态|FALSE：EIP 费用状态正常）</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
-     */
+      * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+      */
     Limit?: number;
 }
 /**
@@ -4134,8 +4134,8 @@ export interface DescribeAddressesRequest {
  */
 export interface DescribeSecurityGroupPoliciesRequest {
     /**
-     * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
 }
 /**
@@ -4143,8 +4143,8 @@ export interface DescribeSecurityGroupPoliciesRequest {
  */
 export interface ModifyNetworkInterfaceAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4152,12 +4152,12 @@ export interface ModifyNetworkInterfaceAttributeResponse {
  */
 export interface CreateSecurityGroupResponse {
     /**
-     * 安全组对象。
-     */
+      * 安全组对象。
+      */
     SecurityGroup?: SecurityGroup;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4165,8 +4165,8 @@ export interface CreateSecurityGroupResponse {
  */
 export interface DisassociateNetworkInterfaceSecurityGroupsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4174,8 +4174,8 @@ export interface DisassociateNetworkInterfaceSecurityGroupsResponse {
  */
 export interface DescribeIp6TranslatorQuotaRequest {
     /**
-     * 待查询IPV6转换实例的唯一ID列表，形如ip6-xxxxxxxx
-     */
+      * 待查询IPV6转换实例的唯一ID列表，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorIds?: Array<string>;
 }
 /**
@@ -4183,16 +4183,16 @@ export interface DescribeIp6TranslatorQuotaRequest {
  */
 export interface DescribeNetworkInterfaceLimitResponse {
     /**
-     * 弹性网卡配额
-     */
+      * 弹性网卡配额
+      */
     EniQuantity?: number;
     /**
-     * 每个弹性网卡可以分配的IP配额
-     */
+      * 每个弹性网卡可以分配的IP配额
+      */
     EniPrivateIpAddressQuantity?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4200,12 +4200,12 @@ export interface DescribeNetworkInterfaceLimitResponse {
  */
 export interface AssignIpv6CidrBlockResponse {
     /**
-     * 分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`
-     */
+      * 分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`
+      */
     Ipv6CidrBlock?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4213,28 +4213,28 @@ export interface AssignIpv6CidrBlockResponse {
  */
 export interface CreateCcnRequest {
     /**
-     * CCN名称，最大长度不能超过60个字节。
-     */
+      * CCN名称，最大长度不能超过60个字节。
+      */
     CcnName: string;
     /**
-     * CCN描述信息，最大长度不能超过100个字节。
-     */
+      * CCN描述信息，最大长度不能超过100个字节。
+      */
     CcnDescription?: string;
     /**
-     * CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
-     */
+      * CCN服务质量，'PT'：白金，'AU'：金，'AG'：银，默认为‘AU’。
+      */
     QosLevel?: string;
     /**
-     * 计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
-     */
+      * 计费模式，PREPAID：表示预付费，即包年包月，POSTPAID：表示后付费，即按量计费。默认：POSTPAID。
+      */
     InstanceChargeType?: string;
     /**
-     * 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
-     */
+      * 限速类型，OUTER_REGION_LIMIT表示地域出口限速，INTER_REGION_LIMIT为地域间限速，默认为OUTER_REGION_LIMIT
+      */
     BandwidthLimitType?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -4242,12 +4242,12 @@ export interface CreateCcnRequest {
  */
 export interface RemoveIp6RulesRequest {
     /**
-     * IPV6转换规则所属的转换实例唯一ID，形如ip6-xxxxxxxx
-     */
+      * IPV6转换规则所属的转换实例唯一ID，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorId: string;
     /**
-     * 待删除IPV6转换规则，形如rule6-xxxxxxxx
-     */
+      * 待删除IPV6转换规则，形如rule6-xxxxxxxx
+      */
     Ip6RuleIds: Array<string>;
 }
 /**
@@ -4255,12 +4255,12 @@ export interface RemoveIp6RulesRequest {
  */
 export interface AddIp6RulesResponse {
     /**
-     * IPV6转换规则唯一ID数组，形如rule6-xxxxxxxx
-     */
+      * IPV6转换规则唯一ID数组，形如rule6-xxxxxxxx
+      */
     Ip6RuleSet?: Array<string>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4268,12 +4268,12 @@ export interface AddIp6RulesResponse {
  */
 export interface DeleteVpnConnectionRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * VPN通道实例ID。形如：vpnx-f49l6u0z。
-     */
+      * VPN通道实例ID。形如：vpnx-f49l6u0z。
+      */
     VpnConnectionId: string;
 }
 /**
@@ -4281,32 +4281,32 @@ export interface DeleteVpnConnectionRequest {
  */
 export interface NetworkAclEntry {
     /**
-     * 修改时间。
-     */
+      * 修改时间。
+      */
     ModifyTime: string;
     /**
-     * 协议, 取值: TCP,UDP, ICMP, ALL。
-     */
+      * 协议, 取值: TCP,UDP, ICMP, ALL。
+      */
     Protocol?: string;
     /**
-     * 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
-     */
+      * 端口(all, 单个port,  range)。当Protocol为ALL或ICMP时，不能指定Port。
+      */
     Port?: string;
     /**
-     * 网段或IP(互斥)。
-     */
+      * 网段或IP(互斥)。
+      */
     CidrBlock?: string;
     /**
-     * 网段或IPv6(互斥)。
-     */
+      * 网段或IPv6(互斥)。
+      */
     Ipv6CidrBlock?: string;
     /**
-     * ACCEPT 或 DROP。
-     */
+      * ACCEPT 或 DROP。
+      */
     Action?: string;
     /**
-     * 规则描述，最大长度100。
-     */
+      * 规则描述，最大长度100。
+      */
     Description?: string;
 }
 /**
@@ -4314,25 +4314,25 @@ export interface NetworkAclEntry {
  */
 export interface DescribeDhcpIpsRequest {
     /**
-     * DhcpIp实例ID。形如：dhcpip-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定DhcpIpIds和Filters。
-     */
+      * DhcpIp实例ID。形如：dhcpip-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定DhcpIpIds和Filters。
+      */
     DhcpIpIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定DhcpIpIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-  <li>subnet-id - String - （过滤条件）所属子网实例ID，形如：subnet-f49l6u0z。</li>
-  <li>dhcpip-id - String - （过滤条件）DhcpIp实例ID，形如：dhcpip-pxir56ns。</li>
-  <li>dhcpip-name - String - （过滤条件）DhcpIp实例名称。</li>
-  <li>address-ip - String - （过滤条件）DhcpIp实例的IP，根据IP精确查找。</li>
-        */
+      * 过滤条件，参数不支持同时指定DhcpIpIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+<li>subnet-id - String - （过滤条件）所属子网实例ID，形如：subnet-f49l6u0z。</li>
+<li>dhcpip-id - String - （过滤条件）DhcpIp实例ID，形如：dhcpip-pxir56ns。</li>
+<li>dhcpip-name - String - （过滤条件）DhcpIp实例名称。</li>
+<li>address-ip - String - （过滤条件）DhcpIp实例的IP，根据IP精确查找。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -4340,21 +4340,21 @@ export interface DescribeDhcpIpsRequest {
  */
 export interface DescribeAssistantCidrRequest {
     /**
-     * `VPC`实例`ID`数组。形如：[`vpc-6v2ht8q5`]
-     */
+      * `VPC`实例`ID`数组。形如：[`vpc-6v2ht8q5`]
+      */
     VpcIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-        */
+      * 过滤条件，参数不支持同时指定NetworkInterfaceIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -4362,8 +4362,8 @@ export interface DescribeAssistantCidrRequest {
  */
 export interface RenewVpnGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4371,8 +4371,8 @@ export interface RenewVpnGatewayResponse {
  */
 export interface DeleteDirectConnectGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4380,20 +4380,20 @@ export interface DeleteDirectConnectGatewayResponse {
  */
 export interface ModifyAddressesBandwidthRequest {
     /**
-     * EIP唯一标识ID，形如'eip-xxxx'
-     */
+      * EIP唯一标识ID，形如'eip-xxxx'
+      */
     AddressIds: Array<string>;
     /**
-     * 调整带宽目标值
-     */
+      * 调整带宽目标值
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * 包月带宽起始时间
-     */
+      * 包月带宽起始时间
+      */
     StartTime?: string;
     /**
-     * 包月带宽结束时间
-     */
+      * 包月带宽结束时间
+      */
     EndTime?: string;
 }
 /**
@@ -4401,12 +4401,12 @@ export interface ModifyAddressesBandwidthRequest {
  */
 export interface ResetVpnGatewayInternetMaxBandwidthRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
-     */
+      * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+      */
     InternetMaxBandwidthOut: number;
 }
 /**
@@ -4414,66 +4414,66 @@ export interface ResetVpnGatewayInternetMaxBandwidthRequest {
  */
 export interface DirectConnectGateway {
     /**
-     * 专线网关`ID`。
-     */
+      * 专线网关`ID`。
+      */
     DirectConnectGatewayId: string;
     /**
-     * 专线网关名称。
-     */
+      * 专线网关名称。
+      */
     DirectConnectGatewayName: string;
     /**
-     * 专线网关关联`VPC`实例`ID`。
-     */
+      * 专线网关关联`VPC`实例`ID`。
+      */
     VpcId: string;
     /**
-        * 关联网络类型：
-  <li>`VPC` - 私有网络</li>
-  <li>`CCN` - 云联网</li>
-        */
+      * 关联网络类型：
+<li>`VPC` - 私有网络</li>
+<li>`CCN` - 云联网</li>
+      */
     NetworkType: string;
     /**
-        * 关联网络实例`ID`：
-  <li>`NetworkType`为`VPC`时，这里为私有网络实例`ID`</li>
-  <li>`NetworkType`为`CCN`时，这里为云联网实例`ID`</li>
-        */
+      * 关联网络实例`ID`：
+<li>`NetworkType`为`VPC`时，这里为私有网络实例`ID`</li>
+<li>`NetworkType`为`CCN`时，这里为云联网实例`ID`</li>
+      */
     NetworkInstanceId: string;
     /**
-        * 网关类型：
-  <li>NORMAL - 标准型，注：云联网只支持标准型</li>
-  <li>NAT - NAT型</li>
-  NAT类型支持网络地址转换配置，类型确定后不能修改；一个私有网络可以创建一个NAT类型的专线网关和一个非NAT类型的专线网关
-        */
+      * 网关类型：
+<li>NORMAL - 标准型，注：云联网只支持标准型</li>
+<li>NAT - NAT型</li>
+NAT类型支持网络地址转换配置，类型确定后不能修改；一个私有网络可以创建一个NAT类型的专线网关和一个非NAT类型的专线网关
+      */
     GatewayType: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreateTime: string;
     /**
-     * 专线网关IP。
-     */
+      * 专线网关IP。
+      */
     DirectConnectGatewayIp: string;
     /**
-     * 专线网关关联`CCN`实例`ID`。
-     */
+      * 专线网关关联`CCN`实例`ID`。
+      */
     CcnId: string;
     /**
-        * 云联网路由学习类型：
-  <li>`BGP` - 自动学习。</li>
-  <li>`STATIC` - 静态，即用户配置。</li>
-        */
+      * 云联网路由学习类型：
+<li>`BGP` - 自动学习。</li>
+<li>`STATIC` - 静态，即用户配置。</li>
+      */
     CcnRouteType: string;
     /**
-     * 是否启用BGP。
-     */
+      * 是否启用BGP。
+      */
     EnableBGP: boolean;
     /**
-     * 开启和关闭BGP的community属性。
-     */
+      * 开启和关闭BGP的community属性。
+      */
     EnableBGPCommunity: boolean;
     /**
-        * 绑定的NAT网关ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 绑定的NAT网关ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NatGatewayId: string;
 }
 /**
@@ -4481,12 +4481,12 @@ export interface DirectConnectGateway {
  */
 export interface Price {
     /**
-     * 实例价格。
-     */
+      * 实例价格。
+      */
     InstancePrice?: ItemPrice;
     /**
-     * 网络价格。
-     */
+      * 网络价格。
+      */
     BandwidthPrice?: ItemPrice;
 }
 /**
@@ -4494,8 +4494,8 @@ export interface Price {
  */
 export interface HaVipDisassociateAddressIpRequest {
     /**
-     * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。必须是已绑定`EIP`的`HAVIP`。
-     */
+      * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。必须是已绑定`EIP`的`HAVIP`。
+      */
     HaVipId: string;
 }
 /**
@@ -4503,16 +4503,16 @@ export interface HaVipDisassociateAddressIpRequest {
  */
 export interface DescribeCrossBorderComplianceResponse {
     /**
-     * 合规化审批单列表。
-     */
+      * 合规化审批单列表。
+      */
     CrossBorderComplianceSet?: Array<CrossBorderCompliance>;
     /**
-     * 合规化审批单总数。
-     */
+      * 合规化审批单总数。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4520,8 +4520,8 @@ export interface DescribeCrossBorderComplianceResponse {
  */
 export interface ModifyVpnGatewayAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4529,8 +4529,8 @@ export interface ModifyVpnGatewayAttributeResponse {
  */
 export interface AssociateDirectConnectGatewayNatGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4538,16 +4538,16 @@ export interface AssociateDirectConnectGatewayNatGatewayResponse {
  */
 export interface DescribeVpnGatewayCcnRoutesRequest {
     /**
-     * VPN网关实例ID
-     */
+      * VPN网关实例ID
+      */
     VpnGatewayId: string;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
 }
 /**
@@ -4555,8 +4555,8 @@ export interface DescribeVpnGatewayCcnRoutesRequest {
  */
 export interface DisassociateDirectConnectGatewayNatGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4564,12 +4564,12 @@ export interface DisassociateDirectConnectGatewayNatGatewayResponse {
  */
 export interface CreateServiceTemplateGroupRequest {
     /**
-     * 协议端口模板集合名称
-     */
+      * 协议端口模板集合名称
+      */
     ServiceTemplateGroupName: string;
     /**
-     * 协议端口模板实例ID，例如：ppm-4dw6agho。
-     */
+      * 协议端口模板实例ID，例如：ppm-4dw6agho。
+      */
     ServiceTemplateIds: Array<string>;
 }
 /**
@@ -4577,16 +4577,16 @@ export interface CreateServiceTemplateGroupRequest {
  */
 export interface DescribeClassicLinkInstancesResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 私有网络和基础网络互通设备。
-     */
+      * 私有网络和基础网络互通设备。
+      */
     ClassicLinkInstanceSet?: Array<ClassicLinkInstance>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4594,16 +4594,16 @@ export interface DescribeClassicLinkInstancesResponse {
  */
 export interface DescribeVpnGatewayCcnRoutesResponse {
     /**
-     * 云联网路由（IDC网段）列表。
-     */
+      * 云联网路由（IDC网段）列表。
+      */
     RouteSet?: Array<VpngwCcnRoutes>;
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4611,12 +4611,12 @@ export interface DescribeVpnGatewayCcnRoutesResponse {
  */
 export interface DetachCcnInstancesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * 要解关联网络实例列表
-     */
+      * 要解关联网络实例列表
+      */
     Instances: Array<CcnInstance>;
 }
 /**
@@ -4624,12 +4624,12 @@ export interface DetachCcnInstancesRequest {
  */
 export interface CreateFlowLogResponse {
     /**
-     * 创建的流日志信息
-     */
+      * 创建的流日志信息
+      */
     FlowLog?: Array<FlowLog>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4637,30 +4637,30 @@ export interface CreateFlowLogResponse {
  */
 export interface GetCcnRegionBandwidthLimitsRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-        * 过滤条件。
-  <li>sregion - String - （过滤条件）源地域，形如：ap-guangzhou。</li>
-  <li>dregion - String - （过滤条件）目的地域，形如：ap-shanghai-bm</li>
-        */
+      * 过滤条件。
+<li>sregion - String - （过滤条件）源地域，形如：ap-guangzhou。</li>
+<li>dregion - String - （过滤条件）目的地域，形如：ap-shanghai-bm</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 排序条件，目前支持带宽（BandwidthLimit）和过期时间（ExpireTime）
-     */
+      * 排序条件，目前支持带宽（BandwidthLimit）和过期时间（ExpireTime）
+      */
     SortedBy?: string;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
     /**
-     * 排序方式，'ASC':升序,'DESC':降序。
-     */
+      * 排序方式，'ASC':升序,'DESC':降序。
+      */
     OrderBy?: string;
 }
 /**
@@ -4668,12 +4668,12 @@ export interface GetCcnRegionBandwidthLimitsRequest {
  */
 export interface ReleaseIp6AddressesBandwidthRequest {
     /**
-     * IPV6地址。Ip6Addresses和Ip6AddressIds必须且只能传一个
-     */
+      * IPV6地址。Ip6Addresses和Ip6AddressIds必须且只能传一个
+      */
     Ip6Addresses?: Array<string>;
     /**
-     * IPV6地址对应的唯一ID，形如eip-xxxxxxxx。Ip6Addresses和Ip6AddressIds必须且只能传一个。
-     */
+      * IPV6地址对应的唯一ID，形如eip-xxxxxxxx。Ip6Addresses和Ip6AddressIds必须且只能传一个。
+      */
     Ip6AddressIds?: Array<string>;
 }
 /**
@@ -4681,60 +4681,60 @@ export interface ReleaseIp6AddressesBandwidthRequest {
  */
 export interface CcnAttachedInstance {
     /**
-     * 云联网实例ID。
-     */
+      * 云联网实例ID。
+      */
     CcnId: string;
     /**
-        * 关联实例类型：
-  <li>`VPC`：私有网络</li>
-  <li>`DIRECTCONNECT`：专线网关</li>
-  <li>`BMVPC`：黑石私有网络</li>
-        */
+      * 关联实例类型：
+<li>`VPC`：私有网络</li>
+<li>`DIRECTCONNECT`：专线网关</li>
+<li>`BMVPC`：黑石私有网络</li>
+      */
     InstanceType: string;
     /**
-     * 关联实例ID。
-     */
+      * 关联实例ID。
+      */
     InstanceId: string;
     /**
-     * 关联实例名称。
-     */
+      * 关联实例名称。
+      */
     InstanceName: string;
     /**
-     * 关联实例所属大区，例如：ap-guangzhou。
-     */
+      * 关联实例所属大区，例如：ap-guangzhou。
+      */
     InstanceRegion: string;
     /**
-     * 关联实例所属UIN（根账号）。
-     */
+      * 关联实例所属UIN（根账号）。
+      */
     InstanceUin: string;
     /**
-     * 关联实例CIDR。
-     */
+      * 关联实例CIDR。
+      */
     CidrBlock: Array<string>;
     /**
-        * 关联实例状态：
-  <li>`PENDING`：申请中</li>
-  <li>`ACTIVE`：已连接</li>
-  <li>`EXPIRED`：已过期</li>
-  <li>`REJECTED`：已拒绝</li>
-  <li>`DELETED`：已删除</li>
-  <li>`FAILED`：失败的（2小时后将异步强制解关联）</li>
-  <li>`ATTACHING`：关联中</li>
-  <li>`DETACHING`：解关联中</li>
-  <li>`DETACHFAILED`：解关联失败（2小时后将异步强制解关联）</li>
-        */
+      * 关联实例状态：
+<li>`PENDING`：申请中</li>
+<li>`ACTIVE`：已连接</li>
+<li>`EXPIRED`：已过期</li>
+<li>`REJECTED`：已拒绝</li>
+<li>`DELETED`：已删除</li>
+<li>`FAILED`：失败的（2小时后将异步强制解关联）</li>
+<li>`ATTACHING`：关联中</li>
+<li>`DETACHING`：解关联中</li>
+<li>`DETACHFAILED`：解关联失败（2小时后将异步强制解关联）</li>
+      */
     State: string;
     /**
-     * 关联时间。
-     */
+      * 关联时间。
+      */
     AttachedTime: string;
     /**
-     * 云联网所属UIN（根账号）。
-     */
+      * 云联网所属UIN（根账号）。
+      */
     CcnUin: string;
     /**
-     * 关联实例所属的大地域，如: CHINA_MAINLAND
-     */
+      * 关联实例所属的大地域，如: CHINA_MAINLAND
+      */
     InstanceArea: string;
 }
 /**
@@ -4742,12 +4742,12 @@ export interface CcnAttachedInstance {
  */
 export interface SecurityPolicyDatabase {
     /**
-     * 本端网段
-     */
+      * 本端网段
+      */
     LocalCidrBlock: string;
     /**
-     * 对端网段
-     */
+      * 对端网段
+      */
     RemoteCidrBlock: Array<string>;
 }
 /**
@@ -4755,32 +4755,32 @@ export interface SecurityPolicyDatabase {
  */
 export interface Ipv6Address {
     /**
-     * `IPv6`地址，形如：`3402:4e00:20:100:0:8cd9:2a67:71f3`
-     */
+      * `IPv6`地址，形如：`3402:4e00:20:100:0:8cd9:2a67:71f3`
+      */
     Address: string;
     /**
-     * 是否是主`IP`。
-     */
+      * 是否是主`IP`。
+      */
     Primary?: boolean;
     /**
-     * `EIP`实例`ID`，形如：`eip-hxlqja90`。
-     */
+      * `EIP`实例`ID`，形如：`eip-hxlqja90`。
+      */
     AddressId?: string;
     /**
-     * 描述信息。
-     */
+      * 描述信息。
+      */
     Description?: string;
     /**
-     * 公网IP是否被封堵。
-     */
+      * 公网IP是否被封堵。
+      */
     IsWanIpBlocked?: boolean;
     /**
-        * `IPv6`地址状态：
-  <li>`PENDING`：生产中</li>
-  <li>`MIGRATING`：迁移中</li>
-  <li>`DELETING`：删除中</li>
-  <li>`AVAILABLE`：可用的</li>
-        */
+      * `IPv6`地址状态：
+<li>`PENDING`：生产中</li>
+<li>`MIGRATING`：迁移中</li>
+<li>`DELETING`：删除中</li>
+<li>`AVAILABLE`：可用的</li>
+      */
     State?: string;
 }
 /**
@@ -4788,36 +4788,36 @@ export interface Ipv6Address {
  */
 export interface CreateNetworkInterfaceRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * 弹性网卡名称，最大长度不能超过60个字节。
-     */
+      * 弹性网卡名称，最大长度不能超过60个字节。
+      */
     NetworkInterfaceName: string;
     /**
-     * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
-     */
+      * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
+      */
     SubnetId: string;
     /**
-     * 弹性网卡描述，可任意命名，但不得超过60个字符。
-     */
+      * 弹性网卡描述，可任意命名，但不得超过60个字符。
+      */
     NetworkInterfaceDescription?: string;
     /**
-     * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
-     */
+      * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
+      */
     SecondaryPrivateIpAddressCount?: number;
     /**
-     * 指定绑定的安全组，例如：['sg-1dd51d']。
-     */
+      * 指定绑定的安全组，例如：['sg-1dd51d']。
+      */
     SecurityGroupIds?: Array<string>;
     /**
-     * 指定的内网IP信息，单次最多指定10个。
-     */
+      * 指定的内网IP信息，单次最多指定10个。
+      */
     PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -4825,8 +4825,8 @@ export interface CreateNetworkInterfaceRequest {
  */
 export interface DeleteHaVipResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4834,16 +4834,16 @@ export interface DeleteHaVipResponse {
  */
 export interface DescribeFlowLogsResponse {
     /**
-     * 流日志实例集合
-     */
+      * 流日志实例集合
+      */
     FlowLog?: Array<FlowLog>;
     /**
-     * 流日志总数目
-     */
+      * 流日志总数目
+      */
     TotalNum?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -4851,20 +4851,20 @@ export interface DescribeFlowLogsResponse {
  */
 export interface VpcPrivateIpAddress {
     /**
-     * `VPC`内网`IP`。
-     */
+      * `VPC`内网`IP`。
+      */
     PrivateIpAddress: string;
     /**
-     * 所属子网`CIDR`。
-     */
+      * 所属子网`CIDR`。
+      */
     CidrBlock: string;
     /**
-     * 内网`IP`类型。
-     */
+      * 内网`IP`类型。
+      */
     PrivateIpAddressType: string;
     /**
-     * `IP`申请时间。
-     */
+      * `IP`申请时间。
+      */
     CreatedTime: string;
 }
 /**
@@ -4872,52 +4872,52 @@ export interface VpcPrivateIpAddress {
  */
 export interface CvmInstance {
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * 子网实例ID。
-     */
+      * 子网实例ID。
+      */
     SubnetId: string;
     /**
-     * 云主机实例ID
-     */
+      * 云主机实例ID
+      */
     InstanceId: string;
     /**
-     * 云主机名称。
-     */
+      * 云主机名称。
+      */
     InstanceName: string;
     /**
-     * 云主机状态。
-     */
+      * 云主机状态。
+      */
     InstanceState: string;
     /**
-     * 实例的CPU核数，单位：核。
-     */
+      * 实例的CPU核数，单位：核。
+      */
     CPU: number;
     /**
-     * 实例内存容量，单位：GB。
-     */
+      * 实例内存容量，单位：GB。
+      */
     Memory: number;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
     /**
-     * 实例机型。
-     */
+      * 实例机型。
+      */
     InstanceType: string;
     /**
-     * 实例弹性网卡配额（包含主网卡）。
-     */
+      * 实例弹性网卡配额（包含主网卡）。
+      */
     EniLimit: number;
     /**
-     * 实例弹性网卡内网IP配额（包含主网卡）。
-     */
+      * 实例弹性网卡内网IP配额（包含主网卡）。
+      */
     EniIpLimit: number;
     /**
-     * 实例已绑定弹性网卡的个数（包含主网卡）。
-     */
+      * 实例已绑定弹性网卡的个数（包含主网卡）。
+      */
     InstanceEniCount: number;
 }
 /**
@@ -4925,23 +4925,23 @@ export interface CvmInstance {
  */
 export interface DescribeNetworkAclsRequest {
     /**
-     * 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
-     */
+      * 网络ACL实例ID数组。形如：[acl-12345678]。每次请求的实例的上限为100。参数不支持同时指定NetworkAclIds和Filters。
+      */
     NetworkAclIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678。</li>
-  <li>network-acl-id - String - （过滤条件）网络ACL实例ID，形如：acl-12345678。</li>
-  <li>network-acl-name - String - （过滤条件）网络ACL实例名称。</li>
-        */
+      * 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678。</li>
+<li>network-acl-id - String - （过滤条件）网络ACL实例ID，形如：acl-12345678。</li>
+<li>network-acl-name - String - （过滤条件）网络ACL实例名称。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最小值为1，最大值为100。
-     */
+      * 返回数量，默认为20，最小值为1，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -4949,29 +4949,29 @@ export interface DescribeNetworkAclsRequest {
  */
 export interface DescribeSubnetsRequest {
     /**
-     * 子网实例ID查询。形如：subnet-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定SubnetIds和Filters。
-     */
+      * 子网实例ID查询。形如：subnet-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定SubnetIds和Filters。
+      */
     SubnetIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定SubnetIds和Filters。
-  <li>subnet-id - String - （过滤条件）Subnet实例名称。</li>
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-  <li>cidr-block - String - （过滤条件）子网网段，形如: 192.168.1.0 。</li>
-  <li>is-default - Boolean - （过滤条件）是否是默认子网。</li>
-  <li>is-remote-vpc-snat - Boolean - （过滤条件）是否为VPC SNAT地址池子网。</li>
-  <li>subnet-name - String - （过滤条件）子网名称。</li>
-  <li>zone - String - （过滤条件）可用区。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
-        */
+      * 过滤条件，参数不支持同时指定SubnetIds和Filters。
+<li>subnet-id - String - （过滤条件）Subnet实例名称。</li>
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+<li>cidr-block - String - （过滤条件）子网网段，形如: 192.168.1.0 。</li>
+<li>is-default - Boolean - （过滤条件）是否是默认子网。</li>
+<li>is-remote-vpc-snat - Boolean - （过滤条件）是否为VPC SNAT地址池子网。</li>
+<li>subnet-name - String - （过滤条件）子网名称。</li>
+<li>zone - String - （过滤条件）可用区。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -4979,24 +4979,24 @@ export interface DescribeSubnetsRequest {
  */
 export interface CreateSubnetRequest {
     /**
-     * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * 子网名称，最大长度不能超过60个字节。
-     */
+      * 子网名称，最大长度不能超过60个字节。
+      */
     SubnetName: string;
     /**
-     * 子网网段，子网网段必须在VPC网段内，相同VPC内子网网段不能重叠。
-     */
+      * 子网网段，子网网段必须在VPC网段内，相同VPC内子网网段不能重叠。
+      */
     CidrBlock: string;
     /**
-     * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
-     */
+      * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
+      */
     Zone: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -5004,24 +5004,24 @@ export interface CreateSubnetRequest {
  */
 export interface AddressTemplateGroup {
     /**
-     * IP地址模板集合名称。
-     */
+      * IP地址模板集合名称。
+      */
     AddressTemplateGroupName: string;
     /**
-     * IP地址模板集合实例ID，例如：ipmg-dih8xdbq。
-     */
+      * IP地址模板集合实例ID，例如：ipmg-dih8xdbq。
+      */
     AddressTemplateGroupId: string;
     /**
-     * IP地址模板ID。
-     */
+      * IP地址模板ID。
+      */
     AddressTemplateIdSet: Array<string>;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * IP地址模板实例。
-     */
+      * IP地址模板实例。
+      */
     AddressTemplateSet: Array<AddressTemplateItem>;
 }
 /**
@@ -5029,20 +5029,20 @@ export interface AddressTemplateGroup {
  */
 export interface DownloadCustomerGatewayConfigurationRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * VPN通道实例ID。形如：vpnx-f49l6u0z。
-     */
+      * VPN通道实例ID。形如：vpnx-f49l6u0z。
+      */
     VpnConnectionId: string;
     /**
-     * 对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
-     */
+      * 对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
+      */
     CustomerGatewayVendor: CustomerGatewayVendor;
     /**
-     * 通道接入设备物理接口名称。
-     */
+      * 通道接入设备物理接口名称。
+      */
     InterfaceName: string;
 }
 /**
@@ -5050,8 +5050,8 @@ export interface DownloadCustomerGatewayConfigurationRequest {
  */
 export interface DeleteBandwidthPackageRequest {
     /**
-     * 待删除带宽包唯一ID
-     */
+      * 待删除带宽包唯一ID
+      */
     BandwidthPackageId: string;
 }
 /**
@@ -5059,50 +5059,50 @@ export interface DeleteBandwidthPackageRequest {
  */
 export interface HaVip {
     /**
-     * `HAVIP`的`ID`，是`HAVIP`的唯一标识。
-     */
+      * `HAVIP`的`ID`，是`HAVIP`的唯一标识。
+      */
     HaVipId: string;
     /**
-     * `HAVIP`名称。
-     */
+      * `HAVIP`名称。
+      */
     HaVipName: string;
     /**
-     * 虚拟IP地址。
-     */
+      * 虚拟IP地址。
+      */
     Vip: string;
     /**
-     * `HAVIP`所在私有网络`ID`。
-     */
+      * `HAVIP`所在私有网络`ID`。
+      */
     VpcId: string;
     /**
-     * `HAVIP`所在子网`ID`。
-     */
+      * `HAVIP`所在子网`ID`。
+      */
     SubnetId: string;
     /**
-     * `HAVIP`关联弹性网卡`ID`。
-     */
+      * `HAVIP`关联弹性网卡`ID`。
+      */
     NetworkInterfaceId: string;
     /**
-     * 被绑定的实例`ID`。
-     */
+      * 被绑定的实例`ID`。
+      */
     InstanceId: string;
     /**
-     * 绑定`EIP`。
-     */
+      * 绑定`EIP`。
+      */
     AddressIp: string;
     /**
-        * 状态：
-  <li>`AVAILABLE`：运行中</li>
-  <li>`UNBIND`：未绑定</li>
-        */
+      * 状态：
+<li>`AVAILABLE`：运行中</li>
+<li>`UNBIND`：未绑定</li>
+      */
     State: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
     /**
-     * 使用havip的业务标识。
-     */
+      * 使用havip的业务标识。
+      */
     Business: string;
 }
 /**
@@ -5110,12 +5110,12 @@ export interface HaVip {
  */
 export interface ModifyAddressesBandwidthResponse {
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5123,8 +5123,8 @@ export interface ModifyAddressesBandwidthResponse {
  */
 export interface ModifyCcnRegionBandwidthLimitsTypeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5132,8 +5132,8 @@ export interface ModifyCcnRegionBandwidthLimitsTypeResponse {
  */
 export interface RejectAttachCcnInstancesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5141,8 +5141,8 @@ export interface RejectAttachCcnInstancesResponse {
  */
 export interface SetCcnRegionBandwidthLimitsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5154,29 +5154,29 @@ export declare type DescribeAccountAttributesRequest = null;
  */
 export interface DescribeCcnRoutesRequest {
     /**
-     * CCN实例ID，形如：ccn-gree226l。
-     */
+      * CCN实例ID，形如：ccn-gree226l。
+      */
     CcnId: string;
     /**
-     * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
-     */
+      * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+      */
     RouteIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定RouteIds和Filters。
-  <li>route-id - String -（过滤条件）路由策略ID。</li>
-  <li>cidr-block - String -（过滤条件）目的端。</li>
-  <li>instance-type - String -（过滤条件）下一跳类型。</li>
-  <li>instance-region - String -（过滤条件）下一跳所属地域。</li>
-  <li>instance-id - String -（过滤条件）下一跳实例ID。</li>
-        */
+      * 过滤条件，参数不支持同时指定RouteIds和Filters。
+<li>route-id - String -（过滤条件）路由策略ID。</li>
+<li>cidr-block - String -（过滤条件）目的端。</li>
+<li>instance-type - String -（过滤条件）下一跳类型。</li>
+<li>instance-region - String -（过滤条件）下一跳所属地域。</li>
+<li>instance-id - String -（过滤条件）下一跳实例ID。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
 }
 /**
@@ -5184,8 +5184,8 @@ export interface DescribeCcnRoutesRequest {
  */
 export interface ModifyDhcpIpAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5193,40 +5193,40 @@ export interface ModifyDhcpIpAttributeResponse {
  */
 export interface CreateAndAttachNetworkInterfaceRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * 弹性网卡名称，最大长度不能超过60个字节。
-     */
+      * 弹性网卡名称，最大长度不能超过60个字节。
+      */
     NetworkInterfaceName: string;
     /**
-     * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
-     */
+      * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
+      */
     SubnetId: string;
     /**
-     * 云主机实例ID。
-     */
+      * 云主机实例ID。
+      */
     InstanceId: string;
     /**
-     * 指定的内网IP信息，单次最多指定10个。
-     */
+      * 指定的内网IP信息，单次最多指定10个。
+      */
     PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
     /**
-     * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
-     */
+      * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
+      */
     SecondaryPrivateIpAddressCount?: number;
     /**
-     * 指定绑定的安全组，例如：['sg-1dd51d']。
-     */
+      * 指定绑定的安全组，例如：['sg-1dd51d']。
+      */
     SecurityGroupIds?: Array<string>;
     /**
-     * 弹性网卡描述，可任意命名，但不得超过60个字符。
-     */
+      * 弹性网卡描述，可任意命名，但不得超过60个字符。
+      */
     NetworkInterfaceDescription?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -5234,12 +5234,12 @@ export interface CreateAndAttachNetworkInterfaceRequest {
  */
 export interface DownloadCustomerGatewayConfigurationResponse {
     /**
-     * XML格式配置信息。
-     */
+      * XML格式配置信息。
+      */
     CustomerGatewayConfiguration?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5247,8 +5247,8 @@ export interface DownloadCustomerGatewayConfigurationResponse {
  */
 export interface DeleteDhcpIpResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5256,19 +5256,19 @@ export interface DeleteDhcpIpResponse {
  */
 export interface ModifyGatewayFlowQosRequest {
     /**
-        * 网关实例ID，目前我们支持的网关实例类型有，
-  专线网关实例ID，形如，`dcg-ltjahce6`；
-  Nat网关实例ID，形如，`nat-ltjahce6`；
-  VPN网关实例ID，形如，`vpn-ltjahce6`。
-        */
+      * 网关实例ID，目前我们支持的网关实例类型有，
+专线网关实例ID，形如，`dcg-ltjahce6`；
+Nat网关实例ID，形如，`nat-ltjahce6`；
+VPN网关实例ID，形如，`vpn-ltjahce6`。
+      */
     GatewayId: string;
     /**
-     * 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
-     */
+      * 流控带宽值。取值大于0，表示限流到指定的Mbps；取值等于0，表示完全限流；取值为-1，不限流。
+      */
     Bandwidth: number;
     /**
-     * 限流的云服务器内网IP。
-     */
+      * 限流的云服务器内网IP。
+      */
     IpAddresses: Array<string>;
 }
 /**
@@ -5276,8 +5276,8 @@ export interface ModifyGatewayFlowQosRequest {
  */
 export interface DeleteNetDetectResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5285,56 +5285,56 @@ export interface DeleteNetDetectResponse {
  */
 export interface AllocateAddressesRequest {
     /**
-     * EIP数量。默认值：1。
-     */
+      * EIP数量。默认值：1。
+      */
     AddressCount?: number;
     /**
-        * EIP线路类型。默认值：BGP。
-  <ul style="margin:0"><li>已开通静态单线IP白名单的用户，可选值：<ul><li>CMCC：中国移动</li>
-  <li>CTCC：中国电信</li>
-  <li>CUCC：中国联通</li></ul>注意：仅部分地域支持静态单线IP。</li></ul>
-        */
+      * EIP线路类型。默认值：BGP。
+<ul style="margin:0"><li>已开通静态单线IP白名单的用户，可选值：<ul><li>CMCC：中国移动</li>
+<li>CTCC：中国电信</li>
+<li>CUCC：中国联通</li></ul>注意：仅部分地域支持静态单线IP。</li></ul>
+      */
     InternetServiceProvider?: string;
     /**
-        * EIP计费方式。
-  <ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
-  <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
-  <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-  <li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
-        */
+      * EIP计费方式。
+<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
+<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+      */
     InternetChargeType?: string;
     /**
-        * EIP出带宽上限，单位：Mbps。
-  <ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
-  <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
-  <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-  <li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
-        */
+      * EIP出带宽上限，单位：Mbps。
+<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
+<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+      */
     InternetMaxBandwidthOut?: number;
     /**
-        * EIP类型。默认值：EIP。
-  <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
-        */
+      * EIP类型。默认值：EIP。
+<ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>AnycastEIP：加速IP，可参见 [Anycast 公网加速](https://cloud.tencent.com/document/product/644)</li></ul>注意：仅部分地域支持加速IP。</li></ul>
+      */
     AddressType?: string;
     /**
-        * Anycast发布域。
-  <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>ANYCAST_ZONE_GLOBAL：全球发布域（需要额外开通Anycast全球加速白名单）</li><li>ANYCAST_ZONE_OVERSEAS：境外发布域</li><li><b>[已废弃]</b> ANYCAST_ZONE_A：发布域A（已更新为全球发布域）</li><li><b>[已废弃]</b> ANYCAST_ZONE_B：发布域B（已更新为全球发布域）</li></ul>默认值：ANYCAST_ZONE_OVERSEAS。</li></ul>
-        */
+      * Anycast发布域。
+<ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>ANYCAST_ZONE_GLOBAL：全球发布域（需要额外开通Anycast全球加速白名单）</li><li>ANYCAST_ZONE_OVERSEAS：境外发布域</li><li><b>[已废弃]</b> ANYCAST_ZONE_A：发布域A（已更新为全球发布域）</li><li><b>[已废弃]</b> ANYCAST_ZONE_B：发布域B（已更新为全球发布域）</li></ul>默认值：ANYCAST_ZONE_OVERSEAS。</li></ul>
+      */
     AnycastZone?: string;
     /**
-        * <b>[已废弃]</b> AnycastEIP不再区分是否负载均衡。原参数说明如下：
-  AnycastEIP是否用于绑定负载均衡。
-  <ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>TRUE：AnycastEIP可绑定对象为负载均衡</li>
-  <li>FALSE：AnycastEIP可绑定对象为云服务器、NAT网关、高可用虚拟IP等</li></ul>默认值：FALSE。</li></ul>
-        */
+      * <b>[已废弃]</b> AnycastEIP不再区分是否负载均衡。原参数说明如下：
+AnycastEIP是否用于绑定负载均衡。
+<ul style="margin:0"><li>已开通Anycast公网加速白名单的用户，可选值：<ul><li>TRUE：AnycastEIP可绑定对象为负载均衡</li>
+<li>FALSE：AnycastEIP可绑定对象为云服务器、NAT网关、高可用虚拟IP等</li></ul>默认值：FALSE。</li></ul>
+      */
     ApplicableForCLB?: boolean;
     /**
-     * 需要关联的标签列表。
-     */
+      * 需要关联的标签列表。
+      */
     Tags?: Array<Tag>;
     /**
-     * BGP带宽包唯一ID参数。设定该参数且InternetChargeType为BANDWIDTH_PACKAGE，则表示创建的EIP加入该BGP带宽包并采用带宽包计费
-     */
+      * BGP带宽包唯一ID参数。设定该参数且InternetChargeType为BANDWIDTH_PACKAGE，则表示创建的EIP加入该BGP带宽包并采用带宽包计费
+      */
     BandwidthPackageId?: string;
 }
 /**
@@ -5342,92 +5342,92 @@ export interface AllocateAddressesRequest {
  */
 export interface CrossBorderCompliance {
     /**
-     * 服务商，可选值：`UNICOM`。
-     */
+      * 服务商，可选值：`UNICOM`。
+      */
     ServiceProvider: string;
     /**
-     * 合规化审批单`ID`。
-     */
+      * 合规化审批单`ID`。
+      */
     ComplianceId: number;
     /**
-     * 公司全称。
-     */
+      * 公司全称。
+      */
     Company: string;
     /**
-     * 统一社会信用代码。
-     */
+      * 统一社会信用代码。
+      */
     UniformSocialCreditCode: string;
     /**
-     * 法定代表人。
-     */
+      * 法定代表人。
+      */
     LegalPerson: string;
     /**
-     * 发证机关。
-     */
+      * 发证机关。
+      */
     IssuingAuthority: string;
     /**
-     * 营业执照。
-     */
+      * 营业执照。
+      */
     BusinessLicense: string;
     /**
-     * 营业执照住所。
-     */
+      * 营业执照住所。
+      */
     BusinessAddress: string;
     /**
-     * 邮编。
-     */
+      * 邮编。
+      */
     PostCode: number;
     /**
-     * 经办人。
-     */
+      * 经办人。
+      */
     Manager: string;
     /**
-     * 经办人身份证号。
-     */
+      * 经办人身份证号。
+      */
     ManagerId: string;
     /**
-     * 经办人身份证。
-     */
+      * 经办人身份证。
+      */
     ManagerIdCard: string;
     /**
-     * 经办人身份证地址。
-     */
+      * 经办人身份证地址。
+      */
     ManagerAddress: string;
     /**
-     * 经办人联系电话。
-     */
+      * 经办人联系电话。
+      */
     ManagerTelephone: string;
     /**
-     * 电子邮箱。
-     */
+      * 电子邮箱。
+      */
     Email: string;
     /**
-     * 服务受理单。
-     */
+      * 服务受理单。
+      */
     ServiceHandlingForm: string;
     /**
-     * 授权函。
-     */
+      * 授权函。
+      */
     AuthorizationLetter: string;
     /**
-     * 信息安全承诺书。
-     */
+      * 信息安全承诺书。
+      */
     SafetyCommitment: string;
     /**
-     * 服务开始时间。
-     */
+      * 服务开始时间。
+      */
     ServiceStartDate: string;
     /**
-     * 服务截止时间。
-     */
+      * 服务截止时间。
+      */
     ServiceEndDate: string;
     /**
-     * 状态。待审批：`PENDING`，已通过：`APPROVED`，已拒绝：`DENY`。
-     */
+      * 状态。待审批：`PENDING`，已通过：`APPROVED`，已拒绝：`DENY`。
+      */
     State: string;
     /**
-     * 审批单创建时间。
-     */
+      * 审批单创建时间。
+      */
     CreatedTime: string;
 }
 /**
@@ -5435,16 +5435,16 @@ export interface CrossBorderCompliance {
  */
 export interface ModifyAssistantCidrRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     */
+      * 待添加的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+      */
     NewCidrBlocks?: Array<string>;
     /**
-     * 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     */
+      * 待删除的负载CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+      */
     OldCidrBlocks?: Array<string>;
 }
 /**
@@ -5452,16 +5452,16 @@ export interface ModifyAssistantCidrRequest {
  */
 export interface CreateIp6TranslatorsRequest {
     /**
-     * 转换实例名称
-     */
+      * 转换实例名称
+      */
     Ip6TranslatorName?: string;
     /**
-     * 创建转换实例数量，默认是1个
-     */
+      * 创建转换实例数量，默认是1个
+      */
     Ip6TranslatorCount?: number;
     /**
-     * 转换实例运营商属性，可取"CMCC","CTCC","CUCC","BGP"
-     */
+      * 转换实例运营商属性，可取"CMCC","CTCC","CUCC","BGP"
+      */
     Ip6InternetServiceProvider?: string;
 }
 /**
@@ -5469,8 +5469,8 @@ export interface CreateIp6TranslatorsRequest {
  */
 export interface AssociateDhcpIpWithAddressIpResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5478,8 +5478,8 @@ export interface AssociateDhcpIpWithAddressIpResponse {
  */
 export interface ModifyGatewayFlowQosResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5487,8 +5487,8 @@ export interface ModifyGatewayFlowQosResponse {
  */
 export interface ModifySecurityGroupAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5496,16 +5496,16 @@ export interface ModifySecurityGroupAttributeResponse {
  */
 export interface AssociateDirectConnectGatewayNatGatewayRequest {
     /**
-     * 专线网关ID。
-     */
+      * 专线网关ID。
+      */
     VpcId: string;
     /**
-     * NAT网关ID。
-     */
+      * NAT网关ID。
+      */
     NatGatewayId: string;
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     DirectConnectGatewayId: string;
 }
 /**
@@ -5513,12 +5513,12 @@ export interface AssociateDirectConnectGatewayNatGatewayRequest {
  */
 export interface AddressTemplateItem {
     /**
-     * 起始地址。
-     */
+      * 起始地址。
+      */
     From: string;
     /**
-     * 结束地址。
-     */
+      * 结束地址。
+      */
     To: string;
 }
 /**
@@ -5526,8 +5526,8 @@ export interface AddressTemplateItem {
  */
 export interface ModifyAddressAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5535,12 +5535,12 @@ export interface ModifyAddressAttributeResponse {
  */
 export interface AttachClassicLinkVpcRequest {
     /**
-     * VPC实例ID
-     */
+      * VPC实例ID
+      */
     VpcId: string;
     /**
-     * CVM实例ID
-     */
+      * CVM实例ID
+      */
     InstanceIds: Array<string>;
 }
 /**
@@ -5548,24 +5548,24 @@ export interface AttachClassicLinkVpcRequest {
  */
 export interface GatewayFlowMonitorDetail {
     /**
-     * 来源`IP`。
-     */
+      * 来源`IP`。
+      */
     PrivateIpAddress: string;
     /**
-     * 入包量。
-     */
+      * 入包量。
+      */
     InPkg: number;
     /**
-     * 出包量。
-     */
+      * 出包量。
+      */
     OutPkg: number;
     /**
-     * 入带宽，单位：`Byte`。
-     */
+      * 入带宽，单位：`Byte`。
+      */
     InTraffic: number;
     /**
-     * 出带宽，单位：`Byte`。
-     */
+      * 出带宽，单位：`Byte`。
+      */
     OutTraffic: number;
 }
 /**
@@ -5573,8 +5573,8 @@ export interface GatewayFlowMonitorDetail {
  */
 export interface DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5582,8 +5582,8 @@ export interface DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse {
  */
 export interface DeleteVpnGatewayRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
 }
 /**
@@ -5591,8 +5591,8 @@ export interface DeleteVpnGatewayRequest {
  */
 export interface ReplaceRouteTableAssociationResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5600,16 +5600,16 @@ export interface ReplaceRouteTableAssociationResponse {
  */
 export interface AttachCcnInstancesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * 关联网络实例列表
-     */
+      * 关联网络实例列表
+      */
     Instances: Array<CcnInstance>;
     /**
-     * CCN所属UIN（根账号），默认当前账号所属UIN
-     */
+      * CCN所属UIN（根账号），默认当前账号所属UIN
+      */
     CcnUin?: string;
 }
 /**
@@ -5617,22 +5617,22 @@ export interface AttachCcnInstancesRequest {
  */
 export interface DescribeDirectConnectGatewayCcnRoutesRequest {
     /**
-     * 专线网关ID，形如：`dcg-prpqlmg1`。
-     */
+      * 专线网关ID，形如：`dcg-prpqlmg1`。
+      */
     DirectConnectGatewayId: string;
     /**
-        * 云联网路由学习类型，可选值：
-  <li>`BGP` - 自动学习。</li>
-  <li>`STATIC` - 静态，即用户配置，默认值。</li>
-        */
+      * 云联网路由学习类型，可选值：
+<li>`BGP` - 自动学习。</li>
+<li>`STATIC` - 静态，即用户配置，默认值。</li>
+      */
     CcnRouteType?: string;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: number;
     /**
-     * 返回数量。
-     */
+      * 返回数量。
+      */
     Limit?: number;
 }
 /**
@@ -5640,20 +5640,20 @@ export interface DescribeDirectConnectGatewayCcnRoutesRequest {
  */
 export interface CcnInstance {
     /**
-     * 关联实例ID。
-     */
+      * 关联实例ID。
+      */
     InstanceId: string;
     /**
-     * 关联实例ID所属大区，例如：ap-guangzhou。
-     */
+      * 关联实例ID所属大区，例如：ap-guangzhou。
+      */
     InstanceRegion: string;
     /**
-        * 关联实例类型，可选值：
-  <li>`VPC`：私有网络</li>
-  <li>`DIRECTCONNECT`：专线网关</li>
-  <li>`BMVPC`：黑石私有网络</li>
-  <li>`VPNGW`：VPNGW类型</li>
-        */
+      * 关联实例类型，可选值：
+<li>`VPC`：私有网络</li>
+<li>`DIRECTCONNECT`：专线网关</li>
+<li>`BMVPC`：黑石私有网络</li>
+<li>`VPNGW`：VPNGW类型</li>
+      */
     InstanceType?: string;
 }
 /**
@@ -5661,20 +5661,20 @@ export interface CcnInstance {
  */
 export interface ItemPrice {
     /**
-     * 按量计费后付费单价，单位：元。
-     */
+      * 按量计费后付费单价，单位：元。
+      */
     UnitPrice?: number;
     /**
-     * 按量计费后付费计价单元，可取值范围： HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）： GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-     */
+      * 按量计费后付费计价单元，可取值范围： HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）： GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
+      */
     ChargeUnit?: string;
     /**
-     * 预付费商品的原价，单位：元。
-     */
+      * 预付费商品的原价，单位：元。
+      */
     OriginalPrice?: number;
     /**
-     * 预付费商品的折扣价，单位：元。
-     */
+      * 预付费商品的折扣价，单位：元。
+      */
     DiscountPrice?: number;
 }
 /**
@@ -5682,8 +5682,8 @@ export interface ItemPrice {
  */
 export interface DeleteNatGatewayRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
 }
 /**
@@ -5691,8 +5691,8 @@ export interface DeleteNatGatewayRequest {
  */
 export interface ModifyCustomerGatewayAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5700,12 +5700,12 @@ export interface ModifyCustomerGatewayAttributeResponse {
  */
 export interface ConflictItem {
     /**
-     * 冲突资源的ID
-     */
+      * 冲突资源的ID
+      */
     ConfilctId: string;
     /**
-     * 冲突目的资源
-     */
+      * 冲突目的资源
+      */
     DestinationItem: string;
 }
 /**
@@ -5713,12 +5713,12 @@ export interface ConflictItem {
  */
 export interface InquiryPriceRenewVpnGatewayResponse {
     /**
-     * 商品价格。
-     */
+      * 商品价格。
+      */
     Price?: Price;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5726,12 +5726,12 @@ export interface InquiryPriceRenewVpnGatewayResponse {
  */
 export interface AssignIpv6SubnetCidrBlockResponse {
     /**
-     * 分配 `IPv6` 子网段列表。
-     */
+      * 分配 `IPv6` 子网段列表。
+      */
     Ipv6SubnetCidrBlockSet?: Array<Ipv6SubnetCidrBlock>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5739,8 +5739,8 @@ export interface AssignIpv6SubnetCidrBlockResponse {
  */
 export interface DeleteAssistantCidrResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5748,12 +5748,12 @@ export interface DeleteAssistantCidrResponse {
  */
 export interface DescribeCcnRegionBandwidthLimitsResponse {
     /**
-     * 云联网（CCN）各地域出带宽上限
-     */
+      * 云联网（CCN）各地域出带宽上限
+      */
     CcnRegionBandwidthLimitSet?: Array<CcnRegionBandwidthLimit>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5761,16 +5761,16 @@ export interface DescribeCcnRegionBandwidthLimitsResponse {
  */
 export interface DescribeAddressesResponse {
     /**
-     * 符合条件的 EIP 数量。
-     */
+      * 符合条件的 EIP 数量。
+      */
     TotalCount?: number;
     /**
-     * EIP 详细信息列表。
-     */
+      * EIP 详细信息列表。
+      */
     AddressSet?: Array<Address>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5778,20 +5778,20 @@ export interface DescribeAddressesResponse {
  */
 export interface GatewayQos {
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * 云服务器内网IP。
-     */
+      * 云服务器内网IP。
+      */
     IpAddress: string;
     /**
-     * 流控带宽值。
-     */
+      * 流控带宽值。
+      */
     Bandwidth: number;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreateTime: string;
 }
 /**
@@ -5799,12 +5799,12 @@ export interface GatewayQos {
  */
 export interface ModifyIpv6AddressesAttributeRequest {
     /**
-     * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     */
+      * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的内网IPv6`地址信息。
-     */
+      * 指定的内网IPv6`地址信息。
+      */
     Ipv6Addresses: Array<Ipv6Address>;
 }
 /**
@@ -5816,8 +5816,8 @@ export declare type DescribeCustomerGatewayVendorsRequest = null;
  */
 export interface DisableRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5825,8 +5825,8 @@ export interface DisableRoutesResponse {
  */
 export interface ResetVpnGatewayInternetMaxBandwidthResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5834,12 +5834,12 @@ export interface ResetVpnGatewayInternetMaxBandwidthResponse {
  */
 export interface AddressChargePrepaid {
     /**
-     * 购买实例的时长
-     */
+      * 购买实例的时长
+      */
     Period: number;
     /**
-     * 自动续费标志
-     */
+      * 自动续费标志
+      */
     RenewFlag?: string;
 }
 /**
@@ -5847,16 +5847,16 @@ export interface AddressChargePrepaid {
  */
 export interface DescribeNetworkAclsResponse {
     /**
-     * 实例详细信息列表。
-     */
+      * 实例详细信息列表。
+      */
     NetworkAclSet?: Array<NetworkAcl>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5864,8 +5864,8 @@ export interface DescribeNetworkAclsResponse {
  */
 export interface DeleteFlowLogResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5873,8 +5873,8 @@ export interface DeleteFlowLogResponse {
  */
 export interface AttachCcnInstancesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5882,12 +5882,12 @@ export interface AttachCcnInstancesResponse {
  */
 export interface CreateDefaultVpcResponse {
     /**
-     * 默认VPC和子网ID
-     */
+      * 默认VPC和子网ID
+      */
     Vpc?: DefaultVpcSubnet;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5895,8 +5895,8 @@ export interface CreateDefaultVpcResponse {
  */
 export interface ModifyVpcAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5904,8 +5904,8 @@ export interface ModifyVpcAttributeResponse {
  */
 export interface ModifyVpnConnectionAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5913,36 +5913,36 @@ export interface ModifyVpnConnectionAttributeResponse {
  */
 export interface PrivateIpAddressSpecification {
     /**
-     * 内网IP地址。
-     */
+      * 内网IP地址。
+      */
     PrivateIpAddress: string;
     /**
-     * 是否是主IP。
-     */
+      * 是否是主IP。
+      */
     Primary?: boolean;
     /**
-     * 公网IP地址。
-     */
+      * 公网IP地址。
+      */
     PublicIpAddress?: string;
     /**
-     * EIP实例ID，例如：eip-11112222。
-     */
+      * EIP实例ID，例如：eip-11112222。
+      */
     AddressId?: string;
     /**
-     * 内网IP描述信息。
-     */
+      * 内网IP描述信息。
+      */
     Description?: string;
     /**
-     * 公网IP是否被封堵。
-     */
+      * 公网IP是否被封堵。
+      */
     IsWanIpBlocked?: boolean;
     /**
-        * IP状态：
-  PENDING：生产中
-  MIGRATING：迁移中
-  DELETING：删除中
-  AVAILABLE：可用的
-        */
+      * IP状态：
+PENDING：生产中
+MIGRATING：迁移中
+DELETING：删除中
+AVAILABLE：可用的
+      */
     State?: string;
 }
 /**
@@ -5950,12 +5950,12 @@ export interface PrivateIpAddressSpecification {
  */
 export interface AlgType {
     /**
-     * Ftp协议Alg功能是否开启
-     */
+      * Ftp协议Alg功能是否开启
+      */
     Ftp: boolean;
     /**
-     * Sip协议Alg功能是否开启
-     */
+      * Sip协议Alg功能是否开启
+      */
     Sip: boolean;
 }
 /**
@@ -5963,8 +5963,8 @@ export interface AlgType {
  */
 export interface MigratePrivateIpAddressResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5972,8 +5972,8 @@ export interface MigratePrivateIpAddressResponse {
  */
 export interface DeleteRouteTableResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5981,16 +5981,16 @@ export interface DeleteRouteTableResponse {
  */
 export interface DescribeVpcInstancesResponse {
     /**
-     * 云主机实例列表。
-     */
+      * 云主机实例列表。
+      */
     InstanceSet?: Array<CvmInstance>;
     /**
-     * 满足条件的云主机实例个数。
-     */
+      * 满足条件的云主机实例个数。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -5998,12 +5998,12 @@ export interface DescribeVpcInstancesResponse {
  */
 export interface AccountAttribute {
     /**
-     * 属性名
-     */
+      * 属性名
+      */
     AttributeName: string;
     /**
-     * 属性值
-     */
+      * 属性值
+      */
     AttributeValues: Array<string>;
 }
 /**
@@ -6011,12 +6011,12 @@ export interface AccountAttribute {
  */
 export interface DeleteDirectConnectGatewayCcnRoutesRequest {
     /**
-     * 专线网关ID，形如：dcg-prpqlmg1
-     */
+      * 专线网关ID，形如：dcg-prpqlmg1
+      */
     DirectConnectGatewayId: string;
     /**
-     * 路由ID。形如：ccnr-f49l6u0z。
-     */
+      * 路由ID。形如：ccnr-f49l6u0z。
+      */
     RouteIds: Array<string>;
 }
 /**
@@ -6024,12 +6024,12 @@ export interface DeleteDirectConnectGatewayCcnRoutesRequest {
  */
 export interface CreateNatGatewayDestinationIpPortTranslationNatRuleRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * NAT网关的端口转换规则。
-     */
+      * NAT网关的端口转换规则。
+      */
     DestinationIpPortTranslationNatRules: Array<DestinationIpPortTranslationNatRule>;
 }
 /**
@@ -6037,36 +6037,36 @@ export interface CreateNatGatewayDestinationIpPortTranslationNatRuleRequest {
  */
 export interface CreateFlowLogRequest {
     /**
-     * 私用网络ID或者统一ID，建议使用统一ID
-     */
+      * 私用网络ID或者统一ID，建议使用统一ID
+      */
     VpcId: string;
     /**
-     * 流日志实例名字
-     */
+      * 流日志实例名字
+      */
     FlowLogName: string;
     /**
-     * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
-     */
+      * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE
+      */
     ResourceType: string;
     /**
-     * 资源唯一ID
-     */
+      * 资源唯一ID
+      */
     ResourceId: string;
     /**
-     * 流日志采集类型，ACCEPT|REJECT|ALL
-     */
+      * 流日志采集类型，ACCEPT|REJECT|ALL
+      */
     TrafficType: string;
     /**
-     * 流日志存储ID
-     */
+      * 流日志存储ID
+      */
     CloudLogId: string;
     /**
-     * 流日志实例描述
-     */
+      * 流日志实例描述
+      */
     FlowLogDescription?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -6074,8 +6074,8 @@ export interface CreateFlowLogRequest {
  */
 export interface AttachNetworkInterfaceResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6083,12 +6083,12 @@ export interface AttachNetworkInterfaceResponse {
  */
 export interface DisassociateNatGatewayAddressRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * 待解绑NAT网关的弹性IP数组。
-     */
+      * 待解绑NAT网关的弹性IP数组。
+      */
     PublicIpAddresses: Array<string>;
 }
 /**
@@ -6096,16 +6096,16 @@ export interface DisassociateNatGatewayAddressRequest {
  */
 export interface DescribeServiceTemplatesResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 协议端口模板对象。
-     */
+      * 协议端口模板对象。
+      */
     ServiceTemplateSet?: Array<ServiceTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6113,26 +6113,26 @@ export interface DescribeServiceTemplatesResponse {
  */
 export interface DescribeRouteTablesRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-  <li>route-table-id - String - （过滤条件）路由表实例ID。</li>
-  <li>route-table-name - String - （过滤条件）路由表名称。</li>
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-  <li>association.main - String - （过滤条件）是否主路由表。</li>
-  <li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
-  <li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
-        */
+      * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
+<li>route-table-id - String - （过滤条件）路由表实例ID。</li>
+<li>route-table-name - String - （过滤条件）路由表名称。</li>
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+<li>association.main - String - （过滤条件）是否主路由表。</li>
+<li>tag-key - String -是否必填：否- （过滤条件）按照标签键进行过滤。</li>
+<li>tag:tag-key - String - 是否必填：否 - （过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例2。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: string;
     /**
-     * 请求对象个数。
-     */
+      * 请求对象个数。
+      */
     Limit?: string;
 }
 /**
@@ -6140,16 +6140,16 @@ export interface DescribeRouteTablesRequest {
  */
 export interface ResetAttachCcnInstancesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * CCN所属UIN（根账号）。
-     */
+      * CCN所属UIN（根账号）。
+      */
     CcnUin: string;
     /**
-     * 重新申请关联网络实例列表。
-     */
+      * 重新申请关联网络实例列表。
+      */
     Instances: Array<CcnInstance>;
 }
 /**
@@ -6157,12 +6157,12 @@ export interface ResetAttachCcnInstancesRequest {
  */
 export interface CreateHaVipResponse {
     /**
-     * `HAVIP`对象。
-     */
+      * `HAVIP`对象。
+      */
     HaVip?: HaVip;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6170,8 +6170,8 @@ export interface CreateHaVipResponse {
  */
 export interface DescribeSecurityGroupReferencesRequest {
     /**
-     * 安全组实例ID数组。格式如：['sg-12345678']
-     */
+      * 安全组实例ID数组。格式如：['sg-12345678']
+      */
     SecurityGroupIds: Array<string>;
 }
 /**
@@ -6179,12 +6179,12 @@ export interface DescribeSecurityGroupReferencesRequest {
  */
 export interface DescribeTemplateLimitsResponse {
     /**
-     * 参数模板配额对象。
-     */
+      * 参数模板配额对象。
+      */
     TemplateLimit?: TemplateLimit;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6192,12 +6192,12 @@ export interface DescribeTemplateLimitsResponse {
  */
 export interface CheckDefaultSubnetResponse {
     /**
-     * 检查结果。true为可以创建默认子网，false为不可以创建默认子网。
-     */
+      * 检查结果。true为可以创建默认子网，false为不可以创建默认子网。
+      */
     Result?: boolean;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6205,16 +6205,16 @@ export interface CheckDefaultSubnetResponse {
  */
 export interface DisableRoutesRequest {
     /**
-     * 路由表唯一ID。
-     */
+      * 路由表唯一ID。
+      */
     RouteTableId: string;
     /**
-     * 路由策略ID。不能和RouteItemIds同时使用。
-     */
+      * 路由策略ID。不能和RouteItemIds同时使用。
+      */
     RouteIds?: Array<number>;
     /**
-     * 路由策略唯一ID。不能和RouteIds同时使用。
-     */
+      * 路由策略唯一ID。不能和RouteIds同时使用。
+      */
     RouteItemIds?: Array<string>;
 }
 /**
@@ -6222,16 +6222,16 @@ export interface DisableRoutesRequest {
  */
 export interface DisassociateDirectConnectGatewayNatGatewayRequest {
     /**
-     * 专线网关ID。
-     */
+      * 专线网关ID。
+      */
     VpcId: string;
     /**
-     * NAT网关ID。
-     */
+      * NAT网关ID。
+      */
     NatGatewayId: string;
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     DirectConnectGatewayId: string;
 }
 /**
@@ -6239,16 +6239,16 @@ export interface DisassociateDirectConnectGatewayNatGatewayRequest {
  */
 export interface EnableRoutesRequest {
     /**
-     * 路由表唯一ID。
-     */
+      * 路由表唯一ID。
+      */
     RouteTableId: string;
     /**
-     * 路由策略ID。不能和RouteItemIds同时使用。
-     */
+      * 路由策略ID。不能和RouteItemIds同时使用。
+      */
     RouteIds?: Array<number>;
     /**
-     * 路由策略唯一ID。不能和RouteIds同时使用。
-     */
+      * 路由策略唯一ID。不能和RouteIds同时使用。
+      */
     RouteItemIds?: Array<string>;
 }
 /**
@@ -6256,16 +6256,16 @@ export interface EnableRoutesRequest {
  */
 export interface DescribeAddressTemplateGroupsResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * IP地址模板。
-     */
+      * IP地址模板。
+      */
     AddressTemplateGroupSet?: Array<AddressTemplateGroup>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6273,8 +6273,8 @@ export interface DescribeAddressTemplateGroupsResponse {
  */
 export interface ReleaseAddressesRequest {
     /**
-     * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。
-     */
+      * 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。
+      */
     AddressIds: Array<string>;
 }
 /**
@@ -6282,12 +6282,12 @@ export interface ReleaseAddressesRequest {
  */
 export interface CreateDirectConnectGatewayCcnRoutesRequest {
     /**
-     * 专线网关ID，形如：dcg-prpqlmg1
-     */
+      * 专线网关ID，形如：dcg-prpqlmg1
+      */
     DirectConnectGatewayId: string;
     /**
-     * 需要连通的IDC网段列表
-     */
+      * 需要连通的IDC网段列表
+      */
     Routes: Array<DirectConnectGatewayCcnRoute>;
 }
 /**
@@ -6295,8 +6295,8 @@ export interface CreateDirectConnectGatewayCcnRoutesRequest {
  */
 export interface CreateDirectConnectGatewayCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6304,16 +6304,16 @@ export interface CreateDirectConnectGatewayCcnRoutesResponse {
  */
 export interface CreateRouteTableRequest {
     /**
-     * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * 路由表名称，最大长度不能超过60个字节。
-     */
+      * 路由表名称，最大长度不能超过60个字节。
+      */
     RouteTableName: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -6321,16 +6321,16 @@ export interface CreateRouteTableRequest {
  */
 export interface MigrateNetworkInterfaceRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * 弹性网卡当前绑定的CVM实例ID。形如：ins-r8hr2upy。
-     */
+      * 弹性网卡当前绑定的CVM实例ID。形如：ins-r8hr2upy。
+      */
     SourceInstanceId: string;
     /**
-     * 待迁移的目的CVM实例ID。
-     */
+      * 待迁移的目的CVM实例ID。
+      */
     DestinationInstanceId: string;
 }
 /**
@@ -6338,12 +6338,12 @@ export interface MigrateNetworkInterfaceRequest {
  */
 export interface DisableCcnRoutesRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
-     */
+      * CCN路由策略唯一ID。形如：ccnr-f49l6u0z。
+      */
     RouteIds: Array<string>;
 }
 /**
@@ -6351,16 +6351,16 @@ export interface DisableCcnRoutesRequest {
  */
 export interface ModifyAddressAttributeRequest {
     /**
-     * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
-     */
+      * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+      */
     AddressId: string;
     /**
-     * 修改后的 EIP 名称。长度上限为20个字符。
-     */
+      * 修改后的 EIP 名称。长度上限为20个字符。
+      */
     AddressName?: string;
     /**
-     * 设定EIP是否直通，"TRUE"表示直通，"FALSE"表示非直通。注意该参数仅对EIP直通功能可见的用户可以设定。
-     */
+      * 设定EIP是否直通，"TRUE"表示直通，"FALSE"表示非直通。注意该参数仅对EIP直通功能可见的用户可以设定。
+      */
     EipDirectConnection?: string;
 }
 /**
@@ -6368,46 +6368,46 @@ export interface ModifyAddressAttributeRequest {
  */
 export interface DhcpIp {
     /**
-     * `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。
-     */
+      * `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。
+      */
     DhcpIpId: string;
     /**
-     * `DhcpIp`所在私有网络`ID`。
-     */
+      * `DhcpIp`所在私有网络`ID`。
+      */
     VpcId: string;
     /**
-     * `DhcpIp`所在子网`ID`。
-     */
+      * `DhcpIp`所在子网`ID`。
+      */
     SubnetId: string;
     /**
-     * `DhcpIp`的名称。
-     */
+      * `DhcpIp`的名称。
+      */
     DhcpIpName: string;
     /**
-     * IP地址。
-     */
+      * IP地址。
+      */
     PrivateIpAddress: string;
     /**
-     * 绑定`EIP`。
-     */
+      * 绑定`EIP`。
+      */
     AddressIp: string;
     /**
-     * `DhcpIp`关联弹性网卡`ID`。
-     */
+      * `DhcpIp`关联弹性网卡`ID`。
+      */
     NetworkInterfaceId: string;
     /**
-     * 被绑定的实例`ID`。
-     */
+      * 被绑定的实例`ID`。
+      */
     InstanceId: string;
     /**
-        * 状态：
-  <li>`AVAILABLE`：运行中</li>
-  <li>`UNBIND`：未绑定</li>
-        */
+      * 状态：
+<li>`AVAILABLE`：运行中</li>
+<li>`UNBIND`：未绑定</li>
+      */
     State: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
 }
 /**
@@ -6415,12 +6415,12 @@ export interface DhcpIp {
  */
 export interface DeleteAssistantCidrRequest {
     /**
-     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-     */
+      * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+      */
     VpcId: string;
     /**
-     * CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
-     */
+      * CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]
+      */
     CidrBlocks: Array<string>;
 }
 /**
@@ -6428,20 +6428,20 @@ export interface DeleteAssistantCidrRequest {
  */
 export interface SubnetInput {
     /**
-     * 子网的`CIDR`。
-     */
+      * 子网的`CIDR`。
+      */
     CidrBlock: string;
     /**
-     * 子网名称。
-     */
+      * 子网名称。
+      */
     SubnetName: string;
     /**
-     * 可用区。形如：`ap-guangzhou-2`。
-     */
+      * 可用区。形如：`ap-guangzhou-2`。
+      */
     Zone: string;
     /**
-     * 指定关联路由表，形如：`rtb-3ryrwzuu`。
-     */
+      * 指定关联路由表，形如：`rtb-3ryrwzuu`。
+      */
     RouteTableId?: string;
 }
 /**
@@ -6449,8 +6449,8 @@ export interface SubnetInput {
  */
 export interface UnassignIpv6SubnetCidrBlockResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6458,12 +6458,12 @@ export interface UnassignIpv6SubnetCidrBlockResponse {
  */
 export interface CreateNetDetectResponse {
     /**
-     * 网络探测（NetDetect）对象。
-     */
+      * 网络探测（NetDetect）对象。
+      */
     NetDetect?: NetDetect;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6471,8 +6471,8 @@ export interface CreateNetDetectResponse {
  */
 export interface DeleteCcnRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
 }
 /**
@@ -6480,8 +6480,8 @@ export interface DeleteCcnRequest {
  */
 export interface AssociateNetworkInterfaceSecurityGroupsResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6489,16 +6489,16 @@ export interface AssociateNetworkInterfaceSecurityGroupsResponse {
  */
 export interface ModifyVpnGatewayAttributeRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * VPN网关名称，最大长度不能超过60个字节。
-     */
+      * VPN网关名称，最大长度不能超过60个字节。
+      */
     VpnGatewayName?: string;
     /**
-     * VPN网关计费模式，目前只支持预付费（即包年包月）到后付费（即按量计费）的转换。即参数只支持：POSTPAID_BY_HOUR。
-     */
+      * VPN网关计费模式，目前只支持预付费（即包年包月）到后付费（即按量计费）的转换。即参数只支持：POSTPAID_BY_HOUR。
+      */
     InstanceChargeType?: string;
 }
 /**
@@ -6506,40 +6506,40 @@ export interface ModifyVpnGatewayAttributeRequest {
  */
 export interface CreateNatGatewayRequest {
     /**
-     * NAT网关名称
-     */
+      * NAT网关名称
+      */
     NatGatewayName: string;
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * NAT网关最大外网出带宽(单位:Mbps)，支持的参数值：`20, 50, 100, 200, 500, 1000, 2000, 5000`，默认: `100Mbps`。
-     */
+      * NAT网关最大外网出带宽(单位:Mbps)，支持的参数值：`20, 50, 100, 200, 500, 1000, 2000, 5000`，默认: `100Mbps`。
+      */
     InternetMaxBandwidthOut?: number;
     /**
-     * NAT网关并发连接上限，支持参数值：`1000000、3000000、10000000`，默认值为`100000`。
-     */
+      * NAT网关并发连接上限，支持参数值：`1000000、3000000、10000000`，默认值为`100000`。
+      */
     MaxConcurrentConnection?: number;
     /**
-     * 需要申请的弹性IP个数，系统会按您的要求生产N个弹性IP，其中AddressCount和PublicAddresses至少传递一个。
-     */
+      * 需要申请的弹性IP个数，系统会按您的要求生产N个弹性IP，其中AddressCount和PublicAddresses至少传递一个。
+      */
     AddressCount?: number;
     /**
-     * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
-     */
+      * 绑定NAT网关的弹性IP数组，其中AddressCount和PublicAddresses至少传递一个。
+      */
     PublicIpAddresses?: Array<string>;
     /**
-     * 可用区，形如：`ap-guangzhou-1`。
-     */
+      * 可用区，形如：`ap-guangzhou-1`。
+      */
     Zone?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
     /**
-     * NAT网关所属子网
-     */
+      * NAT网关所属子网
+      */
     SubnetId?: string;
 }
 /**
@@ -6547,8 +6547,8 @@ export interface CreateNatGatewayRequest {
  */
 export interface DeleteNetDetectRequest {
     /**
-     * 网络探测实例`ID`。形如：`netd-12345678`
-     */
+      * 网络探测实例`ID`。形如：`netd-12345678`
+      */
     NetDetectId: string;
 }
 /**
@@ -6556,24 +6556,24 @@ export interface DeleteNetDetectRequest {
  */
 export interface IPSECOptionsSpecification {
     /**
-     * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
-     */
+      * 加密算法，可选值：'3DES-CBC', 'AES-CBC-128', 'AES-CBC-192', 'AES-CBC-256', 'DES-CBC', 'NULL'， 默认为AES-CBC-128
+      */
     EncryptAlgorithm?: string;
     /**
-     * 认证算法：可选值：'MD5', 'SHA1'，默认为
-     */
+      * 认证算法：可选值：'MD5', 'SHA1'，默认为
+      */
     IntegrityAlgorith?: string;
     /**
-     * IPsec SA lifetime(s)：单位秒，取值范围：180-604800
-     */
+      * IPsec SA lifetime(s)：单位秒，取值范围：180-604800
+      */
     IPSECSaLifetimeSeconds?: number;
     /**
-     * PFS：可选值：'NULL', 'DH-GROUP1', 'DH-GROUP2', 'DH-GROUP5', 'DH-GROUP14', 'DH-GROUP24'，默认为NULL
-     */
+      * PFS：可选值：'NULL', 'DH-GROUP1', 'DH-GROUP2', 'DH-GROUP5', 'DH-GROUP14', 'DH-GROUP24'，默认为NULL
+      */
     PfsDhGroup?: string;
     /**
-     * IPsec SA lifetime(KB)：单位KB，取值范围：2560-604800
-     */
+      * IPsec SA lifetime(KB)：单位KB，取值范围：2560-604800
+      */
     IPSECSaLifetimeTraffic?: number;
 }
 /**
@@ -6581,12 +6581,12 @@ export interface IPSECOptionsSpecification {
  */
 export interface UnassignIpv6AddressesRequest {
     /**
-     * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     */
+      * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的`IPv6`地址列表，单次最多指定10个。
-     */
+      * 指定的`IPv6`地址列表，单次最多指定10个。
+      */
     Ipv6Addresses: Array<Ipv6Address>;
 }
 /**
@@ -6594,12 +6594,12 @@ export interface UnassignIpv6AddressesRequest {
  */
 export interface CreateAndAttachNetworkInterfaceResponse {
     /**
-     * 弹性网卡实例。
-     */
+      * 弹性网卡实例。
+      */
     NetworkInterface?: NetworkInterface;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6607,16 +6607,16 @@ export interface CreateAndAttachNetworkInterfaceResponse {
  */
 export interface ModifyCcnAttributeRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
     /**
-     * CCN名称，最大长度不能超过60个字节。
-     */
+      * CCN名称，最大长度不能超过60个字节。
+      */
     CcnName?: string;
     /**
-     * CCN描述信息，最大长度不能超过100个字节。
-     */
+      * CCN描述信息，最大长度不能超过100个字节。
+      */
     CcnDescription?: string;
 }
 /**
@@ -6624,8 +6624,8 @@ export interface ModifyCcnAttributeRequest {
  */
 export interface DeleteSecurityGroupPoliciesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6633,8 +6633,8 @@ export interface DeleteSecurityGroupPoliciesResponse {
  */
 export interface DisassociateDhcpIpWithAddressIpResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6642,12 +6642,12 @@ export interface DisassociateDhcpIpWithAddressIpResponse {
  */
 export interface ModifyNetworkAclAttributeRequest {
     /**
-     * 网络ACL实例ID。例如：acl-12345678。
-     */
+      * 网络ACL实例ID。例如：acl-12345678。
+      */
     NetworkAclId: string;
     /**
-     * 网络ACL名称，最大长度不能超过60个字节。
-     */
+      * 网络ACL名称，最大长度不能超过60个字节。
+      */
     NetworkAclName: string;
 }
 /**
@@ -6655,8 +6655,8 @@ export interface ModifyNetworkAclAttributeRequest {
  */
 export interface DeleteVpnGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6664,8 +6664,8 @@ export interface DeleteVpnGatewayResponse {
  */
 export interface EnableCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6673,26 +6673,26 @@ export interface EnableCcnRoutesResponse {
  */
 export interface DescribeHaVipsRequest {
     /**
-     * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
-     */
+      * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+      */
     HaVipIds?: Array<string>;
     /**
-        * 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-  <li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-  <li>havip-name - String - `HAVIP`名称。</li>
-  <li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-  <li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-  <li>vip - String - `HAVIP`的地址`VIP`。</li>
-  <li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
-        */
+      * 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
+<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
+<li>havip-name - String - `HAVIP`名称。</li>
+<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
+<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
+<li>vip - String - `HAVIP`的地址`VIP`。</li>
+<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: number;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: number;
 }
 /**
@@ -6700,8 +6700,8 @@ export interface DescribeHaVipsRequest {
  */
 export interface UnassignPrivateIpAddressesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6709,78 +6709,78 @@ export interface UnassignPrivateIpAddressesResponse {
  */
 export interface Address {
     /**
-     * `EIP`的`ID`，是`EIP`的唯一标识。
-     */
+      * `EIP`的`ID`，是`EIP`的唯一标识。
+      */
     AddressId?: string;
     /**
-     * `EIP`名称。
-     */
+      * `EIP`名称。
+      */
     AddressName?: string;
     /**
-     * `EIP`状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)
-     */
+      * `EIP`状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)
+      */
     AddressStatus?: string;
     /**
-     * 外网IP地址
-     */
+      * 外网IP地址
+      */
     AddressIp?: string;
     /**
-     * 绑定的资源实例`ID`。可能是一个`CVM`，`NAT`。
-     */
+      * 绑定的资源实例`ID`。可能是一个`CVM`，`NAT`。
+      */
     InstanceId?: string;
     /**
-     * 创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
-     */
+      * 创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
+      */
     CreatedTime?: string;
     /**
-     * 绑定的弹性网卡ID
-     */
+      * 绑定的弹性网卡ID
+      */
     NetworkInterfaceId: string;
     /**
-     * 绑定的资源内网ip
-     */
+      * 绑定的资源内网ip
+      */
     PrivateAddressIp: string;
     /**
-     * 资源隔离状态。true表示eip处于隔离状态，false表示资源处于未隔离状态
-     */
+      * 资源隔离状态。true表示eip处于隔离状态，false表示资源处于未隔离状态
+      */
     IsArrears: boolean;
     /**
-     * 资源封堵状态。true表示eip处于封堵状态，false表示eip处于未封堵状态
-     */
+      * 资源封堵状态。true表示eip处于封堵状态，false表示eip处于未封堵状态
+      */
     IsBlocked: boolean;
     /**
-     * eip是否支持直通模式。true表示eip支持直通模式，false表示资源不支持直通模式
-     */
+      * eip是否支持直通模式。true表示eip支持直通模式，false表示资源不支持直通模式
+      */
     IsEipDirectConnection: boolean;
     /**
-     * eip资源类型，包括"CalcIP","WanIP","EIP","AnycastEIP"。其中"CalcIP"表示设备ip，“WanIP”表示普通公网ip，“EIP”表示弹性公网ip，“AnycastEip”表示加速EIP
-     */
+      * eip资源类型，包括"CalcIP","WanIP","EIP","AnycastEIP"。其中"CalcIP"表示设备ip，“WanIP”表示普通公网ip，“EIP”表示弹性公网ip，“AnycastEip”表示加速EIP
+      */
     AddressType: string;
     /**
-     * eip是否在解绑后自动释放。true表示eip将会在解绑后自动释放，false表示eip在解绑后不会自动释放
-     */
+      * eip是否在解绑后自动释放。true表示eip将会在解绑后自动释放，false表示eip在解绑后不会自动释放
+      */
     CascadeRelease: boolean;
     /**
-     * EIP ALG开启的协议类型。
-     */
+      * EIP ALG开启的协议类型。
+      */
     EipAlgType: AlgType;
     /**
-     * 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
-     */
+      * 弹性公网IP的运营商信息，当前可能返回值包括"CMCC","CTCC","CUCC","BGP"
+      */
     InternetServiceProvider: string;
     /**
-     * 是否本地带宽EIP
-     */
+      * 是否本地带宽EIP
+      */
     LocalBgp: boolean;
     /**
-        * 弹性公网IP的带宽值。注意，非带宽上移账户的弹性公网IP没有带宽属性，值为空。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 弹性公网IP的带宽值。注意，非带宽上移账户的弹性公网IP没有带宽属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Bandwidth: number;
     /**
-        * 弹性公网IP的网络计费模式。注意，非带宽上移账户的弹性公网IP没有网络计费模式属性，值为空。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 弹性公网IP的网络计费模式。注意，非带宽上移账户的弹性公网IP没有网络计费模式属性，值为空。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     InternetChargeType: string;
 }
 /**
@@ -6788,76 +6788,76 @@ export interface Address {
  */
 export interface VpnGateway {
     /**
-     * 网关实例ID。
-     */
+      * 网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * 网关实例名称。
-     */
+      * 网关实例名称。
+      */
     VpnGatewayName: string;
     /**
-     * 网关实例类型：'IPSEC', 'SSL','CCN'。
-     */
+      * 网关实例类型：'IPSEC', 'SSL','CCN'。
+      */
     Type: string;
     /**
-     * 网关实例状态， 'PENDING'：生产中，'DELETING'：删除中，'AVAILABLE'：运行中。
-     */
+      * 网关实例状态， 'PENDING'：生产中，'DELETING'：删除中，'AVAILABLE'：运行中。
+      */
     State: string;
     /**
-     * 网关公网IP。
-     */
+      * 网关公网IP。
+      */
     PublicIpAddress: string;
     /**
-     * 网关续费类型：'NOTIFY_AND_MANUAL_RENEW'：手动续费，'NOTIFY_AND_AUTO_RENEW'：自动续费，'NOT_NOTIFY_AND_NOT_RENEW'：到期不续费。
-     */
+      * 网关续费类型：'NOTIFY_AND_MANUAL_RENEW'：手动续费，'NOTIFY_AND_AUTO_RENEW'：自动续费，'NOT_NOTIFY_AND_NOT_RENEW'：到期不续费。
+      */
     RenewFlag: string;
     /**
-     * 网关付费类型：POSTPAID_BY_HOUR：按小时后付费，PREPAID：包年包月预付费，
-     */
+      * 网关付费类型：POSTPAID_BY_HOUR：按小时后付费，PREPAID：包年包月预付费，
+      */
     InstanceChargeType: string;
     /**
-     * 网关出带宽。
-     */
+      * 网关出带宽。
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime: string;
     /**
-     * 预付费网关过期时间。
-     */
+      * 预付费网关过期时间。
+      */
     ExpiredTime: string;
     /**
-     * 公网IP是否被封堵。
-     */
+      * 公网IP是否被封堵。
+      */
     IsAddressBlocked: boolean;
     /**
-     * 计费模式变更，PREPAID_TO_POSTPAID：包年包月预付费到期转按小时后付费。
-     */
+      * 计费模式变更，PREPAID_TO_POSTPAID：包年包月预付费到期转按小时后付费。
+      */
     NewPurchasePlan: string;
     /**
-     * 网关计费装，PROTECTIVELY_ISOLATED：被安全隔离的实例，NORMAL：正常。
-     */
+      * 网关计费装，PROTECTIVELY_ISOLATED：被安全隔离的实例，NORMAL：正常。
+      */
     RestrictState: string;
     /**
-     * 可用区，如：ap-guangzhou-2
-     */
+      * 可用区，如：ap-guangzhou-2
+      */
     Zone: string;
     /**
-     * 网关带宽配额信息
-     */
+      * 网关带宽配额信息
+      */
     VpnGatewayQuotaSet: Array<VpnGatewayQuota>;
     /**
-     * 网关实例版本信息
-     */
+      * 网关实例版本信息
+      */
     Version: string;
     /**
-     * Type值为CCN时，该值表示云联网实例ID
-     */
+      * Type值为CCN时，该值表示云联网实例ID
+      */
     NetworkInstanceId: string;
 }
 /**
@@ -6865,8 +6865,8 @@ export interface VpnGateway {
  */
 export interface EnableGatewayFlowMonitorResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6874,16 +6874,16 @@ export interface EnableGatewayFlowMonitorResponse {
  */
 export interface Resource {
     /**
-     * 带宽包资源类型，包括'Address'和'LoadBalance'
-     */
+      * 带宽包资源类型，包括'Address'和'LoadBalance'
+      */
     ResourceType: string;
     /**
-     * 带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
-     */
+      * 带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
+      */
     ResourceId: string;
     /**
-     * 带宽包资源Ip
-     */
+      * 带宽包资源Ip
+      */
     AddressIp: string;
 }
 /**
@@ -6891,8 +6891,8 @@ export interface Resource {
  */
 export interface DeleteDhcpIpRequest {
     /**
-     * `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。
-     */
+      * `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。
+      */
     DhcpIpId: string;
 }
 /**
@@ -6900,16 +6900,16 @@ export interface DeleteDhcpIpRequest {
  */
 export interface AllocateAddressesResponse {
     /**
-     * 申请到的 EIP 的唯一 ID 列表。
-     */
+      * 申请到的 EIP 的唯一 ID 列表。
+      */
     AddressSet?: Array<string>;
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6917,36 +6917,36 @@ export interface AllocateAddressesResponse {
  */
 export interface BandwidthPackage {
     /**
-     * 带宽包唯一标识Id
-     */
+      * 带宽包唯一标识Id
+      */
     BandwidthPackageId: string;
     /**
-     * 带宽包类型，包括'BGP','SINGLEISP','ANYCAST'
-     */
+      * 带宽包类型，包括'BGP','SINGLEISP','ANYCAST'
+      */
     NetworkType: string;
     /**
-     * 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
-     */
+      * 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
+      */
     ChargeType: string;
     /**
-     * 带宽包名称
-     */
+      * 带宽包名称
+      */
     BandwidthPackageName: string;
     /**
-     * 带宽包创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
-     */
+      * 带宽包创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
+      */
     CreatedTime: string;
     /**
-     * 带宽包状态，包括'CREATING','CREATED','DELETING','DELETED'
-     */
+      * 带宽包状态，包括'CREATING','CREATED','DELETING','DELETED'
+      */
     Status: string;
     /**
-     * 带宽包资源信息
-     */
+      * 带宽包资源信息
+      */
     ResourceSet: Array<Resource>;
     /**
-     * 带宽包限速大小。单位：Mbps，-1表示不限速。
-     */
+      * 带宽包限速大小。单位：Mbps，-1表示不限速。
+      */
     Bandwidth: number;
 }
 /**
@@ -6954,16 +6954,16 @@ export interface BandwidthPackage {
  */
 export interface DescribeIp6TranslatorsResponse {
     /**
-     * 符合过滤条件的IPV6转换实例数量。
-     */
+      * 符合过滤条件的IPV6转换实例数量。
+      */
     TotalCount?: number;
     /**
-     * 符合过滤条件的IPV6转换实例详细信息
-     */
+      * 符合过滤条件的IPV6转换实例详细信息
+      */
     Ip6TranslatorSet?: Array<Ip6Translator>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6971,12 +6971,12 @@ export interface DescribeIp6TranslatorsResponse {
  */
 export interface CreateSecurityGroupPoliciesRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组规则集合。
-     */
+      * 安全组规则集合。
+      */
     SecurityGroupPolicySet: SecurityGroupPolicySet;
 }
 /**
@@ -6984,8 +6984,8 @@ export interface CreateSecurityGroupPoliciesRequest {
  */
 export interface ModifyRouteTableAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -6993,12 +6993,12 @@ export interface ModifyRouteTableAttributeResponse {
  */
 export interface DescribeSecurityGroupReferencesResponse {
     /**
-     * 安全组被引用信息。
-     */
+      * 安全组被引用信息。
+      */
     ReferredSecurityGroupSet?: Array<ReferredSecurityGroup>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7006,11 +7006,11 @@ export interface DescribeSecurityGroupReferencesResponse {
  */
 export interface DisableGatewayFlowMonitorRequest {
     /**
-        * 网关实例ID，目前我们支持的网关实例类型有，
-  专线网关实例ID，形如，`dcg-ltjahce6`；
-  Nat网关实例ID，形如，`nat-ltjahce6`；
-  VPN网关实例ID，形如，`vpn-ltjahce6`。
-        */
+      * 网关实例ID，目前我们支持的网关实例类型有，
+专线网关实例ID，形如，`dcg-ltjahce6`；
+Nat网关实例ID，形如，`nat-ltjahce6`；
+VPN网关实例ID，形如，`vpn-ltjahce6`。
+      */
     GatewayId: string;
 }
 /**
@@ -7018,12 +7018,12 @@ export interface DisableGatewayFlowMonitorRequest {
  */
 export interface CreateAddressTemplateGroupResponse {
     /**
-     * IP地址模板集合对象。
-     */
+      * IP地址模板集合对象。
+      */
     AddressTemplateGroup?: AddressTemplateGroup;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7031,12 +7031,12 @@ export interface CreateAddressTemplateGroupResponse {
  */
 export interface DescribeBandwidthPackageQuotaResponse {
     /**
-     * 带宽包配额详细信息
-     */
+      * 带宽包配额详细信息
+      */
     QuotaSet?: Array<Quota>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7044,8 +7044,8 @@ export interface DescribeBandwidthPackageQuotaResponse {
  */
 export interface DeleteServiceTemplateGroupRequest {
     /**
-     * 协议端口模板集合实例ID，例如：ppmg-n17uxvve。
-     */
+      * 协议端口模板集合实例ID，例如：ppmg-n17uxvve。
+      */
     ServiceTemplateGroupId: string;
 }
 /**
@@ -7053,8 +7053,8 @@ export interface DeleteServiceTemplateGroupRequest {
  */
 export interface DeleteNatGatewayResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7062,12 +7062,12 @@ export interface DeleteNatGatewayResponse {
  */
 export interface CreateDirectConnectGatewayResponse {
     /**
-     * 专线网关对象。
-     */
+      * 专线网关对象。
+      */
     DirectConnectGateway?: DirectConnectGateway;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7075,16 +7075,16 @@ export interface CreateDirectConnectGatewayResponse {
  */
 export interface DescribeTaskResultResponse {
     /**
-     * 任务ID
-     */
+      * 任务ID
+      */
     TaskId?: number;
     /**
-     * 执行结果，包括"SUCCESS", "FAILED", "RUNNING"
-     */
+      * 执行结果，包括"SUCCESS", "FAILED", "RUNNING"
+      */
     Result?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7092,12 +7092,12 @@ export interface DescribeTaskResultResponse {
  */
 export interface DisassociateNetworkAclSubnetsRequest {
     /**
-     * 网络ACL实例ID。例如：acl-12345678。
-     */
+      * 网络ACL实例ID。例如：acl-12345678。
+      */
     NetworkAclId: string;
     /**
-     * 子网实例ID数组。例如：[subnet-12345678]
-     */
+      * 子网实例ID数组。例如：[subnet-12345678]
+      */
     SubnetIds: Array<string>;
 }
 /**
@@ -7105,16 +7105,16 @@ export interface DisassociateNetworkAclSubnetsRequest {
  */
 export interface ModifyAddressTemplateGroupAttributeRequest {
     /**
-     * IP地址模板集合实例ID，例如：ipmg-2uw6ujo6。
-     */
+      * IP地址模板集合实例ID，例如：ipmg-2uw6ujo6。
+      */
     AddressTemplateGroupId: string;
     /**
-     * IP地址模板集合名称。
-     */
+      * IP地址模板集合名称。
+      */
     AddressTemplateGroupName?: string;
     /**
-     * IP地址模板实例ID， 例如：ipm-mdunqeb6。
-     */
+      * IP地址模板实例ID， 例如：ipm-mdunqeb6。
+      */
     AddressTemplateIds?: Array<string>;
 }
 /**
@@ -7122,16 +7122,16 @@ export interface ModifyAddressTemplateGroupAttributeRequest {
  */
 export interface ModifyServiceTemplateGroupAttributeRequest {
     /**
-     * 协议端口模板集合实例ID，例如：ppmg-ei8hfd9a。
-     */
+      * 协议端口模板集合实例ID，例如：ppmg-ei8hfd9a。
+      */
     ServiceTemplateGroupId: string;
     /**
-     * 协议端口模板集合名称。
-     */
+      * 协议端口模板集合名称。
+      */
     ServiceTemplateGroupName?: string;
     /**
-     * 协议端口模板实例ID，例如：ppm-4dw6agho。
-     */
+      * 协议端口模板实例ID，例如：ppm-4dw6agho。
+      */
     ServiceTemplateIds?: Array<string>;
 }
 /**
@@ -7139,12 +7139,12 @@ export interface ModifyServiceTemplateGroupAttributeRequest {
  */
 export interface UnassignIpv6CidrBlockRequest {
     /**
-     * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
-     */
+      * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
+      */
     VpcId: string;
     /**
-     * `IPv6`网段。形如：`3402:4e00:20:1000::/56`
-     */
+      * `IPv6`网段。形如：`3402:4e00:20:1000::/56`
+      */
     Ipv6CidrBlock?: string;
 }
 /**
@@ -7152,50 +7152,50 @@ export interface UnassignIpv6CidrBlockRequest {
  */
 export interface CCN {
     /**
-     * 云联网唯一ID
-     */
+      * 云联网唯一ID
+      */
     CcnId: string;
     /**
-     * 云联网名称
-     */
+      * 云联网名称
+      */
     CcnName: string;
     /**
-     * 云联网描述信息
-     */
+      * 云联网描述信息
+      */
     CcnDescription: string;
     /**
-     * 关联实例数量
-     */
+      * 关联实例数量
+      */
     InstanceCount: number;
     /**
-     * 创建时间
-     */
+      * 创建时间
+      */
     CreateTime: string;
     /**
-     * 实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。
-     */
+      * 实例状态， 'ISOLATED': 隔离中（欠费停服），'AVAILABLE'：运行中。
+      */
     State: string;
     /**
-     * 实例服务质量，’PT’：白金，'AU'：金，'AG'：银。
-     */
+      * 实例服务质量，’PT’：白金，'AU'：金，'AG'：银。
+      */
     QosLevel: string;
     /**
-        * 付费类型，PREPAID为预付费，POSTPAID为后付费。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 付费类型，PREPAID为预付费，POSTPAID为后付费。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     InstanceChargeType: string;
     /**
-        * 限速类型，INTER_REGION_LIMIT为地域间限速；OUTER_REGION_LIMIT为地域出口限速。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 限速类型，INTER_REGION_LIMIT为地域间限速；OUTER_REGION_LIMIT为地域出口限速。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     BandwidthLimitType: string;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet: Array<Tag>;
     /**
-     * 是否支持云联网路由优先级的功能。False：不支持，True：支持。
-     */
+      * 是否支持云联网路由优先级的功能。False：不支持，True：支持。
+      */
     RoutePriorityFlag: boolean;
 }
 /**
@@ -7203,8 +7203,8 @@ export interface CCN {
  */
 export interface DeleteIp6TranslatorsRequest {
     /**
-     * 待释放的IPV6转换实例的唯一ID，形如‘ip6-xxxxxxxx’
-     */
+      * 待释放的IPV6转换实例的唯一ID，形如‘ip6-xxxxxxxx’
+      */
     Ip6TranslatorIds: Array<string>;
 }
 /**
@@ -7212,36 +7212,36 @@ export interface DeleteIp6TranslatorsRequest {
  */
 export interface Ip6Translator {
     /**
-     * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
-     */
+      * IPV6转换实例唯一ID，形如ip6-xxxxxxxx
+      */
     Ip6TranslatorId: string;
     /**
-     * IPV6转换实例名称
-     */
+      * IPV6转换实例名称
+      */
     Ip6TranslatorName: string;
     /**
-     * IPV6地址
-     */
+      * IPV6地址
+      */
     Vip6: string;
     /**
-     * IPV6转换地址所属运营商
-     */
+      * IPV6转换地址所属运营商
+      */
     IspName: string;
     /**
-     * 转换实例状态，限于CREATING,RUNNING,DELETING,MODIFYING
-     */
+      * 转换实例状态，限于CREATING,RUNNING,DELETING,MODIFYING
+      */
     TranslatorStatus: string;
     /**
-     * IPV6转换实例创建时间
-     */
+      * IPV6转换实例创建时间
+      */
     CreatedTime: string;
     /**
-     * 绑定的IPV6转换规则数量
-     */
+      * 绑定的IPV6转换规则数量
+      */
     Ip6RuleCount: number;
     /**
-     * IPV6转换规则信息
-     */
+      * IPV6转换规则信息
+      */
     IP6RuleSet: Array<Ip6Rule>;
 }
 /**
@@ -7249,28 +7249,28 @@ export interface Ip6Translator {
  */
 export interface DestinationIpPortTranslationNatRule {
     /**
-     * 网络协议，可选值：`TCP`、`UDP`。
-     */
+      * 网络协议，可选值：`TCP`、`UDP`。
+      */
     IpProtocol: string;
     /**
-     * 弹性IP。
-     */
+      * 弹性IP。
+      */
     PublicIpAddress: string;
     /**
-     * 公网端口。
-     */
+      * 公网端口。
+      */
     PublicPort: number;
     /**
-     * 内网地址。
-     */
+      * 内网地址。
+      */
     PrivateIpAddress: string;
     /**
-     * 内网端口。
-     */
+      * 内网端口。
+      */
     PrivatePort: number;
     /**
-     * NAT网关转发规则描述。
-     */
+      * NAT网关转发规则描述。
+      */
     Description: string;
 }
 /**
@@ -7278,12 +7278,12 @@ export interface DestinationIpPortTranslationNatRule {
  */
 export interface CreateDefaultVpcRequest {
     /**
-     * 子网所在的可用区ID，不指定将随机选择可用区
-     */
+      * 子网所在的可用区ID，不指定将随机选择可用区
+      */
     Zone?: string;
     /**
-     * 是否强制返回默认VPC
-     */
+      * 是否强制返回默认VPC
+      */
     Force?: boolean;
 }
 /**
@@ -7291,16 +7291,16 @@ export interface CreateDefaultVpcRequest {
  */
 export interface DescribeSubnetsResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 子网对象。
-     */
+      * 子网对象。
+      */
     SubnetSet?: Array<Subnet>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7308,16 +7308,16 @@ export interface DescribeSubnetsResponse {
  */
 export interface DescribeCustomerGatewaysResponse {
     /**
-     * 对端网关对象列表
-     */
+      * 对端网关对象列表
+      */
     CustomerGatewaySet?: Array<CustomerGateway>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7325,12 +7325,12 @@ export interface DescribeCustomerGatewaysResponse {
  */
 export interface CheckAssistantCidrResponse {
     /**
-     * 冲突资源信息数组。
-     */
+      * 冲突资源信息数组。
+      */
     ConflictSourceSet?: Array<ConflictSource>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7338,12 +7338,12 @@ export interface CheckAssistantCidrResponse {
  */
 export interface InquiryPriceRenewVpnGatewayRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
-     */
+      * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
+      */
     InstanceChargePrepaid: InstanceChargePrepaid;
 }
 /**
@@ -7351,8 +7351,8 @@ export interface InquiryPriceRenewVpnGatewayRequest {
  */
 export interface DeleteHaVipRequest {
     /**
-     * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
-     */
+      * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+      */
     HaVipId: string;
 }
 /**
@@ -7360,8 +7360,8 @@ export interface DeleteHaVipRequest {
  */
 export interface ModifyVpnGatewayCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7369,8 +7369,8 @@ export interface ModifyVpnGatewayCcnRoutesResponse {
  */
 export interface DetachCcnInstancesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7378,8 +7378,8 @@ export interface DetachCcnInstancesResponse {
  */
 export interface ModifyServiceTemplateGroupAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7387,8 +7387,8 @@ export interface ModifyServiceTemplateGroupAttributeResponse {
  */
 export interface DeleteSubnetRequest {
     /**
-     * 子网实例ID。可通过DescribeSubnets接口返回值中的SubnetId获取。
-     */
+      * 子网实例ID。可通过DescribeSubnets接口返回值中的SubnetId获取。
+      */
     SubnetId: string;
 }
 /**
@@ -7396,18 +7396,18 @@ export interface DeleteSubnetRequest {
  */
 export interface DescribeAddressTemplateGroupsRequest {
     /**
-        * 过滤条件。
-  <li>address-template-group-name - String - （过滤条件）IP地址模板集合名称。</li>
-  <li>address-template-group-id - String - （过滤条件）IP地址模板实集合例ID，例如：ipmg-mdunqeb6。</li>
-        */
+      * 过滤条件。
+<li>address-template-group-name - String - （过滤条件）IP地址模板集合名称。</li>
+<li>address-template-group-id - String - （过滤条件）IP地址模板实集合例ID，例如：ipmg-mdunqeb6。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -7415,12 +7415,12 @@ export interface DescribeAddressTemplateGroupsRequest {
  */
 export interface CheckNetDetectStateResponse {
     /**
-     * 网络探测验证结果对象数组。
-     */
+      * 网络探测验证结果对象数组。
+      */
     NetDetectIpStateSet?: Array<NetDetectIpState>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7428,8 +7428,8 @@ export interface CheckNetDetectStateResponse {
  */
 export interface AssociateNatGatewayAddressResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7437,16 +7437,16 @@ export interface AssociateNatGatewayAddressResponse {
  */
 export interface RemoveBandwidthPackageResourcesRequest {
     /**
-     * 带宽包唯一标识ID，形如'bwp-xxxx'
-     */
+      * 带宽包唯一标识ID，形如'bwp-xxxx'
+      */
     BandwidthPackageId?: string;
     /**
-     * 资源类型，包括‘Address’, ‘LoadBalance’
-     */
+      * 资源类型，包括‘Address’, ‘LoadBalance’
+      */
     ResourceType?: string;
     /**
-     * 资源ID，可支持资源形如'eip-xxxx', 'lb-xxxx'
-     */
+      * 资源ID，可支持资源形如'eip-xxxx', 'lb-xxxx'
+      */
     ResourceIds?: Array<string>;
 }
 /**
@@ -7454,14 +7454,14 @@ export interface RemoveBandwidthPackageResourcesRequest {
  */
 export interface VpngwCcnRoutes {
     /**
-     * 路由信息ID
-     */
+      * 路由信息ID
+      */
     RouteId: string;
     /**
-        * 路由信息是否启用
-  ENABLE：启用该路由
-  DISABLE：不启用该路由
-        */
+      * 路由信息是否启用
+ENABLE：启用该路由
+DISABLE：不启用该路由
+      */
     Status?: string;
 }
 /**
@@ -7469,36 +7469,36 @@ export interface VpngwCcnRoutes {
  */
 export interface RouteTable {
     /**
-     * VPC实例ID。
-     */
+      * VPC实例ID。
+      */
     VpcId: string;
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 路由表名称。
-     */
+      * 路由表名称。
+      */
     RouteTableName: string;
     /**
-     * 路由表关联关系。
-     */
+      * 路由表关联关系。
+      */
     AssociationSet: Array<RouteTableAssociation>;
     /**
-     * IPv4路由策略集合。
-     */
+      * IPv4路由策略集合。
+      */
     RouteSet: Array<Route>;
     /**
-     * 是否默认路由表。
-     */
+      * 是否默认路由表。
+      */
     Main: boolean;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet: Array<Tag>;
 }
 /**
@@ -7506,8 +7506,8 @@ export interface RouteTable {
  */
 export interface DeleteNetworkInterfaceRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
 }
 /**
@@ -7515,12 +7515,12 @@ export interface DeleteNetworkInterfaceRequest {
  */
 export interface InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse {
     /**
-     * 商品价格。
-     */
+      * 商品价格。
+      */
     Price?: Price;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7528,8 +7528,8 @@ export interface InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse {
  */
 export interface DeleteAddressTemplateGroupResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7537,8 +7537,8 @@ export interface DeleteAddressTemplateGroupResponse {
  */
 export interface ReplaceRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7546,16 +7546,16 @@ export interface ReplaceRoutesResponse {
  */
 export interface DirectConnectGatewayCcnRoute {
     /**
-     * 路由ID。
-     */
+      * 路由ID。
+      */
     RouteId: string;
     /**
-     * IDC网段。
-     */
+      * IDC网段。
+      */
     DestinationCidrBlock: string;
     /**
-     * `BGP`的`AS-Path`属性。
-     */
+      * `BGP`的`AS-Path`属性。
+      */
     ASPath: Array<string>;
 }
 /**
@@ -7563,8 +7563,8 @@ export interface DirectConnectGatewayCcnRoute {
  */
 export interface EnableRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7572,20 +7572,20 @@ export interface EnableRoutesResponse {
  */
 export interface CustomerGateway {
     /**
-     * 用户网关唯一ID
-     */
+      * 用户网关唯一ID
+      */
     CustomerGatewayId: string;
     /**
-     * 网关名称
-     */
+      * 网关名称
+      */
     CustomerGatewayName: string;
     /**
-     * 公网地址
-     */
+      * 公网地址
+      */
     IpAddress: string;
     /**
-     * 创建时间
-     */
+      * 创建时间
+      */
     CreatedTime: string;
 }
 /**
@@ -7593,18 +7593,18 @@ export interface CustomerGateway {
  */
 export interface DescribeServiceTemplatesRequest {
     /**
-        * 过滤条件。
-  <li>service-template-name - String - （过滤条件）协议端口模板名称。</li>
-  <li>service-template-id - String - （过滤条件）协议端口模板实例ID，例如：ppm-e6dy460g。</li>
-        */
+      * 过滤条件。
+<li>service-template-name - String - （过滤条件）协议端口模板名称。</li>
+<li>service-template-id - String - （过滤条件）协议端口模板实例ID，例如：ppm-e6dy460g。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -7612,8 +7612,8 @@ export interface DescribeServiceTemplatesRequest {
  */
 export interface DeleteRouteTableRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
 }
 /**
@@ -7621,36 +7621,36 @@ export interface DeleteRouteTableRequest {
  */
 export interface CreateVpnGatewayRequest {
     /**
-     * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     */
+      * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+      */
     VpcId: string;
     /**
-     * VPN网关名称，最大长度不能超过60个字节。
-     */
+      * VPN网关名称，最大长度不能超过60个字节。
+      */
     VpnGatewayName: string;
     /**
-     * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps
-     */
+      * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * VPN网关计费模式，PREPAID：表示预付费，即包年包月，POSTPAID_BY_HOUR：表示后付费，即按量计费。默认：POSTPAID_BY_HOUR，如果指定预付费模式，参数InstanceChargePrepaid必填。
-     */
+      * VPN网关计费模式，PREPAID：表示预付费，即包年包月，POSTPAID_BY_HOUR：表示后付费，即按量计费。默认：POSTPAID_BY_HOUR，如果指定预付费模式，参数InstanceChargePrepaid必填。
+      */
     InstanceChargeType?: string;
     /**
-     * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
-     */
+      * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
+      */
     InstanceChargePrepaid?: InstanceChargePrepaid;
     /**
-     * 可用区，如：ap-guangzhou-2。
-     */
+      * 可用区，如：ap-guangzhou-2。
+      */
     Zone?: string;
     /**
-     * VPN网关类型。值“CCN”云联网类型VPN网关
-     */
+      * VPN网关类型。值“CCN”云联网类型VPN网关
+      */
     Type?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -7658,19 +7658,19 @@ export interface CreateVpnGatewayRequest {
  */
 export interface DescribeVpcInstancesRequest {
     /**
-        * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-  <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
-  <li>instance-id - String - （过滤条件）云主机实例ID。</li>
-  <li>instance-name - String - （过滤条件）云主机名称。</li>
-        */
+      * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
+<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+<li>instance-id - String - （过滤条件）云主机实例ID。</li>
+<li>instance-name - String - （过滤条件）云主机名称。</li>
+      */
     Filters: Array<Filter>;
     /**
-     * 偏移量。
-     */
+      * 偏移量。
+      */
     Offset?: number;
     /**
-     * 请求对象个数。
-     */
+      * 请求对象个数。
+      */
     Limit?: number;
 }
 /**
@@ -7678,8 +7678,8 @@ export interface DescribeVpcInstancesRequest {
  */
 export interface UnassignIpv6CidrBlockResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7687,16 +7687,16 @@ export interface UnassignIpv6CidrBlockResponse {
  */
 export interface CreateBandwidthPackageResponse {
     /**
-     * 带宽包唯一ID
-     */
+      * 带宽包唯一ID
+      */
     BandwidthPackageId?: string;
     /**
-     * 带宽包唯一ID列表(申请数量大于1时有效)
-     */
+      * 带宽包唯一ID列表(申请数量大于1时有效)
+      */
     BandwidthPackageIds?: Array<string>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7704,12 +7704,12 @@ export interface CreateBandwidthPackageResponse {
  */
 export interface ResetVpnConnectionRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * VPN通道实例ID。形如：vpnx-f49l6u0z。
-     */
+      * VPN通道实例ID。形如：vpnx-f49l6u0z。
+      */
     VpnConnectionId: string;
 }
 /**
@@ -7717,12 +7717,12 @@ export interface ResetVpnConnectionRequest {
  */
 export interface ReleaseAddressesResponse {
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7730,8 +7730,8 @@ export interface ReleaseAddressesResponse {
  */
 export interface AuditCrossBorderComplianceResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7739,12 +7739,12 @@ export interface AuditCrossBorderComplianceResponse {
  */
 export interface InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest {
     /**
-     * VPN网关实例ID。
-     */
+      * VPN网关实例ID。
+      */
     VpnGatewayId: string;
     /**
-     * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
-     */
+      * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+      */
     InternetMaxBandwidthOut: number;
 }
 /**
@@ -7752,8 +7752,8 @@ export interface InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest {
  */
 export interface ReplaceSecurityGroupPolicyResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7761,11 +7761,11 @@ export interface ReplaceSecurityGroupPolicyResponse {
  */
 export interface EnableGatewayFlowMonitorRequest {
     /**
-        * 网关实例ID，目前我们支持的网关实例有，
-  专线网关实例ID，形如，`dcg-ltjahce6`；
-  Nat网关实例ID，形如，`nat-ltjahce6`；
-  VPN网关实例ID，形如，`vpn-ltjahce6`。
-        */
+      * 网关实例ID，目前我们支持的网关实例有，
+专线网关实例ID，形如，`dcg-ltjahce6`；
+Nat网关实例ID，形如，`nat-ltjahce6`；
+VPN网关实例ID，形如，`vpn-ltjahce6`。
+      */
     GatewayId: string;
 }
 /**
@@ -7773,8 +7773,8 @@ export interface EnableGatewayFlowMonitorRequest {
  */
 export interface ModifyPrivateIpAddressesAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7782,8 +7782,8 @@ export interface ModifyPrivateIpAddressesAttributeResponse {
  */
 export interface ModifyHaVipAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7791,34 +7791,34 @@ export interface ModifyHaVipAttributeResponse {
  */
 export interface CcnBandwidthInfo {
     /**
-        * 带宽所属的云联网ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 带宽所属的云联网ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CcnId: string;
     /**
-        * 实例的创建时间。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 实例的创建时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CreatedTime: string;
     /**
-        * 实例的过期时间
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 实例的过期时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ExpiredTime: string;
     /**
-        * 带宽实例的唯一ID。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 带宽实例的唯一ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     RegionFlowControlId: string;
     /**
-        * 带宽是否自动续费的标记。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 带宽是否自动续费的标记。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     RenewFlag: string;
     /**
-        * 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CcnRegionBandwidthLimit: CcnRegionBandwidthLimit;
 }
 /**
@@ -7826,8 +7826,8 @@ export interface CcnBandwidthInfo {
  */
 export interface DeleteSecurityGroupResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7835,12 +7835,12 @@ export interface DeleteSecurityGroupResponse {
  */
 export interface CreateNetworkInterfaceResponse {
     /**
-     * 弹性网卡实例。
-     */
+      * 弹性网卡实例。
+      */
     NetworkInterface?: NetworkInterface;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7852,8 +7852,8 @@ export declare type DescribeAddressQuotaRequest = null;
  */
 export interface RemoveBandwidthPackageResourcesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7861,12 +7861,12 @@ export interface RemoveBandwidthPackageResourcesResponse {
  */
 export interface AssignIpv6AddressesResponse {
     /**
-     * 分配给弹性网卡的`IPv6`地址列表。
-     */
+      * 分配给弹性网卡的`IPv6`地址列表。
+      */
     Ipv6AddressSet?: Array<Ipv6Address>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7874,16 +7874,16 @@ export interface AssignIpv6AddressesResponse {
  */
 export interface CreateRoutesResponse {
     /**
-     * 新增的实例个数。
-     */
+      * 新增的实例个数。
+      */
     TotalCount?: number;
     /**
-     * 路由表对象。
-     */
+      * 路由表对象。
+      */
     RouteTableSet?: Array<RouteTable>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7891,16 +7891,16 @@ export interface CreateRoutesResponse {
  */
 export interface DescribeSecurityGroupsResponse {
     /**
-     * 安全组对象。
-     */
+      * 安全组对象。
+      */
     SecurityGroupSet?: Array<SecurityGroup>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7908,12 +7908,12 @@ export interface DescribeSecurityGroupsResponse {
  */
 export interface ModifyVpnGatewayCcnRoutesRequest {
     /**
-     * VPN网关实例ID
-     */
+      * VPN网关实例ID
+      */
     VpnGatewayId: string;
     /**
-     * 云联网路由（IDC网段）列表
-     */
+      * 云联网路由（IDC网段）列表
+      */
     Routes: Array<VpngwCcnRoutes>;
 }
 /**
@@ -7921,23 +7921,23 @@ export interface ModifyVpnGatewayCcnRoutesRequest {
  */
 export interface DescribeGatewayFlowQosRequest {
     /**
-        * 网关实例ID，目前我们支持的网关实例类型有，
-  专线网关实例ID，形如，`dcg-ltjahce6`；
-  Nat网关实例ID，形如，`nat-ltjahce6`；
-  VPN网关实例ID，形如，`vpn-ltjahce6`。
-        */
+      * 网关实例ID，目前我们支持的网关实例类型有，
+专线网关实例ID，形如，`dcg-ltjahce6`；
+Nat网关实例ID，形如，`nat-ltjahce6`；
+VPN网关实例ID，形如，`vpn-ltjahce6`。
+      */
     GatewayId: string;
     /**
-     * 限流的云服务器内网IP。
-     */
+      * 限流的云服务器内网IP。
+      */
     IpAddresses?: Array<string>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: number;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: number;
 }
 /**
@@ -7945,16 +7945,16 @@ export interface DescribeGatewayFlowQosRequest {
  */
 export interface MigratePrivateIpAddressRequest {
     /**
-     * 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     SourceNetworkInterfaceId: string;
     /**
-     * 待迁移的目的弹性网卡实例ID。
-     */
+      * 待迁移的目的弹性网卡实例ID。
+      */
     DestinationNetworkInterfaceId: string;
     /**
-     * 迁移的内网IP地址，例如：10.0.0.6。
-     */
+      * 迁移的内网IP地址，例如：10.0.0.6。
+      */
     PrivateIpAddress: string;
 }
 /**
@@ -7962,8 +7962,8 @@ export interface MigratePrivateIpAddressRequest {
  */
 export interface ModifySecurityGroupPoliciesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -7971,16 +7971,16 @@ export interface ModifySecurityGroupPoliciesResponse {
  */
 export interface ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest {
     /**
-     * NAT网关的ID，形如：`nat-df45454`。
-     */
+      * NAT网关的ID，形如：`nat-df45454`。
+      */
     NatGatewayId: string;
     /**
-     * 源NAT网关的端口转换规则。
-     */
+      * 源NAT网关的端口转换规则。
+      */
     SourceNatRule: DestinationIpPortTranslationNatRule;
     /**
-     * 目的NAT网关的端口转换规则。
-     */
+      * 目的NAT网关的端口转换规则。
+      */
     DestinationNatRule: DestinationIpPortTranslationNatRule;
 }
 /**
@@ -7988,12 +7988,12 @@ export interface ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest {
  */
 export interface ServiceTemplateSpecification {
     /**
-     * 协议端口ID，例如：ppm-f5n1f8da。
-     */
+      * 协议端口ID，例如：ppm-f5n1f8da。
+      */
     ServiceId: string;
     /**
-     * 协议端口组ID，例如：ppmg-f5n1f8da。
-     */
+      * 协议端口组ID，例如：ppmg-f5n1f8da。
+      */
     ServiceGroupId: string;
 }
 /**
@@ -8001,12 +8001,12 @@ export interface ServiceTemplateSpecification {
  */
 export interface DetachNetworkInterfaceRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * CVM实例ID。形如：ins-r8hr2upy。
-     */
+      * CVM实例ID。形如：ins-r8hr2upy。
+      */
     InstanceId: string;
 }
 /**
@@ -8014,40 +8014,40 @@ export interface DetachNetworkInterfaceRequest {
  */
 export interface Ip6Rule {
     /**
-     * IPV6转换规则唯一ID，形如rule6-xxxxxxxx
-     */
+      * IPV6转换规则唯一ID，形如rule6-xxxxxxxx
+      */
     Ip6RuleId: string;
     /**
-     * IPV6转换规则名称
-     */
+      * IPV6转换规则名称
+      */
     Ip6RuleName: string;
     /**
-     * IPV6地址
-     */
+      * IPV6地址
+      */
     Vip6: string;
     /**
-     * IPV6端口号
-     */
+      * IPV6端口号
+      */
     Vport6: number;
     /**
-     * 协议类型，支持TCP/UDP
-     */
+      * 协议类型，支持TCP/UDP
+      */
     Protocol: string;
     /**
-     * IPV4地址
-     */
+      * IPV4地址
+      */
     Vip: string;
     /**
-     * IPV4端口号
-     */
+      * IPV4端口号
+      */
     Vport: number;
     /**
-     * 转换规则状态，限于CREATING,RUNNING,DELETING,MODIFYING
-     */
+      * 转换规则状态，限于CREATING,RUNNING,DELETING,MODIFYING
+      */
     RuleStatus: string;
     /**
-     * 转换规则创建时间
-     */
+      * 转换规则创建时间
+      */
     CreatedTime: string;
 }
 /**
@@ -8055,8 +8055,8 @@ export interface Ip6Rule {
  */
 export interface AttachClassicLinkVpcResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8064,12 +8064,12 @@ export interface AttachClassicLinkVpcResponse {
  */
 export interface CreateAddressTemplateRequest {
     /**
-     * IP地址模版名称
-     */
+      * IP地址模版名称
+      */
     AddressTemplateName: string;
     /**
-     * 地址信息，支持 IP、CIDR、IP 范围。
-     */
+      * 地址信息，支持 IP、CIDR、IP 范围。
+      */
     Addresses: Array<string>;
 }
 /**
@@ -8077,12 +8077,12 @@ export interface CreateAddressTemplateRequest {
  */
 export interface DescribeRouteConflictsRequest {
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId: string;
     /**
-     * 要检查的与之冲突的目的端列表
-     */
+      * 要检查的与之冲突的目的端列表
+      */
     DestinationCidrBlocks: Array<string>;
 }
 /**
@@ -8090,64 +8090,64 @@ export interface DescribeRouteConflictsRequest {
  */
 export interface Subnet {
     /**
-     * `VPC`实例`ID`。
-     */
+      * `VPC`实例`ID`。
+      */
     VpcId: string;
     /**
-     * 子网实例`ID`，例如：subnet-bthucmmy。
-     */
+      * 子网实例`ID`，例如：subnet-bthucmmy。
+      */
     SubnetId: string;
     /**
-     * 子网名称。
-     */
+      * 子网名称。
+      */
     SubnetName: string;
     /**
-     * 子网的 `IPv4` `CIDR`。
-     */
+      * 子网的 `IPv4` `CIDR`。
+      */
     CidrBlock: string;
     /**
-     * 是否默认子网。
-     */
+      * 是否默认子网。
+      */
     IsDefault: boolean;
     /**
-     * 是否开启广播。
-     */
+      * 是否开启广播。
+      */
     EnableBroadcast: boolean;
     /**
-     * 可用区。
-     */
+      * 可用区。
+      */
     Zone: string;
     /**
-     * 路由表实例ID，例如：rtb-l2h8d7c2。
-     */
+      * 路由表实例ID，例如：rtb-l2h8d7c2。
+      */
     RouteTableId: string;
     /**
-     * 创建时间。
-     */
+      * 创建时间。
+      */
     CreatedTime?: string;
     /**
-     * 可用`IPv4`数。
-     */
+      * 可用`IPv4`数。
+      */
     AvailableIpAddressCount: number;
     /**
-     * 子网的 `IPv6` `CIDR`。
-     */
+      * 子网的 `IPv6` `CIDR`。
+      */
     Ipv6CidrBlock: string;
     /**
-     * 关联`ACL`ID
-     */
+      * 关联`ACL`ID
+      */
     NetworkAclId: string;
     /**
-     * 是否为 `SNAT` 地址池子网。
-     */
+      * 是否为 `SNAT` 地址池子网。
+      */
     IsRemoteVpcSnat: boolean;
     /**
-     * 子网`IPv4`总数。
-     */
+      * 子网`IPv4`总数。
+      */
     TotalIpAddressCount: number;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet: Array<Tag>;
 }
 /**
@@ -8155,12 +8155,12 @@ export interface Subnet {
  */
 export interface AttachNetworkInterfaceRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * CVM实例ID。形如：ins-r8hr2upy。
-     */
+      * CVM实例ID。形如：ins-r8hr2upy。
+      */
     InstanceId: string;
 }
 /**
@@ -8168,16 +8168,16 @@ export interface AttachNetworkInterfaceRequest {
  */
 export interface DescribeCcnRoutesResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * CCN路由策略对象。
-     */
+      * CCN路由策略对象。
+      */
     RouteSet?: Array<CcnRoute>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8185,16 +8185,16 @@ export interface DescribeCcnRoutesResponse {
  */
 export interface AllocateIp6AddressesBandwidthRequest {
     /**
-     * 需要开通公网访问能力的IPV6地址
-     */
+      * 需要开通公网访问能力的IPV6地址
+      */
     Ip6Addresses: Array<string>;
     /**
-     * 带宽，单位Mbps。默认是1Mbps
-     */
+      * 带宽，单位Mbps。默认是1Mbps
+      */
     InternetMaxBandwidthOut?: number;
     /**
-     * 网络计费模式。IPV6当前对带宽上移账户支持"TRAFFIC_POSTPAID_BY_HOUR"，对带宽非上移支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
-     */
+      * 网络计费模式。IPV6当前对带宽上移账户支持"TRAFFIC_POSTPAID_BY_HOUR"，对带宽非上移支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
+      */
     InternetChargeType?: string;
 }
 /**
@@ -8202,32 +8202,32 @@ export interface AllocateIp6AddressesBandwidthRequest {
  */
 export interface SecurityGroup {
     /**
-     * 安全组实例ID，例如：sg-ohuuioma。
-     */
+      * 安全组实例ID，例如：sg-ohuuioma。
+      */
     SecurityGroupId: string;
     /**
-     * 安全组名称，可任意命名，但不得超过60个字符。
-     */
+      * 安全组名称，可任意命名，但不得超过60个字符。
+      */
     SecurityGroupName: string;
     /**
-     * 安全组备注，最多100个字符。
-     */
+      * 安全组备注，最多100个字符。
+      */
     SecurityGroupDesc: string;
     /**
-     * 项目id，默认0。可在qcloud控制台项目管理页面查询到。
-     */
+      * 项目id，默认0。可在qcloud控制台项目管理页面查询到。
+      */
     ProjectId?: string;
     /**
-     * 是否是默认安全组，默认安全组不支持删除。
-     */
+      * 是否是默认安全组，默认安全组不支持删除。
+      */
     IsDefault?: boolean;
     /**
-     * 安全组创建时间。
-     */
+      * 安全组创建时间。
+      */
     CreatedTime?: string;
     /**
-     * 标签键值对。
-     */
+      * 标签键值对。
+      */
     TagSet?: Array<Tag>;
 }
 /**
@@ -8235,8 +8235,8 @@ export interface SecurityGroup {
  */
 export interface DisableGatewayFlowMonitorResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8244,12 +8244,12 @@ export interface DisableGatewayFlowMonitorResponse {
  */
 export interface DisassociateAddressResponse {
     /**
-     * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     */
+      * 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+      */
     TaskId?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8257,16 +8257,16 @@ export interface DisassociateAddressResponse {
  */
 export interface DescribeGatewayFlowQosResponse {
     /**
-     * 实例详细信息列表。
-     */
+      * 实例详细信息列表。
+      */
     GatewayQosSet?: Array<GatewayQos>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8274,12 +8274,12 @@ export interface DescribeGatewayFlowQosResponse {
  */
 export interface DeleteRoutesRequest {
     /**
-     * 路由表实例ID。
-     */
+      * 路由表实例ID。
+      */
     RouteTableId: string;
     /**
-     * 路由策略对象。
-     */
+      * 路由策略对象。
+      */
     Routes: Array<Route>;
 }
 /**
@@ -8287,20 +8287,20 @@ export interface DeleteRoutesRequest {
  */
 export interface AssociateAddressRequest {
     /**
-     * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
-     */
+      * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+      */
     AddressId: string;
     /**
-     * 要绑定的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
-     */
+      * 要绑定的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
+      */
     InstanceId?: string;
     /**
-     * 要绑定的弹性网卡 ID。 弹性网卡 ID 形如：`eni-11112222`。`NetworkInterfaceId` 与 `InstanceId` 不可同时指定。弹性网卡 ID 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/15817)接口返回值中的`networkInterfaceId`获取。
-     */
+      * 要绑定的弹性网卡 ID。 弹性网卡 ID 形如：`eni-11112222`。`NetworkInterfaceId` 与 `InstanceId` 不可同时指定。弹性网卡 ID 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/15817)接口返回值中的`networkInterfaceId`获取。
+      */
     NetworkInterfaceId?: string;
     /**
-     * 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。指定弹性网卡的内网 IP 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/15817)接口返回值中的`privateIpAddress`获取。
-     */
+      * 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。指定弹性网卡的内网 IP 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/15817)接口返回值中的`privateIpAddress`获取。
+      */
     PrivateIpAddress?: string;
 }
 /**
@@ -8308,25 +8308,25 @@ export interface AssociateAddressRequest {
  */
 export interface CcnRegionBandwidthLimit {
     /**
-     * 地域，例如：ap-guangzhou
-     */
+      * 地域，例如：ap-guangzhou
+      */
     Region: string;
     /**
-     * 出带宽上限，单位：Mbps
-     */
+      * 出带宽上限，单位：Mbps
+      */
     BandwidthLimit: number;
     /**
-     * 是否黑石地域，默认`false`。
-     */
+      * 是否黑石地域，默认`false`。
+      */
     IsBm?: boolean;
     /**
-        * 目的地域，例如：ap-shanghai
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 目的地域，例如：ap-shanghai
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DstRegion?: string;
     /**
-     * 目的地域是否为黑石地域，默认`false`。
-     */
+      * 目的地域是否为黑石地域，默认`false`。
+      */
     DstIsBm?: boolean;
 }
 /**
@@ -8334,12 +8334,12 @@ export interface CcnRegionBandwidthLimit {
  */
 export interface CreateDefaultSecurityGroupResponse {
     /**
-     * 安全组对象。
-     */
+      * 安全组对象。
+      */
     SecurityGroup?: SecurityGroup;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8347,12 +8347,12 @@ export interface CreateDefaultSecurityGroupResponse {
  */
 export interface ClassicLinkInstance {
     /**
-     * VPC实例ID
-     */
+      * VPC实例ID
+      */
     VpcId: string;
     /**
-     * 云服务器实例唯一ID
-     */
+      * 云服务器实例唯一ID
+      */
     InstanceId: string;
 }
 /**
@@ -8360,20 +8360,20 @@ export interface ClassicLinkInstance {
  */
 export interface NetworkInterfaceAttachment {
     /**
-     * 云主机实例ID。
-     */
+      * 云主机实例ID。
+      */
     InstanceId: string;
     /**
-     * 网卡在云主机实例内的序号。
-     */
+      * 网卡在云主机实例内的序号。
+      */
     DeviceIndex: number;
     /**
-     * 云主机所有者账户信息。
-     */
+      * 云主机所有者账户信息。
+      */
     InstanceAccountId: string;
     /**
-     * 绑定时间。
-     */
+      * 绑定时间。
+      */
     AttachTime: string;
 }
 /**
@@ -8381,20 +8381,20 @@ export interface NetworkInterfaceAttachment {
  */
 export interface ModifyNetworkInterfaceAttributeRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-pxir56ns。
-     */
+      * 弹性网卡实例ID，例如：eni-pxir56ns。
+      */
     NetworkInterfaceId: string;
     /**
-     * 弹性网卡名称，最大长度不能超过60个字节。
-     */
+      * 弹性网卡名称，最大长度不能超过60个字节。
+      */
     NetworkInterfaceName?: string;
     /**
-     * 弹性网卡描述，可任意命名，但不得超过60个字符。
-     */
+      * 弹性网卡描述，可任意命名，但不得超过60个字符。
+      */
     NetworkInterfaceDescription?: string;
     /**
-     * 指定绑定的安全组，例如:['sg-1dd51d']。
-     */
+      * 指定绑定的安全组，例如:['sg-1dd51d']。
+      */
     SecurityGroupIds?: Array<string>;
 }
 /**
@@ -8402,12 +8402,12 @@ export interface ModifyNetworkInterfaceAttributeRequest {
  */
 export interface ModifyHaVipAttributeRequest {
     /**
-     * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
-     */
+      * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+      */
     HaVipId: string;
     /**
-     * `HAVIP`名称，可任意命名，但不得超过60个字符。
-     */
+      * `HAVIP`名称，可任意命名，但不得超过60个字符。
+      */
     HaVipName: string;
 }
 /**
@@ -8415,8 +8415,8 @@ export interface ModifyHaVipAttributeRequest {
  */
 export interface ModifyAddressTemplateGroupAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8424,12 +8424,12 @@ export interface ModifyAddressTemplateGroupAttributeResponse {
  */
 export interface VpcLimit {
     /**
-     * 私有网络配额描述
-     */
+      * 私有网络配额描述
+      */
     LimitType: string;
     /**
-     * 私有网络配额值
-     */
+      * 私有网络配额值
+      */
     LimitValue: number;
 }
 /**
@@ -8437,8 +8437,8 @@ export interface VpcLimit {
  */
 export interface DetachClassicLinkVpcResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8446,8 +8446,8 @@ export interface DetachClassicLinkVpcResponse {
  */
 export interface MigrateNetworkInterfaceResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8455,12 +8455,12 @@ export interface MigrateNetworkInterfaceResponse {
  */
 export interface UnassignPrivateIpAddressesRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的内网IP信息，单次最多指定10个。
-     */
+      * 指定的内网IP信息，单次最多指定10个。
+      */
     PrivateIpAddresses: Array<PrivateIpAddressSpecification>;
 }
 /**
@@ -8468,12 +8468,12 @@ export interface UnassignPrivateIpAddressesRequest {
  */
 export interface Filter {
     /**
-     * 属性名称, 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
-     */
+      * 属性名称, 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
+      */
     Name: string;
     /**
-     * 属性值, 若同一个Filter存在多个Values，同一Filter下Values间的关系为逻辑或（OR）关系。
-     */
+      * 属性值, 若同一个Filter存在多个Values，同一Filter下Values间的关系为逻辑或（OR）关系。
+      */
     Values: Array<string>;
 }
 /**
@@ -8481,8 +8481,8 @@ export interface Filter {
  */
 export interface ModifyNetDetectResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8490,20 +8490,20 @@ export interface ModifyNetDetectResponse {
  */
 export interface CreateHaVipRequest {
     /**
-     * `HAVIP`所在私有网络`ID`。
-     */
+      * `HAVIP`所在私有网络`ID`。
+      */
     VpcId: string;
     /**
-     * `HAVIP`所在子网`ID`。
-     */
+      * `HAVIP`所在子网`ID`。
+      */
     SubnetId: string;
     /**
-     * `HAVIP`名称。
-     */
+      * `HAVIP`名称。
+      */
     HaVipName: string;
     /**
-     * 指定虚拟IP地址，必须在`VPC`网段内且未被占用。不指定则自动分配。
-     */
+      * 指定虚拟IP地址，必须在`VPC`网段内且未被占用。不指定则自动分配。
+      */
     Vip?: string;
 }
 /**
@@ -8511,12 +8511,12 @@ export interface CreateHaVipRequest {
  */
 export interface Ipv6SubnetCidrBlock {
     /**
-     * 子网实例`ID`。形如：`subnet-pxir56ns`。
-     */
+      * 子网实例`ID`。形如：`subnet-pxir56ns`。
+      */
     SubnetId: string;
     /**
-     * `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
-     */
+      * `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+      */
     Ipv6CidrBlock?: string;
 }
 /**
@@ -8524,12 +8524,12 @@ export interface Ipv6SubnetCidrBlock {
  */
 export interface DescribeAddressQuotaResponse {
     /**
-     * 账户 EIP 配额信息。
-     */
+      * 账户 EIP 配额信息。
+      */
     QuotaSet?: Array<Quota>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8537,16 +8537,16 @@ export interface DescribeAddressQuotaResponse {
  */
 export interface CreateCustomerGatewayRequest {
     /**
-     * 对端网关名称，可任意命名，但不得超过60个字符。
-     */
+      * 对端网关名称，可任意命名，但不得超过60个字符。
+      */
     CustomerGatewayName: string;
     /**
-     * 对端网关公网IP。
-     */
+      * 对端网关公网IP。
+      */
     IpAddress: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -8554,8 +8554,8 @@ export interface CreateCustomerGatewayRequest {
  */
 export interface DeleteSecurityGroupRequest {
     /**
-     * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全组实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupId: string;
 }
 /**
@@ -8563,16 +8563,16 @@ export interface DeleteSecurityGroupRequest {
  */
 export interface DescribeDhcpIpsResponse {
     /**
-     * 实例详细信息列表。
-     */
+      * 实例详细信息列表。
+      */
     DhcpIpSet?: Array<DhcpIp>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8580,12 +8580,12 @@ export interface DescribeDhcpIpsResponse {
  */
 export interface CreateRouteTableResponse {
     /**
-     * 路由表对象。
-     */
+      * 路由表对象。
+      */
     RouteTable?: RouteTable;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8593,8 +8593,8 @@ export interface CreateRouteTableResponse {
  */
 export interface DeleteDirectConnectGatewayRequest {
     /**
-     * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
-     */
+      * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
+      */
     DirectConnectGatewayId: string;
 }
 /**
@@ -8602,16 +8602,16 @@ export interface DeleteDirectConnectGatewayRequest {
  */
 export interface DescribeDirectConnectGatewayCcnRoutesResponse {
     /**
-     * 符合条件的对象数。
-     */
+      * 符合条件的对象数。
+      */
     TotalCount?: number;
     /**
-     * 云联网路由（IDC网段）列表。
-     */
+      * 云联网路由（IDC网段）列表。
+      */
     RouteSet?: Array<DirectConnectGatewayCcnRoute>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8619,12 +8619,12 @@ export interface DescribeDirectConnectGatewayCcnRoutesResponse {
  */
 export interface ModifyPrivateIpAddressesAttributeRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的内网IP信息。
-     */
+      * 指定的内网IP信息。
+      */
     PrivateIpAddresses: Array<PrivateIpAddressSpecification>;
 }
 /**
@@ -8632,8 +8632,8 @@ export interface ModifyPrivateIpAddressesAttributeRequest {
  */
 export interface ResetNatGatewayConnectionResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8641,12 +8641,12 @@ export interface ResetNatGatewayConnectionResponse {
  */
 export interface AssociateNetworkInterfaceSecurityGroupsRequest {
     /**
-     * 弹性网卡实例ID。形如：eni-pxir56ns。每次请求的实例的上限为100。
-     */
+      * 弹性网卡实例ID。形如：eni-pxir56ns。每次请求的实例的上限为100。
+      */
     NetworkInterfaceIds: Array<string>;
     /**
-     * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。
-     */
+      * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。每次请求的实例的上限为100。
+      */
     SecurityGroupIds: Array<string>;
 }
 /**
@@ -8654,20 +8654,20 @@ export interface AssociateNetworkInterfaceSecurityGroupsRequest {
  */
 export interface CreateSecurityGroupRequest {
     /**
-     * 安全组名称，可任意命名，但不得超过60个字符。
-     */
+      * 安全组名称，可任意命名，但不得超过60个字符。
+      */
     GroupName: string;
     /**
-     * 安全组备注，最多100个字符。
-     */
+      * 安全组备注，最多100个字符。
+      */
     GroupDescription: string;
     /**
-     * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-     */
+      * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+      */
     ProjectId?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -8675,8 +8675,8 @@ export interface CreateSecurityGroupRequest {
  */
 export interface ModifyCcnAttributeResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8688,18 +8688,18 @@ export declare type DescribeSecurityGroupLimitsRequest = null;
  */
 export interface DescribeClassicLinkInstancesRequest {
     /**
-        * 过滤条件。
-  <li>vpc-id - String - （过滤条件）VPC实例ID。</li>
-  <li>vm-ip - String - （过滤条件）基础网络云服务器IP。</li>
-        */
+      * 过滤条件。
+<li>vpc-id - String - （过滤条件）VPC实例ID。</li>
+<li>vm-ip - String - （过滤条件）基础网络云服务器IP。</li>
+      */
     Filters?: Array<FilterObject>;
     /**
-     * 偏移量
-     */
+      * 偏移量
+      */
     Offset?: string;
     /**
-     * 返回数量
-     */
+      * 返回数量
+      */
     Limit?: string;
 }
 /**
@@ -8707,12 +8707,12 @@ export interface DescribeClassicLinkInstancesRequest {
  */
 export interface CreateServiceTemplateResponse {
     /**
-     * 协议端口模板对象。
-     */
+      * 协议端口模板对象。
+      */
     ServiceTemplate?: ServiceTemplate;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8720,8 +8720,8 @@ export interface CreateServiceTemplateResponse {
  */
 export interface DeleteNetworkInterfaceResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8729,8 +8729,8 @@ export interface DeleteNetworkInterfaceResponse {
  */
 export interface DisableCcnRoutesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8738,8 +8738,8 @@ export interface DisableCcnRoutesResponse {
  */
 export interface DescribeCcnRegionBandwidthLimitsRequest {
     /**
-     * CCN实例ID。形如：ccn-f49l6u0z。
-     */
+      * CCN实例ID。形如：ccn-f49l6u0z。
+      */
     CcnId: string;
 }
 /**
@@ -8747,16 +8747,16 @@ export interface DescribeCcnRegionBandwidthLimitsRequest {
  */
 export interface InquiryPriceCreateVpnGatewayRequest {
     /**
-     * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
-     */
+      * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+      */
     InternetMaxBandwidthOut: number;
     /**
-     * VPN网关计费模式，PREPAID：表示预付费，即包年包月，POSTPAID_BY_HOUR：表示后付费，即按量计费。默认：POSTPAID_BY_HOUR，如果指定预付费模式，参数InstanceChargePrepaid必填。
-     */
+      * VPN网关计费模式，PREPAID：表示预付费，即包年包月，POSTPAID_BY_HOUR：表示后付费，即按量计费。默认：POSTPAID_BY_HOUR，如果指定预付费模式，参数InstanceChargePrepaid必填。
+      */
     InstanceChargeType?: string;
     /**
-     * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
-     */
+      * 预付费模式，即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
+      */
     InstanceChargePrepaid?: InstanceChargePrepaid;
 }
 /**
@@ -8764,13 +8764,13 @@ export interface InquiryPriceCreateVpnGatewayRequest {
  */
 export interface CreateAssistantCidrResponse {
     /**
-        * 辅助CIDR数组。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 辅助CIDR数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AssistantCidrSet?: Array<AssistantCidr>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8778,16 +8778,16 @@ export interface CreateAssistantCidrResponse {
  */
 export interface CustomerGatewayVendor {
     /**
-     * 平台。
-     */
+      * 平台。
+      */
     Platform: string;
     /**
-     * 软件版本。
-     */
+      * 软件版本。
+      */
     SoftwareVersion: string;
     /**
-     * 供应商名称。
-     */
+      * 供应商名称。
+      */
     VendorName: string;
 }
 /**
@@ -8795,18 +8795,18 @@ export interface CustomerGatewayVendor {
  */
 export interface DescribeAddressTemplatesRequest {
     /**
-        * 过滤条件。
-  <li>address-template-name - String - （过滤条件）IP地址模板名称。</li>
-  <li>address-template-id - String - （过滤条件）IP地址模板实例ID，例如：ipm-mdunqeb6。</li>
-        */
+      * 过滤条件。
+<li>address-template-name - String - （过滤条件）IP地址模板名称。</li>
+<li>address-template-id - String - （过滤条件）IP地址模板实例ID，例如：ipm-mdunqeb6。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -8814,16 +8814,16 @@ export interface DescribeAddressTemplatesRequest {
  */
 export interface ConflictSource {
     /**
-     * 冲突资源ID
-     */
+      * 冲突资源ID
+      */
     ConflictSourceId: string;
     /**
-     * 冲突资源
-     */
+      * 冲突资源
+      */
     SourceItem: string;
     /**
-     * 冲突资源条目信息
-     */
+      * 冲突资源条目信息
+      */
     ConflictItemSet: Array<ConflictItem>;
 }
 /**
@@ -8831,20 +8831,20 @@ export interface ConflictSource {
  */
 export interface CreateDhcpIpRequest {
     /**
-     * 私有网络`ID`。
-     */
+      * 私有网络`ID`。
+      */
     VpcId: string;
     /**
-     * 子网`ID`。
-     */
+      * 子网`ID`。
+      */
     SubnetId: string;
     /**
-     * `DhcpIp`名称。
-     */
+      * `DhcpIp`名称。
+      */
     DhcpIpName: string;
     /**
-     * 新申请的内网IP地址个数。总数不能超过64个。
-     */
+      * 新申请的内网IP地址个数。总数不能超过64个。
+      */
     SecondaryPrivateIpAddressCount?: number;
 }
 /**
@@ -8852,16 +8852,16 @@ export interface CreateDhcpIpRequest {
  */
 export interface DescribeVpnConnectionsResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * VPN通道实例。
-     */
+      * VPN通道实例。
+      */
     VpnConnectionSet?: Array<VpnConnection>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8869,8 +8869,8 @@ export interface DescribeVpnConnectionsResponse {
  */
 export interface DeleteCustomerGatewayRequest {
     /**
-     * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
-     */
+      * 对端网关ID，例如：cgw-2wqq41m9，可通过DescribeCustomerGateways接口查询对端网关。
+      */
     CustomerGatewayId: string;
 }
 /**
@@ -8878,16 +8878,16 @@ export interface DeleteCustomerGatewayRequest {
  */
 export interface DescribeAddressTemplatesResponse {
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * IP地址模版。
-     */
+      * IP地址模版。
+      */
     AddressTemplateSet?: Array<AddressTemplate>;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8895,16 +8895,16 @@ export interface DescribeAddressTemplatesResponse {
  */
 export interface Quota {
     /**
-     * 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
-     */
+      * 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
+      */
     QuotaId?: string;
     /**
-     * 当前数量
-     */
+      * 当前数量
+      */
     QuotaCurrent?: number;
     /**
-     * 配额数量
-     */
+      * 配额数量
+      */
     QuotaLimit?: number;
 }
 /**
@@ -8912,16 +8912,16 @@ export interface Quota {
  */
 export interface DescribeNetworkInterfacesResponse {
     /**
-     * 实例详细信息列表。
-     */
+      * 实例详细信息列表。
+      */
     NetworkInterfaceSet?: Array<NetworkInterface>;
     /**
-     * 符合条件的实例数量。
-     */
+      * 符合条件的实例数量。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8929,8 +8929,8 @@ export interface DescribeNetworkInterfacesResponse {
  */
 export interface DeleteNetworkAclResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -8938,16 +8938,16 @@ export interface DeleteNetworkAclResponse {
  */
 export interface AssignPrivateIpAddressesRequest {
     /**
-     * 弹性网卡实例ID，例如：eni-m6dyj72l。
-     */
+      * 弹性网卡实例ID，例如：eni-m6dyj72l。
+      */
     NetworkInterfaceId: string;
     /**
-     * 指定的内网IP信息，单次最多指定10个。与SecondaryPrivateIpAddressCount至少提供一个。
-     */
+      * 指定的内网IP信息，单次最多指定10个。与SecondaryPrivateIpAddressCount至少提供一个。
+      */
     PrivateIpAddresses?: Array<PrivateIpAddressSpecification>;
     /**
-     * 新申请的内网IP地址个数，与PrivateIpAddresses至少提供一个。内网IP地址个数总和不能超过配额数，详见<a href="/document/product/576/18527">弹性网卡使用限制</a>。
-     */
+      * 新申请的内网IP地址个数，与PrivateIpAddresses至少提供一个。内网IP地址个数总和不能超过配额数，详见<a href="/document/product/576/18527">弹性网卡使用限制</a>。
+      */
     SecondaryPrivateIpAddressCount?: number;
 }
 /**
@@ -8955,18 +8955,18 @@ export interface AssignPrivateIpAddressesRequest {
  */
 export interface DescribeServiceTemplateGroupsRequest {
     /**
-        * 过滤条件。
-  <li>service-template-group-name - String - （过滤条件）协议端口模板集合名称。</li>
-  <li>service-template-group-id - String - （过滤条件）协议端口模板集合实例ID，例如：ppmg-e6dy460g。</li>
-        */
+      * 过滤条件。
+<li>service-template-group-name - String - （过滤条件）协议端口模板集合名称。</li>
+<li>service-template-group-id - String - （过滤条件）协议端口模板集合实例ID，例如：ppmg-e6dy460g。</li>
+      */
     Filters?: Array<Filter>;
     /**
-     * 偏移量，默认为0。
-     */
+      * 偏移量，默认为0。
+      */
     Offset?: string;
     /**
-     * 返回数量，默认为20，最大值为100。
-     */
+      * 返回数量，默认为20，最大值为100。
+      */
     Limit?: string;
 }
 /**
@@ -8974,20 +8974,20 @@ export interface DescribeServiceTemplateGroupsRequest {
  */
 export interface CreateSecurityGroupWithPoliciesRequest {
     /**
-     * 安全组名称，可任意命名，但不得超过60个字符。
-     */
+      * 安全组名称，可任意命名，但不得超过60个字符。
+      */
     GroupName: string;
     /**
-     * 安全组备注，最多100个字符。
-     */
+      * 安全组备注，最多100个字符。
+      */
     GroupDescription: string;
     /**
-     * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-     */
+      * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+      */
     ProjectId?: string;
     /**
-     * 安全组规则集合。
-     */
+      * 安全组规则集合。
+      */
     SecurityGroupPolicySet?: SecurityGroupPolicySet;
 }
 /**
@@ -8995,28 +8995,28 @@ export interface CreateSecurityGroupWithPoliciesRequest {
  */
 export interface CreateVpcRequest {
     /**
-     * vpc名称，最大长度不能超过60个字节。
-     */
+      * vpc名称，最大长度不能超过60个字节。
+      */
     VpcName: string;
     /**
-     * vpc的cidr，只能为10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
-     */
+      * vpc的cidr，只能为10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
+      */
     CidrBlock: string;
     /**
-     * 是否开启组播。true: 开启, false: 不开启。
-     */
+      * 是否开启组播。true: 开启, false: 不开启。
+      */
     EnableMulticast?: string;
     /**
-     * DNS地址，最多支持4个
-     */
+      * DNS地址，最多支持4个
+      */
     DnsServers?: Array<string>;
     /**
-     * 域名
-     */
+      * 域名
+      */
     DomainName?: string;
     /**
-     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-     */
+      * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+      */
     Tags?: Array<Tag>;
 }
 /**
@@ -9024,8 +9024,8 @@ export interface CreateVpcRequest {
  */
 export interface DeleteServiceTemplateRequest {
     /**
-     * 协议端口模板实例ID，例如：ppm-e6dy460g。
-     */
+      * 协议端口模板实例ID，例如：ppm-e6dy460g。
+      */
     ServiceTemplateId: string;
 }
 /**
@@ -9033,8 +9033,8 @@ export interface DeleteServiceTemplateRequest {
  */
 export interface DescribeSecurityGroupAssociationStatisticsRequest {
     /**
-     * 安全实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-     */
+      * 安全实例ID，例如sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+      */
     SecurityGroupIds: Array<string>;
 }
 /**
@@ -9042,58 +9042,58 @@ export interface DescribeSecurityGroupAssociationStatisticsRequest {
  */
 export interface Route {
     /**
-     * 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。
-     */
+      * 目的网段，取值不能在私有网络网段内，例如：112.20.51.0/24。
+      */
     DestinationCidrBlock: string;
     /**
-        * 下一跳类型，目前我们支持的类型有：
-  CVM：公网网关类型的云服务器；
-  VPN：VPN网关；
-  DIRECTCONNECT：专线网关；
-  PEERCONNECTION：对等连接；
-  SSLVPN：sslvpn网关；
-  NAT：NAT网关;
-  NORMAL_CVM：普通云服务器；
-  EIP：云服务器的公网IP；
-  CCN：云联网。
-        */
+      * 下一跳类型，目前我们支持的类型有：
+CVM：公网网关类型的云服务器；
+VPN：VPN网关；
+DIRECTCONNECT：专线网关；
+PEERCONNECTION：对等连接；
+SSLVPN：sslvpn网关；
+NAT：NAT网关;
+NORMAL_CVM：普通云服务器；
+EIP：云服务器的公网IP；
+CCN：云联网。
+      */
     GatewayType: string;
     /**
-        * 下一跳地址，这里只需要指定不同下一跳类型的网关ID，系统会自动匹配到下一跳地址。
-  特别注意：当 GatewayType 为 EIP 时，GatewayId 固定值 '0'
-        */
+      * 下一跳地址，这里只需要指定不同下一跳类型的网关ID，系统会自动匹配到下一跳地址。
+特别注意：当 GatewayType 为 EIP 时，GatewayId 固定值 '0'
+      */
     GatewayId: string;
     /**
-     * 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
-     */
+      * 路由策略ID。IPv4路由策略ID是有意义的值，IPv6路由策略是无意义的值0。后续建议完全使用字符串唯一ID `RouteItemId`操作路由策略。
+      */
     RouteId?: number;
     /**
-     * 路由策略描述。
-     */
+      * 路由策略描述。
+      */
     RouteDescription?: string;
     /**
-     * 是否启用
-     */
+      * 是否启用
+      */
     Enabled?: boolean;
     /**
-        * 路由类型，目前我们支持的类型有：
-  USER：用户路由；
-  NETD：网络探测路由，创建网络探测实例时，系统默认下发，不可编辑与删除；
-  CCN：云联网路由，系统默认下发，不可编辑与删除。
-  用户只能添加和操作 USER 类型的路由。
-        */
+      * 路由类型，目前我们支持的类型有：
+USER：用户路由；
+NETD：网络探测路由，创建网络探测实例时，系统默认下发，不可编辑与删除；
+CCN：云联网路由，系统默认下发，不可编辑与删除。
+用户只能添加和操作 USER 类型的路由。
+      */
     RouteType?: string;
     /**
-     * 路由表实例ID，例如：rtb-azd4dt1c。
-     */
+      * 路由表实例ID，例如：rtb-azd4dt1c。
+      */
     RouteTableId?: string;
     /**
-     * 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
-     */
+      * 目的IPv6网段，取值不能在私有网络网段内，例如：2402:4e00:1000:810b::/64。
+      */
     DestinationIpv6CidrBlock?: string;
     /**
-     * 路由唯一策略ID。
-     */
+      * 路由唯一策略ID。
+      */
     RouteItemId?: string;
 }
 /**
@@ -9101,16 +9101,16 @@ export interface Route {
  */
 export interface ModifySubnetAttributeRequest {
     /**
-     * 子网实例ID。形如：subnet-pxir56ns。
-     */
+      * 子网实例ID。形如：subnet-pxir56ns。
+      */
     SubnetId: string;
     /**
-     * 子网名称，最大长度不能超过60个字节。
-     */
+      * 子网名称，最大长度不能超过60个字节。
+      */
     SubnetName?: string;
     /**
-     * 子网是否开启广播。
-     */
+      * 子网是否开启广播。
+      */
     EnableBroadcast?: string;
 }
 /**
@@ -9122,8 +9122,8 @@ export declare type DescribeBandwidthPackageQuotaRequest = null;
  */
 export interface DeleteVpcResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -9135,8 +9135,8 @@ export declare type DescribeTemplateLimitsRequest = null;
  */
 export interface AcceptAttachCcnInstancesResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -9144,12 +9144,12 @@ export interface AcceptAttachCcnInstancesResponse {
  */
 export interface InstanceChargePrepaid {
     /**
-     * 购买实例的时长，单位：月。取值范围：1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36。
-     */
+      * 购买实例的时长，单位：月。取值范围：1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36。
+      */
     Period: number;
     /**
-     * 自动续费标识。取值范围： NOTIFY_AND_AUTO_RENEW：通知过期且自动续费， NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费。默认：NOTIFY_AND_MANUAL_RENEW
-     */
+      * 自动续费标识。取值范围： NOTIFY_AND_AUTO_RENEW：通知过期且自动续费， NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费。默认：NOTIFY_AND_MANUAL_RENEW
+      */
     RenewFlag?: string;
 }
 /**
@@ -9157,16 +9157,16 @@ export interface InstanceChargePrepaid {
  */
 export interface AuditCrossBorderComplianceRequest {
     /**
-     * 服务商, 可选值：`UNICOM`。
-     */
+      * 服务商, 可选值：`UNICOM`。
+      */
     ServiceProvider: string;
     /**
-     * 表单唯一`ID`。
-     */
+      * 表单唯一`ID`。
+      */
     ComplianceId: number;
     /**
-     * 通过：`APPROVED `，拒绝：`DENY`。
-     */
+      * 通过：`APPROVED `，拒绝：`DENY`。
+      */
     AuditBehavior: string;
 }
 /**
@@ -9174,17 +9174,17 @@ export interface AuditCrossBorderComplianceRequest {
  */
 export interface DescribeNetDetectsResponse {
     /**
-        * 符合条件的网络探测对象数组。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的网络探测对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NetDetectSet?: Array<NetDetect>;
     /**
-        * 符合条件的网络探测对象数量。
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 符合条件的网络探测对象数量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }

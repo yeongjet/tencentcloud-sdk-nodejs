@@ -93,7 +93,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeCfsPGroups）用于查询权限组列表。
    */
   async DescribeCfsPGroups(
-    req: DescribeCfsPGroupsRequest,
+    req?: DescribeCfsPGroupsRequest,
     cb?: (error: string, rep: DescribeCfsPGroupsResponse) => void
   ): Promise<DescribeCfsPGroupsResponse> {
     return this.request("DescribeCfsPGroups", req, cb)
@@ -123,7 +123,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeAvailableZoneInfo）用于查询区域的可用情况。
    */
   async DescribeAvailableZoneInfo(
-    req: DescribeAvailableZoneInfoRequest,
+    req?: DescribeAvailableZoneInfoRequest,
     cb?: (error: string, rep: DescribeAvailableZoneInfoResponse) => void
   ): Promise<DescribeAvailableZoneInfoResponse> {
     return this.request("DescribeAvailableZoneInfo", req, cb)
@@ -183,7 +183,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeCfsServiceStatus）用于查询用户使用CFS的服务状态。
    */
   async DescribeCfsServiceStatus(
-    req: DescribeCfsServiceStatusRequest,
+    req?: DescribeCfsServiceStatusRequest,
     cb?: (error: string, rep: DescribeCfsServiceStatusResponse) => void
   ): Promise<DescribeCfsServiceStatusResponse> {
     return this.request("DescribeCfsServiceStatus", req, cb)
@@ -203,7 +203,7 @@ export class Client extends AbstractClient {
    * 本接口（SignUpCfsService）用于开通CFS服务。
    */
   async SignUpCfsService(
-    req: SignUpCfsServiceRequest,
+    req?: SignUpCfsServiceRequest,
     cb?: (error: string, rep: SignUpCfsServiceResponse) => void
   ): Promise<SignUpCfsServiceResponse> {
     return this.request("SignUpCfsService", req, cb)

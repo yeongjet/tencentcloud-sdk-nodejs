@@ -296,7 +296,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeZones) 用于查询支持的可用区信息。
    */
   async DescribeZones(
-    req: DescribeZonesRequest,
+    req?: DescribeZonesRequest,
     cb?: (error: string, rep: DescribeZonesResponse) => void
   ): Promise<DescribeZonesResponse> {
     return this.request("DescribeZones", req, cb)
@@ -336,7 +336,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeRegions) 用于查询售卖地域信息。
    */
   async DescribeRegions(
-    req: DescribeRegionsRequest,
+    req?: DescribeRegionsRequest,
     cb?: (error: string, rep: DescribeRegionsResponse) => void
   ): Promise<DescribeRegionsResponse> {
     return this.request("DescribeRegions", req, cb)

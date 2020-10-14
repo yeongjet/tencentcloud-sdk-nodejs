@@ -3,12 +3,12 @@
  */
 export interface GameProperty {
     /**
-     * 属性名称
-     */
+      * 属性名称
+      */
     Key: string;
     /**
-     * 属性值
-     */
+      * 属性值
+      */
     Value: string;
 }
 /**
@@ -16,9 +16,9 @@ export interface GameProperty {
  */
 export interface TargetConfiguration {
     /**
-        * 预留存率
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 预留存率
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TargetValue: number;
 }
 /**
@@ -26,12 +26,12 @@ export interface TargetConfiguration {
  */
 export interface DeleteScalingPolicyRequest {
     /**
-     * 服务部署ID
-     */
+      * 服务部署ID
+      */
     FleetId: string;
     /**
-     * 名称
-     */
+      * 名称
+      */
     Name?: string;
 }
 /**
@@ -39,12 +39,12 @@ export interface DeleteScalingPolicyRequest {
  */
 export interface PlacedPlayerSession {
     /**
-     * 玩家Id
-     */
+      * 玩家Id
+      */
     PlayerId: string;
     /**
-     * 玩家会话Id
-     */
+      * 玩家会话Id
+      */
     PlayerSessionId: string;
 }
 /**
@@ -52,18 +52,18 @@ export interface PlacedPlayerSession {
  */
 export interface DescribeGameServerSessionsResponse {
     /**
-        * 游戏服务器会话列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessions?: Array<GameServerSession>;
     /**
-        * 页偏移，用于查询下一页
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 页偏移，用于查询下一页
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NextToken?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -71,44 +71,44 @@ export interface DescribeGameServerSessionsResponse {
  */
 export interface Instance {
     /**
-        * 服务部署ID
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 服务部署ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FleetId: string;
     /**
-        * 实例ID
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     InstanceId: string;
     /**
-        * IP地址
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     IpAddress: string;
     /**
-        * dns
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * dns
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DnsName: string;
     /**
-        * 操作系统
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 操作系统
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     OperatingSystem: string;
     /**
-        * 状态
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Status: string;
     /**
-        * 类型
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Type: string;
     /**
-        * 创建时间
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CreateTime: string;
 }
 /**
@@ -116,17 +116,17 @@ export interface Instance {
  */
 export interface DescribeGameServerSessionQueuesResponse {
     /**
-        * 游戏服务器会话队列数组
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话队列数组
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionQueues?: Array<GameServerSessionQueue>;
     /**
-     * 总数
-     */
+      * 总数
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -134,12 +134,12 @@ export interface DescribeGameServerSessionQueuesResponse {
  */
 export interface GetInstanceAccessResponse {
     /**
-     * 实例登录所需要的凭据
-     */
+      * 实例登录所需要的凭据
+      */
     InstanceAccess?: InstanceAccess;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -147,16 +147,16 @@ export interface GetInstanceAccessResponse {
  */
 export interface JoinGameServerSessionRequest {
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId: string;
     /**
-     * 玩家ID
-     */
+      * 玩家ID
+      */
     PlayerId: string;
     /**
-     * 玩家自定义信息
-     */
+      * 玩家自定义信息
+      */
     PlayerData?: string;
 }
 /**
@@ -164,18 +164,18 @@ export interface JoinGameServerSessionRequest {
  */
 export interface DescribePlayerSessionsResponse {
     /**
-        * 玩家会话列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家会话列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerSessions?: Array<PlayerSession>;
     /**
-        * 页偏移
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 页偏移
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NextToken?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -183,8 +183,8 @@ export interface DescribePlayerSessionsResponse {
  */
 export interface SetServerWeightResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -192,18 +192,18 @@ export interface SetServerWeightResponse {
  */
 export interface PlayerLatency {
     /**
-        * 玩家Id
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家Id
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerId?: string;
     /**
-        * 延迟对应的区域名称
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 延迟对应的区域名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     RegionIdentifier?: string;
     /**
-     * 毫秒级延迟
-     */
+      * 毫秒级延迟
+      */
     LatencyInMilliseconds?: number;
 }
 /**
@@ -211,8 +211,8 @@ export interface PlayerLatency {
  */
 export interface StopGameServerSessionPlacementRequest {
     /**
-     * 游戏服务器会话放置的唯一标识符
-     */
+      * 游戏服务器会话放置的唯一标识符
+      */
     PlacementId: string;
 }
 /**
@@ -220,12 +220,12 @@ export interface StopGameServerSessionPlacementRequest {
  */
 export interface UpdateGameServerSessionResponse {
     /**
-     * 更新后的游戏会话
-     */
+      * 更新后的游戏会话
+      */
     GameServerSession?: GameServerSession;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -233,59 +233,59 @@ export interface UpdateGameServerSessionResponse {
  */
 export interface ScalingPolicy {
     /**
-        * 服务部署ID
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 服务部署ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     FleetId: string;
     /**
-        * 名称
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Name: string;
     /**
-        * 状态
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Status: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ScalingAdjustment: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ScalingAdjustmentType: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ComparisonOperator: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Threshold: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     EvaluationPeriods: string;
     /**
-        * 保留参数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保留参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MetricName: string;
     /**
-        * 策略类型
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 策略类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PolicyType: string;
     /**
-        * 基于规则的配置
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 基于规则的配置
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TargetConfiguration: TargetConfiguration;
 }
 /**
@@ -293,12 +293,12 @@ export interface ScalingPolicy {
  */
 export interface GetInstanceAccessRequest {
     /**
-     * 服务部署Id
-     */
+      * 服务部署Id
+      */
     FleetId: string;
     /**
-     * 实例Id
-     */
+      * 实例Id
+      */
     InstanceId: string;
 }
 /**
@@ -306,28 +306,28 @@ export interface GetInstanceAccessRequest {
  */
 export interface DescribeGameServerSessionsRequest {
     /**
-     * 别名ID
-     */
+      * 别名ID
+      */
     AliasId?: string;
     /**
-     * 舰队ID
-     */
+      * 舰队ID
+      */
     FleetId?: string;
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId?: string;
     /**
-     * 单次查询记录数上限
-     */
+      * 单次查询记录数上限
+      */
     Limit?: number;
     /**
-     * 页偏移，用于查询下一页
-     */
+      * 页偏移，用于查询下一页
+      */
     NextToken?: string;
     /**
-     * 游戏服务器会话状态(ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR)
-     */
+      * 游戏服务器会话状态(ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR)
+      */
     StatusFilter?: string;
 }
 /**
@@ -335,24 +335,24 @@ export interface DescribeGameServerSessionsRequest {
  */
 export interface UpdateGameServerSessionRequest {
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId: string;
     /**
-     * 最大玩家数量
-     */
+      * 最大玩家数量
+      */
     MaximumPlayerSessionCount?: number;
     /**
-     * 游戏服务器会话名称
-     */
+      * 游戏服务器会话名称
+      */
     Name?: string;
     /**
-     * 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
-     */
+      * 玩家会话创建策略（ACCEPT_ALL,DENY_ALL）
+      */
     PlayerSessionCreationPolicy?: string;
     /**
-     * 保护策略(NoProtection,TimeLimitProtection,FullProtection)
-     */
+      * 保护策略(NoProtection,TimeLimitProtection,FullProtection)
+      */
     ProtectionPolicy?: string;
 }
 /**
@@ -360,12 +360,12 @@ export interface UpdateGameServerSessionRequest {
  */
 export interface StartMatchPlacementResponse {
     /**
-     * 游戏服务器会话放置
-     */
+      * 游戏服务器会话放置
+      */
     GameServerSessionPlacement?: GameServerSessionPlacement;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -373,28 +373,28 @@ export interface StartMatchPlacementResponse {
  */
 export interface DescribePlayerSessionsRequest {
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId?: string;
     /**
-     * 单次查询记录数上限
-     */
+      * 单次查询记录数上限
+      */
     Limit?: number;
     /**
-     * 页偏移，用于查询下一页
-     */
+      * 页偏移，用于查询下一页
+      */
     NextToken?: string;
     /**
-     * 玩家ID
-     */
+      * 玩家ID
+      */
     PlayerId?: string;
     /**
-     * 玩家会话ID
-     */
+      * 玩家会话ID
+      */
     PlayerSessionId?: string;
     /**
-     * 玩家会话状态（RESERVED,ACTIVE,COMPLETED,TIMEDOUT）
-     */
+      * 玩家会话状态（RESERVED,ACTIVE,COMPLETED,TIMEDOUT）
+      */
     PlayerSessionStatusFilter?: string;
 }
 /**
@@ -402,12 +402,12 @@ export interface DescribePlayerSessionsRequest {
  */
 export interface StartGameServerSessionPlacementResponse {
     /**
-     * 游戏服务器会话放置
-     */
+      * 游戏服务器会话放置
+      */
     GameServerSessionPlacement?: GameServerSessionPlacement;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -415,12 +415,12 @@ export interface StartGameServerSessionPlacementResponse {
  */
 export interface Credentials {
     /**
-     * ssh私钥
-     */
+      * ssh私钥
+      */
     Secret: string;
     /**
-     * 用户名
-     */
+      * 用户名
+      */
     UserName: string;
 }
 /**
@@ -428,18 +428,18 @@ export interface Credentials {
  */
 export interface DescribeInstancesResponse {
     /**
-        * 实例信息列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 实例信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Instances?: Array<Instance>;
     /**
-        * 结果返回最大数量
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 结果返回最大数量
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -447,8 +447,8 @@ export interface DescribeInstancesResponse {
  */
 export interface GetGameServerSessionLogUrlRequest {
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId: string;
 }
 /**
@@ -456,40 +456,40 @@ export interface GetGameServerSessionLogUrlRequest {
  */
 export interface StartMatchPlacementRequest {
     /**
-     * 开始部署游戏服务器会话的唯一标识符
-     */
+      * 开始部署游戏服务器会话的唯一标识符
+      */
     PlacementId: string;
     /**
-     * 游戏服务器会话队列名称
-     */
+      * 游戏服务器会话队列名称
+      */
     GameServerSessionQueueName: string;
     /**
-     * 游戏服务器允许同时连接到游戏会话的最大玩家数量
-     */
+      * 游戏服务器允许同时连接到游戏会话的最大玩家数量
+      */
     MaximumPlayerSessionCount: number;
     /**
-     * 玩家游戏会话信息
-     */
+      * 玩家游戏会话信息
+      */
     DesiredPlayerSessions?: Array<DesiredPlayerSession>;
     /**
-     * 玩家游戏会话属性
-     */
+      * 玩家游戏会话属性
+      */
     GameProperties?: Array<GameProperty>;
     /**
-     * 游戏服务器会话数据
-     */
+      * 游戏服务器会话数据
+      */
     GameServerSessionData?: string;
     /**
-     * 游戏服务器会话名称
-     */
+      * 游戏服务器会话名称
+      */
     GameServerSessionName?: string;
     /**
-     * 玩家延迟
-     */
+      * 玩家延迟
+      */
     PlayerLatencies?: Array<PlayerLatency>;
     /**
-     * 游戏匹配数据
-     */
+      * 游戏匹配数据
+      */
     MatchmakerData?: string;
 }
 /**
@@ -497,13 +497,13 @@ export interface StartMatchPlacementRequest {
  */
 export interface CreateGameServerSessionResponse {
     /**
-        * 游戏服务器会话
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSession?: GameServerSession;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -511,20 +511,20 @@ export interface CreateGameServerSessionResponse {
  */
 export interface DescribeInstancesRequest {
     /**
-     * 服务部署ID
-     */
+      * 服务部署ID
+      */
     FleetId?: string;
     /**
-     * 实例ID
-     */
+      * 实例ID
+      */
     InstanceId?: string;
     /**
-     * 结果返回最大数量
-     */
+      * 结果返回最大数量
+      */
     Offset?: number;
     /**
-     * 返回结果偏移
-     */
+      * 返回结果偏移
+      */
     Limit?: number;
 }
 /**
@@ -532,20 +532,20 @@ export interface DescribeInstancesRequest {
  */
 export interface DescribeScalingPoliciesRequest {
     /**
-     * 服务部署ID
-     */
+      * 服务部署ID
+      */
     FleetId?: string;
     /**
-     * 状态过滤条件
-     */
+      * 状态过滤条件
+      */
     StatusFilter?: string;
     /**
-     * 结果返回最大数量
-     */
+      * 结果返回最大数量
+      */
     Offset?: number;
     /**
-     * 返回结果偏移
-     */
+      * 返回结果偏移
+      */
     Limit?: number;
 }
 /**
@@ -553,18 +553,18 @@ export interface DescribeScalingPoliciesRequest {
  */
 export interface DescribeGameServerSessionDetailsResponse {
     /**
-        * 游戏服务器会话详情列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话详情列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionDetails?: Array<GameServerSessionDetail>;
     /**
-        * 页偏移，用于查询下一页
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 页偏移，用于查询下一页
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NextToken?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -572,14 +572,14 @@ export interface DescribeGameServerSessionDetailsResponse {
  */
 export interface PlayerLatencyPolicy {
     /**
-        * 任意player允许的最大延迟，单位：毫秒
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 任意player允许的最大延迟，单位：毫秒
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MaximumIndividualPlayerLatencyMilliseconds: number;
     /**
-        * 放置新GameServerSession时强制实施策略的时间长度，单位：秒
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 放置新GameServerSession时强制实施策略的时间长度，单位：秒
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PolicyDurationSeconds?: number;
 }
 /**
@@ -587,13 +587,13 @@ export interface PlayerLatencyPolicy {
  */
 export interface PutScalingPolicyResponse {
     /**
-        * 规则名称
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Name?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -601,13 +601,13 @@ export interface PutScalingPolicyResponse {
  */
 export interface JoinGameServerSessionResponse {
     /**
-        * 玩家会话
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家会话
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerSession?: PlayerSession;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -615,12 +615,12 @@ export interface JoinGameServerSessionResponse {
  */
 export interface DesiredPlayerSession {
     /**
-     * 与玩家会话关联的唯一玩家标识
-     */
+      * 与玩家会话关联的唯一玩家标识
+      */
     PlayerId: string;
     /**
-     * 开发人员定义的玩家数据
-     */
+      * 开发人员定义的玩家数据
+      */
     PlayerData: string;
 }
 /**
@@ -628,18 +628,18 @@ export interface DesiredPlayerSession {
  */
 export interface SearchGameServerSessionsResponse {
     /**
-        * 游戏服务器会话列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessions?: Array<GameServerSession>;
     /**
-        * 页偏移，用于查询下一页
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 页偏移，用于查询下一页
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     NextToken?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -647,8 +647,8 @@ export interface SearchGameServerSessionsResponse {
  */
 export interface DescribeGameServerSessionPlacementRequest {
     /**
-     * 游戏服务器会话放置的唯一标识符
-     */
+      * 游戏服务器会话放置的唯一标识符
+      */
     PlacementId: string;
 }
 /**
@@ -656,18 +656,18 @@ export interface DescribeGameServerSessionPlacementRequest {
  */
 export interface DescribeScalingPoliciesResponse {
     /**
-        * 动态扩缩容配置
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 动态扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ScalingPolicies?: Array<ScalingPolicy>;
     /**
-        * 返回总数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 返回总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TotalCount?: number;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -675,9 +675,9 @@ export interface DescribeScalingPoliciesResponse {
  */
 export interface GameServerSessionQueueDestination {
     /**
-        * 服务部署组目的的资源描述
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 服务部署组目的的资源描述
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DestinationArn?: string;
 }
 /**
@@ -685,84 +685,84 @@ export interface GameServerSessionQueueDestination {
  */
 export interface GameServerSessionPlacement {
     /**
-     * 部署Id
-     */
+      * 部署Id
+      */
     PlacementId: string;
     /**
-     * 服务部署组名称
-     */
+      * 服务部署组名称
+      */
     GameServerSessionQueueName: string;
     /**
-        * 玩家延迟
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家延迟
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerLatencies: Array<PlayerLatency>;
     /**
-     * 服务部署状态
-     */
+      * 服务部署状态
+      */
     Status: string;
     /**
-        * 分配给正在运行游戏会话的实例的DNS标识符
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 分配给正在运行游戏会话的实例的DNS标识符
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DnsName: string;
     /**
-        * 游戏会话Id
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏会话Id
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionId: string;
     /**
-        * 游戏会话名称
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏会话名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionName: string;
     /**
-        * 服务部署区域
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 服务部署区域
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionRegion: string;
     /**
-        * 游戏属性
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏属性
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameProperties: Array<GameProperty>;
     /**
-     * 最大玩家数量
-     */
+      * 最大玩家数量
+      */
     MaximumPlayerSessionCount: number;
     /**
-        * 游戏会话数据
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏会话数据
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionData: string;
     /**
-        * 运行游戏会话的实例的IP地址
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 运行游戏会话的实例的IP地址
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     IpAddress: string;
     /**
-        * 运行游戏会话的实例的端口号
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 运行游戏会话的实例的端口号
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Port: number;
     /**
-        * 游戏匹配数据
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏匹配数据
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MatchmakerData: string;
     /**
-        * 部署的玩家游戏数据
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 部署的玩家游戏数据
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlacedPlayerSessions: Array<PlacedPlayerSession>;
     /**
-     * 开始时间
-     */
+      * 开始时间
+      */
     StartTime: string;
     /**
-        * 结束时间
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     EndTime: string;
 }
 /**
@@ -770,26 +770,26 @@ export interface GameServerSessionPlacement {
  */
 export interface GameServerSessionQueue {
     /**
-     * 服务部署组名字
-     */
+      * 服务部署组名字
+      */
     Name: string;
     /**
-     * 服务部署组资源
-     */
+      * 服务部署组资源
+      */
     GameServerSessionQueueArn: string;
     /**
-        * 目的fleet（可为别名）列表
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 目的fleet（可为别名）列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Destinations: Array<GameServerSessionQueueDestination>;
     /**
-        * 延迟策略集合
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 延迟策略集合
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerLatencyPolicies: Array<PlayerLatencyPolicy>;
     /**
-     * 超时时间
-     */
+      * 超时时间
+      */
     TimeoutInSeconds: number;
 }
 /**
@@ -797,16 +797,16 @@ export interface GameServerSessionQueue {
  */
 export interface SetServerWeightRequest {
     /**
-     * 服务舰队ID
-     */
+      * 服务舰队ID
+      */
     FleetId: string;
     /**
-     * 实例ID
-     */
+      * 实例ID
+      */
     InstanceId: string;
     /**
-     * 权重
-     */
+      * 权重
+      */
     Weight: number;
 }
 /**
@@ -814,52 +814,52 @@ export interface SetServerWeightRequest {
  */
 export interface PlayerSession {
     /**
-     * 玩家会话创建时间
-     */
+      * 玩家会话创建时间
+      */
     CreationTime: string;
     /**
-        * 游戏服务器会话运行的DNS标识
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话运行的DNS标识
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DnsName: string;
     /**
-     * 舰队ID
-     */
+      * 舰队ID
+      */
     FleetId: string;
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId: string;
     /**
-     * 游戏服务器会话运行的CVM地址
-     */
+      * 游戏服务器会话运行的CVM地址
+      */
     IpAddress: string;
     /**
-        * 玩家相关信息
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家相关信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerData: string;
     /**
-        * 玩家ID
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerId: string;
     /**
-     * 玩家会话ID
-     */
+      * 玩家会话ID
+      */
     PlayerSessionId: string;
     /**
-     * 端口号
-     */
+      * 端口号
+      */
     Port: number;
     /**
-     * 玩家会话的状态
-     */
+      * 玩家会话的状态
+      */
     Status: string;
     /**
-        * 玩家会话终止时间
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家会话终止时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TerminationTime: string;
 }
 /**
@@ -867,40 +867,40 @@ export interface PlayerSession {
  */
 export interface CreateGameServerSessionRequest {
     /**
-     * 最大玩家数量
-     */
+      * 最大玩家数量
+      */
     MaximumPlayerSessionCount: number;
     /**
-     * 别名ID。每个请求需要指定别名ID 或者舰队 ID，如果两个同时指定时，优先选择舰队 ID
-     */
+      * 别名ID。每个请求需要指定别名ID 或者舰队 ID，如果两个同时指定时，优先选择舰队 ID
+      */
     AliasId?: string;
     /**
-     * 创建者ID
-     */
+      * 创建者ID
+      */
     CreatorId?: string;
     /**
-     * 舰队ID。每个请求需要指定别名ID 或者舰队 ID，如果两个同时指定时，优先选择舰队 ID
-     */
+      * 舰队ID。每个请求需要指定别名ID 或者舰队 ID，如果两个同时指定时，优先选择舰队 ID
+      */
     FleetId?: string;
     /**
-     * 游戏属性
-     */
+      * 游戏属性
+      */
     GameProperties?: Array<GameProperty>;
     /**
-     * 游戏服务器会话属性详情
-     */
+      * 游戏服务器会话属性详情
+      */
     GameServerSessionData?: string;
     /**
-     * 游戏服务器会话自定义ID
-     */
+      * 游戏服务器会话自定义ID
+      */
     GameServerSessionId?: string;
     /**
-     * 幂等token
-     */
+      * 幂等token
+      */
     IdempotencyToken?: string;
     /**
-     * 游戏服务器会话名称
-     */
+      * 游戏服务器会话名称
+      */
     Name?: string;
 }
 /**
@@ -908,13 +908,13 @@ export interface CreateGameServerSessionRequest {
  */
 export interface GetGameServerSessionLogUrlResponse {
     /**
-        * 日志下载URL
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 日志下载URL
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PreSignedUrl?: string;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -922,13 +922,13 @@ export interface GetGameServerSessionLogUrlResponse {
  */
 export interface GameServerSessionDetail {
     /**
-     * 游戏服务器会话
-     */
+      * 游戏服务器会话
+      */
     GameServerSession: GameServerSession;
     /**
-        * 保护策略，可选（NoProtection,FullProtection）
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 保护策略，可选（NoProtection,FullProtection）
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     ProtectionPolicy: string;
 }
 /**
@@ -936,28 +936,28 @@ export interface GameServerSessionDetail {
  */
 export interface DescribeGameServerSessionDetailsRequest {
     /**
-     * 别名ID
-     */
+      * 别名ID
+      */
     AliasId?: string;
     /**
-     * 舰队ID
-     */
+      * 舰队ID
+      */
     FleetId?: string;
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId?: string;
     /**
-     * 单次查询记录数上限
-     */
+      * 单次查询记录数上限
+      */
     Limit?: number;
     /**
-     * 页偏移，用于查询下一页
-     */
+      * 页偏移，用于查询下一页
+      */
     NextToken?: string;
     /**
-     * 游戏服务器会话状态(ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR)
-     */
+      * 游戏服务器会话状态(ACTIVE,ACTIVATING,TERMINATED,TERMINATING,ERROR)
+      */
     StatusFilter?: string;
 }
 /**
@@ -965,36 +965,36 @@ export interface DescribeGameServerSessionDetailsRequest {
  */
 export interface StartGameServerSessionPlacementRequest {
     /**
-     * 开始部署游戏服务器会话的唯一标识符
-     */
+      * 开始部署游戏服务器会话的唯一标识符
+      */
     PlacementId: string;
     /**
-     * 游戏服务器会话队列名称
-     */
+      * 游戏服务器会话队列名称
+      */
     GameServerSessionQueueName: string;
     /**
-     * 游戏服务器允许同时连接到游戏会话的最大玩家数量
-     */
+      * 游戏服务器允许同时连接到游戏会话的最大玩家数量
+      */
     MaximumPlayerSessionCount: number;
     /**
-     * 玩家游戏会话信息
-     */
+      * 玩家游戏会话信息
+      */
     DesiredPlayerSessions?: Array<DesiredPlayerSession>;
     /**
-     * 玩家游戏会话属性
-     */
+      * 玩家游戏会话属性
+      */
     GameProperties?: Array<GameProperty>;
     /**
-     * 游戏服务器会话数据
-     */
+      * 游戏服务器会话数据
+      */
     GameServerSessionData?: string;
     /**
-     * 游戏服务器会话名称
-     */
+      * 游戏服务器会话名称
+      */
     GameServerSessionName?: string;
     /**
-     * 玩家延迟
-     */
+      * 玩家延迟
+      */
     PlayerLatencies?: Array<PlayerLatency>;
 }
 /**
@@ -1002,106 +1002,106 @@ export interface StartGameServerSessionPlacementRequest {
  */
 export interface GameServerSession {
     /**
-     * 游戏服务器会话创建时间
-     */
+      * 游戏服务器会话创建时间
+      */
     CreationTime: string;
     /**
-        * 创建者ID
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 创建者ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CreatorId: string;
     /**
-     * 当前玩家数量
-     */
+      * 当前玩家数量
+      */
     CurrentPlayerSessionCount: number;
     /**
-        * CVM的DNS标识符
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * CVM的DNS标识符
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     DnsName: string;
     /**
-     * 舰队ID
-     */
+      * 舰队ID
+      */
     FleetId: string;
     /**
-        * 游戏属性
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏属性
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameProperties: Array<GameProperty>;
     /**
-        * 游戏服务器会话属性详情
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话属性详情
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     GameServerSessionData: string;
     /**
-     * 游戏服务器会话ID
-     */
+      * 游戏服务器会话ID
+      */
     GameServerSessionId: string;
     /**
-     * CVM IP地址
-     */
+      * CVM IP地址
+      */
     IpAddress: string;
     /**
-        * 对战进程详情
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 对战进程详情
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MatchmakerData: string;
     /**
-     * 最大玩家数量
-     */
+      * 最大玩家数量
+      */
     MaximumPlayerSessionCount: number;
     /**
-        * 游戏服务器会话名称
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Name: string;
     /**
-        * 玩家会话创建策略
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 玩家会话创建策略
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     PlayerSessionCreationPolicy: string;
     /**
-     * 端口号
-     */
+      * 端口号
+      */
     Port: number;
     /**
-     * 游戏服务器会话状态
-     */
+      * 游戏服务器会话状态
+      */
     Status: string;
     /**
-        * 游戏服务器会话状态附加信息
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 游戏服务器会话状态附加信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     StatusReason: string;
     /**
-        * 终止的时间
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 终止的时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     TerminationTime: string;
     /**
-        * 实例类型
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 实例类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     InstanceType: string;
     /**
-        * 当前自定义数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 当前自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     CurrentCustomCount: number;
     /**
-        * 最大自定义数
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 最大自定义数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     MaxCustomCount: number;
     /**
-        * 权重
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 权重
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     Weight: number;
     /**
-        * 会话可用性状态，是否被屏蔽
-  注意：此字段可能返回 null，表示取不到有效值。
-        */
+      * 会话可用性状态，是否被屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+      */
     AvailabilityStatus: string;
 }
 /**
@@ -1109,16 +1109,16 @@ export interface GameServerSession {
  */
 export interface DescribeGameServerSessionQueuesRequest {
     /**
-     * 游戏服务器会话队列数组
-     */
+      * 游戏服务器会话队列数组
+      */
     Names?: Array<string>;
     /**
-     * 要返回的最大结果数
-     */
+      * 要返回的最大结果数
+      */
     Limit?: number;
     /**
-     * 偏移
-     */
+      * 偏移
+      */
     Offset?: number;
 }
 /**
@@ -1126,8 +1126,8 @@ export interface DescribeGameServerSessionQueuesRequest {
  */
 export interface DeleteScalingPolicyResponse {
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1135,12 +1135,12 @@ export interface DeleteScalingPolicyResponse {
  */
 export interface DescribeGameServerSessionPlacementResponse {
     /**
-     * 游戏服务器会话放置
-     */
+      * 游戏服务器会话放置
+      */
     GameServerSessionPlacement?: GameServerSessionPlacement;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1148,44 +1148,44 @@ export interface DescribeGameServerSessionPlacementResponse {
  */
 export interface SearchGameServerSessionsRequest {
     /**
-     * 别名ID
-     */
+      * 别名ID
+      */
     AliasId?: string;
     /**
-     * 舰队ID
-     */
+      * 舰队ID
+      */
     FleetId?: string;
     /**
-     * 单次查询记录数上限
-     */
+      * 单次查询记录数上限
+      */
     Limit?: number;
     /**
-     * 页偏移，用于查询下一页
-     */
+      * 页偏移，用于查询下一页
+      */
     NextToken?: string;
     /**
-        * 搜索条件表达式，支持如下变量
-  gameServerSessionName 游戏会话名称 String
-  gameServerSessionId 游戏会话ID String
-  maximumSessions 最大的玩家会话数 Number
-  creationTimeMillis 创建时间，单位：毫秒 Number
-  playerSessionCount 当前玩家会话数 Number
-  hasAvailablePlayerSessions 是否有可用玩家数 String 取值true或false
-  gameServerSessionProperties 游戏会话属性 String
-  
-  表达式String类型 等于=，不等于<>判断
-  表示Number类型支持 =,<>,>,>=,<,<=
-        */
+      * 搜索条件表达式，支持如下变量
+gameServerSessionName 游戏会话名称 String
+gameServerSessionId 游戏会话ID String
+maximumSessions 最大的玩家会话数 Number
+creationTimeMillis 创建时间，单位：毫秒 Number
+playerSessionCount 当前玩家会话数 Number
+hasAvailablePlayerSessions 是否有可用玩家数 String 取值true或false
+gameServerSessionProperties 游戏会话属性 String
+
+表达式String类型 等于=，不等于<>判断
+表示Number类型支持 =,<>,>,>=,<,<=
+      */
     FilterExpression?: string;
     /**
-        * 排序条件关键字
-  支持排序字段
-  gameServerSessionName 游戏会话名称 String
-  gameServerSessionId 游戏会话ID String
-  maximumSessions 最大的玩家会话数 Number
-  creationTimeMillis 创建时间，单位：毫秒 Number
-  playerSessionCount 当前玩家会话数 Number
-        */
+      * 排序条件关键字
+支持排序字段
+gameServerSessionName 游戏会话名称 String
+gameServerSessionId 游戏会话ID String
+maximumSessions 最大的玩家会话数 Number
+creationTimeMillis 创建时间，单位：毫秒 Number
+playerSessionCount 当前玩家会话数 Number
+      */
     SortExpression?: string;
 }
 /**
@@ -1193,44 +1193,44 @@ export interface SearchGameServerSessionsRequest {
  */
 export interface PutScalingPolicyRequest {
     /**
-     * 基于规则的扩缩容配置
-     */
+      * 基于规则的扩缩容配置
+      */
     FleetId: string;
     /**
-     * 名称
-     */
+      * 名称
+      */
     Name?: string;
     /**
-     * 调整值
-     */
+      * 调整值
+      */
     ScalingAdjustment?: number;
     /**
-     * 调整类型
-     */
+      * 调整类型
+      */
     ScalingAdjustmentType?: string;
     /**
-     * 指标阈值
-     */
+      * 指标阈值
+      */
     Threshold?: number;
     /**
-     * 比较符
-     */
+      * 比较符
+      */
     ComparisonOperator?: string;
     /**
-     * 时间长度（分钟）
-     */
+      * 时间长度（分钟）
+      */
     EvaluationPeriods?: number;
     /**
-     * 指标名称
-     */
+      * 指标名称
+      */
     MetricName?: string;
     /**
-     * 策略类型
-     */
+      * 策略类型
+      */
     PolicyType?: string;
     /**
-     * 扩缩容配置类型
-     */
+      * 扩缩容配置类型
+      */
     TargetConfiguration?: TargetConfiguration;
 }
 /**
@@ -1238,12 +1238,12 @@ export interface PutScalingPolicyRequest {
  */
 export interface StopGameServerSessionPlacementResponse {
     /**
-     * 游戏服务器会话放置
-     */
+      * 游戏服务器会话放置
+      */
     GameServerSessionPlacement?: GameServerSessionPlacement;
     /**
-     * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     */
+      * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      */
     RequestId?: string;
 }
 /**
@@ -1251,23 +1251,23 @@ export interface StopGameServerSessionPlacementResponse {
  */
 export interface InstanceAccess {
     /**
-     * 访问实例所需要的凭据
-     */
+      * 访问实例所需要的凭据
+      */
     Credentials: Credentials;
     /**
-     * 服务部署Id
-     */
+      * 服务部署Id
+      */
     FleetId: string;
     /**
-     * 实例ID
-     */
+      * 实例ID
+      */
     InstanceId: string;
     /**
-     * 实例公网IP
-     */
+      * 实例公网IP
+      */
     IpAddress: string;
     /**
-     * 操作系统
-     */
+      * 操作系统
+      */
     OperatingSystem: string;
 }

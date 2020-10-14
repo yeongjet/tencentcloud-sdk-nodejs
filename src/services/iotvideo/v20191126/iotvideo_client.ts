@@ -642,7 +642,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeTraceIds）用于查询设备日志跟踪白名单。
    */
   async DescribeTraceIds(
-    req: DescribeTraceIdsRequest,
+    req?: DescribeTraceIdsRequest,
     cb?: (error: string, rep: DescribeTraceIdsResponse) => void
   ): Promise<DescribeTraceIdsResponse> {
     return this.request("DescribeTraceIds", req, cb)

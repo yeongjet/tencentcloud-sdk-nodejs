@@ -76,7 +76,7 @@ export class Client extends AbstractClient {
    * 查询空闲机器数量
    */
   async DescribeWorkers(
-    req: DescribeWorkersRequest,
+    req?: DescribeWorkersRequest,
     cb?: (error: string, rep: DescribeWorkersResponse) => void
   ): Promise<DescribeWorkersResponse> {
     return this.request("DescribeWorkers", req, cb)

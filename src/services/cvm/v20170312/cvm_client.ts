@@ -216,7 +216,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeImageQuota)用于查询用户帐号的镜像配额。
    */
   async DescribeImageQuota(
-    req: DescribeImageQuotaRequest,
+    req?: DescribeImageQuotaRequest,
     cb?: (error: string, rep: DescribeImageQuotaResponse) => void
   ): Promise<DescribeImageQuotaResponse> {
     return this.request("DescribeImageQuota", req, cb)
@@ -356,7 +356,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeRegions)用于查询地域信息。
    */
   async DescribeRegions(
-    req: DescribeRegionsRequest,
+    req?: DescribeRegionsRequest,
     cb?: (error: string, rep: DescribeRegionsResponse) => void
   ): Promise<DescribeRegionsResponse> {
     return this.request("DescribeRegions", req, cb)
@@ -590,7 +590,7 @@ export class Client extends AbstractClient {
    * 本接口 (DescribeDisasterRecoverGroupQuota)用于查询[分散置放群组](https://cloud.tencent.com/document/product/213/15486)配额。
    */
   async DescribeDisasterRecoverGroupQuota(
-    req: DescribeDisasterRecoverGroupQuotaRequest,
+    req?: DescribeDisasterRecoverGroupQuotaRequest,
     cb?: (error: string, rep: DescribeDisasterRecoverGroupQuotaResponse) => void
   ): Promise<DescribeDisasterRecoverGroupQuotaResponse> {
     return this.request("DescribeDisasterRecoverGroupQuota", req, cb)
@@ -720,7 +720,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeZones)用于查询可用区信息。
    */
   async DescribeZones(
-    req: DescribeZonesRequest,
+    req?: DescribeZonesRequest,
     cb?: (error: string, rep: DescribeZonesResponse) => void
   ): Promise<DescribeZonesResponse> {
     return this.request("DescribeZones", req, cb)
@@ -756,7 +756,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeInstanceFamilyConfigs）查询当前用户和地域所支持的机型族列表信息。
    */
   async DescribeInstanceFamilyConfigs(
-    req: DescribeInstanceFamilyConfigsRequest,
+    req?: DescribeInstanceFamilyConfigsRequest,
     cb?: (error: string, rep: DescribeInstanceFamilyConfigsResponse) => void
   ): Promise<DescribeInstanceFamilyConfigsResponse> {
     return this.request("DescribeInstanceFamilyConfigs", req, cb)
@@ -776,7 +776,7 @@ export class Client extends AbstractClient {
    * 查看可以导入的镜像操作系统信息。
    */
   async DescribeImportImageOs(
-    req: DescribeImportImageOsRequest,
+    req?: DescribeImportImageOsRequest,
     cb?: (error: string, rep: DescribeImportImageOsResponse) => void
   ): Promise<DescribeImportImageOsResponse> {
     return this.request("DescribeImportImageOs", req, cb)
@@ -1024,7 +1024,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
    * 本接口（DescribeInternetChargeTypeConfigs）用于查询网络的计费类型。
    */
   async DescribeInternetChargeTypeConfigs(
-    req: DescribeInternetChargeTypeConfigsRequest,
+    req?: DescribeInternetChargeTypeConfigsRequest,
     cb?: (error: string, rep: DescribeInternetChargeTypeConfigsResponse) => void
   ): Promise<DescribeInternetChargeTypeConfigsResponse> {
     return this.request("DescribeInternetChargeTypeConfigs", req, cb)
@@ -1074,7 +1074,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
    * 查询用户可购买的竞价机型信息列表
    */
   async DescribeSpotTypeConfig(
-    req: DescribeSpotTypeConfigRequest,
+    req?: DescribeSpotTypeConfigRequest,
     cb?: (error: string, rep: DescribeSpotTypeConfigResponse) => void
   ): Promise<DescribeSpotTypeConfigResponse> {
     return this.request("DescribeSpotTypeConfig", req, cb)

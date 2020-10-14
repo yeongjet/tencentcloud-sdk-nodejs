@@ -161,7 +161,7 @@ export class Client extends AbstractClient {
    * 查询可创建的分布式数据库可售卖的分片规格配置。
    */
   async DescribeShardSpec(
-    req: DescribeShardSpecRequest,
+    req?: DescribeShardSpecRequest,
     cb?: (error: string, rep: DescribeShardSpecResponse) => void
   ): Promise<DescribeShardSpecResponse> {
     return this.request("DescribeShardSpec", req, cb)
@@ -223,7 +223,7 @@ export class Client extends AbstractClient {
    * 本接口(DescribeDCDBSaleInfo)用于查询分布式数据库可售卖的地域和可用区信息。
    */
   async DescribeDCDBSaleInfo(
-    req: DescribeDCDBSaleInfoRequest,
+    req?: DescribeDCDBSaleInfoRequest,
     cb?: (error: string, rep: DescribeDCDBSaleInfoResponse) => void
   ): Promise<DescribeDCDBSaleInfoResponse> {
     return this.request("DescribeDCDBSaleInfo", req, cb)
@@ -374,7 +374,7 @@ export class Client extends AbstractClient {
    * 本接口（DescribeProjects）用于查询项目列表
    */
   async DescribeProjects(
-    req: DescribeProjectsRequest,
+    req?: DescribeProjectsRequest,
     cb?: (error: string, rep: DescribeProjectsResponse) => void
   ): Promise<DescribeProjectsResponse> {
     return this.request("DescribeProjects", req, cb)
