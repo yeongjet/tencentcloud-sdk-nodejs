@@ -15,7 +15,7 @@ const client = new CvmClient({
   },
 })
 // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
-client.DescribeZones(null).then(
+client.DescribeZones().then(
   (data) => {
     console.log(data)
   },
