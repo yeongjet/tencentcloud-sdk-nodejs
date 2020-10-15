@@ -1,5 +1,5 @@
 /**
- * 初始化client对象参数
+ * 初始化client对象参数类型
  */
 export interface ClientConfig {
   /**
@@ -36,11 +36,11 @@ export interface ClientProfile {
    */
   httpProfile?: {
     /**
-     * 请求方法（POST GET）
-     * @type {string}
+     * 请求方法
+     * @type {"POST" | "GET"}
      * 非必选
      */
-    reqMethod?: string
+    reqMethod?: "POST" | "GET"
     /**
      * 接入点域名，形如（cvm.ap-shanghai.tencentcloud.com）
      * @type {string}

@@ -34,14 +34,26 @@ const tencentcloud = require("../../../../tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
 const CvmClient = tencentcloud.cvm.v20170312.Client
-// 实例化要请求产品(以cvm为例)的client对象
-const client = new CvmClient({
+
+const clientConfig = {
+  // 腾讯云认证信息
   credential: {
     secretId: "secretId",
     secretKey: "secretKey",
   },
+  // 产品地域
   region: "ap-shanghai",
-})
+  // 可选配置实例
+  profile: {
+    signMethod: "HmacSHA256", // 签名方法
+    httpProfile: {
+      reqMethod: "POST", // 请求方法
+      reqTimeout: 30, // 请求超时时间，默认60s
+    },
+  },
+}
+// 实例化要请求产品(以cvm为例)的client对象
+const client = new CvmClient(clientConfig)
 // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client.DescribeZones().then(
   (data) => {
@@ -60,14 +72,26 @@ import * as tencentcloud from "../../../../tencentcloud-sdk-nodejs"
 
 // 导入对应产品模块的client models。
 const CvmClient = tencentcloud.cvm.v20170312.Client
-// 实例化要请求产品(以cvm为例)的client对象
-const client = new CvmClient({
+
+const clientConfig = {
+  // 腾讯云认证信息
   credential: {
     secretId: "secretId",
     secretKey: "secretKey",
   },
+  // 产品地域
   region: "ap-shanghai",
-})
+  // 可选配置实例
+  profile: {
+    signMethod: "HmacSHA256", // 签名方法
+    httpProfile: {
+      reqMethod: "POST", // 请求方法
+      reqTimeout: 30, // 请求超时时间，默认60s
+    },
+  },
+}
+// 实例化要请求产品(以cvm为例)的client对象
+const client = new CvmClient(clientConfig)
 // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client.DescribeZones().then(
   (data) => {
@@ -78,6 +102,8 @@ client.DescribeZones().then(
   }
 )
 ```
+
+实例化`Client` 的入参支持 `clientConfig` 数据结构和说明 详见 [ClientConfig](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/blob/master/src/common/interface.ts)
 
 ## 更多示例
 
