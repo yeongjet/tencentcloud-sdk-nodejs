@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeProjectResponse, CheckStaffChUserRequest, DescribeResourceTemplateHeadersResponse, DeleteProjectRequest, ReplenishProjectStockResponse, SendWxTouchTaskResponse, DescribeCustomersRequest, DescribeProjectsRequest, ModifyProjectRequest, OffLineProjectRequest, DescribeSubProjectRequest, ExpireFlowRequest, CopyActivityChannelRequest, CopyActivityChannelResponse, DescribeProjectsResponse, ReplenishProjectStockRequest, DescribeProjectStockResponse, CheckStaffChUserResponse, DescribeCustomerRequest, CreateSubProjectResponse, DescribeCustomerResponse, DescribeCustomersResponse, CreateSubProjectRequest, ModifyProjectResponse, CreateProjectResponse, DescribeProjectStockRequest, DeleteProjectResponse, SendWxTouchTaskRequest, DescribeProjectRequest, OffLineProjectResponse, DescribeResourceTemplateHeadersRequest, ExpireFlowResponse, DescribeSubProjectResponse, CreateProjectRequest } from "./solar_models";
 /**
  * solar client

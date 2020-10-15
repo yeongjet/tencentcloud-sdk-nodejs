@@ -857,7 +857,7 @@ export interface CreateDDoSPolicyRequest {
   PortLimits?: Array<DDoSPolicyPortLimit>
 
   /**
-   * IP黑白名单，当没有IP黑白名单时填空数组
+   * 请求源IP黑白名单，当没有IP黑白名单时填空数组
    */
   IpAllowDenys?: Array<IpBlackWhite>
 

@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeMusicResponse, DescribeLyricResponse, DescribeStationsResponse, DescribePackageItemsResponse, ReportDataResponse, DescribePackageItemsRequest, DescribeItemByIdRequest, DescribeMusicRequest, DescribeStationsRequest, DescribeItemsRequest, DescribePackagesRequest, DescribeItemsResponse, DescribeItemByIdResponse, DescribePackagesResponse, DescribeLyricRequest, ReportDataRequest } from "./ame_models";
 /**
  * ame client

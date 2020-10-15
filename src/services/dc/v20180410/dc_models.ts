@@ -31,6 +31,41 @@ export interface BgpPeer {
 }
 
 /**
+ * 专线通道路由
+ */
+export interface DirectConnectTunnelRoute {
+  /**
+   * 专用通道路由ID
+   */
+  RouteId: string
+
+  /**
+   * 网段CIDR
+   */
+  DestinationCidrBlock: string
+
+  /**
+   * 路由类型：BGP/STATIC路由
+   */
+  RouteType: string
+
+  /**
+   * ENABLE：路由启用，DISABLE：路由禁用
+   */
+  Status: string
+
+  /**
+   * ASPath信息
+   */
+  ASPath: Array<string>
+
+  /**
+   * 路由下一跳IP
+   */
+  NextHop: string
+}
+
+/**
  * RejectDirectConnectTunnel请求参数结构体
  */
 export interface RejectDirectConnectTunnelRequest {
@@ -128,6 +163,43 @@ export interface CreateDirectConnectResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * DescribeDirectConnectTunnelExtra请求参数结构体
+ */
+export interface DescribeDirectConnectTunnelExtraRequest {
+  /**
+   * 专用通道ID
+   */
+  DirectConnectTunnelId: string
+}
+
+/**
+ * DescribePublicDirectConnectTunnelRoutes请求参数结构体
+ */
+export interface DescribePublicDirectConnectTunnelRoutesRequest {
+  /**
+   * 专用通道ID
+   */
+  DirectConnectTunnelId: string
+
+  /**
+      * 过滤条件：
+route-type：路由类型，取值：BGP/STATIC
+route-subnet：路由cidr，取值如：192.68.1.0/24
+      */
+  Filters?: Array<Filter>
+
+  /**
+   * 偏移量，默认为0
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，默认为20，最大值为100
+   */
+  Limit?: number
 }
 
 /**
@@ -330,32 +402,28 @@ export interface AcceptDirectConnectTunnelResponse {
 }
 
 /**
- * DescribeDirectConnectTunnels请求参数结构体
+ * AcceptDirectConnectTunnel请求参数结构体
  */
-export interface DescribeDirectConnectTunnelsRequest {
+export interface AcceptDirectConnectTunnelRequest {
   /**
-      * 过滤条件:
-参数不支持同时指定DirectConnectTunnelIds和Filters。
-<li> direct-connect-tunnel-name, 专用通道名称。</li>
-<li> direct-connect-tunnel-id, 专用通道实例ID，如dcx-abcdefgh。</li>
-<li>direct-connect-id, 物理专线实例ID，如，dc-abcdefgh。</li>
-      */
-  Filters?: Array<Filter>
+   * 物理专线拥有者接受共享专用通道申请
+   */
+  DirectConnectTunnelId: string
+}
+
+/**
+ * DescribeDirectConnectTunnelExtra返回参数结构体
+ */
+export interface DescribeDirectConnectTunnelExtraResponse {
+  /**
+   * 专用通道扩展信息
+   */
+  DirectConnectTunnelExtra?: DirectConnectTunnelExtra
 
   /**
-   * 专用通道 ID数组
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  DirectConnectTunnelIds?: Array<string>
-
-  /**
-   * 偏移量，默认为0
-   */
-  Offset?: number
-
-  /**
-   * 返回数量，默认为20，最大值为100
-   */
-  Limit?: number
+  RequestId?: string
 }
 
 /**
@@ -379,13 +447,215 @@ export interface RouteFilterPrefix {
 }
 
 /**
- * AcceptDirectConnectTunnel请求参数结构体
+ * bgp状态信息
  */
-export interface AcceptDirectConnectTunnelRequest {
+export interface BGPStatus {
   /**
-   * 物理专线拥有者接受共享专用通道申请
+   * 腾讯侧主互联IP BGP状态
+   */
+  TencentAddressBgpState: string
+
+  /**
+   * 腾讯侧备互联IP BGP状态
+   */
+  TencentBackupAddressBgpState: string
+}
+
+/**
+ * 专用通道扩展信息
+ */
+export interface DirectConnectTunnelExtra {
+  /**
+   * 专用通道ID
    */
   DirectConnectTunnelId: string
+
+  /**
+   * 物理专线ID
+   */
+  DirectConnectId: string
+
+  /**
+      * 专用通道状态
+AVAILABLE:就绪或者已连接
+PENDING:申请中
+ALLOCATING:配置中
+ALLOCATED:配置完成
+ALTERING:修改中
+DELETING:删除中
+DELETED:删除完成
+COMFIRMING:待接受
+REJECTED:拒绝
+      */
+  State: string
+
+  /**
+   * 物理专线的拥有者，开发商账号 ID
+   */
+  DirectConnectOwnerAccount: string
+
+  /**
+   * 专用通道的拥有者，开发商账号 ID
+   */
+  OwnerAccount: string
+
+  /**
+      * 网络类型，分别为VPC、BMVPC、CCN
+ VPC：私有网络 ，BMVPC：黑石网络，CCN：云联网
+      */
+  NetworkType: string
+
+  /**
+   * VPC地域对应的网络名，如ap-guangzhou
+   */
+  NetworkRegion: string
+
+  /**
+   * 私有网络统一 ID 或者黑石网络统一 ID
+   */
+  VpcId: string
+
+  /**
+   * 专线网关 ID
+   */
+  DirectConnectGatewayId: string
+
+  /**
+   * BGP ：BGP路由 STATIC：静态 默认为 BGP 路由
+   */
+  RouteType: string
+
+  /**
+   * 用户侧BGP，Asn，AuthKey
+   */
+  BgpPeer: BgpPeer
+
+  /**
+   * 用户侧网段地址
+   */
+  RouteFilterPrefixes: Array<RouteFilterPrefix>
+
+  /**
+   * 互联网通道公网网段地址
+   */
+  PublicAddresses: Array<RouteFilterPrefix>
+
+  /**
+   * 专用通道的Vlan
+   */
+  Vlan: number
+
+  /**
+   * 腾讯侧互联 IP
+   */
+  TencentAddress: string
+
+  /**
+   * 腾讯侧备用互联IP
+   */
+  TencentBackupAddress: string
+
+  /**
+   * 用户侧互联 IP
+   */
+  CustomerAddress: string
+
+  /**
+   * 专用通道名称
+   */
+  DirectConnectTunnelName: string
+
+  /**
+   * 专用通道创建时间
+   */
+  CreatedTime: string
+
+  /**
+   * 专用通道带宽值
+   */
+  Bandwidth: number
+
+  /**
+   * 关联的网络自定义探测ID
+   */
+  NetDetectId: string
+
+  /**
+   * BGP community开关
+   */
+  EnableBGPCommunity: boolean
+
+  /**
+   * 是否为Nat通道
+   */
+  NatType: number
+
+  /**
+   * VPC地域简码，如gz、cd
+   */
+  VpcRegion: string
+
+  /**
+   * 是否开启BFD
+   */
+  BfdEnable: number
+
+  /**
+   * 是否开启NQA
+   */
+  NqaEnable: number
+
+  /**
+   * 专用通道接入点类型
+   */
+  AccessPointType: string
+
+  /**
+   * 专线网关名称
+   */
+  DirectConnectGatewayName: string
+
+  /**
+   * VPC名称
+   */
+  VpcName: string
+
+  /**
+   * 专用通道关联的物理专线是否签署了用户协议
+   */
+  SignLaw: boolean
+
+  /**
+   * BFD配置信息
+   */
+  BfdInfo: BFDInfo
+
+  /**
+   * NQA配置信息
+   */
+  NqaInfo: NQAInfo
+
+  /**
+   * BGP状态
+   */
+  BgpStatus: BGPStatus
+}
+
+/**
+ * 标签键值对
+ */
+export interface Tag {
+  /**
+      * 标签键
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Key: string
+
+  /**
+      * 标签值
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Value: string
 }
 
 /**
@@ -488,6 +758,16 @@ export interface DeleteDirectConnectResponse {
 }
 
 /**
+ * ModifyDirectConnectTunnelExtra返回参数结构体
+ */
+export interface ModifyDirectConnectTunnelExtraResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribeDirectConnects返回参数结构体
  */
 export interface DescribeDirectConnectsResponse {
@@ -548,6 +828,35 @@ export interface DescribeDirectConnectsRequest {
    * 物理专线 ID数组
    */
   DirectConnectIds?: Array<string>
+
+  /**
+   * 偏移量，默认为0
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，默认为20，最大值为100
+   */
+  Limit?: number
+}
+
+/**
+ * DescribeDirectConnectTunnels请求参数结构体
+ */
+export interface DescribeDirectConnectTunnelsRequest {
+  /**
+      * 过滤条件:
+参数不支持同时指定DirectConnectTunnelIds和Filters。
+<li> direct-connect-tunnel-name, 专用通道名称。</li>
+<li> direct-connect-tunnel-id, 专用通道实例ID，如dcx-abcdefgh。</li>
+<li>direct-connect-id, 物理专线实例ID，如，dc-abcdefgh。</li>
+      */
+  Filters?: Array<Filter>
+
+  /**
+   * 专用通道 ID数组
+   */
+  DirectConnectTunnelIds?: Array<string>
 
   /**
    * 偏移量，默认为0
@@ -722,6 +1031,76 @@ export interface ModifyDirectConnectAttributeResponse {
 }
 
 /**
+ * ModifyDirectConnectTunnelExtra请求参数结构体
+ */
+export interface ModifyDirectConnectTunnelExtraRequest {
+  /**
+   * 专用通道ID
+   */
+  DirectConnectTunnelId: string
+
+  /**
+   * 专用通道的Vlan
+   */
+  Vlan?: number
+
+  /**
+   * 用户侧BGP，Asn，AuthKey
+   */
+  BgpPeer?: BgpPeer
+
+  /**
+   * 用户侧网段地址
+   */
+  RouteFilterPrefixes?: RouteFilterPrefix
+
+  /**
+   * 腾讯侧互联IP
+   */
+  TencentAddress?: string
+
+  /**
+   * 腾讯侧备用互联IP
+   */
+  TencentBackupAddress?: string
+
+  /**
+   * 用户侧互联IP
+   */
+  CustomerAddress?: string
+
+  /**
+   * 专用通道带宽值
+   */
+  Bandwidth?: number
+
+  /**
+   * BGP community开关
+   */
+  EnableBGPCommunity?: boolean
+
+  /**
+   * 是否开启BFD
+   */
+  BfdEnable?: number
+
+  /**
+   * 是否开启NQA
+   */
+  NqaEnable?: number
+
+  /**
+   * BFD配置信息
+   */
+  BfdInfo?: BFDInfo
+
+  /**
+   * NQA配置信息
+   */
+  NqaInfo?: NQAInfo
+}
+
+/**
  * RejectDirectConnectTunnel返回参数结构体
  */
 export interface RejectDirectConnectTunnelResponse {
@@ -750,6 +1129,51 @@ export interface CreateDirectConnectTunnelResponse {
  * DeleteDirectConnectTunnel返回参数结构体
  */
 export interface DeleteDirectConnectTunnelResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * BFD配置信息
+ */
+export interface BFDInfo {
+  /**
+   * 健康检查次数
+   */
+  ProbeFailedTimes?: number
+
+  /**
+   * 健康检查间隔
+   */
+  Interval?: number
+}
+
+/**
+ * DeleteDirectConnect请求参数结构体
+ */
+export interface DeleteDirectConnectRequest {
+  /**
+   * 物理专线的ID。
+   */
+  DirectConnectId: string
+}
+
+/**
+ * DescribeDirectConnectTunnels返回参数结构体
+ */
+export interface DescribeDirectConnectTunnelsResponse {
+  /**
+   * 专用通道列表
+   */
+  DirectConnectTunnelSet?: Array<DirectConnectTunnel>
+
+  /**
+   * 符合专用通道数量。
+   */
+  TotalCount?: number
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -798,26 +1222,36 @@ export interface AccessPoint {
 }
 
 /**
- * DeleteDirectConnect请求参数结构体
+ * nqa配置信息
  */
-export interface DeleteDirectConnectRequest {
+export interface NQAInfo {
   /**
-   * 物理专线的ID。
+   * 健康检查次数
    */
-  DirectConnectId: string
+  ProbeFailedTimes?: number
+
+  /**
+   * 健康检查间隔
+   */
+  Interval?: number
+
+  /**
+   * 健康检查地址
+   */
+  DestinationIp?: string
 }
 
 /**
- * DescribeDirectConnectTunnels返回参数结构体
+ * DescribePublicDirectConnectTunnelRoutes返回参数结构体
  */
-export interface DescribeDirectConnectTunnelsResponse {
+export interface DescribePublicDirectConnectTunnelRoutesResponse {
   /**
-   * 专用通道列表
+   * 互联网通道路由列表
    */
-  DirectConnectTunnelSet?: Array<DirectConnectTunnel>
+  Routes?: Array<DirectConnectTunnelRoute>
 
   /**
-   * 符合专用通道数量。
+   * 记录总数
    */
   TotalCount?: number
 
@@ -825,23 +1259,6 @@ export interface DescribeDirectConnectTunnelsResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
-}
-
-/**
- * 标签键值对
- */
-export interface Tag {
-  /**
-      * 标签键
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Key: string
-
-  /**
-      * 标签值
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Value: string
 }
 
 /**

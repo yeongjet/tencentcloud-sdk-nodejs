@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { GetTokenResponse, QueryDevAndRiskRequest, GetOpenIdRequest, QueryDevAndRiskResponse, GetTokenRequest, GetOpenIdResponse } from "./rkp_models";
 /**
  * rkp client

@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { EnhanceTaDegreeRequest, SendTrafficSecuritySmsMessageRequest, DetectFraudKOLResponse, RecognizeCustomizedAudienceResponse, EnhanceTaDegreeResponse, SendTrafficSecuritySmsMessageResponse, DetectFraudKOLRequest, RecognizeCustomizedAudienceRequest, RecognizeTargetAudienceResponse, RecognizePreciseTargetAudienceRequest, RecognizeTargetAudienceRequest, RecognizePreciseTargetAudienceResponse } from "./taf_models";
 /**
  * taf client

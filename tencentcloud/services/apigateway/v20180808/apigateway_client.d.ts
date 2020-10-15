@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { UnBindSubDomainResponse, UpdateApiKeyRequest, DescribeUsagePlanRequest, DeleteUsagePlanResponse, DisableApiKeyResponse, UnReleaseServiceRequest, ModifySubDomainRequest, DescribeServiceEnvironmentListResponse, ModifyApiResponse, DemoteServiceUsagePlanRequest, CreateIPStrategyRequest, DescribeUsagePlansStatusResponse, DescribeApiUsagePlanResponse, DeleteIPStrategyRequest, DeleteUsagePlanRequest, DeleteServiceRequest, DescribeApiEnvironmentStrategyRequest, UpdateServiceResponse, DescribeServiceResponse, ModifyIPStrategyResponse, BindSubDomainResponse, BindEnvironmentResponse, DescribeServiceEnvironmentStrategyResponse, ModifySubDomainResponse, ModifyServiceResponse, DisableApiKeyRequest, UnBindIPStrategyResponse, BindIPStrategyResponse, DescribeApisStatusRequest, DeleteServiceSubDomainMappingRequest, DescribeIPStrategyResponse, DeleteApiResponse, CreateApiResponse, DescribeIPStrategyApisStatusRequest, UnBindEnvironmentRequest, ModifyApiEnvironmentStrategyRequest, ModifyUsagePlanResponse, CreateUsagePlanResponse, DescribeServicesStatusRequest, DeleteApiKeyResponse, DescribeServiceReleaseVersionRequest, DescribeUsagePlanSecretIdsRequest, DescribeLogSearchResponse, CreateServiceRequest, DescribeIPStrategysStatusRequest, DemoteServiceUsagePlanResponse, EnableApiKeyResponse, UnReleaseServiceResponse, DescribeServiceRequest, CreateUsagePlanRequest, DescribeUsagePlanSecretIdsResponse, UpdateServiceRequest, DescribeServiceSubDomainMappingsResponse, BindSecretIdsRequest, UnBindEnvironmentResponse, DeleteApiKeyRequest, ModifyApiEnvironmentStrategyResponse, DescribeApiKeyResponse, ModifyApiIncrementResponse, ModifyApiRequest, ModifyUsagePlanRequest, ModifyServiceRequest, CreateApiRequest, DescribeServiceEnvironmentStrategyRequest, ReleaseServiceRequest, DeleteServiceResponse, DescribeServiceEnvironmentReleaseHistoryResponse, ReleaseServiceResponse, UnBindIPStrategyRequest, ModifyApiIncrementRequest, GenerateApiDocumentRequest, DescribeIPStrategyApisStatusResponse, ModifyServiceEnvironmentStrategyResponse, UpdateApiKeyResponse, DescribeApisStatusResponse, DescribeApiKeysStatusRequest, DescribeApiResponse, BindSecretIdsResponse, DeleteApiRequest, DescribeServiceSubDomainMappingsRequest, DescribeServiceEnvironmentListRequest, DescribeApiKeyRequest, DescribeUsagePlanResponse, DeleteServiceSubDomainMappingResponse, DescribeServiceUsagePlanRequest, DescribeUsagePlansStatusRequest, ModifyIPStrategyRequest, UnBindSecretIdsRequest, UnBindSecretIdsResponse, ModifyServiceEnvironmentStrategyRequest, DescribeServiceSubDomainsRequest, GenerateApiDocumentResponse, DescribeUsagePlanEnvironmentsResponse, DescribeServiceSubDomainsResponse, BindSubDomainRequest, CreateIPStrategyResponse, BindIPStrategyRequest, DescribeApiEnvironmentStrategyResponse, DeleteIPStrategyResponse, BindEnvironmentRequest, DescribeIPStrategyRequest, DescribeUsagePlanEnvironmentsRequest, CreateApiKeyResponse, DescribeServiceReleaseVersionResponse, DescribeServiceEnvironmentReleaseHistoryRequest, CreateServiceResponse, DescribeApiKeysStatusResponse, DescribeLogSearchRequest, DescribeServiceUsagePlanResponse, DescribeApiUsagePlanRequest, UnBindSubDomainRequest, DescribeApiRequest, DescribeIPStrategysStatusResponse, EnableApiKeyRequest, DescribeServicesStatusResponse, CreateApiKeyRequest } from "./apigateway_models";
 /**
  * apigateway client
@@ -7,9 +8,9 @@ import { UnBindSubDomainResponse, UpdateApiKeyRequest, DescribeUsagePlanRequest,
 export declare class Client extends AbstractClient {
     constructor(clientConfig: ClientConfig);
     /**
-     * 本接口（CreateService）用于创建服务。
-API 网关使用的最大单元为服务，每个服务中可创建多个 API 接口。每个服务有一个默认域名供客户调用，用户也可绑定自定义域名到此服务中。
-     */
+       * 本接口（CreateService）用于创建服务。
+  API 网关使用的最大单元为服务，每个服务中可创建多个 API 接口。每个服务有一个默认域名供客户调用，用户也可绑定自定义域名到此服务中。
+       */
     CreateService(req: CreateServiceRequest, cb?: (error: string, rep: CreateServiceResponse) => void): Promise<CreateServiceResponse>;
     /**
      * 本接口（DescribeUsagePlanStatus）用于查询使用计划的列表。
@@ -24,15 +25,15 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
      */
     ModifyApi(req: ModifyApiRequest, cb?: (error: string, rep: ModifyApiResponse) => void): Promise<ModifyApiResponse>;
     /**
-     * 本接口（DemoteServiceUsagePlan）用于将某个服务在某个环境的使用计划，降级到API上。
-如果服务内没有API不允许进行此操作。
-如果当前环境没有发布，不允许进行此操作。
-     */
+       * 本接口（DemoteServiceUsagePlan）用于将某个服务在某个环境的使用计划，降级到API上。
+  如果服务内没有API不允许进行此操作。
+  如果当前环境没有发布，不允许进行此操作。
+       */
     DemoteServiceUsagePlan(req: DemoteServiceUsagePlanRequest, cb?: (error: string, rep: DemoteServiceUsagePlanResponse) => void): Promise<DemoteServiceUsagePlanResponse>;
     /**
-     * 本接口（DescribeApiKeysStatus）用于查询密钥列表。
-当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息，本接口不会显示密钥 Key。
-     */
+       * 本接口（DescribeApiKeysStatus）用于查询密钥列表。
+  当用户创建了多个密钥对时，可使用本接口查询一个或多个 API 密钥信息，本接口不会显示密钥 Key。
+       */
     DescribeApiKeysStatus(req: DescribeApiKeysStatusRequest, cb?: (error: string, rep: DescribeApiKeysStatusResponse) => void): Promise<DescribeApiKeysStatusResponse>;
     /**
      * 本接口（ModifyApiEnvironmentStrategy）用于修改API限流策略
@@ -47,14 +48,14 @@ API 网关使用的最大单元为服务，每个服务中可创建多个 API �
      */
     DescribeLogSearch(req: DescribeLogSearchRequest, cb?: (error: string, rep: DescribeLogSearchResponse) => void): Promise<DescribeLogSearchResponse>;
     /**
-     * 本接口（DescribeUsagePlanSecretIds）用于查询使用计划绑定的密钥列表。
-在 API 网关中，一个使用计划可绑定多个密钥对，可使用本接口查询使用计划绑定的密钥列表。
-     */
+       * 本接口（DescribeUsagePlanSecretIds）用于查询使用计划绑定的密钥列表。
+  在 API 网关中，一个使用计划可绑定多个密钥对，可使用本接口查询使用计划绑定的密钥列表。
+       */
     DescribeUsagePlanSecretIds(req: DescribeUsagePlanSecretIdsRequest, cb?: (error: string, rep: DescribeUsagePlanSecretIdsResponse) => void): Promise<DescribeUsagePlanSecretIdsResponse>;
     /**
-     * 本接口（DescribeServiceSubDomains）用于查询自定义域名列表。
-API 网关可绑定自定义域名到服务，用于服务调用。此接口用于查询用户绑定在服务的自定义域名列表。
-     */
+       * 本接口（DescribeServiceSubDomains）用于查询自定义域名列表。
+  API 网关可绑定自定义域名到服务，用于服务调用。此接口用于查询用户绑定在服务的自定义域名列表。
+       */
     DescribeServiceSubDomains(req: DescribeServiceSubDomainsRequest, cb?: (error: string, rep: DescribeServiceSubDomainsResponse) => void): Promise<DescribeServiceSubDomainsResponse>;
     /**
      * 本接口（ModifyIPStrategy）用于修改服务IP策略。
@@ -77,23 +78,23 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
      */
     DescribeIPStrategyApisStatus(req: DescribeIPStrategyApisStatusRequest, cb?: (error: string, rep: DescribeIPStrategyApisStatusResponse) => void): Promise<DescribeIPStrategyApisStatusResponse>;
     /**
-     * 本接口（UnReleaseService）用于下线服务。
-用户发布服务到某个环境后，此服务中的 API 方可被调用者进行调用，当用户需要将此服务从发布环境中下线时，可调用此 API。下线后的服务不可被调用。
-     */
+       * 本接口（UnReleaseService）用于下线服务。
+  用户发布服务到某个环境后，此服务中的 API 方可被调用者进行调用，当用户需要将此服务从发布环境中下线时，可调用此 API。下线后的服务不可被调用。
+       */
     UnReleaseService(req: UnReleaseServiceRequest, cb?: (error: string, rep: UnReleaseServiceResponse) => void): Promise<UnReleaseServiceResponse>;
     /**
      * 提供增量更新API能力，主要是给程序调用（区别于ModifyApi，该接口是需要传入API的全量参数，对console使用较友好）
      */
     ModifyApiIncrement(req: ModifyApiIncrementRequest, cb?: (error: string, rep: ModifyApiIncrementResponse) => void): Promise<ModifyApiIncrementResponse>;
     /**
-     * 本接口（DescribeServiceEnvironmentReleaseHistory）用于查询服务环境的发布历史。
-用户在创建好服务后需要发布到某个环境中才能进行使用，本接口用于查询一个服务某个环境的发布记录。
-     */
+       * 本接口（DescribeServiceEnvironmentReleaseHistory）用于查询服务环境的发布历史。
+  用户在创建好服务后需要发布到某个环境中才能进行使用，本接口用于查询一个服务某个环境的发布记录。
+       */
     DescribeServiceEnvironmentReleaseHistory(req: DescribeServiceEnvironmentReleaseHistoryRequest, cb?: (error: string, rep: DescribeServiceEnvironmentReleaseHistoryResponse) => void): Promise<DescribeServiceEnvironmentReleaseHistoryResponse>;
     /**
-     * 本接口（DescribeApiUsagePlan）用于查询服务中 API 使用计划详情。
-服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务及其中 API 的所有使用计划。
-     */
+       * 本接口（DescribeApiUsagePlan）用于查询服务中 API 使用计划详情。
+  服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务及其中 API 的所有使用计划。
+       */
     DescribeApiUsagePlan(req: DescribeApiUsagePlanRequest, cb?: (error: string, rep: DescribeApiUsagePlanResponse) => void): Promise<DescribeApiUsagePlanResponse>;
     /**
      * 本接口（DeleteApi）用于删除已经创建的API。
@@ -108,33 +109,33 @@ API 网关可绑定自定义域名到服务，用于服务调用。此接口用�
      */
     DescribeServiceEnvironmentList(req: DescribeServiceEnvironmentListRequest, cb?: (error: string, rep: DescribeServiceEnvironmentListResponse) => void): Promise<DescribeServiceEnvironmentListResponse>;
     /**
-     * 本接口（DescribeServiceUsagePlan）用于查询服务使用计划详情。
-服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务的所有使用计划。
-     */
+       * 本接口（DescribeServiceUsagePlan）用于查询服务使用计划详情。
+  服务若需要鉴权限流生效，则需要绑定使用计划到此服务中，本接口用于查询绑定到一个服务的所有使用计划。
+       */
     DescribeServiceUsagePlan(req: DescribeServiceUsagePlanRequest, cb?: (error: string, rep: DescribeServiceUsagePlanResponse) => void): Promise<DescribeServiceUsagePlanResponse>;
     /**
      * 本接口（ModifyServiceEnvironmentStrategy）用于修改服务限流策略
      */
     ModifyServiceEnvironmentStrategy(req: ModifyServiceEnvironmentStrategyRequest, cb?: (error: string, rep: ModifyServiceEnvironmentStrategyResponse) => void): Promise<ModifyServiceEnvironmentStrategyResponse>;
     /**
-     * 本接口（CreateUsagePlan）用于创建使用计划。
-用户在使用 API 网关时，需要创建使用计划并将其绑定到服务的环境中使用。
-     */
+       * 本接口（CreateUsagePlan）用于创建使用计划。
+  用户在使用 API 网关时，需要创建使用计划并将其绑定到服务的环境中使用。
+       */
     CreateUsagePlan(req: CreateUsagePlanRequest, cb?: (error: string, rep: CreateUsagePlanResponse) => void): Promise<CreateUsagePlanResponse>;
     /**
      * 本接口（UpdateApiKey）用于更换用户已创建的一对 API 密钥。
      */
     UpdateApiKey(req: UpdateApiKeyRequest, cb?: (error: string, rep: UpdateApiKeyResponse) => void): Promise<UpdateApiKeyResponse>;
     /**
-     * 本接口（DescribeServiceSubDomainMappings）用于查询自定义域名的路径映射。
-API 网关可绑定自定义域名到服务，并且可以对自定义域名的路径进行映射，可自定义不同的路径映射到服务中的三个环境，本接口用于查询绑定服务的自定义域名的路径映射列表。
-     */
+       * 本接口（DescribeServiceSubDomainMappings）用于查询自定义域名的路径映射。
+  API 网关可绑定自定义域名到服务，并且可以对自定义域名的路径进行映射，可自定义不同的路径映射到服务中的三个环境，本接口用于查询绑定服务的自定义域名的路径映射列表。
+       */
     DescribeServiceSubDomainMappings(req: DescribeServiceSubDomainMappingsRequest, cb?: (error: string, rep: DescribeServiceSubDomainMappingsResponse) => void): Promise<DescribeServiceSubDomainMappingsResponse>;
     /**
-     * 本接口（BindEnvironment）用于绑定使用计划到服务或API。
-用户在发布服务到某个环境中后，如果 API 需要鉴权，还需要绑定使用计划才能进行调用，此接口用户将使用计划绑定到特定环境。
-目前支持绑定使用计划到API，但是同一个服务不能同时存在绑定到服务的使用计划和绑定到API的使用计划，所以对已经绑定过服务级别使用计划的环境，请先使用 服务级别使用计划降级 接口进行降级操作。
-     */
+       * 本接口（BindEnvironment）用于绑定使用计划到服务或API。
+  用户在发布服务到某个环境中后，如果 API 需要鉴权，还需要绑定使用计划才能进行调用，此接口用户将使用计划绑定到特定环境。
+  目前支持绑定使用计划到API，但是同一个服务不能同时存在绑定到服务的使用计划和绑定到API的使用计划，所以对已经绑定过服务级别使用计划的环境，请先使用 服务级别使用计划降级 接口进行降级操作。
+       */
     BindEnvironment(req: BindEnvironmentRequest, cb?: (error: string, rep: BindEnvironmentResponse) => void): Promise<BindEnvironmentResponse>;
     /**
      * 本接口（UnBindSecretIds）用于为使用计划解绑密钥。
@@ -153,9 +154,9 @@ API 网关可绑定自定义域名到服务，并且可以对自定义域名的�
      */
     DescribeIPStrategy(req: DescribeIPStrategyRequest, cb?: (error: string, rep: DescribeIPStrategyResponse) => void): Promise<DescribeIPStrategyResponse>;
     /**
-     * 本接口（DescribeUsagePlanEnvironments）用于查询使用计划绑定的环境列表。
-用户在绑定了某个使用计划到环境后，可使用本接口查询这个使用计划绑定的所有服务的环境。
-     */
+       * 本接口（DescribeUsagePlanEnvironments）用于查询使用计划绑定的环境列表。
+  用户在绑定了某个使用计划到环境后，可使用本接口查询这个使用计划绑定的所有服务的环境。
+       */
     DescribeUsagePlanEnvironments(req: DescribeUsagePlanEnvironmentsRequest, cb?: (error: string, rep: DescribeUsagePlanEnvironmentsResponse) => void): Promise<DescribeUsagePlanEnvironmentsResponse>;
     /**
      * 本接口（EnableApiKey）用于启动一对被禁用的 API 密钥。
@@ -166,9 +167,9 @@ API 网关可绑定自定义域名到服务，并且可以对自定义域名的�
      */
     CreateIPStrategy(req: CreateIPStrategyRequest, cb?: (error: string, rep: CreateIPStrategyResponse) => void): Promise<CreateIPStrategyResponse>;
     /**
-     * 本接口（DescribeServiceReleaseVersion）查询一个服务下面所有已经发布的版本列表。
-用户在发布服务时，常有多个版本发布，可使用本接口查询已发布的版本。
-     */
+       * 本接口（DescribeServiceReleaseVersion）查询一个服务下面所有已经发布的版本列表。
+  用户在发布服务时，常有多个版本发布，可使用本接口查询已发布的版本。
+       */
     DescribeServiceReleaseVersion(req: DescribeServiceReleaseVersionRequest, cb?: (error: string, rep: DescribeServiceReleaseVersionResponse) => void): Promise<DescribeServiceReleaseVersionResponse>;
     /**
      * 本接口（DescribeApisStatus）用于查看一个服务下的某个 API 或所有 API 列表及其相关信息。
@@ -187,9 +188,9 @@ API 网关可绑定自定义域名到服务，并且可以对自定义域名的�
      */
     DeleteIPStrategy(req: DeleteIPStrategyRequest, cb?: (error: string, rep: DeleteIPStrategyResponse) => void): Promise<DeleteIPStrategyResponse>;
     /**
-     * 本接口（ReleaseService）用于发布服务。
-API 网关的服务创建后，需要发布到某个环境方生效后，使用者才能进行调用，此接口用于发布服务到环境，如 release 环境。
-     */
+       * 本接口（ReleaseService）用于发布服务。
+  API 网关的服务创建后，需要发布到某个环境方生效后，使用者才能进行调用，此接口用于发布服务到环境，如 release 环境。
+       */
     ReleaseService(req: ReleaseServiceRequest, cb?: (error: string, rep: ReleaseServiceResponse) => void): Promise<ReleaseServiceResponse>;
     /**
      * 本接口（DisableApiKey）用于禁用一对 API 密钥。
@@ -208,9 +209,9 @@ API 网关的服务创建后，需要发布到某个环境方生效后，使用�
      */
     DescribeApiEnvironmentStrategy(req: DescribeApiEnvironmentStrategyRequest, cb?: (error: string, rep: DescribeApiEnvironmentStrategyResponse) => void): Promise<DescribeApiEnvironmentStrategyResponse>;
     /**
-     * 本接口（BindSecretIds）用于为使用计划绑定密钥。
-将密钥绑定到某个使用计划，并将此使用计划绑定到某个服务发布的环境上，调用者方可使用此密钥调用这个服务中的 API，可使用本接口为使用计划绑定密钥。
-     */
+       * 本接口（BindSecretIds）用于为使用计划绑定密钥。
+  将密钥绑定到某个使用计划，并将此使用计划绑定到某个服务发布的环境上，调用者方可使用此密钥调用这个服务中的 API，可使用本接口为使用计划绑定密钥。
+       */
     BindSecretIds(req: BindSecretIdsRequest, cb?: (error: string, rep: BindSecretIdsResponse) => void): Promise<BindSecretIdsResponse>;
     /**
      * 本接口（DescribeServiceEnvironmentStrategy）用于展示服务限流策略。
@@ -221,28 +222,28 @@ API 网关的服务创建后，需要发布到某个环境方生效后，使用�
      */
     DescribeService(req: DescribeServiceRequest, cb?: (error: string, rep: DescribeServiceResponse) => void): Promise<DescribeServiceResponse>;
     /**
-     * 本接口（DeleteServiceSubDomainMapping）用于删除服务中某个环境的自定义域名映射。
-当用户使用自定义域名，并使用了自定义映射时，可使用此接口。但需注意，若删除了所有环境的映射时，调用此 API 均会返回失败。
-     */
+       * 本接口（DeleteServiceSubDomainMapping）用于删除服务中某个环境的自定义域名映射。
+  当用户使用自定义域名，并使用了自定义映射时，可使用此接口。但需注意，若删除了所有环境的映射时，调用此 API 均会返回失败。
+       */
     DeleteServiceSubDomainMapping(req: DeleteServiceSubDomainMappingRequest, cb?: (error: string, rep: DeleteServiceSubDomainMappingResponse) => void): Promise<DeleteServiceSubDomainMappingResponse>;
     /**
-     * 本接口（DescribeApiKey）用于查询密钥详情。
-用户在创建密钥后，可用此接口查询一个 API 密钥的详情，该接口会显示密钥 Key。
-     */
+       * 本接口（DescribeApiKey）用于查询密钥详情。
+  用户在创建密钥后，可用此接口查询一个 API 密钥的详情，该接口会显示密钥 Key。
+       */
     DescribeApiKey(req: DescribeApiKeyRequest, cb?: (error: string, rep: DescribeApiKeyResponse) => void): Promise<DescribeApiKeyResponse>;
     /**
      * 本接口（DescribeUsagePlan）用于查询一个使用计划的详细信息，包括名称、QPS、创建时间绑定的环境等。
      */
     DescribeUsagePlan(req: DescribeUsagePlanRequest, cb?: (error: string, rep: DescribeUsagePlanResponse) => void): Promise<DescribeUsagePlanResponse>;
     /**
-     * 本接口（UnBindSubDomain）用于解绑自定义域名。
-用户使用 API 网关绑定了自定义域名到服务中后，若想要解绑此自定义域名，可使用此接口。
-     */
+       * 本接口（UnBindSubDomain）用于解绑自定义域名。
+  用户使用 API 网关绑定了自定义域名到服务中后，若想要解绑此自定义域名，可使用此接口。
+       */
     UnBindSubDomain(req: UnBindSubDomainRequest, cb?: (error: string, rep: UnBindSubDomainResponse) => void): Promise<UnBindSubDomainResponse>;
     /**
-     * 本接口（BindSubDomain）用于绑定自定义域名到服务。
-API 网关中每个服务都会提供一个默认的域名供用户调用，但当用户想使用自己的已有域名时，也可以将自定义域名绑定到此服务，在做好备案、与默认域名的 CNAME 后，可直接调用自定义域名。
-     */
+       * 本接口（BindSubDomain）用于绑定自定义域名到服务。
+  API 网关中每个服务都会提供一个默认的域名供用户调用，但当用户想使用自己的已有域名时，也可以将自定义域名绑定到此服务，在做好备案、与默认域名的 CNAME 后，可直接调用自定义域名。
+       */
     BindSubDomain(req: BindSubDomainRequest, cb?: (error: string, rep: BindSubDomainResponse) => void): Promise<BindSubDomainResponse>;
     /**
      * 本接口（DescribeApi）用于查询用户部署于 API 网关的 API 接口的详细信息。​

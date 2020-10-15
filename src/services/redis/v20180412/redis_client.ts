@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   ModifyInstanceParamsResponse,
   EnableReplicaReadonlyRequest,
@@ -34,6 +35,7 @@ import {
   AssociateSecurityGroupsRequest,
   DescribeTaskListResponse,
   ModifyInstanceRequest,
+  TendisNodes,
   RenewInstanceResponse,
   DescribeSlowLogResponse,
   DescribeDBSecurityGroupsResponse,
@@ -61,6 +63,7 @@ import {
   DescribeInstanceDTSInfoResponse,
   DestroyPostpaidInstanceResponse,
   ModifyInstanceResponse,
+  ProxyNodes,
   TradeDealDetail,
   SourceInfo,
   ModifyDBInstanceSecurityGroupsResponse,
@@ -91,6 +94,7 @@ import {
   DisableReplicaReadonlyResponse,
   CreateInstancesResponse,
   DescribeTaskInfoRequest,
+  RedisNodes,
   DescribeInstanceMonitorTopNCmdRequest,
   ModifyNetworkConfigRequest,
   DescribeInstanceSecurityGroupRequest,
@@ -138,6 +142,7 @@ import {
   InquiryPriceCreateInstanceRequest,
   ModifyInstanceParamsRequest,
   BigKeyTypeInfo,
+  DescribeInstanceNodeInfoRequest,
   DescribeMaintenanceWindowRequest,
   InstanceClusterNode,
   DescribeProxySlowLogRequest,
@@ -161,6 +166,7 @@ import {
   InstanceClusterShard,
   ZoneCapacityConf,
   UpgradeInstanceRequest,
+  DescribeInstanceNodeInfoResponse,
   DescribeProjectSecurityGroupResponse,
   DescribeInstanceMonitorHotKeyResponse,
   InstanceParam,
@@ -186,6 +192,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: EnableReplicaReadonlyResponse) => void
   ): Promise<EnableReplicaReadonlyResponse> {
     return this.request("EnableReplicaReadonly", req, cb)
+  }
+
+  /**
+   * 查询实例节点信息
+   */
+  async DescribeInstanceNodeInfo(
+    req: DescribeInstanceNodeInfoRequest,
+    cb?: (error: string, rep: DescribeInstanceNodeInfoResponse) => void
+  ): Promise<DescribeInstanceNodeInfoResponse> {
+    return this.request("DescribeInstanceNodeInfo", req, cb)
   }
 
   /**
@@ -499,7 +515,7 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口 (AssociateSecurityGroups) 用于绑定安全组到指定实例。
+   * 本接口 (AssociateSecurityGroups) 用于安全组批量绑定多个指定实例。
    */
   async AssociateSecurityGroups(
     req: AssociateSecurityGroupsRequest,
@@ -529,7 +545,7 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组
+   * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
    */
   async ModifyDBInstanceSecurityGroups(
     req: ModifyDBInstanceSecurityGroupsRequest,

@@ -56,6 +56,90 @@ export interface ScdnTopUrlData {
 }
 
 /**
+ * SCDN日志事件详细信息
+ */
+export interface ScdnLogTaskDetail {
+  /**
+   * scdn域名
+   */
+  Domain: string
+
+  /**
+   * 防护类型
+   */
+  Mode: string
+
+  /**
+   * 查询任务开始时间
+   */
+  StartTime: string
+
+  /**
+   * 查询任务结束时间
+   */
+  EndTime: string
+
+  /**
+   * 任务创建时间
+   */
+  CreateTime: string
+
+  /**
+      * 日志包下载链接
+成功返回下载链接，其他情况返回'-'
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DownloadUrl: string
+
+  /**
+      * 任务状态
+created->任务已经创建
+processing->任务正在执行
+done->任务执行成功
+failed->任务执行失败
+no-log->没有日志产生
+      */
+  Status: string
+
+  /**
+   * 日志任务唯一id
+   */
+  TaskID: string
+
+  /**
+      * 攻击类型, 可以为"all"
+AttackType映射如下:
+  other = '未知类型'
+  malicious_scan = "恶意扫描"
+  sql_inject = "SQL注入攻击"
+  xss = "XSS攻击"
+  cmd_inject = "命令注入攻击"
+  ldap_inject = "LDAP注入攻击"
+  ssi_inject = "SSI注入攻击"
+  xml_inject = "XML注入攻击"
+  web_service = "WEB服务漏洞攻击"
+  web_app = "WEB应用漏洞攻击"
+  path_traversal = "路径跨越攻击"
+  illegal_access_core_file = "核心文件非法访问"
+  file_upload = "文件上传攻击"
+  trojan_horse = "木马后门攻击"
+  csrf = "CSRF攻击"
+  custom_policy = "自定义策略"
+  ai_engine= 'AI引擎检出'
+  malicious_file_upload= '恶意文件上传'
+      */
+  AttackType: string
+
+  /**
+      * 防御模式,可以为"all"
+DefenceMode映射如下：
+  observe = '观察模式'
+  intercept = '防御模式'
+      */
+  DefenceMode: string
+}
+
+/**
  * DescribeCdnDomainLogs请求参数结构体
  */
 export interface DescribeCdnDomainLogsRequest {
@@ -758,18 +842,50 @@ bandwidth：带宽计费
 }
 
 /**
- * VerifyDomainRecord返回参数结构体
+ * 分路径回源配置规则。
  */
-export interface VerifyDomainRecordResponse {
+export interface PathRule {
   /**
-   * 是否验证成功
-   */
-  Result?: boolean
+      * 是否是正则匹配。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Regex: boolean
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+      * URL路径。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Path: string
+
+  /**
+      * 路径匹配时的回源源站。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Origin: string
+
+  /**
+      * 路径匹配时的回源Host头部。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ServerName: string
+
+  /**
+      * 源站所属区域，支持CN，OV。分别表示国内或海外。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  OriginArea: string
+
+  /**
+      * 路径匹配时的回源URI路径。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ForwardUri?: string
+
+  /**
+      * 路径匹配时的回源头部设置。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RequestHeaders?: Array<HttpHeaderRule>
 }
 
 /**
@@ -1071,6 +1187,52 @@ ip：IP 列表作为源站
 注意：此字段可能返回 null，表示取不到有效值。
       */
   BasePath?: string
+
+  /**
+      * 分路径回源配置规则
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PathRules?: Array<PathRule>
+}
+
+/**
+ * 违规 URL 详情
+ */
+export interface ViolationUrl {
+  /**
+   * ID
+   */
+  Id: number
+
+  /**
+   * 违规资源原始访问 URL
+   */
+  RealUrl: string
+
+  /**
+   * 快照路径，用于控制台展示违规内容快照
+   */
+  DownloadUrl: string
+
+  /**
+      * 违规资源当前状态
+forbid：已封禁
+release：已解封
+delay ： 延迟处理
+reject ：申诉驳回，状态仍为封禁态
+complain：申诉进行中
+      */
+  UrlStatus: string
+
+  /**
+   * 创建时间
+   */
+  CreateTime: string
+
+  /**
+   * 更新时间
+   */
+  UpdateTime: string
 }
 
 /**
@@ -2102,6 +2264,11 @@ global：全球加速
    * 回源超时配置
    */
   OriginPullTimeout?: OriginPullTimeout
+
+  /**
+   * 标签配置
+   */
+  Tag?: Array<Tag>
 }
 
 /**
@@ -2138,18 +2305,20 @@ path: 根据完整访问路径生效
 }
 
 /**
- * 排序类型的数据结构
+ * 域名标签配置
  */
-export interface TopDetailData {
+export interface Tag {
   /**
-   * 数据类型的名称
-   */
-  Name: string
+      * 标签键
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TagKey: string
 
   /**
-   * 数据值
-   */
-  Value: number
+      * 标签值
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TagValue: string
 }
 
 /**
@@ -2269,6 +2438,16 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
       */
   IgnoreSetCookie: string
+}
+
+/**
+ * DeleteScdnDomain请求参数结构体
+ */
+export interface DeleteScdnDomainRequest {
+  /**
+   * 域名
+   */
+  Domain: string
 }
 
 /**
@@ -2418,6 +2597,14 @@ export interface AuthenticationTypeC {
 blacklist：黑名单，表示仅对 FileExtensions 中的类型进行鉴权
       */
   FilterType: string
+
+  /**
+      * 时间戳进制设置
+dec：十进制
+hex：十六进制
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TimeFormat?: string
 }
 
 /**
@@ -2734,6 +2921,7 @@ export interface CreateScdnLogTaskRequest {
 Mode 映射如下：
   waf = "Web攻击"
   cc = "CC攻击"
+  bot = "Bot攻击"
       */
   Mode: string
 
@@ -2770,6 +2958,8 @@ AttackType 映射如下:
   trojan_horse = "木马后门攻击"
   csrf = "CSRF攻击"
   malicious_file_upload= '恶意文件上传'
+  js = "JS主动探测"
+  cookie = "Cookie指纹"
       */
   AttackType?: string
 
@@ -2778,6 +2968,8 @@ AttackType 映射如下:
 DefenceMode 映射如下：
   observe = '观察模式'
   intercept = '拦截模式'
+  captcha = "验证码"
+  redirect = "重定向"
       */
   DefenceMode?: string
 
@@ -2936,6 +3128,14 @@ last：表示回源层节点
 不填充情况下，默认返回边缘节点信息
       */
   Layer?: string
+
+  /**
+      * 查询区域：
+mainland: 国内节点
+overseas: 海外节点
+global: 全球节点
+      */
+  Area?: string
 }
 
 /**
@@ -3238,6 +3438,12 @@ off：不支持
 注意：此字段可能返回 null，表示取不到有效值。
       */
   AccessPort: Array<number>
+
+  /**
+      * 标签配置
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Tag: Array<Tag>
 }
 
 /**
@@ -3315,6 +3521,21 @@ avg：平均值
    * 汇总后的数据值
    */
   Value: number
+}
+
+/**
+ * VerifyDomainRecord返回参数结构体
+ */
+export interface VerifyDomainRecordResponse {
+  /**
+   * 是否验证成功
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -3477,44 +3698,9 @@ off：关闭
 }
 
 /**
- * 违规 URL 详情
+ * ListScdnLogTasks请求参数结构体
  */
-export interface ViolationUrl {
-  /**
-   * ID
-   */
-  Id: number
-
-  /**
-   * 违规资源原始访问 URL
-   */
-  RealUrl: string
-
-  /**
-   * 快照路径，用于控制台展示违规内容快照
-   */
-  DownloadUrl: string
-
-  /**
-      * 违规资源当前状态
-forbid：已封禁
-release：已解封
-delay ： 延迟处理
-reject ：申诉驳回，状态仍为封禁态
-complain：申诉进行中
-      */
-  UrlStatus: string
-
-  /**
-   * 创建时间
-   */
-  CreateTime: string
-
-  /**
-   * 更新时间
-   */
-  UpdateTime: string
-}
+export type ListScdnLogTasksRequest = null
 
 /**
  * SearchClsLog返回参数结构体
@@ -4187,6 +4373,26 @@ day：天粒度，查询时间区间大于 1 天时，默认返回天粒度活�
 }
 
 /**
+ * http头部设置规则。
+ */
+export interface HttpHeaderRule {
+  /**
+   * http头部设置方式，支持add，set或del，分别表示新增，设置或删除头部。
+   */
+  HeaderMode: string
+
+  /**
+   * http头部名称。
+   */
+  HeaderName: string
+
+  /**
+   * http头部值。
+   */
+  HeaderValue: string
+}
+
+/**
  * 状态码缓存过期时间规则配置
  */
 export interface StatusCodeCacheRule {
@@ -4547,6 +4753,26 @@ ipv6：指定查询 ipv6 对应指标
 }
 
 /**
+ * ListScdnLogTasks返回参数结构体
+ */
+export interface ListScdnLogTasksResponse {
+  /**
+   * 日志下载任务详情
+   */
+  TaskList?: Array<ScdnLogTaskDetail>
+
+  /**
+   * 查询到的下载任务的总数
+   */
+  TotalCount?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 缓存键配置（过滤参数配置）
  */
 export interface CacheKey {
@@ -4740,6 +4966,21 @@ path 时填充绝对路径，如 /xxx/test.html
    * 下行速度值设置，单位为 KB/s
    */
   KBpsThreshold: number
+}
+
+/**
+ * DeleteScdnDomain返回参数结构体
+ */
+export interface DeleteScdnDomainResponse {
+  /**
+   * 创建结果，Success表示成功
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -5050,6 +5291,21 @@ export interface StartCdnDomainResponse {
  * DescribePushQuota请求参数结构体
  */
 export type DescribePushQuotaRequest = null
+
+/**
+ * 排序类型的数据结构
+ */
+export interface TopDetailData {
+  /**
+   * 数据类型的名称
+   */
+  Name: string
+
+  /**
+   * 数据值
+   */
+  Value: number
+}
 
 /**
  * 源站头部缓存配置，默认为开启状态，缓存所有头部信息
@@ -5691,6 +5947,12 @@ blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Filters?: Array<string>
+
+  /**
+      * IP 黑白名单分路径配置，白名单功能
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FilterRules?: Array<IpFilterPathRule>
 }
 
 /**
@@ -6074,4 +6336,45 @@ export interface DescribeDomainsRequest {
    * 查询条件过滤器，复杂类型
    */
   Filters?: Array<DomainFilter>
+}
+
+/**
+ * IP黑白名单分路径配置
+ */
+export interface IpFilterPathRule {
+  /**
+      * IP 黑白名单类型
+whitelist：白名单
+blacklist：黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FilterType: string
+
+  /**
+      * IP 黑白名单列表
+支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
+最多可填充 50 个白名单或 50 个黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Filters: Array<string>
+
+  /**
+      * 规则类型：
+all：所有文件生效
+file：指定文件后缀生效
+directory：指定路径生效
+path：指定绝对路径生效
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RuleType: string
+
+  /**
+      * RuleType 对应类型下的匹配内容：
+all 时填充 *
+file 时填充后缀名，如 jpg、txt
+directory 时填充路径，如 /xxx/test/
+path 时填充绝对路径，如 /xxx/test.html
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RulePaths: Array<string>
 }

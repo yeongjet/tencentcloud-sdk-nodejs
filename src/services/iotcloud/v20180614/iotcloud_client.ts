@@ -15,12 +15,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   UnbindDevicesRequest,
   BindDevicesRequest,
   DescribeProductsRequest,
   TopicRulePayload,
+  DescribeFirmwareRequest,
   DescribeDevicesResponse,
   DeleteTopicRuleResponse,
   Task,
@@ -33,44 +35,60 @@ import {
   CreateMultiDeviceResponse,
   PublishRRPCMessageRequest,
   ProductProperties,
+  DeviceUpdateStatus,
   UpdateTopicPolicyResponse,
   TaskInfo,
   DeleteProductRequest,
+  StatusStatistic,
   DescribeTasksRequest,
-  ReplaceTopicRuleRequest,
+  EditFirmwareRequest,
   MultiDevicesInfo,
   ResetDeviceStateRequest,
   DescribeDeviceClientKeyRequest,
   UpdateTopicPolicyRequest,
   BatchUpdateShadow,
   DeleteDeviceRequest,
+  DescribeFirmwareTaskDevicesRequest,
+  DescribeFirmwareResponse,
   CreateMultiDevicesTaskRequest,
+  DescribeFirmwareTaskStatisticsResponse,
   CreateLoraDeviceRequest,
   CreateProductResponse,
+  CreateMultiDeviceRequest,
   DeleteLoraDeviceResponse,
   CreateTaskRequest,
   DescribeAllDevicesRequest,
+  DescribeFirmwareTaskDevicesResponse,
   DeviceProperty,
-  DescribeMultiDevicesResponse,
+  PublishToDeviceResponse,
+  RetryDeviceFirmwareTaskResponse,
   CreateDeviceResponse,
   DeleteLoraDeviceRequest,
   CreateDeviceRequest,
   DescribeProductTaskRequest,
+  DescribeFirmwareTaskResponse,
   CreateProductRequest,
+  DescribeFirmwareTasksRequest,
   DisableTopicRuleResponse,
   BrokerSubscribe,
   DescribeProductTaskResponse,
   DescribeDeviceResponse,
   PublishBroadcastMessageRequest,
   PublishMessageRequest,
+  RetryDeviceFirmwareTaskRequest,
+  DescribeFirmwareTasksResponse,
   DeviceLabel,
   UpdateDeviceAvailableStateResponse,
+  EditFirmwareResponse,
   CancelTaskRequest,
+  DescribeFirmwareTaskDistributionRequest,
   UpdateDeviceAvailableStateRequest,
   DeleteProductResponse,
   CreateTopicPolicyResponse,
   PublishToDeviceRequest,
+  UploadFirmwareResponse,
   ProductInfo,
+  DescribeFirmwareTaskDistributionResponse,
   PublishBroadcastMessageResponse,
   DescribeDeviceRequest,
   CreateMultiDevicesTaskResponse,
@@ -78,14 +96,17 @@ import {
   ProductMetadata,
   DescribeLoraDeviceResponse,
   ProductTaskInfo,
+  ReplaceTopicRuleRequest,
   PublishRRPCMessageResponse,
   CancelTaskResponse,
   Attribute,
   CreateLoraDeviceResponse,
   DeleteTopicRuleRequest,
   ReplaceTopicRuleResponse,
-  CreateMultiDeviceRequest,
-  PublishToDeviceResponse,
+  PublishAsDeviceRequest,
+  CancelDeviceFirmwareTaskRequest,
+  CancelDeviceFirmwareTaskResponse,
+  DescribeMultiDevicesResponse,
   DescribeDeviceShadowRequest,
   UnbindDevicesResponse,
   CreateTaskFileUrlResponse,
@@ -104,18 +125,22 @@ import {
   PublishMessageResponse,
   BindDevicesResponse,
   ResetDeviceResult,
+  SearchKeyword,
   DescribeDevicesRequest,
   DescribeDeviceClientKeyResponse,
+  UploadFirmwareRequest,
   DisableTopicRuleRequest,
   ResetDeviceStateResponse,
+  FirmwareTaskInfo,
   CreateTopicRuleResponse,
   CreateTopicRuleRequest,
-  PublishAsDeviceRequest,
+  DescribeFirmwareTaskStatisticsRequest,
   DeleteDeviceResponse,
   DeviceInfo,
   DescribeProductTasksResponse,
   PublishAsDeviceResponse,
   EnableTopicRuleRequest,
+  DescribeFirmwareTaskRequest,
 } from "./iotcloud_models"
 
 /**
@@ -178,6 +203,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 查询固件信息
+   */
+  async DescribeFirmware(
+    req: DescribeFirmwareRequest,
+    cb?: (error: string, rep: DescribeFirmwareResponse) => void
+  ): Promise<DescribeFirmwareResponse> {
+    return this.request("DescribeFirmware", req, cb)
+  }
+
+  /**
    * 本接口（DescribeDeviceShadow）用于查询虚拟设备信息。
    */
   async DescribeDeviceShadow(
@@ -228,13 +263,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口（UpdateDeviceShadow）用于更新虚拟设备信息。
+   * 重试设备升级任务
    */
-  async UpdateDeviceShadow(
-    req: UpdateDeviceShadowRequest,
-    cb?: (error: string, rep: UpdateDeviceShadowResponse) => void
-  ): Promise<UpdateDeviceShadowResponse> {
-    return this.request("UpdateDeviceShadow", req, cb)
+  async RetryDeviceFirmwareTask(
+    req: RetryDeviceFirmwareTaskRequest,
+    cb?: (error: string, rep: RetryDeviceFirmwareTaskResponse) => void
+  ): Promise<RetryDeviceFirmwareTaskResponse> {
+    return this.request("RetryDeviceFirmwareTask", req, cb)
   }
 
   /**
@@ -248,6 +283,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 启用或者禁用设备
+   */
+  async UpdateDeviceAvailableState(
+    req: UpdateDeviceAvailableStateRequest,
+    cb?: (error: string, rep: UpdateDeviceAvailableStateResponse) => void
+  ): Promise<UpdateDeviceAvailableStateResponse> {
+    return this.request("UpdateDeviceAvailableState", req, cb)
+  }
+
+  /**
    * 本接口（CreateProduct）用于创建一个新的物联网通信产品
    */
   async CreateProduct(
@@ -255,6 +300,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateProductResponse) => void
   ): Promise<CreateProductResponse> {
     return this.request("CreateProduct", req, cb)
+  }
+
+  /**
+   * 本接口（UploadFirmware）用于上传设备固件信息
+   */
+  async UploadFirmware(
+    req: UploadFirmwareRequest,
+    cb?: (error: string, rep: UploadFirmwareResponse) => void
+  ): Promise<UploadFirmwareResponse> {
+    return this.request("UploadFirmware", req, cb)
   }
 
   /**
@@ -285,6 +340,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateMultiDevicesTaskResponse) => void
   ): Promise<CreateMultiDevicesTaskResponse> {
     return this.request("CreateMultiDevicesTask", req, cb)
+  }
+
+  /**
+   * 查询固件升级任务统计信息
+   */
+  async DescribeFirmwareTaskStatistics(
+    req: DescribeFirmwareTaskStatisticsRequest,
+    cb?: (error: string, rep: DescribeFirmwareTaskStatisticsResponse) => void
+  ): Promise<DescribeFirmwareTaskStatisticsResponse> {
+    return this.request("DescribeFirmwareTaskStatistics", req, cb)
   }
 
   /**
@@ -328,6 +393,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 编辑固件信息
+   */
+  async EditFirmware(
+    req: EditFirmwareRequest,
+    cb?: (error: string, rep: EditFirmwareResponse) => void
+  ): Promise<EditFirmwareResponse> {
+    return this.request("EditFirmware", req, cb)
+  }
+
+  /**
    * 本接口（CreateDevice）用于新建一个物联网通信设备。
    */
   async CreateDevice(
@@ -345,6 +420,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: PublishMessageResponse) => void
   ): Promise<PublishMessageResponse> {
     return this.request("PublishMessage", req, cb)
+  }
+
+  /**
+   * 查询固件升级任务状态分布
+   */
+  async DescribeFirmwareTaskDistribution(
+    req: DescribeFirmwareTaskDistributionRequest,
+    cb?: (error: string, rep: DescribeFirmwareTaskDistributionResponse) => void
+  ): Promise<DescribeFirmwareTaskDistributionResponse> {
+    return this.request("DescribeFirmwareTaskDistribution", req, cb)
   }
 
   /**
@@ -378,6 +463,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 查询固件升级任务列表
+   */
+  async DescribeFirmwareTask(
+    req: DescribeFirmwareTaskRequest,
+    cb?: (error: string, rep: DescribeFirmwareTaskResponse) => void
+  ): Promise<DescribeFirmwareTaskResponse> {
+    return this.request("DescribeFirmwareTask", req, cb)
+  }
+
+  /**
    * 本接口（DescribeTasks）用于查询已创建的任务列表，任务保留一个月
    */
   async DescribeTasks(
@@ -398,13 +493,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 启用或者禁用设备
+   * 查询固件升级任务的设备列表
    */
-  async UpdateDeviceAvailableState(
-    req: UpdateDeviceAvailableStateRequest,
-    cb?: (error: string, rep: UpdateDeviceAvailableStateResponse) => void
-  ): Promise<UpdateDeviceAvailableStateResponse> {
-    return this.request("UpdateDeviceAvailableState", req, cb)
+  async DescribeFirmwareTaskDevices(
+    req: DescribeFirmwareTaskDevicesRequest,
+    cb?: (error: string, rep: DescribeFirmwareTaskDevicesResponse) => void
+  ): Promise<DescribeFirmwareTaskDevicesResponse> {
+    return this.request("DescribeFirmwareTaskDevices", req, cb)
+  }
+
+  /**
+   * 取消设备升级任务
+   */
+  async CancelDeviceFirmwareTask(
+    req: CancelDeviceFirmwareTaskRequest,
+    cb?: (error: string, rep: CancelDeviceFirmwareTaskResponse) => void
+  ): Promise<CancelDeviceFirmwareTaskResponse> {
+    return this.request("CancelDeviceFirmwareTask", req, cb)
   }
 
   /**
@@ -425,6 +530,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateLoraDeviceResponse) => void
   ): Promise<CreateLoraDeviceResponse> {
     return this.request("CreateLoraDevice", req, cb)
+  }
+
+  /**
+   * 本接口（EnableTopicRule）用于启用规则
+   */
+  async EnableTopicRule(
+    req: EnableTopicRuleRequest,
+    cb?: (error: string, rep: EnableTopicRuleResponse) => void
+  ): Promise<EnableTopicRuleResponse> {
+    return this.request("EnableTopicRule", req, cb)
   }
 
   /**
@@ -508,13 +623,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口（EnableTopicRule）用于启用规则
+   * 本接口（UpdateDeviceShadow）用于更新虚拟设备信息。
    */
-  async EnableTopicRule(
-    req: EnableTopicRuleRequest,
-    cb?: (error: string, rep: EnableTopicRuleResponse) => void
-  ): Promise<EnableTopicRuleResponse> {
-    return this.request("EnableTopicRule", req, cb)
+  async UpdateDeviceShadow(
+    req: UpdateDeviceShadowRequest,
+    cb?: (error: string, rep: UpdateDeviceShadowResponse) => void
+  ): Promise<UpdateDeviceShadowResponse> {
+    return this.request("UpdateDeviceShadow", req, cb)
+  }
+
+  /**
+   * 查询固件升级任务列表
+   */
+  async DescribeFirmwareTasks(
+    req: DescribeFirmwareTasksRequest,
+    cb?: (error: string, rep: DescribeFirmwareTasksResponse) => void
+  ): Promise<DescribeFirmwareTasksResponse> {
+    return this.request("DescribeFirmwareTasks", req, cb)
   }
 
   /**

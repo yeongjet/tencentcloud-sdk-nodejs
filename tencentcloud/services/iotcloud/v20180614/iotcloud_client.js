@@ -58,6 +58,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("PublishToDevice", req, cb);
     }
     /**
+     * 查询固件信息
+     */
+    async DescribeFirmware(req, cb) {
+        return this.request("DescribeFirmware", req, cb);
+    }
+    /**
      * 本接口（DescribeDeviceShadow）用于查询虚拟设备信息。
      */
     async DescribeDeviceShadow(req, cb) {
@@ -88,10 +94,10 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CancelTask", req, cb);
     }
     /**
-     * 本接口（UpdateDeviceShadow）用于更新虚拟设备信息。
+     * 重试设备升级任务
      */
-    async UpdateDeviceShadow(req, cb) {
-        return this.request("UpdateDeviceShadow", req, cb);
+    async RetryDeviceFirmwareTask(req, cb) {
+        return this.request("RetryDeviceFirmwareTask", req, cb);
     }
     /**
      * 本接口（CreateTopicPolicy）用于创建一个Topic
@@ -100,10 +106,22 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateTopicPolicy", req, cb);
     }
     /**
+     * 启用或者禁用设备
+     */
+    async UpdateDeviceAvailableState(req, cb) {
+        return this.request("UpdateDeviceAvailableState", req, cb);
+    }
+    /**
      * 本接口（CreateProduct）用于创建一个新的物联网通信产品
      */
     async CreateProduct(req, cb) {
         return this.request("CreateProduct", req, cb);
+    }
+    /**
+     * 本接口（UploadFirmware）用于上传设备固件信息
+     */
+    async UploadFirmware(req, cb) {
+        return this.request("UploadFirmware", req, cb);
     }
     /**
      * 获取证书认证类型设备的私钥，刚生成或者重置设备后仅可调用一次
@@ -122,6 +140,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async CreateMultiDevicesTask(req, cb) {
         return this.request("CreateMultiDevicesTask", req, cb);
+    }
+    /**
+     * 查询固件升级任务统计信息
+     */
+    async DescribeFirmwareTaskStatistics(req, cb) {
+        return this.request("DescribeFirmwareTaskStatistics", req, cb);
     }
     /**
      * 获取lora类型设备的详细信息
@@ -148,6 +172,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("ReplaceTopicRule", req, cb);
     }
     /**
+     * 编辑固件信息
+     */
+    async EditFirmware(req, cb) {
+        return this.request("EditFirmware", req, cb);
+    }
+    /**
      * 本接口（CreateDevice）用于新建一个物联网通信设备。
      */
     async CreateDevice(req, cb) {
@@ -158,6 +188,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async PublishMessage(req, cb) {
         return this.request("PublishMessage", req, cb);
+    }
+    /**
+     * 查询固件升级任务状态分布
+     */
+    async DescribeFirmwareTaskDistribution(req, cb) {
+        return this.request("DescribeFirmwareTaskDistribution", req, cb);
     }
     /**
      * 本接口（DeleteProduct）用于删除一个物联网通信产品
@@ -178,6 +214,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("ResetDeviceState", req, cb);
     }
     /**
+     * 查询固件升级任务列表
+     */
+    async DescribeFirmwareTask(req, cb) {
+        return this.request("DescribeFirmwareTask", req, cb);
+    }
+    /**
      * 本接口（DescribeTasks）用于查询已创建的任务列表，任务保留一个月
      */
     async DescribeTasks(req, cb) {
@@ -190,10 +232,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeMultiDevices", req, cb);
     }
     /**
-     * 启用或者禁用设备
+     * 查询固件升级任务的设备列表
      */
-    async UpdateDeviceAvailableState(req, cb) {
-        return this.request("UpdateDeviceAvailableState", req, cb);
+    async DescribeFirmwareTaskDevices(req, cb) {
+        return this.request("DescribeFirmwareTaskDevices", req, cb);
+    }
+    /**
+     * 取消设备升级任务
+     */
+    async CancelDeviceFirmwareTask(req, cb) {
+        return this.request("CancelDeviceFirmwareTask", req, cb);
     }
     /**
      * 模拟lora类型的设备端向服务器端发送消息
@@ -206,6 +254,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async CreateLoraDevice(req, cb) {
         return this.request("CreateLoraDevice", req, cb);
+    }
+    /**
+     * 本接口（EnableTopicRule）用于启用规则
+     */
+    async EnableTopicRule(req, cb) {
+        return this.request("EnableTopicRule", req, cb);
     }
     /**
      * 本接口（BindDevices）用于网关设备批量绑定子设备
@@ -256,10 +310,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeMultiDevTask", req, cb);
     }
     /**
-     * 本接口（EnableTopicRule）用于启用规则
+     * 本接口（UpdateDeviceShadow）用于更新虚拟设备信息。
      */
-    async EnableTopicRule(req, cb) {
-        return this.request("EnableTopicRule", req, cb);
+    async UpdateDeviceShadow(req, cb) {
+        return this.request("UpdateDeviceShadow", req, cb);
+    }
+    /**
+     * 查询固件升级任务列表
+     */
+    async DescribeFirmwareTasks(req, cb) {
+        return this.request("DescribeFirmwareTasks", req, cb);
     }
     /**
      * 本接口（DescribeProductTask）用于查看产品级别的任务信息

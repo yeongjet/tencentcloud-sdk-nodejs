@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { GetLocalEngineResponse, ScanFileHashResponse, ScanFileHashRequest, ScanFileResponse, GetScanResultResponse, GetLocalEngineRequest, GetScanResultRequest, ScanFileRequest } from "./tav_models";
 /**
  * tav client

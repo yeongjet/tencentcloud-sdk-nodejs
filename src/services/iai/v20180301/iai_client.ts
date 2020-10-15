@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   Eye,
   Candidate,
@@ -396,8 +397,6 @@ export class Client extends AbstractClient {
      * 本接口用于回滚人员库的人脸识别算法模型版本。单个人员库有且仅有一次回滚机会。
 
 回滚操作会在10s内生效，回滚操作中，您对人员库的操作可能会失效。
-
-注：给客户我会写10s内生效，我们实际上越快越好。待讨论。
      */
   async RevertGroupFaceModelVersion(
     req: RevertGroupFaceModelVersionRequest,

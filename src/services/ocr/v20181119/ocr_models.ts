@@ -1512,6 +1512,13 @@ export interface TextVatInvoice {
    * 识别出的字段名称对应的值，也就是字段Name对应的字符串结果。
    */
   Value: string
+
+  /**
+      * 字段在原图中的中的四点坐标。
+注意：此字段可能返回 null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Polygon: Polygon
 }
 
 /**
@@ -1540,6 +1547,11 @@ export interface GeneralHandwritingOCRRequest {
 可选值:only_hw  表示只输出手写体识别结果，过滤印刷体。
       */
   Scene?: string
+
+  /**
+   * 是否开启单字的四点定位坐标输出，默认值为false。
+   */
+  EnableWordPolygon?: boolean
 }
 
 /**
@@ -1763,25 +1775,53 @@ export interface GeneralBasicOCRResponse {
 }
 
 /**
- * VinOCR请求参数结构体
+ * RecognizeThaiIDCardOCR返回参数结构体
  */
-export interface VinOCRRequest {
+export interface RecognizeThaiIDCardOCRResponse {
   /**
-      * 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
-      */
-  ImageBase64?: string
+   * 身份证号码
+   */
+  ID?: string
 
   /**
-      * 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
-      */
-  ImageUrl?: string
+   * 泰文姓名
+   */
+  ThaiName?: string
+
+  /**
+   * 英文姓名
+   */
+  EnFirstName?: string
+
+  /**
+   * 地址
+   */
+  Address?: string
+
+  /**
+   * 出生日期
+   */
+  Birthday?: string
+
+  /**
+   * 首次领用日期
+   */
+  IssueDate?: string
+
+  /**
+   * 签发日期
+   */
+  ExpirationDate?: string
+
+  /**
+   * 英文姓名
+   */
+  EnLastName?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1881,21 +1921,31 @@ WARN_DRIVER_LICENSE_PS_CARD ps告警
  */
 export interface VatInvoiceOCRRequest {
   /**
-      * 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+      * 图片/PDF的 Base64 值。
+支持的文件格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
+支持的图片/PDF大小：所下载文件经Base64编码后不超过 3M。文件下载时间不超过 3 秒。
+输入参数 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
       */
   ImageBase64?: string
 
   /**
-      * 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+      * 图片/PDF的 Url 地址。
+支持的文件格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
+支持的图片/PDF大小：所下载文件经 Base64 编码后不超过 3M。文件下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
       */
   ImageUrl?: string
+
+  /**
+   * 是否开启PDF识别，默认值为false，开启后可同时支持图片和PDF的识别。
+   */
+  IsPdf?: boolean
+
+  /**
+   * 需要识别的PDF页面的对应页码，仅支持PDF单页识别，当上传文件为PDF且IsPdf参数值为true时有效，默认值为1。
+   */
+  PdfPageNumber?: number
 }
 
 /**
@@ -1957,7 +2007,8 @@ WarnInfos，告警信息，Code 告警码列表和释义：
 -9103	身份证翻拍告警，
 -9105	身份证框内遮挡告警，
 -9104	临时身份证告警，
--9106	身份证 PS 告警。
+-9106	身份证 PS 告警，
+-9107       身份证反光告警。
       */
   AdvancedInfo?: string
 
@@ -2350,6 +2401,23 @@ export interface EduPaperOCRResponse {
 }
 
 /**
+ * RecognizeThaiIDCardOCR请求参数结构体
+ */
+export interface RecognizeThaiIDCardOCRRequest {
+  /**
+      * 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
+图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+      */
+  ImageBase64?: string
+
+  /**
+      * 图片的 Url 地址。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
+建议图片存储于腾讯云，可保障更高的下载速度和稳定性。
+      */
+  ImageUrl?: string
+}
+
+/**
  * 名片识别结果
  */
 export interface BusinessCardInfo {
@@ -2395,6 +2463,12 @@ export interface TextGeneralHandwriting {
 其中ParagNo为段落行，从1开始。
       */
   AdvancedInfo: string
+
+  /**
+      * 字的坐标数组，以四个顶点坐标表示
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WordPolygon: Array<Polygon>
 }
 
 /**
@@ -3091,9 +3165,16 @@ export interface CarInvoiceInfo {
   Value: string
 
   /**
-   * 文本行在旋转纠正之后的图像中的像素坐标。
+   * 字段在旋转纠正之后的图像中的像素坐标。
    */
   Rect: Rect
+
+  /**
+      * 字段在原图中的中的四点坐标。
+注意：此字段可能返回 null，表示取不到有效值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Polygon: Polygon
 }
 
 /**
@@ -3708,7 +3789,7 @@ export interface MixedInvoiceOCRRequest {
   /**
       * 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
 图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
       */
   ImageBase64?: string
@@ -3716,7 +3797,7 @@ export interface MixedInvoiceOCRRequest {
   /**
       * 图片的 Url 地址。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
       */
@@ -3844,6 +3925,32 @@ export interface GeneralFastOCRRequest {
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
       */
   ImageUrl?: string
+}
+
+/**
+ * 文本的坐标，以四个顶点坐标表示
+注意：此字段可能返回 null，表示取不到有效值
+ */
+export interface Polygon {
+  /**
+   * 左上顶点坐标
+   */
+  LeftTop: Coord
+
+  /**
+   * 右上顶点坐标
+   */
+  RightTop: Coord
+
+  /**
+   * 右下顶点坐标
+   */
+  RightBottom: Coord
+
+  /**
+   * 左下顶点坐标
+   */
+  LeftBottom: Coord
 }
 
 /**
@@ -4632,6 +4739,7 @@ TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
 MultiCardDetect，是否开启多卡证检测
+ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
 Config = Json.stringify({"CropIdCard":true,"CropPortrait":true})
@@ -4650,6 +4758,28 @@ export interface MixedInvoiceDetectRequest {
    */
   ReturnImage: boolean
 
+  /**
+      * 图片的 Base64 值。
+支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+支持的图片大小：所下载图片经Base64编码后不超过 3M。图片下载时间不超过 3 秒。
+图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+      */
+  ImageBase64?: string
+
+  /**
+      * 图片的 Url 地址。
+支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+      */
+  ImageUrl?: string
+}
+
+/**
+ * VinOCR请求参数结构体
+ */
+export interface VinOCRRequest {
   /**
       * 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
@@ -4918,6 +5048,11 @@ export interface VatInvoiceOCRResponse {
    * 明细条目。VatInvoiceInfos中关于明细项的具体条目。
    */
   Items?: Array<VatInvoiceItem>
+
+  /**
+   * 图片为PDF时，返回PDF的总页数，默认为0
+   */
+  PdfPageSize?: number
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。

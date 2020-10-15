@@ -104,6 +104,11 @@ export interface LayoutParams {
    * 屏幕分享模板有效。设置为1时代表大画面居右，小画面居左布局。默认为0。
    */
   MainVideoRightAlign?: number
+
+  /**
+   * 悬浮模板、九宫格、屏幕分享模板有效。设置此参数后，输出流混合此参数中包含用户的音视频，以及其他用户的纯音频。最多可设置16个用户。
+   */
+  MixVideoUids?: Array<string>
 }
 
 /**
@@ -211,7 +216,7 @@ export interface DescribeCallDetailRequest {
   EndTime: number
 
   /**
-   * 用户sdkappid（1400188366）
+   * 用户SDKAppID（1400188366）
    */
   SdkAppId: string
 
@@ -239,12 +244,12 @@ bigvHeight：上/下行分辨率高
   DataType?: Array<string>
 
   /**
-   * 只查询用户列表时，设置分页index，从0开始（PageNumber和PageSize 其中一个不填均默认返回10条数据）
+   * 设置分页index，从0开始（PageNumber和PageSize 其中一个不填均默认返回6条数据）
    */
   PageNumber?: string
 
   /**
-   * 只查询用户列表时，设置分页大小（PageNumber和PageSize 其中一个不填均默认返回6条数据,最大不超过100）
+   * 设置分页大小（PageNumber和PageSize 其中一个不填均默认返回6条数据,DataType，UserIds不为null，PageSize最大不超过6，DataType，UserIds为null，PageSize最大不超过100）
    */
   PageSize?: string
 }
@@ -296,7 +301,7 @@ export interface DismissRoomRequest {
  */
 export interface EncodeParams {
   /**
-   * 混流-输出流音频采样率。取值为[48000, 44100, 32000,24000,, 16000, 12000, 8000]。
+   * 混流-输出流音频采样率。取值为[48000, 44100, 32000,24000,, 16000, 12000, 8000]，单位是Hz。
    */
   AudioSampleRate: number
 
@@ -306,7 +311,7 @@ export interface EncodeParams {
   AudioBitrate: number
 
   /**
-   * 混流-输出流音频声道数，取值范围[1,2]。
+   * 混流-输出流音频声道数，取值范围[1,2]，1表示混流输出音频为单声道，2表示混流输出音频为双声道。
    */
   AudioChannels: number
 
@@ -326,7 +331,7 @@ export interface EncodeParams {
   VideoBitrate?: number
 
   /**
-   * 混流-输出流帧率，音视频输出时必填。取值为[6,12,15,24,30,48,60]，不在上述帧率值内系统会自动调整。
+   * 混流-输出流帧率，音视频输出时必填。取值范围[1,60]，表示混流的输出帧率可选范围为1到60fps。
    */
   VideoFramerate?: number
 

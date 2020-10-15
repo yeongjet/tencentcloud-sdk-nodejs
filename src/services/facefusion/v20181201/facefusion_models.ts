@@ -71,39 +71,28 @@ export interface PublicMaterialInfos {
 }
 
 /**
- * FaceFusion请求参数结构体
+ * 人脸信息
  */
-export interface FaceFusionRequest {
+export interface FaceInfo {
   /**
-   * 活动 ID，请在人脸融合控制台查看。
+   * 人脸框的横坐标
    */
-  ProjectId: string
+  X: number
 
   /**
-   * 素材 ID，请在人脸融合控制台查看。
+   * 人脸框的纵坐标
    */
-  ModelId: string
+  Y: number
 
   /**
-   * 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理；请勿在 base64 数据中包含头部，如“data:image/jpeg;base64,”。
+   * 人脸框的宽度
    */
-  Image: string
+  Width: number
 
   /**
-   * 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
+   * 人脸框的高度
    */
-  RspImgType: string
-
-  /**
-   * 历史遗留字段，无需填写。因为融合只需提取人脸特征，不需要鉴黄。
-   */
-  PornDetect?: number
-
-  /**
-      * 0表示不需要鉴政，1表示需要鉴政。默认值为0。
-请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
-      */
-  CelebrityIdentify?: number
+  Height: number
 }
 
 /**
@@ -162,28 +151,60 @@ export interface MaterialFaceList {
 }
 
 /**
- * 人脸信息
+ * FaceFusion请求参数结构体
  */
-export interface FaceInfo {
+export interface FaceFusionRequest {
   /**
-   * 人脸框的横坐标
+   * 活动 ID，请在人脸融合控制台查看。
    */
-  X: number
+  ProjectId: string
 
   /**
-   * 人脸框的纵坐标
+   * 素材 ID，请在人脸融合控制台查看。
    */
-  Y: number
+  ModelId: string
 
   /**
-   * 人脸框的宽度
+   * 图片 base64 数据。请确保人脸为正脸，无旋转。若某些手机拍摄后人脸被旋转，请使用图片的 EXIF 信息对图片进行旋转处理；请勿在 base64 数据中包含头部，如“data:image/jpeg;base64,”。
    */
-  Width: number
+  Image: string
 
   /**
-   * 人脸框的高度
+   * 返回图像方式（url 或 base64) ，二选一。url有效期为30天。
    */
-  Height: number
+  RspImgType: string
+
+  /**
+   * 历史遗留字段，无需填写。因为融合只需提取人脸特征，不需要鉴黄。
+   */
+  PornDetect?: number
+
+  /**
+      * 0表示不需要鉴政，1表示需要鉴政。默认值为0。
+请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+      */
+  CelebrityIdentify?: number
+}
+
+/**
+ * FaceFusionLite返回参数结构体
+ */
+export interface FaceFusionLiteResponse {
+  /**
+   * RspImgType 为 url 时，返回结果的 url， RspImgType 为 base64 时返回 base64 数据。
+   */
+  Image?: string
+
+  /**
+      * 鉴政结果
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ReviewResultSet?: Array<FuseFaceReviewResult>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -240,6 +261,41 @@ export interface MergeInfo {
    * 控制台上传的素材人脸ID
    */
   TemplateFaceID?: string
+}
+
+/**
+ * FaceFusionLite请求参数结构体
+ */
+export interface FaceFusionLiteRequest {
+  /**
+   * 活动 ID，请在人脸融合控制台查看。
+   */
+  ProjectId: string
+
+  /**
+   * 素材 ID，请在人脸融合控制台查看。
+   */
+  ModelId: string
+
+  /**
+   * 用户人脸图片、素材模板图的人脸位置信息。
+   */
+  MergeInfos: Array<MergeInfo>
+
+  /**
+   * 返回图像方式（url 或 base64) ，二选一。默认url, url有效期为30天。
+   */
+  RspImgType?: string
+
+  /**
+   * 请注意，鉴政服务开启后，您需要根据返回结果自行判断是否调整您的业务逻辑。例如提示您的用户图片非法，请更换图片。
+   */
+  CelebrityIdentify?: number
+
+  /**
+   * 算法引擎参数:  1）选脸版 - youturecreat; 2）优享版 - youtu1vN； 3）畅享版 - ptu； 4）随机 - ALL;  默认为活动选择的算法
+   */
+  Engine?: string
 }
 
 /**

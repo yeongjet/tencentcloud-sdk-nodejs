@@ -230,6 +230,131 @@ export interface DescribeTopicsResponse {
 }
 
 /**
+ * 主题实例
+ */
+export interface Topic {
+  /**
+      * 最后一次间隔内发布消息的平均byte大小。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  AverageMsgSize: string
+
+  /**
+      * 消费者数量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ConsumerCount: string
+
+  /**
+      * 被记录下来的消息总数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LastConfirmedEntry: string
+
+  /**
+      * 最后一个ledger创建的时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LastLedgerCreatedTimestamp: string
+
+  /**
+      * 本地和复制的发布者每秒发布消息的速率。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MsgRateIn: string
+
+  /**
+      * 本地和复制的消费者每秒分发消息的数量之和。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MsgRateOut: string
+
+  /**
+      * 本地和复制的发布者每秒发布消息的byte。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MsgThroughputIn: string
+
+  /**
+      * 本地和复制的消费者每秒分发消息的byte。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MsgThroughputOut: string
+
+  /**
+      * 被记录下来的消息总数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  NumberOfEntries: string
+
+  /**
+      * 分区数<=0：topic下无子分区。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Partitions: number
+
+  /**
+      * 生产者数量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ProducerCount: string
+
+  /**
+      * 以byte计算的所有消息存储总量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalSize: string
+
+  /**
+      * 分区topic里面的子分区。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SubTopicSets: Array<PartitionsTopic>
+
+  /**
+      * topic类型描述：
+0：普通消息；
+1：全局顺序消息；
+2：局部顺序消息；
+3：重试队列；
+4：死信队列；
+5：事务消息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TopicType: number
+
+  /**
+      * 环境（命名空间）名称。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EnvironmentId: string
+
+  /**
+      * 主题名称。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TopicName: string
+
+  /**
+      * 说明，128个字符以内。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Remark: string
+
+  /**
+      * 创建时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime: string
+
+  /**
+      * 最近修改时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpdateTime: string
+}
+
+/**
  * CreateTopic返回参数结构体
  */
 export interface CreateTopicResponse {
@@ -715,6 +840,26 @@ export interface DeleteTopicsRequest {
 }
 
 /**
+ * DescribeEnvironmentRoles返回参数结构体
+ */
+export interface DescribeEnvironmentRolesResponse {
+  /**
+   * 记录数。
+   */
+  TotalCount?: number
+
+  /**
+   * 环境角色集合。
+   */
+  EnvironmentRoleSets?: Array<EnvironmentRole>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CreateSubscription请求参数结构体
  */
 export interface CreateSubscriptionRequest {
@@ -1012,127 +1157,37 @@ export interface DeleteEnvironmentsRequest {
 }
 
 /**
- * 主题实例
+ * 环境角色集合
  */
-export interface Topic {
+export interface EnvironmentRole {
   /**
-      * 最后一次间隔内发布消息的平均byte大小。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  AverageMsgSize: string
-
-  /**
-      * 消费者数量。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ConsumerCount: string
-
-  /**
-      * 被记录下来的消息总数。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  LastConfirmedEntry: string
-
-  /**
-      * 最后一个ledger创建的时间。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  LastLedgerCreatedTimestamp: string
-
-  /**
-      * 本地和复制的发布者每秒发布消息的速率。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  MsgRateIn: string
-
-  /**
-      * 本地和复制的消费者每秒分发消息的数量之和。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  MsgRateOut: string
-
-  /**
-      * 本地和复制的发布者每秒发布消息的byte。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  MsgThroughputIn: string
-
-  /**
-      * 本地和复制的消费者每秒分发消息的byte。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  MsgThroughputOut: string
-
-  /**
-      * 被记录下来的消息总数。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  NumberOfEntries: string
-
-  /**
-      * 分区数<=0：topic下无子分区。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Partitions: number
-
-  /**
-      * 生产者数量。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ProducerCount: string
-
-  /**
-      * 以byte计算的所有消息存储总量。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TotalSize: string
-
-  /**
-      * 分区topic里面的子分区。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  SubTopicSets: Array<PartitionsTopic>
-
-  /**
-      * topic类型描述：
-0：普通消息；
-1：全局顺序消息；
-2：局部顺序消息；
-3：重试队列；
-4：死信队列；
-5：事务消息。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TopicType: number
-
-  /**
-      * 环境（命名空间）名称。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
+   * 环境（命名空间）。
+   */
   EnvironmentId: string
 
   /**
-      * 主题名称。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TopicName: string
+   * 角色名称。
+   */
+  RoleName: string
 
   /**
-      * 说明，128个字符以内。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Remark: string
+   * 授权项，最多只能包含produce、consume两项的非空字符串数组。
+   */
+  Permissions: Array<string>
 
   /**
-      * 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
+   * 角色描述。
+   */
+  RoleDescribe: string
+
+  /**
+   * 创建时间。
+   */
   CreateTime: string
 
   /**
-      * 最近修改时间。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
+   * 更新时间。
+   */
   UpdateTime: string
 }
 
@@ -1189,4 +1244,24 @@ export interface CreateEnvironmentRequest {
    * 说明，128个字符以内。
    */
   Remark?: string
+}
+
+/**
+ * DescribeEnvironmentRoles请求参数结构体
+ */
+export interface DescribeEnvironmentRolesRequest {
+  /**
+   * 环境（命名空间）
+   */
+  EnvironmentId: string
+
+  /**
+   * 起始下标，不填默认为0。
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，不填则默认为10，最大值为20。
+   */
+  Limit?: number
 }

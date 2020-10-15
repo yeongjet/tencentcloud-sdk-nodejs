@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { TextProcessResponse, TextResetRequest, ResetRequest, TextResetResponse, CreateBotResponse, ResetResponse, CreateBotRequest, TextProcessRequest } from "./tbp_models";
 /**
  * tbp client

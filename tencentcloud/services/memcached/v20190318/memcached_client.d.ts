@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeInstancesRequest, DescribeInstancesResponse } from "./memcached_models";
 /**
  * memcached client

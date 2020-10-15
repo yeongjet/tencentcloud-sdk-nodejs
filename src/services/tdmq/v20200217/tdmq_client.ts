@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   ModifyEnvironmentAttributesRequest,
   DescribeSubscriptionsRequest,
@@ -24,6 +25,7 @@ import {
   PartitionsTopic,
   ResetMsgSubOffsetByTimestampResponse,
   DescribeTopicsResponse,
+  Topic,
   CreateTopicResponse,
   DescribeEnvironmentsResponse,
   ModifyTopicResponse,
@@ -39,6 +41,7 @@ import {
   DeleteEnvironmentsResponse,
   Connection,
   DeleteTopicsRequest,
+  DescribeEnvironmentRolesResponse,
   CreateSubscriptionRequest,
   ModifyTopicRequest,
   Consumer,
@@ -52,10 +55,11 @@ import {
   CreateSubscriptionResponse,
   ConsumersSchedule,
   DeleteEnvironmentsRequest,
-  Topic,
+  EnvironmentRole,
   DescribeEnvironmentsRequest,
   TopicRecord,
   CreateEnvironmentRequest,
+  DescribeEnvironmentRolesRequest,
 } from "./tdmq_models"
 
 /**
@@ -128,13 +132,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 修改指定环境的属性值
+   * 获取环境下主题列表
    */
-  async ModifyEnvironmentAttributes(
-    req: ModifyEnvironmentAttributesRequest,
-    cb?: (error: string, rep: ModifyEnvironmentAttributesResponse) => void
-  ): Promise<ModifyEnvironmentAttributesResponse> {
-    return this.request("ModifyEnvironmentAttributes", req, cb)
+  async DescribeTopics(
+    req: DescribeTopicsRequest,
+    cb?: (error: string, rep: DescribeTopicsResponse) => void
+  ): Promise<DescribeTopicsResponse> {
+    return this.request("DescribeTopics", req, cb)
   }
 
   /**
@@ -145,6 +149,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribeEnvironmentAttributesResponse) => void
   ): Promise<DescribeEnvironmentAttributesResponse> {
     return this.request("DescribeEnvironmentAttributes", req, cb)
+  }
+
+  /**
+   * 修改指定环境的属性值
+   */
+  async ModifyEnvironmentAttributes(
+    req: ModifyEnvironmentAttributesRequest,
+    cb?: (error: string, rep: ModifyEnvironmentAttributesResponse) => void
+  ): Promise<ModifyEnvironmentAttributesResponse> {
+    return this.request("ModifyEnvironmentAttributes", req, cb)
   }
 
   /**
@@ -188,13 +202,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 获取环境下主题列表
+   * 获取环境角色列表
    */
-  async DescribeTopics(
-    req: DescribeTopicsRequest,
-    cb?: (error: string, rep: DescribeTopicsResponse) => void
-  ): Promise<DescribeTopicsResponse> {
-    return this.request("DescribeTopics", req, cb)
+  async DescribeEnvironmentRoles(
+    req: DescribeEnvironmentRolesRequest,
+    cb?: (error: string, rep: DescribeEnvironmentRolesResponse) => void
+  ): Promise<DescribeEnvironmentRolesResponse> {
+    return this.request("DescribeEnvironmentRoles", req, cb)
   }
 
   /**

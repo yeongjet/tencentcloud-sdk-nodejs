@@ -34,6 +34,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("EnableReplicaReadonly", req, cb);
     }
     /**
+     * 查询实例节点信息
+     */
+    async DescribeInstanceNodeInfo(req, cb) {
+        return this.request("DescribeInstanceNodeInfo", req, cb);
+    }
+    /**
      * 查询实例大Key大小分布
      */
     async DescribeInstanceMonitorBigKeySizeDist(req, cb) {
@@ -220,7 +226,7 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeProjectSecurityGroups", req, cb);
     }
     /**
-     * 本接口 (AssociateSecurityGroups) 用于绑定安全组到指定实例。
+     * 本接口 (AssociateSecurityGroups) 用于安全组批量绑定多个指定实例。
      */
     async AssociateSecurityGroups(req, cb) {
         return this.request("AssociateSecurityGroups", req, cb);
@@ -238,7 +244,7 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("InquiryPriceCreateInstance", req, cb);
     }
     /**
-     * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组
+     * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
      */
     async ModifyDBInstanceSecurityGroups(req, cb) {
         return this.request("ModifyDBInstanceSecurityGroups", req, cb);

@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeSpecInfoRequest, KillOpsRequest, CreateDBInstanceRequest, KillOpsResponse, DescribeCurrentOpResponse, ResetDBInstancePasswordResponse, CreateBackupDBInstanceResponse, InquirePriceCreateDBInstancesRequest, IsolateDBInstanceRequest, DescribeSlowLogPatternsResponse, CreateDBInstanceHourRequest, AssignProjectRequest, DescribeSlowLogsResponse, InquirePriceModifyDBInstanceSpecRequest, InquirePriceRenewDBInstancesRequest, DescribeAsyncRequestInfoRequest, DescribeSlowLogPatternsRequest, FlushInstanceRouterConfigResponse, InquirePriceModifyDBInstanceSpecResponse, DescribeSpecInfoResponse, InquirePriceRenewDBInstancesResponse, ResetDBInstancePasswordRequest, DescribeDBInstancesResponse, OfflineIsolatedDBInstanceRequest, DescribeCurrentOpRequest, DescribeDBInstanceDealRequest, DescribeDBInstancesRequest, DescribeAsyncRequestInfoResponse, CreateDBInstanceResponse, AssignProjectResponse, DescribeDBBackupsRequest, DescribeClientConnectionsRequest, DescribeDBInstanceDealResponse, ModifyDBInstanceSpecResponse, OfflineIsolatedDBInstanceResponse, IsolateDBInstanceResponse, DescribeBackupAccessRequest, RenameInstanceRequest, RenewDBInstancesResponse, RenameInstanceResponse, DescribeClientConnectionsResponse, FlushInstanceRouterConfigRequest, DescribeSlowLogsRequest, DescribeBackupAccessResponse, DescribeDBBackupsResponse, ModifyDBInstanceSpecRequest, CreateDBInstanceHourResponse, CreateBackupDBInstanceRequest, InquirePriceCreateDBInstancesResponse, RenewDBInstancesRequest } from "./mongodb_models";
 /**
  * mongodb client
@@ -87,9 +88,9 @@ export declare class Client extends AbstractClient {
      */
     InquirePriceCreateDBInstances(req: InquirePriceCreateDBInstancesRequest, cb?: (error: string, rep: InquirePriceCreateDBInstancesResponse) => void): Promise<InquirePriceCreateDBInstancesResponse>;
     /**
-     * 本接口(AssignProject)用于指定云数据库实例的所属项目。
-
-     */
+       * 本接口(AssignProject)用于指定云数据库实例的所属项目。
+  
+       */
     AssignProject(req: AssignProjectRequest, cb?: (error: string, rep: AssignProjectResponse) => void): Promise<AssignProjectResponse>;
     /**
      * 本接口(RenameInstance)用于修改云数据库实例的名称。

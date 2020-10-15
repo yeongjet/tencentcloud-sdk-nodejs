@@ -89,16 +89,32 @@ AVAILABLE：可用的
 }
 
 /**
+ * BatchDeregisterTargets返回参数结构体
+ */
+export interface BatchDeregisterTargetsResponse {
+  /**
+      * 解绑失败的监听器ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FailListenerIdSet?: Array<string>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribePeakBaseOverview请求参数结构体
  */
 export interface DescribePeakBaseOverviewRequest {
   /**
-   * 开始时间（xxxx-xx-xx）如2019-08-14，默认为一周之前的日期。
+   * 开始时间（xxxx-xx-xx）如2019-08-14，默认为一周之前的日期，不应与当前日期间隔超过90天。
    */
   StartTime?: string
 
   /**
-   * 结束时间（xxxx-xx-xx）如2019-08-14，默认为昨天。
+   * 结束时间（xxxx-xx-xx）如2019-08-14，默认为昨天，不应与当前日期间隔超过90天。当开始与结束间隔不超过30天时返回1小时粒度的数据，否则返回3小时粒度的数据。
    */
   EndTime?: string
 }
@@ -204,53 +220,13 @@ export interface DisassociateAddressResponse {
 }
 
 /**
- * CreateNetworkInterface请求参数结构体
+ * BatchModifyTargetWeight返回参数结构体
  */
-export interface CreateNetworkInterfaceRequest {
+export interface BatchModifyTargetWeightResponse {
   /**
-   * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  VpcId: string
-
-  /**
-   * 弹性网卡名称，最大长度不能超过60个字节。
-   */
-  NetworkInterfaceName: string
-
-  /**
-   * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
-   */
-  SubnetId: string
-
-  /**
-   * ECM 地域
-   */
-  EcmRegion: string
-
-  /**
-   * 弹性网卡描述，可任意命名，但不得超过60个字符。
-   */
-  NetworkInterfaceDescription?: string
-
-  /**
-   * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
-   */
-  SecondaryPrivateIpAddressCount?: number
-
-  /**
-   * 指定绑定的安全组，例如：['sg-1dd51d']。
-   */
-  SecurityGroupIds?: Array<string>
-
-  /**
-   * 指定的内网IP信息，单次最多指定10个。
-   */
-  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>
-
-  /**
-   * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-   */
-  Tags?: Array<Tag>
+  RequestId?: string
 }
 
 /**
@@ -266,6 +242,52 @@ export interface InstanceStatistic {
    * 实例的个数
    */
   InstanceCount: number
+}
+
+/**
+ * CreateLoadBalancer请求参数结构体
+ */
+export interface CreateLoadBalancerRequest {
+  /**
+   * 区域。
+   */
+  EcmRegion: string
+
+  /**
+   * 负载均衡实例的网络类型。目前只支持传入OPEN，表示公网属性。
+   */
+  LoadBalancerType: string
+
+  /**
+   * CMCC | CTCC | CUCC，分别对应 移动 | 电信 | 联通。
+   */
+  VipIsp: string
+
+  /**
+      * 负载均衡实例的名称，只在创建一个实例的时候才会生效。规则：1-50 个英文、汉字、数字、连接线“-”或下划线“_”。
+注意：如果名称与系统中已有负载均衡实例的名称相同，则系统将会自动生成此次创建的负载均衡实例的名称。
+      */
+  LoadBalancerName?: string
+
+  /**
+   * 负载均衡后端目标设备所属的网络 ID，如vpc-12345678。
+   */
+  VpcId?: string
+
+  /**
+   * 创建负载均衡的个数，默认值 1。
+   */
+  Number?: number
+
+  /**
+   * 负载均衡的带宽限制等信息。
+   */
+  InternetAccessible?: LoadBalancerInternetAccessible
+
+  /**
+   * 标签。
+   */
+  Tags?: Array<TagInfo>
 }
 
 /**
@@ -308,6 +330,12 @@ export interface Internet {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   PublicIPAddressSet: Array<PublicIPAddressInfo>
+
+  /**
+      * 实例网络相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InstanceNetworkInfoSet: Array<InstanceNetworkInfo>
 }
 
 /**
@@ -330,6 +358,26 @@ export interface DescribeModuleResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * ModifyLoadBalancerAttributes请求参数结构体
+ */
+export interface ModifyLoadBalancerAttributesRequest {
+  /**
+   * 负载均衡的唯一ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 负载均衡实例名称
+   */
+  LoadBalancerName?: string
+
+  /**
+   * 网络计费及带宽相关参数
+   */
+  InternetChargeInfo?: LoadBalancerInternetAccessible
 }
 
 /**
@@ -419,6 +467,86 @@ export interface ModifyModuleConfigResponse {
 }
 
 /**
+ * 网络硬盘上下限数据
+ */
+export interface NetworkStorageRange {
+  /**
+   * 网络带宽上限
+   */
+  MaxBandwidth: number
+
+  /**
+   * 数据盘上限
+   */
+  MaxSystemDiskSize: number
+
+  /**
+   * 网络带宽下限
+   */
+  MinBandwidth: number
+
+  /**
+   * 数据盘下限
+   */
+  MinSystemDiskSize: number
+
+  /**
+   * 最大数据盘大小
+   */
+  MaxDataDiskSize: number
+
+  /**
+   * 最小数据盘大小
+   */
+  MinDataDiskSize: number
+
+  /**
+   * 建议带宽
+   */
+  SuggestBandwidth: number
+
+  /**
+   * 建议硬盘大小
+   */
+  SuggestDataDiskSize: number
+
+  /**
+   * 建议系统盘大小
+   */
+  SuggestSystemDiskSize: number
+
+  /**
+   * Cpu核数峰值
+   */
+  MaxVcpu: number
+
+  /**
+   * Cpu核最小值
+   */
+  MinVcpu: number
+
+  /**
+   * 单次请求最大cpu核数
+   */
+  MaxVcpuPerReq: number
+
+  /**
+   * 带宽步长
+   */
+  PerBandwidth: number
+
+  /**
+   * 数据盘步长
+   */
+  PerDataDisk: number
+
+  /**
+   * 总模块数量
+   */
+  MaxModuleNum: number
+}
+
+/**
  * ModifyModuleName返回参数结构体
  */
 export interface ModifyModuleNameResponse {
@@ -432,11 +560,6 @@ export interface ModifyModuleNameResponse {
  * DescribeNetworkInterfaces请求参数结构体
  */
 export interface DescribeNetworkInterfacesRequest {
-  /**
-   * ECM 地域
-   */
-  EcmRegion: string
-
   /**
    * 弹性网卡实例ID查询。形如：eni-pxir56ns。每次请求的实例的上限为100。参数不支持同时指定NetworkInterfaceIds和Filters。
    */
@@ -467,6 +590,11 @@ is-primary - Boolean - 是否必填：否 - （过滤条件）按照是否主网
    * 返回数量，默认为20，最大值为100。
    */
   Limit?: number
+
+  /**
+   * ECM 地域
+   */
+  EcmRegion?: string
 }
 
 /**
@@ -514,23 +642,28 @@ tag:tag-key - String - 是否必填：否 - 按照标签键值对进行过滤。
 }
 
 /**
- * DescribeImportImageOs返回参数结构体
+ * AssociateSecurityGroups请求参数结构体
  */
-export interface DescribeImportImageOsResponse {
+export interface AssociateSecurityGroupsRequest {
   /**
-   * 支持的导入镜像的操作系统类型
+   * 要绑定的安全组ID，类似esg-efil73jd，只支持绑定单个安全组。
    */
-  ImportImageOsListSupported?: ImageOsList
+  SecurityGroupIds: Array<string>
 
   /**
-   * 支持的导入镜像的操作系统版本
+   * 被绑定的实例ID，类似ein-lesecurk，支持指定多个实例，每次请求批量实例的上限为100。
    */
-  ImportImageOsVersionSet?: Array<OsVersion>
+  InstanceIds: Array<string>
+}
 
+/**
+ * StartInstances请求参数结构体
+ */
+export interface StartInstancesRequest {
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 待开启的实例ID列表。在单次请求的过程中，单个region下的请求实例数上限为100。
    */
-  RequestId?: string
+  InstanceIdSet: Array<string>
 }
 
 /**
@@ -708,6 +841,63 @@ export interface ReleaseAddressesRequest {
 }
 
 /**
+ * DescribeLoadBalancers请求参数结构体
+ */
+export interface DescribeLoadBalancersRequest {
+  /**
+   * 区域。如果不传则默认查询所有区域。
+   */
+  EcmRegion?: string
+
+  /**
+   * 负载均衡实例 ID。
+   */
+  LoadBalancerIds?: Array<string>
+
+  /**
+   * 负载均衡实例的名称。
+   */
+  LoadBalancerName?: string
+
+  /**
+   * 负载均衡实例的 VIP 地址，支持多个。
+   */
+  LoadBalancerVips?: Array<string>
+
+  /**
+   * 负载均衡绑定的后端服务的内网 IP。
+   */
+  BackendPrivateIps?: Array<string>
+
+  /**
+   * 数据偏移量，默认为 0。
+   */
+  Offset?: number
+
+  /**
+   * 返回负载均衡实例的数量，默认为20，最大值为100。
+   */
+  Limit?: number
+
+  /**
+      * 负载均衡是否绑定后端服务，0：没有绑定后端服务，1：绑定后端服务，-1：查询全部。 
+如果不传则默认查询全部。
+      */
+  WithBackend?: number
+
+  /**
+   * 负载均衡实例所属私有网络唯一ID，如 vpc-bhqkbhdx。
+   */
+  VpcId?: string
+
+  /**
+      * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为100。详细的过滤条件如下：
+tag-key - String - 是否必填：否 - （过滤条件）按照标签的键过滤。
+      */
+  Filters?: Array<Filter>
+}
+
+/**
  * DescribeInstances返回参数结构体
  */
 export interface DescribeInstancesResponse {
@@ -822,6 +1012,11 @@ DELETING：删除中
    * 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
    */
   EniType: number
+
+  /**
+   * EcmRegion ecm区域
+   */
+  EcmRegion: string
 }
 
 /**
@@ -1101,6 +1296,61 @@ export interface ReplaceSecurityGroupPolicyRequest {
 }
 
 /**
+ * ModifyTargetWeight返回参数结构体
+ */
+export interface ModifyTargetWeightResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 节点信息
+ */
+export interface Node {
+  /**
+   * zone信息
+   */
+  ZoneInfo: ZoneInfo
+
+  /**
+   * 国家信息
+   */
+  Country: Country
+
+  /**
+   * 区域信息
+   */
+  Area: Area
+
+  /**
+   * 省份信息
+   */
+  Province: Province
+
+  /**
+   * 城市信息
+   */
+  City: City
+
+  /**
+   * Region信息
+   */
+  RegionInfo: RegionInfo
+
+  /**
+   * 运营商列表
+   */
+  ISPSet: Array<ISP>
+
+  /**
+   * 运营商数量
+   */
+  ISPNum: number
+}
+
+/**
  * DescribeCustomImageTask返回参数结构体
  */
 export interface DescribeCustomImageTaskResponse {
@@ -1212,38 +1462,63 @@ timestamp 按实例创建时间排序。
 }
 
 /**
- * 描述实例的位置相关信息。
+ * DescribeTaskStatus请求参数结构体
  */
-export interface Position {
+export interface DescribeTaskStatusRequest {
   /**
-   * 实例所在的Zone的信息。
+   * 任务描述
    */
-  ZoneInfo: ZoneInfo
+  TaskSet: Array<TaskInput>
+}
+
+/**
+ * CreateNetworkInterface请求参数结构体
+ */
+export interface CreateNetworkInterfaceRequest {
+  /**
+   * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+   */
+  VpcId: string
 
   /**
-   * 实例所在的国家的信息。
+   * 弹性网卡名称，最大长度不能超过60个字节。
    */
-  Country: Country
+  NetworkInterfaceName: string
 
   /**
-   * 实例所在的Area的信息。
+   * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
    */
-  Area: Area
+  SubnetId: string
 
   /**
-   * 实例所在的省份的信息。
+   * ECM 地域
    */
-  Province: Province
+  EcmRegion: string
 
   /**
-   * 实例所在的城市的信息。
+   * 弹性网卡描述，可任意命名，但不得超过60个字符。
    */
-  City: City
+  NetworkInterfaceDescription?: string
 
   /**
-   * 实例所在的Region的信息。
+   * 新申请的内网IP地址个数，内网IP地址个数总和不能超过配数。
    */
-  RegionInfo: RegionInfo
+  SecondaryPrivateIpAddressCount?: number
+
+  /**
+   * 指定绑定的安全组，例如：['sg-1dd51d']。
+   */
+  SecurityGroupIds?: Array<string>
+
+  /**
+   * 指定的内网IP信息，单次最多指定10个。
+   */
+  PrivateIpAddresses?: Array<PrivateIpAddressSpecification>
+
+  /**
+   * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+   */
+  Tags?: Array<Tag>
 }
 
 /**
@@ -1357,59 +1632,86 @@ export interface RemovePrivateIpAddressesRequest {
 }
 
 /**
- * 安全组规则对象
+ * 实例可用区及对应的实例创建数目及运营商的组合；
  */
-export interface SecurityGroupPolicy {
+export interface ZoneInstanceCountISP {
   /**
-   * 安全组规则索引号
+   * 创建实例的可用区。
    */
-  PolicyIndex?: number
+  Zone: string
 
   /**
-   * 协议, 取值: TCP,UDP, ICMP。
+   * 在当前可用区欲创建的实例数目。
    */
-  Protocol?: string
+  InstanceCount: number
 
   /**
-   * 端口(all, 离散port, range)。
+   * 运营商，CTCC电信，CUCC联通，CMCC移动，多个运营商用英文分号连接";"。多运营商需要开通白名单，请直接联系腾讯云客服。
    */
-  Port?: string
+  ISP: string
 
   /**
-   * 协议端口ID或者协议端口组ID。ServiceTemplate和Protocol+Port互斥。
+   * 指定私有网络编号，SubnetId与VpcId必须同时指定或不指定
    */
-  ServiceTemplate?: ServiceTemplateSpecification
+  VpcId?: string
 
   /**
-   * 网段或IP(互斥)。
+   * 指定子网编号，SubnetId与VpcId必须同时指定或不指定
    */
-  CidrBlock?: string
+  SubnetId?: string
 
   /**
-   * 安全组实例ID，例如：esg-ohuuioma。
+   * 指定主网卡内网IP。条件：SubnetId与VpcId必须同时指定，并且IP数量与InstanceCount相同，多IP主机副网卡内网IP在相同子网内通过DHCP获取。
    */
-  SecurityGroupId?: string
+  PrivateIpAddresses?: Array<string>
+}
 
+/**
+ * 负载均衡器健康状态
+ */
+export interface LoadBalancerHealth {
   /**
-   * IP地址ID或者ID地址组ID。
-   */
-  AddressTemplate?: AddressTemplateSpecification
-
-  /**
-   * ACCEPT 或 DROP。
-   */
-  Action?: string
-
-  /**
-   * 安全组规则描述。
-   */
-  PolicyDescription?: string
-
-  /**
-      * 修改时间，例如 2020-07-22 19：27：23
+      * 负载均衡实例ID
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  ModifyTime?: string
+  LoadBalancerId: string
+
+  /**
+      * 负载均衡实例名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerName: string
+
+  /**
+      * 监听器列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Listeners: Array<ListenerHealth>
+}
+
+/**
+ * DescribeTargets请求参数结构体
+ */
+export interface DescribeTargetsRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 监听器 ID列表
+   */
+  ListenerIds?: Array<string>
+
+  /**
+   * 监听器协议类型
+   */
+  Protocol?: number
+
+  /**
+   * 监听器端口
+   */
+  Port?: number
 }
 
 /**
@@ -1479,6 +1781,21 @@ PUBLIC_IMAGE: 公共镜像 (腾讯云官方镜像)
    * 返回数量，默认为20，最大值为100。关于Limit的更进一步介绍请参考 API 简介中的相关小节。
    */
   Limit?: number
+}
+
+/**
+ * DeleteLoadBalancerListeners请求参数结构体
+ */
+export interface DeleteLoadBalancerListenersRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 指定删除的监听器ID数组，若不填则删除负载均衡的所有监听器
+   */
+  ListenerIds?: Array<string>
 }
 
 /**
@@ -1577,23 +1894,25 @@ export interface DescribeSecurityGroupPoliciesResponse {
 }
 
 /**
- * ModifyModuleConfig请求参数结构体
+ * DescribeListeners返回参数结构体
  */
-export interface ModifyModuleConfigRequest {
+export interface DescribeListenersResponse {
   /**
-   * 模块ID。
-   */
-  ModuleId: string
+      * 监听器列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Listeners?: Array<Listener>
 
   /**
-   * 机型ID。
-   */
-  InstanceType: string
+      * 总的监听器个数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalCount?: number
 
   /**
-   * 默认数据盘大小，单位：G。范围不得超过数据盘范围大小，详看DescribeConfig。
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  DefaultDataDiskSize: number
+  RequestId?: string
 }
 
 /**
@@ -1647,83 +1966,52 @@ export interface DescribeInstanceVncUrlRequest {
 }
 
 /**
- * 网络硬盘上下限数据
+ * CreateListener返回参数结构体
  */
-export interface NetworkStorageRange {
+export interface CreateListenerResponse {
   /**
-   * 网络带宽上限
-   */
-  MaxBandwidth: number
+      * 创建的监听器的唯一标识数组
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerIds?: Array<string>
 
   /**
-   * 数据盘上限
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  MaxSystemDiskSize: number
+  RequestId?: string
+}
+
+/**
+ * 目标和权重的描述信息
+ */
+export interface TargetsWeightRule {
+  /**
+      * 负载均衡监听器 ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerId?: string
 
   /**
-   * 网络带宽下限
-   */
-  MinBandwidth: number
+      * 要修改权重的后端机器列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Targets?: Array<Target>
 
   /**
-   * 数据盘下限
-   */
-  MinSystemDiskSize: number
+      * 后端服务新的转发权重，取值范围：0~100。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Weight?: number
+}
 
+/**
+ * StopInstances返回参数结构体
+ */
+export interface StopInstancesResponse {
   /**
-   * 最大数据盘大小
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  MaxDataDiskSize: number
-
-  /**
-   * 最小数据盘大小
-   */
-  MinDataDiskSize: number
-
-  /**
-   * 建议带宽
-   */
-  SuggestBandwidth: number
-
-  /**
-   * 建议硬盘大小
-   */
-  SuggestDataDiskSize: number
-
-  /**
-   * 建议系统盘大小
-   */
-  SuggestSystemDiskSize: number
-
-  /**
-   * Cpu核数峰值
-   */
-  MaxVcpu: number
-
-  /**
-   * Cpu核最小值
-   */
-  MinVcpu: number
-
-  /**
-   * 单次请求最大cpu核数
-   */
-  MaxVcpuPerReq: number
-
-  /**
-   * 带宽步长
-   */
-  PerBandwidth: number
-
-  /**
-   * 数据盘步长
-   */
-  PerDataDisk: number
-
-  /**
-   * 总模块数量
-   */
-  MaxModuleNum: number
+  RequestId?: string
 }
 
 /**
@@ -1745,6 +2033,16 @@ export interface CreateVpcResponse {
    */
   Vpc?: VpcInfo
 
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * ModifyTargetPort返回参数结构体
+ */
+export interface ModifyTargetPortResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -1794,20 +2092,19 @@ export interface DescribeTaskStatusResponse {
 }
 
 /**
- * ModifyModuleIpDirect请求参数结构体
+ * BatchRegisterTargets返回参数结构体
  */
-export interface ModifyModuleIpDirectRequest {
+export interface BatchRegisterTargetsResponse {
   /**
-   * 模块ID。
-   */
-  ModuleId: string
+      * 绑定失败的监听器ID，如为空表示全部绑定成功。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FailListenerIdSet?: Array<string>
 
   /**
-      * 是否关闭IP直通。取值范围：
-true：表示关闭IP直通
-false：表示开通IP直通
-      */
-  CloseIpDirect: boolean
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1863,6 +2160,33 @@ export interface CreateModuleRequest {
 }
 
 /**
+ * 实例网卡ip网络信息数组
+ */
+export interface InstanceNetworkInfo {
+  /**
+      * 实例内外网ip相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  AddressInfoSet: Array<AddressInfo>
+
+  /**
+   * 网卡ID。
+   */
+  NetworkInterfaceId: string
+
+  /**
+      * 网卡名称。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  NetworkInterfaceName: string
+
+  /**
+   * 主网卡属性。true为主网卡，false为辅助网卡。
+   */
+  Primary: boolean
+}
+
+/**
  * ModifyInstancesAttribute返回参数结构体
  */
 export interface ModifyInstancesAttributeResponse {
@@ -1885,6 +2209,36 @@ export interface ReleaseAddressesResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * ModifyVpcAttribute请求参数结构体
+ */
+export interface ModifyVpcAttributeRequest {
+  /**
+   * VPC实例ID。形如：vpc-f49l6u0z。
+   */
+  VpcId: string
+
+  /**
+   * ECM 地域
+   */
+  EcmRegion: string
+
+  /**
+   * 私有网络名称，可任意命名，但不得超过60个字符。
+   */
+  VpcName?: string
+
+  /**
+   * 标签
+   */
+  Tags?: Array<Tag>
+
+  /**
+   * 私有网络描述
+   */
+  Description?: string
 }
 
 /**
@@ -2005,63 +2359,77 @@ export interface ReplaceSecurityGroupPolicyResponse {
 }
 
 /**
- * 实例可用区及对应的实例创建数目及运营商的组合；
+ * 转发规则及健康状态列表
  */
-export interface ZoneInstanceCountISP {
+export interface RuleHealth {
   /**
-   * 创建实例的可用区。
-   */
-  Zone: string
-
-  /**
-   * 在当前可用区欲创建的实例数目。
-   */
-  InstanceCount: number
-
-  /**
-   * 运营商，CTCC电信，CUCC联通，CMCC移动，多个运营商用英文分号连接";"。多运营商需要开通白名单，请直接联系腾讯云客服。
-   */
-  ISP: string
-
-  /**
-   * 指定私有网络编号，SubnetId与VpcId必须同时指定或不指定
-   */
-  VpcId?: string
-
-  /**
-   * 指定子网编号，SubnetId与VpcId必须同时指定或不指定
-   */
-  SubnetId?: string
-
-  /**
-   * 指定主网卡内网IP。条件：SubnetId与VpcId必须同时指定，并且IP数量与InstanceCount相同，多IP主机副网卡内网IP在相同子网内通过DHCP获取。
-   */
-  PrivateIpAddresses?: Array<string>
+      * 本规则上绑定的后端的健康检查状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Targets: Array<TargetHealth>
 }
 
 /**
- * 任务查询
+ * 负载均衡监听器
  */
-export interface TaskInput {
+export interface Listener {
   /**
-   * 操作名，即API名称，比如：CreateImage
-   */
-  Operation: string
+      * 负载均衡监听器 ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerId: string
 
   /**
-   * 任务id
-   */
-  TaskId: string
+      * 监听器协议
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Protocol: string
+
+  /**
+      * 监听器端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port: number
+
+  /**
+      * 监听器的健康检查信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HealthCheck: HealthCheck
+
+  /**
+      * 请求的调度方式
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Scheduler: string
+
+  /**
+      * 会话保持时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SessionExpireTime: number
+
+  /**
+      * 监听器的名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerName: string
+
+  /**
+      * 监听器的创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime: string
 }
 
 /**
- * StartInstances请求参数结构体
+ * ModifyLoadBalancerAttributes返回参数结构体
  */
-export interface StartInstancesRequest {
+export interface ModifyLoadBalancerAttributesResponse {
   /**
-   * 待开启的实例ID列表。在单次请求的过程中，单个region下的请求实例数上限为100。
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  InstanceIdSet: Array<string>
+  RequestId?: string
 }
 
 /**
@@ -2079,41 +2447,6 @@ export interface Tag {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Value: string
-}
-
-/**
- * CreateSubnet请求参数结构体
- */
-export interface CreateSubnetRequest {
-  /**
-   * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-   */
-  VpcId: string
-
-  /**
-   * 子网名称，最大长度不能超过60个字节。
-   */
-  SubnetName: string
-
-  /**
-   * 子网网段，子网网段必须在VPC网段内，相同VPC内子网网段不能重叠。
-   */
-  CidrBlock: string
-
-  /**
-   * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
-   */
-  Zone: string
-
-  /**
-   * ECM 地域
-   */
-  EcmRegion: string
-
-  /**
-   * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-   */
-  Tags?: Array<Tag>
 }
 
 /**
@@ -2182,48 +2515,39 @@ export interface CreateNetworkInterfaceResponse {
 }
 
 /**
- * 节点信息
+ * ModifyListener请求参数结构体
  */
-export interface Node {
+export interface ModifyListenerRequest {
   /**
-   * zone信息
+   * 负载均衡实例 ID
    */
-  ZoneInfo: ZoneInfo
+  LoadBalancerId: string
 
   /**
-   * 国家信息
+   * 负载均衡监听器 ID
    */
-  Country: Country
+  ListenerId: string
 
   /**
-   * 区域信息
+   * 新的监听器名称
    */
-  Area: Area
+  ListenerName?: string
 
   /**
-   * 省份信息
+   * 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
    */
-  Province: Province
+  SessionExpireTime?: number
 
   /**
-   * 城市信息
+   * 健康检查相关参数
    */
-  City: City
+  HealthCheck?: HealthCheck
 
   /**
-   * Region信息
-   */
-  RegionInfo: RegionInfo
-
-  /**
-   * 运营商列表
-   */
-  ISPSet: Array<ISP>
-
-  /**
-   * 运营商数量
-   */
-  ISPNum: number
+      * 监听器转发的方式。可选值：WRR、LEAST_CONN
+分别表示按权重轮询、最小连接数， 默认为 WRR。
+      */
+  Scheduler?: string
 }
 
 /**
@@ -2289,6 +2613,71 @@ export interface NodeInstanceNum {
 }
 
 /**
+ * 负载均衡健康检查
+ */
+export interface HealthCheck {
+  /**
+      * 是否开启健康检查：1（开启）、0（关闭）
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HealthSwitch?: number
+
+  /**
+      * 健康检查的响应超时时间，可选值：2~60，默认值：2，单位：秒。响应超时时间要小于检查间隔时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TimeOut?: number
+
+  /**
+      * 健康检查探测间隔时间，默认值：5，可选值：5~300，单位：秒。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  IntervalTime?: number
+
+  /**
+      * 健康阈值，默认值：3，表示当连续探测三次健康则表示该转发正常，可选值：2~10，单位：次。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HealthNum?: number
+
+  /**
+      * 不健康阈值，默认值：3，表示当连续探测三次不健康则表示该转发异常，可选值：2~10，单位：次。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UnHealthyNum?: number
+
+  /**
+      * 自定义探测相关参数。健康检查端口，默认为后端服务的端口，除非您希望指定特定端口，否则建议留空。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CheckPort?: number
+
+  /**
+      * 自定义探测相关参数。健康检查协议CheckType的值取CUSTOM时，必填此字段，代表健康检查的输入格式，可取值：HEX或TEXT；取值为HEX时，SendContext和RecvContext的字符只能在0123456789ABCDEF中选取且长度必须是偶数位。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ContextType?: string
+
+  /**
+      * 自定义探测相关参数。健康检查协议CheckType的值取CUSTOM时，必填此字段，代表健康检查发送的请求内容，只允许ASCII可见字符，最大长度限制500。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SendContext?: string
+
+  /**
+      * 自定义探测相关参数。健康检查协议CheckType的值取CUSTOM时，必填此字段，代表健康检查返回的结果，只允许ASCII可见字符，最大长度限制500。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RecvContext?: string
+
+  /**
+      * 自定义探测相关参数。健康检查使用的协议：TCP | CUSTOM（UDP监听器只支持CUSTOM；如果使用自定义健康检查功能，则必传）。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CheckType?: string
+}
+
+/**
  * DescribeSecurityGroupLimits返回参数结构体
  */
 export interface DescribeSecurityGroupLimitsResponse {
@@ -2341,6 +2730,21 @@ export interface SecurityGroupPolicySet {
    * 入站规则。其中出站规则和入站规则必须选一个。
    */
   Ingress?: Array<SecurityGroupPolicy>
+}
+
+/**
+ * DeleteListener请求参数结构体
+ */
+export interface DeleteListenerRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 要删除的监听器 ID
+   */
+  ListenerId: string
 }
 
 /**
@@ -2434,33 +2838,13 @@ export interface CreateImageResponse {
 }
 
 /**
- * ModifyVpcAttribute请求参数结构体
+ * ModifySecurityGroupPolicies返回参数结构体
  */
-export interface ModifyVpcAttributeRequest {
+export interface ModifySecurityGroupPoliciesResponse {
   /**
-   * VPC实例ID。形如：vpc-f49l6u0z。
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  VpcId: string
-
-  /**
-   * ECM 地域
-   */
-  EcmRegion: string
-
-  /**
-   * 私有网络名称，可任意命名，但不得超过60个字符。
-   */
-  VpcName?: string
-
-  /**
-   * 标签
-   */
-  Tags?: Array<Tag>
-
-  /**
-   * 私有网络描述
-   */
-  Description?: string
+  RequestId?: string
 }
 
 /**
@@ -2476,6 +2860,16 @@ export interface ResetInstancesMaxBandwidthRequest {
    * 修改后的最大带宽上限。
    */
   MaxBandwidthOut: number
+}
+
+/**
+ * 负载均衡的带宽限制等信息。
+ */
+export interface LoadBalancerInternetAccessible {
+  /**
+   * 最大出带宽，单位Mbps。
+   */
+  InternetMaxBandwidthOut?: number
 }
 
 /**
@@ -2737,18 +3131,63 @@ export interface ModifyDefaultSubnetResponse {
 }
 
 /**
- * AssociateSecurityGroups请求参数结构体
+ * ModifyTargetWeight请求参数结构体
  */
-export interface AssociateSecurityGroupsRequest {
+export interface ModifyTargetWeightRequest {
   /**
-   * 要绑定的安全组ID，类似esg-efil73jd，只支持绑定单个安全组。
+   * 负载均衡实例 ID
    */
-  SecurityGroupIds: Array<string>
+  LoadBalancerId: string
 
   /**
-   * 被绑定的实例ID，类似ein-lesecurk，支持指定多个实例，每次请求批量实例的上限为100。
+   * 负载均衡监听器 ID
    */
-  InstanceIds: Array<string>
+  ListenerId: string
+
+  /**
+   * 要修改权重的后端服务列表
+   */
+  Targets: Array<Target>
+
+  /**
+   * 后端服务新的转发权重，取值范围：0~100，默认值10。如果设置了 Targets.Weight 参数，则此参数不生效。
+   */
+  Weight?: number
+}
+
+/**
+ * CreateSubnet请求参数结构体
+ */
+export interface CreateSubnetRequest {
+  /**
+   * 待操作的VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+   */
+  VpcId: string
+
+  /**
+   * 子网名称，最大长度不能超过60个字节。
+   */
+  SubnetName: string
+
+  /**
+   * 子网网段，子网网段必须在VPC网段内，相同VPC内子网网段不能重叠。
+   */
+  CidrBlock: string
+
+  /**
+   * 子网所在的可用区ID，不同子网选择不同可用区可以做跨可用区灾备。
+   */
+  Zone: string
+
+  /**
+   * ECM 地域
+   */
+  EcmRegion: string
+
+  /**
+   * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+   */
+  Tags?: Array<Tag>
 }
 
 /**
@@ -2774,6 +3213,21 @@ export interface DescribeModuleDetailResponse {
 }
 
 /**
+ * 任务查询
+ */
+export interface TaskInput {
+  /**
+   * 操作名，即API名称，比如：CreateImage
+   */
+  Operation: string
+
+  /**
+   * 任务id
+   */
+  TaskId: string
+}
+
+/**
  * StopInstances请求参数结构体
  */
 export interface StopInstancesRequest {
@@ -2795,6 +3249,59 @@ SOFT：仅软关机；
 默认为SOFT。
       */
   StopType?: string
+}
+
+/**
+ * 负责均衡后端信息
+ */
+export interface Backend {
+  /**
+      * 后端服务的唯一 ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InstanceId?: string
+
+  /**
+      * 后端服务的监听端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port?: number
+
+  /**
+      * 后端服务的转发权重，取值范围：[0, 100]，默认为 10。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Weight?: number
+
+  /**
+      * 后端服务的内网 IP
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PrivateIpAddresses?: Array<string>
+
+  /**
+      * 后端服务被绑定的时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RegisteredTime?: string
+
+  /**
+      * 弹性网卡唯一ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EniId?: string
+
+  /**
+      * 后端服务的外网 IP
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PublicIpAddresses: Array<string>
+
+  /**
+      * 后端服务的实例名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InstanceName: string
 }
 
 /**
@@ -2914,9 +3421,69 @@ export interface ModifyVpcAttributeResponse {
 }
 
 /**
+ * DeleteLoadBalancer请求参数结构体
+ */
+export interface DeleteLoadBalancerRequest {
+  /**
+   * 要删除的负载均衡实例 ID数组，数组大小最大支持20
+   */
+  LoadBalancerIds?: Array<string>
+}
+
+/**
  * DeleteVpc返回参数结构体
  */
 export interface DeleteVpcResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 负责均衡后端目标
+ */
+export interface Target {
+  /**
+      * 后端服务的监听端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port?: number
+
+  /**
+      * 子机ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InstanceId?: string
+
+  /**
+      * 后端服务的转发权重，取值范围：[0, 100]，默认为 10。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Weight?: number
+
+  /**
+      * 绑定弹性网卡时需要传入此参数，代表弹性网卡的IP，弹性网卡必须先绑定至子机，然后才能绑定到负载均衡实例。注意：参数 InstanceId 和 EniIp 只能传入一个且必须传入一个。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EniIp?: string
+}
+
+/**
+ * DescribeVpcs返回参数结构体
+ */
+export interface DescribeVpcsResponse {
+  /**
+   * 符合条件的对象数。
+   */
+  TotalCount?: number
+
+  /**
+      * 私有网络对象。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  VpcSet?: Array<VpcInfo>
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -3243,6 +3810,12 @@ PROTECTIVELY_ISOLATED：表示被安全隔离的实例。
 注意：此字段可能返回 null，表示取不到有效值。
       */
   VirtualPrivateCloud: VirtualPrivateCloud
+
+  /**
+      * 实例运营商字段。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ISP: string
 }
 
 /**
@@ -3294,6 +3867,16 @@ export interface DeleteModuleResponse {
  * DescribeInstanceTypeConfig请求参数结构体
  */
 export type DescribeInstanceTypeConfigRequest = null
+
+/**
+ * DescribeLoadBalanceTaskStatus请求参数结构体
+ */
+export interface DescribeLoadBalanceTaskStatusRequest {
+  /**
+   * 请求ID，即接口返回的 RequestId 参数
+   */
+  TaskId: string
+}
 
 /**
  * ImportCustomImage请求参数结构体
@@ -3396,13 +3979,58 @@ export interface ModifySecurityGroupAttributeRequest {
 }
 
 /**
- * ModifySecurityGroupPolicies返回参数结构体
+ * ModifyModuleConfig请求参数结构体
  */
-export interface ModifySecurityGroupPoliciesResponse {
+export interface ModifyModuleConfigRequest {
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 模块ID。
    */
-  RequestId?: string
+  ModuleId: string
+
+  /**
+   * 机型ID。
+   */
+  InstanceType: string
+
+  /**
+   * 默认数据盘大小，单位：G。范围不得超过数据盘范围大小，详看DescribeConfig。
+   */
+  DefaultDataDiskSize: number
+}
+
+/**
+ * 描述实例的位置相关信息。
+ */
+export interface Position {
+  /**
+   * 实例所在的Zone的信息。
+   */
+  ZoneInfo: ZoneInfo
+
+  /**
+   * 实例所在的国家的信息。
+   */
+  Country: Country
+
+  /**
+   * 实例所在的Area的信息。
+   */
+  Area: Area
+
+  /**
+   * 实例所在的省份的信息。
+   */
+  Province: Province
+
+  /**
+   * 实例所在的城市的信息。
+   */
+  City: City
+
+  /**
+   * 实例所在的Region的信息。
+   */
+  RegionInfo: RegionInfo
 }
 
 /**
@@ -3429,6 +4057,62 @@ export interface AttachNetworkInterfaceResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * 安全组规则对象
+ */
+export interface SecurityGroupPolicy {
+  /**
+   * 安全组规则索引号
+   */
+  PolicyIndex?: number
+
+  /**
+   * 协议, 取值: TCP,UDP, ICMP。
+   */
+  Protocol?: string
+
+  /**
+   * 端口(all, 离散port, range)。
+   */
+  Port?: string
+
+  /**
+   * 协议端口ID或者协议端口组ID。ServiceTemplate和Protocol+Port互斥。
+   */
+  ServiceTemplate?: ServiceTemplateSpecification
+
+  /**
+   * 网段或IP(互斥)。
+   */
+  CidrBlock?: string
+
+  /**
+   * 安全组实例ID，例如：esg-ohuuioma。
+   */
+  SecurityGroupId?: string
+
+  /**
+   * IP地址ID或者ID地址组ID。
+   */
+  AddressTemplate?: AddressTemplateSpecification
+
+  /**
+   * ACCEPT 或 DROP。
+   */
+  Action?: string
+
+  /**
+   * 安全组规则描述。
+   */
+  PolicyDescription?: string
+
+  /**
+      * 修改时间，例如 2020-07-22 19：27：23
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ModifyTime?: string
 }
 
 /**
@@ -3508,6 +4192,21 @@ export interface DiskInfo {
 }
 
 /**
+ * BatchDeregisterTargets请求参数结构体
+ */
+export interface BatchDeregisterTargetsRequest {
+  /**
+   * 负载均衡ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 解绑目标
+   */
+  Targets: Array<BatchTarget>
+}
+
+/**
  * DescribeImportImageOs请求参数结构体
  */
 export type DescribeImportImageOsRequest = null
@@ -3538,9 +4237,9 @@ export interface NetworkInterfaceAttachment {
 }
 
 /**
- * StopInstances返回参数结构体
+ * ModifyListener返回参数结构体
  */
-export interface StopInstancesResponse {
+export interface ModifyListenerResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -3548,9 +4247,31 @@ export interface StopInstancesResponse {
 }
 
 /**
- * ModifyModuleIpDirect返回参数结构体
+ * DescribeTargetHealth返回参数结构体
  */
-export interface ModifyModuleIpDirectResponse {
+export interface DescribeTargetHealthResponse {
+  /**
+      * 负载均衡实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancers?: Array<LoadBalancerHealth>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeLoadBalanceTaskStatus返回参数结构体
+ */
+export interface DescribeLoadBalanceTaskStatusResponse {
+  /**
+      * 任务的当前状态。 0：成功，1：失败，2：进行中。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status?: number
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -3647,6 +4368,47 @@ timestamp 按实例创建时间排序。
    * 指定排序是降序还是升序。0表示降序； 1表示升序。如果不传默认为降序
    */
   OrderDirection?: number
+}
+
+/**
+ * CreateListener请求参数结构体
+ */
+export interface CreateListenerRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 要将监听器创建到哪些端口，每个端口对应一个新的监听器
+   */
+  Ports: Array<number>
+
+  /**
+   * 监听器协议： TCP | UDP
+   */
+  Protocol: string
+
+  /**
+   * 要创建的监听器名称列表，名称与Ports数组按序一一对应，如不需立即命名，则无需提供此参数
+   */
+  ListenerNames?: Array<string>
+
+  /**
+   * 健康检查相关参数
+   */
+  HealthCheck?: HealthCheck
+
+  /**
+   * 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
+   */
+  SessionExpireTime?: number
+
+  /**
+      * 监听器转发的方式。可选值：WRR、LEAST_CONN
+分别表示按权重轮询、最小连接数， 默认为 WRR。
+      */
+  Scheduler?: string
 }
 
 /**
@@ -3748,7 +4510,7 @@ export interface PublicIPAddressInfo {
   ISP: ISP
 
   /**
-   * 实例的最大出带宽上限。
+   * 实例的最大出带宽上限，单位为Mbps。
    */
   MaxBandwidthOut: number
 }
@@ -3892,13 +4654,13 @@ export interface ZoneInstanceInfo {
 }
 
 /**
- * DescribeTaskStatus请求参数结构体
+ * DeleteLoadBalancer返回参数结构体
  */
-export interface DescribeTaskStatusRequest {
+export interface DeleteLoadBalancerResponse {
   /**
-   * 任务描述
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  TaskSet: Array<TaskInput>
+  RequestId?: string
 }
 
 /**
@@ -4025,6 +4787,22 @@ export interface DescribeSecurityGroupAssociationStatisticsResponse {
 }
 
 /**
+ * DescribeTargets返回参数结构体
+ */
+export interface DescribeTargetsResponse {
+  /**
+      * 监听器后端绑定的机器信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Listeners?: Array<ListenerBackend>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 支持的操作系统类型，根据windows和Linux分类。
  */
 export interface ImageOsList {
@@ -4078,6 +4856,21 @@ export interface ImportImageResponse {
 }
 
 /**
+ * BatchModifyTargetWeight请求参数结构体
+ */
+export interface BatchModifyTargetWeightRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 要批量修改权重的列表
+   */
+  ModifyList: Array<TargetsWeightRule>
+}
+
+/**
  * CreateSecurityGroup请求参数结构体
  */
 export interface CreateSecurityGroupRequest {
@@ -4103,6 +4896,41 @@ export interface CreateSecurityGroupRequest {
 export type DescribeSecurityGroupLimitsRequest = null
 
 /**
+ * 负责均衡批量目标项
+ */
+export interface BatchTarget {
+  /**
+      * 监听器ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerId?: string
+
+  /**
+      * 绑定端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port?: number
+
+  /**
+      * 子机ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InstanceId?: string
+
+  /**
+      * 弹性网卡ip
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EniIp?: string
+
+  /**
+      * 子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Weight?: number
+}
+
+/**
  * 城市信息
  */
 export interface City {
@@ -4126,6 +4954,16 @@ export interface PrivateIPAddressInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   PrivateIPAddress: string
+}
+
+/**
+ * DescribeTargetHealth请求参数结构体
+ */
+export interface DescribeTargetHealthRequest {
+  /**
+   * 要查询的负载均衡实例 ID列表
+   */
+  LoadBalancerIds: Array<string>
 }
 
 /**
@@ -4178,20 +5016,35 @@ export interface SimpleModule {
  */
 export interface DescribePeakNetworkOverviewRequest {
   /**
-   * 开始时间（xxxx-xx-xx）如2019-08-14，默认为一周之前的日期。
+   * 开始时间（xxxx-xx-xx）如2019-08-14，默认为一周之前的日期，不应与当前日期间隔超过30天。
    */
   StartTime?: string
 
   /**
-   * 结束时间（xxxx-xx-xx）如2019-08-14，默认为昨天。
+   * 结束时间（xxxx-xx-xx）如2019-08-14，默认为昨天，不应与当前日期间隔超过30天。当开始与结束间隔不超过2天时返回5分钟粒度的数据，否则返回1小时粒度的数据。
    */
   EndTime?: string
 
   /**
       * 过滤条件。
-region    String      是否必填：否     （过滤条件）按照region过滤,不支持模糊匹配。注意 region 填上需要查询ecm region才能返回数据。
+
+region    String      是否必填：否     （过滤条件）按照region过滤，不支持模糊匹配。注意 region 填上需要查询ecm region才能返回数据。
+area       String      是否必填：否     （过滤条件）按照大区过滤，不支持模糊匹配。大区包括：china-central、china-east等等，可以通过DescribeNode获得所有大区；也可使用ALL_REGION表示所有地区。
+isp         String      是否必填：否     （过滤条件）按照运营商过滤大区流量，运营商包括CTCC、CUCC和CMCC。只和area同时使用，且一次只能指定一种运营商。
+
+region和area只应填写一个。
       */
   Filters?: Array<Filter>
+}
+
+/**
+ * ModifyModuleIpDirect返回参数结构体
+ */
+export interface ModifyModuleIpDirectResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -4266,6 +5119,23 @@ export interface RebootInstancesResponse {
 }
 
 /**
+ * ModifyModuleIpDirect请求参数结构体
+ */
+export interface ModifyModuleIpDirectRequest {
+  /**
+   * 模块ID。
+   */
+  ModuleId: string
+
+  /**
+      * 是否关闭IP直通。取值范围：
+true：表示关闭IP直通
+false：表示开通IP直通
+      */
+  CloseIpDirect: boolean
+}
+
+/**
  * ModifyAddressesBandwidth请求参数结构体
  */
 export interface ModifyAddressesBandwidthRequest {
@@ -4337,6 +5207,21 @@ export interface ModifyImageAttributeResponse {
 }
 
 /**
+ * BatchRegisterTargets请求参数结构体
+ */
+export interface BatchRegisterTargetsRequest {
+  /**
+   * 负载均衡ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 绑定目标
+   */
+  Targets: Array<BatchTarget>
+}
+
+/**
  * DescribeImage返回参数结构体
  */
 export interface DescribeImageResponse {
@@ -4358,6 +5243,35 @@ export interface DescribeImageResponse {
 }
 
 /**
+ * 监听器后端
+ */
+export interface ListenerBackend {
+  /**
+      * 监听器 ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerId?: string
+
+  /**
+      * 监听器的协议
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Protocol?: string
+
+  /**
+      * 监听器的端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port?: number
+
+  /**
+      * 监听器上绑定的后端服务列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Targets?: Array<Backend>
+}
+
+/**
  * Region和RegionName
  */
 export interface RegionInfo {
@@ -4375,6 +5289,21 @@ export interface RegionInfo {
    * RegionID
    */
   RegionId: number
+}
+
+/**
+ * 标签信息。
+ */
+export interface TagInfo {
+  /**
+   * 标签的键。
+   */
+  TagKey?: string
+
+  /**
+   * 标签的值。
+   */
+  TagValue?: string
 }
 
 /**
@@ -4642,6 +5571,22 @@ export interface CreateVpcRequest {
 }
 
 /**
+ * CreateLoadBalancer返回参数结构体
+ */
+export interface CreateLoadBalancerResponse {
+  /**
+      * 由负载均衡实例ID组成的数组
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerIds?: Array<string>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 云镜服务；
  */
 export interface RunSecurityServiceEnabled {
@@ -4748,6 +5693,41 @@ export interface AllocateAddressesResponse {
 }
 
 /**
+ * DeleteLoadBalancerListeners返回参数结构体
+ */
+export interface DeleteLoadBalancerListenersResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeListeners请求参数结构体
+ */
+export interface DescribeListenersRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 要查询的负载均衡监听器 ID数组
+   */
+  ListenerIds?: Array<string>
+
+  /**
+   * 要查询的监听器协议类型，取值 TCP | UDP
+   */
+  Protocol?: string
+
+  /**
+   * 要查询的监听器的端口
+   */
+  Port?: number
+}
+
+/**
  * AttachNetworkInterface请求参数结构体
  */
 export interface AttachNetworkInterfaceRequest {
@@ -4823,6 +5803,73 @@ export interface RunMonitorServiceEnabled {
 }
 
 /**
+ * ModifyTargetPort请求参数结构体
+ */
+export interface ModifyTargetPortRequest {
+  /**
+   * 负载均衡实例 ID
+   */
+  LoadBalancerId: string
+
+  /**
+   * 负载均衡监听器 ID
+   */
+  ListenerId: string
+
+  /**
+   * 要修改端口的后端服务列表
+   */
+  Targets: Array<Target>
+
+  /**
+   * 后端服务绑定到监听器或转发规则的新端口
+   */
+  NewPort: number
+}
+
+/**
+ * DescribeImportImageOs返回参数结构体
+ */
+export interface DescribeImportImageOsResponse {
+  /**
+   * 支持的导入镜像的操作系统类型
+   */
+  ImportImageOsListSupported?: ImageOsList
+
+  /**
+   * 支持的导入镜像的操作系统版本
+   */
+  ImportImageOsVersionSet?: Array<OsVersion>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeLoadBalancers返回参数结构体
+ */
+export interface DescribeLoadBalancersResponse {
+  /**
+      * 满足过滤条件的负载均衡实例总数。此数值与入参中的Limit无关。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalCount?: number
+
+  /**
+      * 返回的负载均衡实例数组。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerSet?: Array<LoadBalancer>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * MigrateNetworkInterface返回参数结构体
  */
 export interface MigrateNetworkInterfaceResponse {
@@ -4833,20 +5880,9 @@ export interface MigrateNetworkInterfaceResponse {
 }
 
 /**
- * DescribeVpcs返回参数结构体
+ * DeleteListener返回参数结构体
  */
-export interface DescribeVpcsResponse {
-  /**
-   * 符合条件的对象数。
-   */
-  TotalCount?: number
-
-  /**
-      * 私有网络对象。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  VpcSet?: Array<VpcInfo>
-
+export interface DeleteListenerResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -4998,6 +6034,76 @@ export interface DescribeBaseOverviewResponse {
 }
 
 /**
+ * 后端的健康检查状态
+ */
+export interface TargetHealth {
+  /**
+      * Target的内网IP
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  IP: string
+
+  /**
+      * Target绑定的端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port: number
+
+  /**
+      * 当前健康状态，true：健康，false：不健康（包括尚未开始探测、探测中、状态异常等几种状态）。只有处于健康状态（且权重大于0），负载均衡才会向其转发流量。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HealthStatus: boolean
+
+  /**
+      * Target的实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TargetId: string
+
+  /**
+      * 当前健康状态的详细信息。如：Alive、Dead、Unknown、Close。Alive状态为健康，Dead状态为异常，Unknown状态包括尚未开始探测、探测中、状态未知，Close为未配置健康检查。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HealthStatusDetail: string
+}
+
+/**
+ * 监听器健康状态
+ */
+export interface ListenerHealth {
+  /**
+      * 监听器ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerId: string
+
+  /**
+      * 监听器名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ListenerName: string
+
+  /**
+      * 监听器的协议
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Protocol: string
+
+  /**
+      * 监听器的端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port: number
+
+  /**
+      * 监听器的转发规则列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Rules: Array<RuleHealth>
+}
+
+/**
  * DisassociateSecurityGroups返回参数结构体
  */
 export interface DisassociateSecurityGroupsResponse {
@@ -5005,4 +6111,105 @@ export interface DisassociateSecurityGroupsResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * 负载均衡实例信息
+ */
+export interface LoadBalancer {
+  /**
+      * 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Region: string
+
+  /**
+      * 位置信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Position: Position
+
+  /**
+      * 负载均衡实例 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerId: string
+
+  /**
+      * 负载均衡实例的名称。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerName: string
+
+  /**
+      * 负载均衡实例的网络类型：OPEN：公网属性
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerType: string
+
+  /**
+      * 负载均衡实例的 VIP 列表。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoadBalancerVips: Array<string>
+
+  /**
+      * 负载均衡实例的状态，包括
+ 0：创建中，1：正常运行。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status: number
+
+  /**
+      * 负载均衡实例的创建时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime: string
+
+  /**
+      * 负载均衡实例的上次状态转换时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StatusTime: string
+
+  /**
+      * 私有网络的 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  VpcId: string
+
+  /**
+      * 负载均衡实例的标签信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Tags: Array<TagInfo>
+
+  /**
+      * 负载均衡IP地址所属的ISP。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  VipIsp: string
+
+  /**
+      * 负载均衡实例的网络属性。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  NetworkAttributes: LoadBalancerInternetAccessible
+}
+
+/**
+ * ip地址相关信息结构体。
+ */
+export interface AddressInfo {
+  /**
+      * 实例的外网ip相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PublicIPAddressInfo: PublicIPAddressInfo
+
+  /**
+      * 实例的内网ip相关信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PrivateIPAddressInfo: PrivateIPAddressInfo
 }

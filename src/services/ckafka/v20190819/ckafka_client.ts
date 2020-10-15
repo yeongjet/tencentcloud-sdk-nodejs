@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   TopicDetail,
   DeleteAclRequest,
@@ -30,9 +31,8 @@ import {
   DescribeConsumerGroupResponse,
   DeleteTopicRequest,
   DescribeInstancesResponse,
-  FetchMessageByOffsetResponse,
   GroupInfoTopics,
-  FetchMessageListByOffsetRequest,
+  TopicResult,
   DescribeInstancesDetailResponse,
   CreateInstancePreData,
   DescribeACLResponse,
@@ -40,15 +40,13 @@ import {
   Topic,
   Tag,
   GroupResponse,
-  FetchMessageListByTimestampRequest,
   DescribeTopicAttributesResponse,
-  FetchMessageListByOffsetResponse,
   RouteResponse,
   DescribeGroupResponse,
   ModifyInstanceAttributesConfig,
   OperateResponseData,
   CreateUserResponse,
-  ModifyInstanceAttributesResponse,
+  GroupOffsetTopic,
   CreatePartitionResponse,
   DeleteUserResponse,
   CreateAclRequest,
@@ -56,14 +54,13 @@ import {
   DescribeTopicResponse,
   ConsumerGroupResponse,
   CreateTopicIpWhiteListResponse,
-  GroupOffsetTopic,
+  ModifyInstanceAttributesResponse,
   ModifyGroupOffsetsResponse,
   Partition,
   CreateAclResponse,
   CreateTopicRequest,
   DeleteAclResponse,
   DescribeRouteRequest,
-  FetchMessageByOffsetRequest,
   InstanceConfigDO,
   UserResponse,
   DescribeGroupInfoRequest,
@@ -106,14 +103,11 @@ import {
   TopicPartitionDO,
   CreateTopicResp,
   DescribeRouteResponse,
-  TopicResult,
   DescribeTopicDetailRequest,
   DescribeGroupOffsetsResponse,
-  ConsumerRecord,
   ModifyGroupOffsetsRequest,
   CreateTopicIpWhiteListRequest,
   Route,
-  FetchMessageListByTimestampResponse,
   Acl,
   ModifyTopicAttributesRequest,
   CreateTopicResponse,
@@ -236,16 +230,6 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 根据位点查询消息列表
-   */
-  async FetchMessageListByOffset(
-    req: FetchMessageListByOffsetRequest,
-    cb?: (error: string, rep: FetchMessageListByOffsetResponse) => void
-  ): Promise<FetchMessageListByOffsetResponse> {
-    return this.request("FetchMessageListByOffset", req, cb)
-  }
-
-  /**
    * 枚举ACL
    */
   async DescribeACL(
@@ -273,16 +257,6 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateInstancePreResponse) => void
   ): Promise<CreateInstancePreResponse> {
     return this.request("CreateInstancePre", req, cb)
-  }
-
-  /**
-   * 根据指定offset位置的消息
-   */
-  async FetchMessageByOffset(
-    req: FetchMessageByOffsetRequest,
-    cb?: (error: string, rep: FetchMessageByOffsetResponse) => void
-  ): Promise<FetchMessageByOffsetResponse> {
-    return this.request("FetchMessageByOffset", req, cb)
   }
 
   /**
@@ -404,16 +378,6 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribeGroupOffsetsResponse) => void
   ): Promise<DescribeGroupOffsetsResponse> {
     return this.request("DescribeGroupOffsets", req, cb)
-  }
-
-  /**
-   * 根据时间戳查询消息列表
-   */
-  async FetchMessageListByTimestamp(
-    req: FetchMessageListByTimestampRequest,
-    cb?: (error: string, rep: FetchMessageListByTimestampResponse) => void
-  ): Promise<FetchMessageListByTimestampResponse> {
-    return this.request("FetchMessageListByTimestamp", req, cb)
   }
 
   /**

@@ -52,6 +52,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("BindingPolicyObject", req, cb);
     }
     /**
+     * 告警2.0-告警历史列表
+     */
+    async DescribeAlarmHistories(req, cb) {
+        return this.request("DescribeAlarmHistories", req, cb);
+    }
+    /**
      * 修改告警接收人
      */
     async ModifyAlarmReceivers(req, cb) {
@@ -88,6 +94,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribePolicyGroupInfo", req, cb);
     }
     /**
+     * 更新策略组
+     */
+    async ModifyPolicyGroup(req, cb) {
+        return this.request("ModifyPolicyGroup", req, cb);
+    }
+    /**
      * 查询云监控产品列表
      */
     async DescribeProductList(req, cb) {
@@ -106,18 +118,18 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeBasicAlarmList", req, cb);
     }
     /**
-     * 获取云产品的监控数据。传入产品的命名空间、对象维度描述和监控指标即可获得相应的监控数据。
-接口调用频率限制为：20次/秒，1200次/分钟。单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
-若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
-     */
+       * 获取云产品的监控数据。传入产品的命名空间、对象维度描述和监控指标即可获得相应的监控数据。
+  接口调用频率限制为：20次/秒，1200次/分钟。单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
+  若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
+       */
     async GetMonitorData(req, cb) {
         return this.request("GetMonitorData", req, cb);
     }
     /**
-     * 更新策略组
+     * 拉取所有名字空间
      */
-    async ModifyPolicyGroup(req, cb) {
-        return this.request("ModifyPolicyGroup", req, cb);
+    async DescribeAllNamespaces(req, cb) {
+        return this.request("DescribeAllNamespaces", req, cb);
     }
     /**
      * 增加策略组
@@ -132,14 +144,14 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("UnBindingAllPolicyObject", req, cb);
     }
     /**
-     * 默认接口请求频率限制：50次/秒。
-默认单租户指标上限：100个。
-单次上报最多 30 个指标/值对，请求返回错误时，请求中所有的指标/值均不会被保存。
-
-上报的时间戳为期望保存的时间戳，建议构造整数分钟时刻的时间戳。
-时间戳时间范围必须为当前时间到 300 秒前之间。
-同一 IP 指标对的数据需按分钟先后顺序上报。
-     */
+       * 默认接口请求频率限制：50次/秒。
+  默认单租户指标上限：100个。
+  单次上报最多 30 个指标/值对，请求返回错误时，请求中所有的指标/值均不会被保存。
+  
+  上报的时间戳为期望保存的时间戳，建议构造整数分钟时刻的时间戳。
+  时间戳时间范围必须为当前时间到 300 秒前之间。
+  同一 IP 指标对的数据需按分钟先后顺序上报。
+       */
     async PutMonitorData(req, cb) {
         return this.request("PutMonitorData", req, cb);
     }

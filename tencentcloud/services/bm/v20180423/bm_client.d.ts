@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeUserCmdTasksResponse, RunUserCmdRequest, CreatePsaRegulationRequest, DescribeDeviceInventoryResponse, DescribeOsInfoResponse, DescribeOsInfoRequest, DescribeTaskOperationLogResponse, CreateCustomImageRequest, DescribeCustomImagesRequest, DescribeUserCmdTaskInfoResponse, DescribeDevicesResponse, ModifyLanIpRequest, DescribeRepairTaskConstantRequest, DeletePsaRegulationRequest, DescribeCustomImageProcessRequest, ModifyDeviceAutoRenewFlagRequest, StartDevicesResponse, BindPsaTagRequest, DescribeRegionsResponse, OfflineDevicesResponse, ModifyPsaRegulationRequest, RecoverDevicesRequest, DescribeDeviceClassPartitionRequest, CreateSpotDeviceResponse, BuyDevicesRequest, DescribeHardwareSpecificationRequest, CreateCustomImageResponse, ReturnDevicesRequest, ModifyDeviceAliasesResponse, DescribeDevicePartitionResponse, DescribeHostedDeviceOutBandInfoRequest, RebootDevicesResponse, ResetDevicePasswordRequest, DescribeDeviceInventoryRequest, DescribeCustomImagesResponse, DeleteCustomImagesRequest, DescribeDevicePositionRequest, ShutdownDevicesResponse, DeleteUserCmdsRequest, AttachCamRoleRequest, DescribeDeviceClassResponse, DescribeDeviceHardwareInfoResponse, ModifyUserCmdRequest, DescribeDevicePriceInfoResponse, ReloadDeviceOsResponse, RunUserCmdResponse, ReloadDeviceOsRequest, DescribeUserCmdsRequest, DescribeTaskInfoRequest, RepairTaskControlResponse, DescribeRegionsRequest, DescribePsaRegulationsRequest, UnbindPsaTagResponse, DescribeDevicePriceInfoRequest, DescribeDevicePartitionRequest, ModifyPsaRegulationResponse, DescribeDevicePositionResponse, DeleteUserCmdsResponse, ModifyDeviceAliasesRequest, ModifyPayModePre2PostResponse, SetOutBandVpnAuthPasswordRequest, OfflineDevicesRequest, SetOutBandVpnAuthPasswordResponse, DescribeTaskInfoResponse, DescribeUserCmdTaskInfoRequest, CreateUserCmdResponse, ModifyUserCmdResponse, ModifyPayModePre2PostRequest, DescribeRepairTaskConstantResponse, BuyDevicesResponse, ModifyLanIpResponse, DescribePsaRegulationsResponse, StartDevicesRequest, DescribeUserCmdsResponse, ModifyDeviceAutoRenewFlagResponse, DescribeOperationResultResponse, DescribeDeviceClassRequest, ModifyCustomImageAttributeRequest, DeletePsaRegulationResponse, DescribeTaskOperationLogRequest, DescribeDeviceOperationLogRequest, DescribeOperationResultRequest, AttachCamRoleResponse, RecoverDevicesResponse, DetachCamRoleResponse, ShutdownDevicesRequest, UnbindPsaTagRequest, ModifyCustomImageAttributeResponse, CreateSpotDeviceRequest, CreateUserCmdRequest, ReturnDevicesResponse, BindPsaTagResponse, DescribeHostedDeviceOutBandInfoResponse, RebootDevicesRequest, DeleteCustomImagesResponse, DescribeDevicesRequest, DescribeHardwareSpecificationResponse, CreatePsaRegulationResponse, DescribeCustomImageProcessResponse, DescribeDeviceHardwareInfoRequest, DescribeDeviceOperationLogResponse, RepairTaskControlRequest, ResetDevicePasswordResponse, DescribeUserCmdTasksRequest, DetachCamRoleRequest, DescribeDeviceClassPartitionResponse } from "./bm_models";
 /**
  * bm client
@@ -87,9 +88,9 @@ export declare class Client extends AbstractClient {
      */
     BindPsaTag(req: BindPsaTagRequest, cb?: (error: string, rep: BindPsaTagResponse) => void): Promise<BindPsaTagResponse>;
     /**
-     * 删除自定义镜像<br>
-正用于部署或重装中的镜像被删除后，镜像文件将保留一段时间，直到部署或重装结束
-     */
+       * 删除自定义镜像<br>
+  正用于部署或重装中的镜像被删除后，镜像文件将保留一段时间，直到部署或重装结束
+       */
     DeleteCustomImages(req: DeleteCustomImagesRequest, cb?: (error: string, rep: DeleteCustomImagesResponse) => void): Promise<DeleteCustomImagesResponse>;
     /**
      * 删除预授权规则
@@ -172,40 +173,40 @@ export declare class Client extends AbstractClient {
      */
     DescribeDeviceOperationLog(req: DescribeDeviceOperationLogRequest, cb?: (error: string, rep: DescribeDeviceOperationLogResponse) => void): Promise<DescribeDeviceOperationLogResponse>;
     /**
-     * 获取用户维修任务列表及详细信息<br>
-<br>
-TaskStatus（任务状态ID）与状态中文名的对应关系如下：<br>
-1：未授权<br>
-2：处理中<br>
-3：待确认<br>
-4：未授权-暂不处理<br>
-5：已恢复<br>
-6：待确认-未恢复<br>
-     */
+       * 获取用户维修任务列表及详细信息<br>
+  <br>
+  TaskStatus（任务状态ID）与状态中文名的对应关系如下：<br>
+  1：未授权<br>
+  2：处理中<br>
+  3：待确认<br>
+  4：未授权-暂不处理<br>
+  5：已恢复<br>
+  6：待确认-未恢复<br>
+       */
     DescribeTaskInfo(req: DescribeTaskInfoRequest, cb?: (error: string, rep: DescribeTaskInfoResponse) => void): Promise<DescribeTaskInfoResponse>;
     /**
-     * 此接口用于操作维修任务<br>
-入参TaskId为维修任务ID<br>
-入参Operate表示对维修任务的操作，支持如下取值：<br>
-AuthorizeRepair（授权维修）<br>
-Ignore（暂不提醒）<br>
-ConfirmRecovered（维修完成后，确认故障恢复）<br>
-ConfirmUnRecovered（维修完成后，确认故障未恢复）<br>
-<br>
-操作约束（当前任务状态(TaskStatus)->对应可执行的操作）：<br>
-未授权(1)->授权维修；暂不处理<br>
-暂不处理(4)->授权维修<br>
-待确认(3)->确认故障恢复；确认故障未恢复<br>
-未恢复(6)->确认故障恢复<br>
-<br>
-对于Ping不可达故障的任务，还允许：<br>
-未授权->确认故障恢复<br>
-暂不处理->确认故障恢复<br>
-<br>
-处理中与已恢复状态的任务不允许进行操作。<br>
-<br>
-详细信息请访问：https://cloud.tencent.com/document/product/386/18190
-     */
+       * 此接口用于操作维修任务<br>
+  入参TaskId为维修任务ID<br>
+  入参Operate表示对维修任务的操作，支持如下取值：<br>
+  AuthorizeRepair（授权维修）<br>
+  Ignore（暂不提醒）<br>
+  ConfirmRecovered（维修完成后，确认故障恢复）<br>
+  ConfirmUnRecovered（维修完成后，确认故障未恢复）<br>
+  <br>
+  操作约束（当前任务状态(TaskStatus)->对应可执行的操作）：<br>
+  未授权(1)->授权维修；暂不处理<br>
+  暂不处理(4)->授权维修<br>
+  待确认(3)->确认故障恢复；确认故障未恢复<br>
+  未恢复(6)->确认故障恢复<br>
+  <br>
+  对于Ping不可达故障的任务，还允许：<br>
+  未授权->确认故障恢复<br>
+  暂不处理->确认故障恢复<br>
+  <br>
+  处理中与已恢复状态的任务不允许进行操作。<br>
+  <br>
+  详细信息请访问：https://cloud.tencent.com/document/product/386/18190
+       */
     RepairTaskControl(req: RepairTaskControlRequest, cb?: (error: string, rep: RepairTaskControlResponse) => void): Promise<RepairTaskControlResponse>;
     /**
      * 查询物理服务器，可以按照实例，业务IP等过滤
@@ -244,8 +245,8 @@ ConfirmUnRecovered（维修完成后，确认故障未恢复）<br>
      */
     DescribeDeviceClassPartition(req: DescribeDeviceClassPartitionRequest, cb?: (error: string, rep: DescribeDeviceClassPartitionResponse) => void): Promise<DescribeDeviceClassPartitionResponse>;
     /**
-     * 创建自定义镜像<br>
-每个AppId在每个可用区最多保留20个自定义镜像
-     */
+       * 创建自定义镜像<br>
+  每个AppId在每个可用区最多保留20个自定义镜像
+       */
     CreateCustomImage(req: CreateCustomImageRequest, cb?: (error: string, rep: CreateCustomImageResponse) => void): Promise<CreateCustomImageResponse>;
 }

@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { ApplyCertificateResponse, DeleteCertificateRequest, DescribeCertificateOperateLogsResponse, CommitCertificateInformationRequest, CommitCertificateInformationResponse, ReplaceCertificateResponse, DownloadCertificateRequest, CancelCertificateOrderRequest, ModifyCertificateProjectResponse, DescribeCertificateResponse, UploadCertificateRequest, DescribeCertificateDetailRequest, ApplyCertificateRequest, ReplaceCertificateRequest, DeleteCertificateResponse, ModifyCertificateProjectRequest, ModifyCertificateAliasRequest, DescribeCertificateRequest, DescribeCertificateOperateLogsRequest, CancelCertificateOrderResponse, SubmitCertificateInformationResponse, DescribeCertificatesResponse, DownloadCertificateResponse, UploadCertificateResponse, DescribeCertificateDetailResponse, ModifyCertificateAliasResponse, SubmitCertificateInformationRequest, DescribeCertificatesRequest } from "./ssl_models";
 /**
  * ssl client

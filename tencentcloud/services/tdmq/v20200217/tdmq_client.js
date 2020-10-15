@@ -64,16 +64,22 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeSubscriptions", req, cb);
     }
     /**
-     * 修改指定环境的属性值
+     * 获取环境下主题列表
      */
-    async ModifyEnvironmentAttributes(req, cb) {
-        return this.request("ModifyEnvironmentAttributes", req, cb);
+    async DescribeTopics(req, cb) {
+        return this.request("DescribeTopics", req, cb);
     }
     /**
      * 获取指定环境的属性
      */
     async DescribeEnvironmentAttributes(req, cb) {
         return this.request("DescribeEnvironmentAttributes", req, cb);
+    }
+    /**
+     * 修改指定环境的属性值
+     */
+    async ModifyEnvironmentAttributes(req, cb) {
+        return this.request("ModifyEnvironmentAttributes", req, cb);
     }
     /**
      * 用于在用户账户下创建消息队列 Tdmq环境（命名空间）
@@ -100,10 +106,10 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeProducers", req, cb);
     }
     /**
-     * 获取环境下主题列表
+     * 获取环境角色列表
      */
-    async DescribeTopics(req, cb) {
-        return this.request("DescribeTopics", req, cb);
+    async DescribeEnvironmentRoles(req, cb) {
+        return this.request("DescribeEnvironmentRoles", req, cb);
     }
     /**
      * 删除订阅关系

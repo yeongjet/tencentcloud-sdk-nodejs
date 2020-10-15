@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { InquiryPriceCreateCisResponse, DescribeContainerLogRequest, CreateContainerInstanceRequest, InquiryPriceCreateCisRequest, DescribeContainerInstancesResponse, DeleteContainerInstanceResponse, DescribeContainerInstancesRequest, CreateContainerInstanceResponse, DescribeContainerInstanceRequest, DescribeContainerInstanceResponse, DescribeContainerInstanceEventsResponse, DescribeContainerInstanceEventsRequest, DescribeContainerLogResponse, DeleteContainerInstanceRequest } from "./cis_models";
 /**
  * cis client

@@ -1,5 +1,5 @@
 import { sdkVersion } from "./sdk_version"
-import { ClientProfile, Credential } from "./interface"
+import { ClientProfile, Credential, ClientConfig } from "./interface"
 import Sign from "./sign"
 import { HttpConnection } from "./http/http_connection"
 import TencentCloudSDKHttpException from "./exception/tencent_cloud_sdk_exception"
@@ -24,23 +24,6 @@ interface RequestData {
 }
 type ResponseData = any
 
-export interface ClientConfig {
-  /**
-   * @param {Credential} credential 认证信息
-   * 必选
-   */
-  credential: Credential
-  /**
-   * @param {string} region 产品地域
-   * 必选
-   */
-  region: string
-  /**
-   * @param {ClientProfile} profile 可选配置实例
-   * 可选，没有特殊需求可以跳过。
-   */
-  profile?: ClientProfile
-}
 /**
  * @inner
  */

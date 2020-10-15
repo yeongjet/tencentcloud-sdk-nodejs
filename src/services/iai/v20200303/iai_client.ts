@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   Eye,
   Candidate,
@@ -34,6 +35,7 @@ import {
   GetGroupListRequest,
   GetUpgradeGroupFaceModelVersionJobListRequest,
   GetUpgradeGroupFaceModelVersionResultResponse,
+  DetectLiveFaceAccurateResponse,
   AnalyzeFaceRequest,
   CreatePersonResponse,
   SearchFacesResponse,
@@ -83,6 +85,7 @@ import {
   FaceAttributesInfo,
   VerifyPersonRequest,
   ModifyPersonBaseInfoRequest,
+  DetectLiveFaceAccurateRequest,
   JobIdInfo,
   FaceDetailInfo,
   SearchFacesRequest,
@@ -155,6 +158,8 @@ export class Client extends AbstractClient {
 >     
 - 公共参数中的签名方式请使用V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
 
+>     
+- 不可同时搜索不同算法模型版本（FaceModelVersion）的人员库。
 
      */
   async SearchFacesReturnsByGroup(
@@ -300,6 +305,9 @@ export class Client extends AbstractClient {
 
 >     
 - 公共参数中的签名方式请使用V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+
+>     
+- 不可同时搜索不同算法模型版本（FaceModelVersion）的人员库。
      */
   async SearchFaces(
     req: SearchFacesRequest,
@@ -396,8 +404,6 @@ export class Client extends AbstractClient {
      * 本接口用于回滚人员库的人脸识别算法模型版本。单个人员库有且仅有一次回滚机会。
 
 回滚操作会在10s内生效，回滚操作中，您对人员库的操作可能会失效。
-
-注：给客户我会写10s内生效，我们实际上越快越好。待讨论。
      */
   async RevertGroupFaceModelVersion(
     req: RevertGroupFaceModelVersionRequest,
@@ -522,6 +528,18 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DetectFaceAttributesResponse) => void
   ): Promise<DetectFaceAttributesResponse> {
     return this.request("DetectFaceAttributes", req, cb)
+  }
+
+  /**
+     * 人脸静态活体检测（高精度版）可用于对用户上传的静态图片进行防翻拍活体检测，以判断是否是翻拍图片。
+
+相比现有静态活体检测服务，高精度版在维持高真人通过率的前提下，增强了对高清屏幕、裁剪纸片、3D面具等攻击的防御能力，攻击拦截率约为业内同类型产品形态4-5倍。同时支持多场景人脸核验，满足移动端、PC端各类型场景的图片活体检验需求，适用于各个行业不同的活体检验应用。
+     */
+  async DetectLiveFaceAccurate(
+    req: DetectLiveFaceAccurateRequest,
+    cb?: (error: string, rep: DetectLiveFaceAccurateResponse) => void
+  ): Promise<DetectLiveFaceAccurateResponse> {
+    return this.request("DetectLiveFaceAccurate", req, cb)
   }
 
   /**

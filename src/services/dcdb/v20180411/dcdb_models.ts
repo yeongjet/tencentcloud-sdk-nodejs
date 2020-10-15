@@ -1164,6 +1164,24 @@ export interface DCDBInstanceInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   WanStatusIpv6: number
+
+  /**
+      * DCN标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DcnFlag: number
+
+  /**
+      * DCN状态，0-无，1-创建中，2-同步中，3-已断开
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DcnStatus: number
+
+  /**
+      * DCN灾备实例数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DcnDstNum: number
 }
 
 /**
@@ -1547,6 +1565,12 @@ export interface DescribeDCDBShardsResponse {
    * 分片信息列表
    */
   Shards?: Array<DCDBShardInfo>
+
+  /**
+      * 灾备标志，0-无，1-主实例，2-灾备实例
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DcnFlag?: number
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -2528,6 +2552,11 @@ export interface DescribeDCDBInstancesRequest {
    * 按标签key查询
    */
   TagKeys?: Array<string>
+
+  /**
+   * 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
+   */
+  FilterInstanceType?: string
 }
 
 /**

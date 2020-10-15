@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { UploadOtaVersionResponse, CreateGencodeResponse, DescribeLogsRequest, CreateIotDataTypeRequest, DescribePubVersionsRequest, DescribeIotModelResponse, DisableDeviceResponse, DescribeRunLogRequest, DescribeProductsRequest, DeleteTraceIdsRequest, DescribeDevicesResponse, ModifyProductResponse, ModifyProductRequest, DisableDeviceStreamRequest, CreateIotModelRequest, DescribeTraceStatusResponse, CreateUploadPathRequest, CreateDevTokenRequest, DeleteIotDataTypeRequest, DescribeMessageQueueRequest, DeleteAppUsrResponse, DescribeRegistrationStatusResponse, DescribeProductRequest, DescribeProductsResponse, CreateAppUsrRequest, UpgradeDeviceRequest, DescribeModelDataRetResponse, RunIotModelResponse, RunIotModelRequest, DeleteProductRequest, DescribeBindUsrResponse, SetMessageQueueRequest, DeleteOtaVersionRequest, DescribeIotDataTypeResponse, CreateBindingRequest, DeleteDeviceRequest, CreateDevTokenResponse, ModifyDevicePropertyRequest, RunDeviceStreamRequest, RunDeviceResponse, DeleteIotDataTypeResponse, DescribeTraceStatusRequest, CreateUsrTokenResponse, CreateTraceIdsRequest, DeleteMessageQueueResponse, DescribeOtaVersionsRequest, DescribeTraceIdsResponse, CreateProductResponse, DescribeRegistrationStatusRequest, CreateStorageRequest, UpgradeDeviceResponse, DisableOtaVersionResponse, DescribeBindDevResponse, CreateProductRequest, RunTestOtaVersionResponse, RunTestOtaVersionRequest, DescribeDeviceResponse, SetMessageQueueResponse, DeleteOtaVersionResponse, UploadOtaVersionRequest, DescribeIotModelsRequest, DescribeModelDataRetRequest, CreateTraceIdsResponse, DeleteBindingRequest, DescribeOtaVersionsResponse, DeleteProductResponse, RunOtaVersionRequest, CreateDevicesResponse, DescribeIotDataTypeRequest, SendOnlineMsgRequest, DescribeDeviceRequest, DescribeRunLogResponse, DescribeIotModelRequest, DescribeTraceIdsRequest, CreateAppUsrResponse, DeleteTraceIdsResponse, DeleteMessageQueueRequest, CreateUsrTokenRequest, RunDeviceRequest, DescribeDeviceModelResponse, CreateGencodeRequest, DescribePubVersionsResponse, ModifyDeviceActionRequest, CreateIotModelResponse, DescribeBindDevRequest, RunDeviceStreamResponse, RunOtaVersionResponse, DescribeDeviceModelRequest, DescribeLogsResponse, ModifyDeviceActionResponse, CreateBindingResponse, CreateDevicesRequest, DisableDeviceRequest, DisableOtaVersionRequest, DescribeProductResponse, DescribeBindUsrRequest, SendOnlineMsgResponse, DeleteAppUsrRequest, DescribeIotModelsResponse, DescribeMessageQueueResponse, DescribeDevicesRequest, CreateIotDataTypeResponse, ModifyDevicePropertyResponse, DeleteBindingResponse, CreateStorageResponse, DisableDeviceStreamResponse, DeleteDeviceResponse, CreateUploadPathResponse } from "./iotvideo_models";
 /**
  * iotvideo client
@@ -47,43 +48,43 @@ export declare class Client extends AbstractClient {
      */
     DescribeProduct(req: DescribeProductRequest, cb?: (error: string, rep: DescribeProductResponse) => void): Promise<DescribeProductResponse>;
     /**
-     * 本接口（SendOnlineMsg）用于向设备发送在线消息。
-注意：
-若设备当前不在线,会直接返回错误;
-若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒.waitresp非0情况下,会导致本接口阻塞3秒。
-     */
+       * 本接口（SendOnlineMsg）用于向设备发送在线消息。
+  注意：
+  若设备当前不在线,会直接返回错误;
+  若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒.waitresp非0情况下,会导致本接口阻塞3秒。
+       */
     SendOnlineMsg(req: SendOnlineMsgRequest, cb?: (error: string, rep: SendOnlineMsgResponse) => void): Promise<SendOnlineMsgResponse>;
     /**
      * 本接口（RunIotModel）用于对定义的物模型进行发布。
      */
     RunIotModel(req: RunIotModelRequest, cb?: (error: string, rep: RunIotModelResponse) => void): Promise<RunIotModelResponse>;
     /**
-     * 本接口（ModifyDeviceAction）用于修改设备物模型的行为（Action）。
-
-可对ctlVal数据属性进行写入,如:Action.takePhoto.ctlVal,设备在线且成功发送到设备才返回,物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
-注意:
-  1.若设备当前不在线,会直接返回错误
-  2.若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒
-  3.value的内容必须与实际物模型的定义一致
-     */
+       * 本接口（ModifyDeviceAction）用于修改设备物模型的行为（Action）。
+  
+  可对ctlVal数据属性进行写入,如:Action.takePhoto.ctlVal,设备在线且成功发送到设备才返回,物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
+  注意:
+    1.若设备当前不在线,会直接返回错误
+    2.若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒
+    3.value的内容必须与实际物模型的定义一致
+       */
     ModifyDeviceAction(req: ModifyDeviceActionRequest, cb?: (error: string, rep: ModifyDeviceActionResponse) => void): Promise<ModifyDeviceActionResponse>;
     /**
      * 本接口（CreateIotDataType）用于创建自定义物模型数据类型。
      */
     CreateIotDataType(req: CreateIotDataTypeRequest, cb?: (error: string, rep: CreateIotDataTypeResponse) => void): Promise<CreateIotDataTypeResponse>;
     /**
-     * 本接口（CreateDevices）用于批量创建新的物联网视频通信设备。
-注意：腾讯云不会对设备私钥进行保存，请自行保管好您的设备私钥。
-     */
+       * 本接口（CreateDevices）用于批量创建新的物联网视频通信设备。
+  注意：腾讯云不会对设备私钥进行保存，请自行保管好您的设备私钥。
+       */
     CreateDevices(req: CreateDevicesRequest, cb?: (error: string, rep: CreateDevicesResponse) => void): Promise<CreateDevicesResponse>;
     /**
      * 本接口（CreateProduct）用于创建一个新的物联网智能视频产品。
      */
     CreateProduct(req: CreateProductRequest, cb?: (error: string, rep: CreateProductResponse) => void): Promise<CreateProductResponse>;
     /**
-     * 本接口（CreateIotModel）用于定义的物模型提交。
-该接口实现了物模型草稿箱的功能，保存用户最后一次编辑的物模型数据。
-     */
+       * 本接口（CreateIotModel）用于定义的物模型提交。
+  该接口实现了物模型草稿箱的功能，保存用户最后一次编辑的物模型数据。
+       */
     CreateIotModel(req: CreateIotModelRequest, cb?: (error: string, rep: CreateIotModelResponse) => void): Promise<CreateIotModelResponse>;
     /**
      * 本接口（DeleteIotDataType）用于删除自定义物模型数据类型。
@@ -114,16 +115,16 @@ export declare class Client extends AbstractClient {
      */
     CreateAppUsr(req: CreateAppUsrRequest, cb?: (error: string, rep: CreateAppUsrResponse) => void): Promise<CreateAppUsrResponse>;
     /**
-     * 本接口（CreateBinding）用于终端用户和设备进行绑定，具体的应用场景如下：
-    终端用户与设备具有“强关联”关系。用户与设备绑定之后，用户终端即具备了该设备的访问权限,访问或操作设备时，无需获取设备访问Token。
-     */
+       * 本接口（CreateBinding）用于终端用户和设备进行绑定，具体的应用场景如下：
+      终端用户与设备具有“强关联”关系。用户与设备绑定之后，用户终端即具备了该设备的访问权限,访问或操作设备时，无需获取设备访问Token。
+       */
     CreateBinding(req: CreateBindingRequest, cb?: (error: string, rep: CreateBindingResponse) => void): Promise<CreateBindingResponse>;
     /**
-     * 本接口（CreateDevToken）用于以下场景：
-终端用户与设备没有强绑定关联关系;
-允许终端用户短时或一次性临时访问设备;
-当终端用户与设备有强绑定关系时，可以不用调用此接口
-     */
+       * 本接口（CreateDevToken）用于以下场景：
+  终端用户与设备没有强绑定关联关系;
+  允许终端用户短时或一次性临时访问设备;
+  当终端用户与设备有强绑定关系时，可以不用调用此接口
+       */
     CreateDevToken(req: CreateDevTokenRequest, cb?: (error: string, rep: CreateDevTokenResponse) => void): Promise<CreateDevTokenResponse>;
     /**
      * 本接口（DeleteOtaVersion）用于删除固件版本信息。
@@ -138,9 +139,9 @@ export declare class Client extends AbstractClient {
      */
     ModifyProduct(req: ModifyProductRequest, cb?: (error: string, rep: ModifyProductResponse) => void): Promise<ModifyProductResponse>;
     /**
-     * 本接口（DescribeLogs）用于查询设备日志列表。
-设备日志最长保留时长为15天,超期自动清除。
-     */
+       * 本接口（DescribeLogs）用于查询设备日志列表。
+  设备日志最长保留时长为15天,超期自动清除。
+       */
     DescribeLogs(req: DescribeLogsRequest, cb?: (error: string, rep: DescribeLogsResponse) => void): Promise<DescribeLogsResponse>;
     /**
      * 本接口（DeleteDevice）用于删除设备，可进行批量操作，每次操作最多100台设备。
@@ -219,14 +220,14 @@ export declare class Client extends AbstractClient {
      */
     DeleteMessageQueue(req: DeleteMessageQueueRequest, cb?: (error: string, rep: DeleteMessageQueueResponse) => void): Promise<DeleteMessageQueueResponse>;
     /**
-     * 本接口（ModifyDeviceProperty）用于修改设备物模型的属性（ProWritable）。
-可对setVal数据属性进行写入,如:
-ProWritable.Pos.setVal
-对于嵌套类型的可写属性，可以仅对其部分数据内容进行写入，如:
-ProWritable.Pos.setVal.x;
-可写属性云端写入成功即返回;云端向设备端发布属性变更参数;若当前设备不在线,在设备下次上线时会自动更新这些属性参数;
-物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
-     */
+       * 本接口（ModifyDeviceProperty）用于修改设备物模型的属性（ProWritable）。
+  可对setVal数据属性进行写入,如:
+  ProWritable.Pos.setVal
+  对于嵌套类型的可写属性，可以仅对其部分数据内容进行写入，如:
+  ProWritable.Pos.setVal.x;
+  可写属性云端写入成功即返回;云端向设备端发布属性变更参数;若当前设备不在线,在设备下次上线时会自动更新这些属性参数;
+  物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
+       */
     ModifyDeviceProperty(req: ModifyDevicePropertyRequest, cb?: (error: string, rep: ModifyDevicePropertyResponse) => void): Promise<ModifyDevicePropertyResponse>;
     /**
      * 本接口（RunDevice）用于启用设备，可进行批量操作，每次操作最多100台设备。
@@ -237,10 +238,10 @@ ProWritable.Pos.setVal.x;
      */
     UploadOtaVersion(req: UploadOtaVersionRequest, cb?: (error: string, rep: UploadOtaVersionResponse) => void): Promise<UploadOtaVersionResponse>;
     /**
-     * 本接口（UpgradeDevice）用于对设备进行固件升级。
-该接口向指定的设备下发固件更新指令,可将固件升级到任意版本(可实现固件降级)。
-警告:使能UpgradeNow参数存在一定的风险性！建议仅在debug场景下使用!
-     */
+       * 本接口（UpgradeDevice）用于对设备进行固件升级。
+  该接口向指定的设备下发固件更新指令,可将固件升级到任意版本(可实现固件降级)。
+  警告:使能UpgradeNow参数存在一定的风险性！建议仅在debug场景下使用!
+       */
     UpgradeDevice(req: UpgradeDeviceRequest, cb?: (error: string, rep: UpgradeDeviceResponse) => void): Promise<UpgradeDeviceResponse>;
     /**
      * 本接口（CreateUsrToken）用于终端用户获取IoT Video平台的accessToken，初始化SDK,连接到IoT Video接入服务器。

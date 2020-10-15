@@ -40,10 +40,22 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeEndUsers", req, cb);
     }
     /**
+     * 获取环境列表，含环境下的各个资源信息。尤其是各资源的唯一标识，是请求各资源的关键参数
+     */
+    async DescribeEnvs(req, cb) {
+        return this.request("DescribeEnvs", req, cb);
+    }
+    /**
      * 增加安全域名
      */
     async CreateAuthDomain(req, cb) {
         return this.request("CreateAuthDomain", req, cb);
+    }
+    /**
+     * 获取下载文件信息
+     */
+    async DescribeDownloadFile(req, cb) {
+        return this.request("DescribeDownloadFile", req, cb);
     }
     /**
      * 获取安全域名列表
@@ -136,10 +148,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DestroyEnv", req, cb);
     }
     /**
-     * 获取环境列表，含环境下的各个资源信息。尤其是各资源的唯一标识，是请求各资源的关键参数
+     * 获取云托管代码上传url
      */
-    async DescribeEnvs(req, cb) {
-        return this.request("DescribeEnvs", req, cb);
+    async DescribeCloudBaseBuildService(req, cb) {
+        return this.request("DescribeCloudBaseBuildService", req, cb);
+    }
+    /**
+     * 查询版本历史
+     */
+    async DescribeCloudBaseRunVersionSnapshot(req, cb) {
+        return this.request("DescribeCloudBaseRunVersionSnapshot", req, cb);
     }
     /**
      * 销毁静态托管资源，该接口创建异步销毁任务，资源最终状态可从DestroyStaticStore接口查看

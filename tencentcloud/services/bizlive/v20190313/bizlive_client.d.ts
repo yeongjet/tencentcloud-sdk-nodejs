@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeWorkersResponse, ForbidLiveStreamResponse, RegisterIMRequest, StopGameResponse, ForbidLiveStreamRequest, StopGameRequest, RegisterIMResponse, DescribeWorkersRequest, CreateSessionResponse, DescribeStreamPlayInfoListResponse, CreateSessionRequest, DescribeStreamPlayInfoListRequest } from "./bizlive_models";
 /**
  * bizlive client

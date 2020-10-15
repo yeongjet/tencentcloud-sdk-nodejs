@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { InitOralProcessRequest, KeywordEvaluateRequest, TransmitOralProcessRequest, TransmitOralProcessResponse, InitOralProcessResponse, KeywordEvaluateResponse, TransmitOralProcessWithInitRequest, TransmitOralProcessWithInitResponse } from "./soe_models";
 /**
  * soe client

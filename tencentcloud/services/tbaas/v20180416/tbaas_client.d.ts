@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { QueryRequest, GetBlockTransactionListForUserResponse, SendTransactionHandlerResponse, ApplyUserCertRequest, TransByDynamicContractHandlerRequest, GetTransListHandlerResponse, DeployDynamicContractHandlerResponse, ApplyUserCertResponse, GetInvokeTxRequest, InvokeResponse, DownloadUserCertResponse, GetLatesdTransactionListRequest, GetTransactionDetailForUserRequest, GetBlockListResponse, SrvInvokeRequest, BlockByNumberHandlerResponse, GetTransByHashHandlerResponse, DeployDynamicContractHandlerRequest, GetLatesdTransactionListResponse, DownloadUserCertRequest, GetClusterSummaryResponse, TransByDynamicContractHandlerResponse, GetBlockTransactionListForUserRequest, SrvInvokeResponse, GetBlockListHandlerRequest, GetClusterSummaryRequest, GetBlockListRequest, InvokeRequest, GetInvokeTxResponse, GetBlockListHandlerResponse, GetTransactionDetailForUserResponse, GetTransListHandlerRequest, SendTransactionHandlerRequest, BlockByNumberHandlerRequest, GetTransByHashHandlerRequest, QueryResponse } from "./tbaas_models";
 /**
  * tbaas client

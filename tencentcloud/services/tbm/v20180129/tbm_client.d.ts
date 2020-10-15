@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeBrandPosCommentsRequest, DescribeBrandSocialOpinionResponse, DescribeBrandExposureResponse, DescribeBrandPosCommentsResponse, DescribeIndustryNewsRequest, DescribeBrandSocialOpinionRequest, DescribeBrandSocialReportRequest, DescribeBrandSocialReportResponse, DescribeBrandExposureRequest, DescribeUserPortraitResponse, DescribeBrandCommentCountRequest, DescribeBrandMediaReportRequest, DescribeBrandMediaReportResponse, DescribeBrandCommentCountResponse, DescribeIndustryNewsResponse, DescribeBrandNegCommentsResponse, DescribeUserPortraitRequest, DescribeBrandNegCommentsRequest } from "./tbm_models";
 /**
  * tbm client

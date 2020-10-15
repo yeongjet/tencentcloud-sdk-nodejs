@@ -28,13 +28,43 @@ class Client extends abstract_client_1.AbstractClient {
         super("ie.tencentcloudapi.com", "2020-03-04", clientConfig);
     }
     /**
-     * 获取智能编辑任务结果。
+     * 获取画质重生任务结果，查看结束后的文件信息
+     */
+    async DescribeMediaQualityRestorationTaskRusult(req, cb) {
+        return this.request("DescribeMediaQualityRestorationTaskRusult", req, cb);
+    }
+    /**
+     * 删除正在进行的画质重生任务
+     */
+    async StopMediaQualityRestorationTask(req, cb) {
+        return this.request("StopMediaQualityRestorationTask", req, cb);
+    }
+    /**
+     * 创建画质重生任务，对视频进行转码、去噪、去划痕、去毛刺、超分、细节增强和色彩增强。
+     */
+    async CreateMediaQualityRestorationTask(req, cb) {
+        return this.request("CreateMediaQualityRestorationTask", req, cb);
+    }
+    /**
+     * 获取编辑理解任务结果。
      */
     async DescribeEditingTaskResult(req, cb) {
         return this.request("DescribeEditingTaskResult", req, cb);
     }
     /**
-     * 创建智能编辑任务，可以同时选择视频标签识别、分类识别、智能拆条、智能集锦、智能封面和片头片尾识别中的一项或者多项能力。
+     * 获取媒体质检任务结果
+     */
+    async DescribeQualityControlTaskResult(req, cb) {
+        return this.request("DescribeQualityControlTaskResult", req, cb);
+    }
+    /**
+     * 通过接口可以智能检测视频画面中抖动重影、模糊、低光照、过曝光、黑边、白边、黑屏、白屏、花屏、噪点、马赛克、二维码等在内的多个场景，还可以自动检测视频无音频异常、无声音片段。
+     */
+    async CreateQualityControlTask(req, cb) {
+        return this.request("CreateQualityControlTask", req, cb);
+    }
+    /**
+     * 创建编辑理解任务，可以同时选择视频标签识别、分类识别、智能拆条、智能集锦、智能封面和片头片尾识别中的一项或者多项能力。
      */
     async CreateEditingTask(req, cb) {
         return this.request("CreateEditingTask", req, cb);

@@ -1,11 +1,16 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { DescribeAgentDealsCacheRequest, DescribeSalesmansRequest, DescribeAgentAuditedClientsRequest, RemovePayRelationForClientRequest, AgentPayDealsRequest, DescribeAgentClientGradeResponse, DescribeClientBalanceResponse, AgentTransferMoneyRequest, DescribeClientBalanceRequest, RemovePayRelationForClientResponse, DescribeRebateInfosRequest, CreatePayRelationForClientResponse, DescribeAgentAuditedClientsResponse, DescribeAgentBillsResponse, DescribeAgentPayDealsRequest, AuditApplyClientRequest, ModifyClientRemarkResponse, DescribeAgentClientsResponse, DescribeAgentClientsRequest, DescribeSalesmansResponse, DescribeAgentPayDealsResponse, ModifyClientRemarkRequest, CreatePayRelationForClientRequest, AgentTransferMoneyResponse, AuditApplyClientResponse, DescribeAgentDealsCacheResponse, DescribeAgentBillsRequest, AgentPayDealsResponse, DescribeRebateInfosResponse, DescribeAgentClientGradeRequest } from "./partners_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { DescribeAgentDealsCacheRequest, DescribeSalesmansRequest, DescribeAgentAuditedClientsRequest, RemovePayRelationForClientRequest, AgentPayDealsRequest, DescribeAgentClientGradeResponse, DescribeClientBalanceResponse, DescribeAgentSelfPayDealsResponse, AgentTransferMoneyRequest, DescribeClientBalanceRequest, RemovePayRelationForClientResponse, DescribeRebateInfosRequest, CreatePayRelationForClientResponse, DescribeAgentAuditedClientsResponse, DescribeAgentBillsResponse, DescribeAgentPayDealsRequest, AuditApplyClientRequest, ModifyClientRemarkResponse, DescribeAgentClientsResponse, DescribeAgentClientsRequest, DescribeSalesmansResponse, DescribeAgentPayDealsResponse, DescribeAgentSelfPayDealsRequest, ModifyClientRemarkRequest, CreatePayRelationForClientRequest, AgentTransferMoneyResponse, AuditApplyClientResponse, DescribeAgentDealsCacheResponse, DescribeAgentBillsRequest, AgentPayDealsResponse, DescribeRebateInfosResponse, DescribeAgentClientGradeRequest } from "./partners_models";
 /**
  * partners client
  * @class
  */
 export declare class Client extends AbstractClient {
     constructor(clientConfig: ClientConfig);
+    /**
+     * 可以查询代理商下指定客户的自付订单
+     */
+    DescribeAgentSelfPayDeals(req: DescribeAgentSelfPayDealsRequest, cb?: (error: string, rep: DescribeAgentSelfPayDealsResponse) => void): Promise<DescribeAgentSelfPayDealsResponse>;
     /**
      * 供超大型代理商（代客数量>=3000 ）拉取缓存的全量客户订单。
      */

@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { RewindQueueRequest, DescribeSubscriptionDetailRequest, ModifyQueueAttributeResponse, CreateQueueRequest, ModifySubscriptionAttributeResponse, ModifyTopicAttributeResponse, DeleteSubscribeRequest, DescribeSubscriptionDetailResponse, CreateSubscribeRequest, ClearQueueRequest, CreateTopicResponse, ClearSubscriptionFilterTagsResponse, UnbindDeadLetterResponse, DescribeTopicDetailRequest, DeleteTopicRequest, DescribeTopicDetailResponse, DescribeQueueDetailResponse, UnbindDeadLetterRequest, CreateTopicRequest, DeleteQueueRequest, DescribeDeadLetterSourceQueuesResponse, RewindQueueResponse, ModifyTopicAttributeRequest, DescribeQueueDetailRequest, DeleteTopicResponse, ClearSubscriptionFilterTagsRequest, CreateQueueResponse, DeleteSubscribeResponse, DescribeDeadLetterSourceQueuesRequest, CreateSubscribeResponse, ClearQueueResponse, ModifySubscriptionAttributeRequest, DeleteQueueResponse, ModifyQueueAttributeRequest } from "./cmq_models";
 /**
  * cmq client
@@ -27,9 +28,9 @@ export declare class Client extends AbstractClient {
      */
     DeleteSubscribe(req: DeleteSubscribeRequest, cb?: (error: string, rep: DeleteSubscribeResponse) => void): Promise<DeleteSubscribeResponse>;
     /**
-     * 创建队列接口
-
-     */
+       * 创建队列接口
+  
+       */
     CreateQueue(req: CreateQueueRequest, cb?: (error: string, rep: CreateQueueResponse) => void): Promise<CreateQueueResponse>;
     /**
      * 回溯队列

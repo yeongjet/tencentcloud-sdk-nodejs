@@ -535,6 +535,21 @@ export interface ModifyInstanceRequest {
 }
 
 /**
+ * tendis节点信息
+ */
+export interface TendisNodes {
+  /**
+   * 节点ID
+   */
+  NodeId: string
+
+  /**
+   * 节点角色
+   */
+  NodeRole: string
+}
+
+/**
  * RenewInstance返回参数结构体
  */
 export interface RenewInstanceResponse {
@@ -1136,6 +1151,17 @@ export interface ModifyInstanceResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * Proxy节点信息
+ */
+export interface ProxyNodes {
+  /**
+      * 节点ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  NodeId: string
 }
 
 /**
@@ -1803,6 +1829,26 @@ export interface DescribeTaskInfoRequest {
    * 任务ID
    */
   TaskId: number
+}
+
+/**
+ * Redis节点信息
+ */
+export interface RedisNodes {
+  /**
+   * 节点ID
+   */
+  NodeId: string
+
+  /**
+   * 节点角色
+   */
+  NodeRole: string
+
+  /**
+   * 分片ID
+   */
+  ClusterId: number
 }
 
 /**
@@ -2828,7 +2874,7 @@ export interface InstanceSet {
   Engine: string
 
   /**
-   * 产品类型：Redis2.8集群版、Redis2.8主从版、Redis3.2主从版（CKV主从版）、Redis3.2集群版（CKV集群版）、Redis2.8单机版、Redis4.0集群版
+   * 产品类型：standalone – 标准版，cluster – 集群版
    */
   ProductType: string
 
@@ -3138,6 +3184,26 @@ export interface BigKeyTypeInfo {
    * 时间戳
    */
   Updatetime: number
+}
+
+/**
+ * DescribeInstanceNodeInfo请求参数结构体
+ */
+export interface DescribeInstanceNodeInfoRequest {
+  /**
+   * 实例ID
+   */
+  InstanceId: string
+
+  /**
+   * 列表大小
+   */
+  Limit?: number
+
+  /**
+   * 偏移量
+   */
+  Offset?: number
 }
 
 /**
@@ -3696,6 +3762,49 @@ export interface UpgradeInstanceRequest {
    * 副本数量，Redis2.8主从版、CKV主从版和Redis2.8单机版不需要填写
    */
   RedisReplicasNum?: number
+}
+
+/**
+ * DescribeInstanceNodeInfo返回参数结构体
+ */
+export interface DescribeInstanceNodeInfoResponse {
+  /**
+   * proxy节点数量
+   */
+  ProxyCount?: number
+
+  /**
+      * proxy节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Proxy?: Array<ProxyNodes>
+
+  /**
+   * redis节点数量
+   */
+  RedisCount?: number
+
+  /**
+      * redis节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Redis?: Array<RedisNodes>
+
+  /**
+   * tendis节点数量
+   */
+  TendisCount?: number
+
+  /**
+      * tendis节点信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Tendis?: Array<TendisNodes>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**

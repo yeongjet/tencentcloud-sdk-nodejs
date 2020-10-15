@@ -156,6 +156,31 @@ export interface InstanceSpec {
 }
 
 /**
+ * DescribeProjectSecurityGroups请求参数结构体
+ */
+export interface DescribeProjectSecurityGroupsRequest {
+  /**
+   * 项目ID
+   */
+  ProjectId: number
+}
+
+/**
+ * SetRenewFlag返回参数结构体
+ */
+export interface SetRenewFlagResponse {
+  /**
+   * 操作成功实例数
+   */
+  Count?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 数据库账号信息
  */
 export interface Account {
@@ -186,6 +211,46 @@ export interface Account {
 }
 
 /**
+ * 安全组详情
+ */
+export interface SecurityGroup {
+  /**
+   * 项目ID
+   */
+  ProjectId: number
+
+  /**
+   * 创建时间，时间格式：yyyy-mm-dd hh:mm:ss
+   */
+  CreateTime: string
+
+  /**
+   * 入站规则
+   */
+  Inbound: Array<PolicyRule>
+
+  /**
+   * 出站规则
+   */
+  Outbound: Array<PolicyRule>
+
+  /**
+   * 安全组ID
+   */
+  SecurityGroupId: string
+
+  /**
+   * 安全组名称
+   */
+  SecurityGroupName: string
+
+  /**
+   * 安全组备注
+   */
+  SecurityGroupRemark: string
+}
+
+/**
  * ModifyDBInstanceSecurityGroups返回参数结构体
  */
 export interface ModifyDBInstanceSecurityGroupsResponse {
@@ -199,6 +264,16 @@ export interface ModifyDBInstanceSecurityGroupsResponse {
  * DescribeBackupConfig请求参数结构体
  */
 export interface DescribeBackupConfigRequest {
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+}
+
+/**
+ * DescribeClusterInstanceGrps请求参数结构体
+ */
+export interface DescribeClusterInstanceGrpsRequest {
   /**
    * 集群ID
    */
@@ -373,13 +448,13 @@ export interface ModifyBackupConfigRequest {
 }
 
 /**
- * DescribeRollbackTimeRange请求参数结构体
+ * DescribeDBSecurityGroups请求参数结构体
  */
-export interface DescribeRollbackTimeRangeRequest {
+export interface DescribeDBSecurityGroupsRequest {
   /**
-   * 集群ID
+   * 实例组ID
    */
-  ClusterId: string
+  InstanceId: string
 }
 
 /**
@@ -416,6 +491,26 @@ export interface IsolateClusterRequest {
 <li> MYSQL </li>
       */
   DbType?: string
+}
+
+/**
+ * DescribeClusterInstanceGrps返回参数结构体
+ */
+export interface DescribeClusterInstanceGrpsResponse {
+  /**
+   * 实例组个数
+   */
+  TotalCount?: number
+
+  /**
+   * 实例组列表
+   */
+  InstanceGrpInfoList?: Array<CynosdbInstanceGrp>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -495,69 +590,208 @@ export interface DescribeClusterDetailRequest {
 }
 
 /**
- * UpgradeInstance请求参数结构体
+ * 集群绑定的标签信息，包含标签键TagKey和标签值TagValue
  */
-export interface UpgradeInstanceRequest {
+export interface Tag {
+  /**
+   * 标签键
+   */
+  TagKey: string
+
+  /**
+   * 标签值
+   */
+  TagValue: string
+}
+
+/**
+ * DescribeProjectSecurityGroups返回参数结构体
+ */
+export interface DescribeProjectSecurityGroupsResponse {
+  /**
+   * 安全组详情
+   */
+  Groups?: Array<SecurityGroup>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 实例详情
+ */
+export interface CynosdbInstanceDetail {
+  /**
+   * 用户Uin
+   */
+  Uin: string
+
+  /**
+   * 用户AppId
+   */
+  AppId: number
+
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+
+  /**
+   * 集群名称
+   */
+  ClusterName: string
+
   /**
    * 实例ID
    */
   InstanceId: string
 
   /**
-   * 数据库CPU
+   * 实例名称
+   */
+  InstanceName: string
+
+  /**
+   * 项目ID
+   */
+  ProjectId: number
+
+  /**
+   * 地域
+   */
+  Region: string
+
+  /**
+   * 可用区
+   */
+  Zone: string
+
+  /**
+   * 实例状态
+   */
+  Status: string
+
+  /**
+   * 实例状态中文描述
+   */
+  StatusDesc: string
+
+  /**
+   * 数据库类型
+   */
+  DbType: string
+
+  /**
+   * 数据库版本
+   */
+  DbVersion: string
+
+  /**
+   * Cpu，单位：核
    */
   Cpu: number
 
   /**
-   * 数据库内存
+   * 内存，单位：GB
    */
   Memory: number
 
   /**
-   * 升级类型：upgradeImmediate，upgradeInMaintain
+   * 存储量，单位：GB
    */
-  UpgradeType: string
+  Storage: number
 
   /**
-   * 存储上限，为0表示使用标准配置
+   * 实例类型
    */
-  StorageLimit?: number
+  InstanceType: string
 
   /**
-   * 是否自动选择代金券 1是 0否 默认为0
+   * 实例当前角色
    */
-  AutoVoucher?: number
+  InstanceRole: string
 
   /**
-      * 数据库类型，取值范围: 
-<li> MYSQL </li>
-      */
-  DbType?: string
+   * 更新时间
+   */
+  UpdateTime: string
+
+  /**
+   * 创建时间
+   */
+  CreateTime: string
+
+  /**
+   * 付费模式
+   */
+  PayMode: number
+
+  /**
+   * 实例过期时间
+   */
+  PeriodEndTime: string
+
+  /**
+   * 网络类型
+   */
+  NetType: number
+
+  /**
+   * VPC网络ID
+   */
+  VpcId: string
+
+  /**
+   * 子网ID
+   */
+  SubnetId: string
+
+  /**
+   * 实例内网IP
+   */
+  Vip: string
+
+  /**
+   * 实例内网端口
+   */
+  Vport: number
+
+  /**
+   * 实例外网域名
+   */
+  WanDomain: string
+
+  /**
+   * 字符集
+   */
+  Charset: string
+
+  /**
+   * Cynos内核版本
+   */
+  CynosVersion: string
+
+  /**
+   * 续费标志
+   */
+  RenewFlag: number
 }
 
 /**
- * 查询过滤器
+ * DescribeDBSecurityGroups返回参数结构体
  */
-export interface QueryFilter {
+export interface DescribeDBSecurityGroupsResponse {
   /**
-   * 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+   * 安全组信息
    */
-  Names: Array<string>
+  Groups?: Array<SecurityGroup>
 
   /**
-   * 搜索字符串
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  Values: Array<string>
-
-  /**
-   * 是否精确匹配
-   */
-  ExactMatch?: boolean
-
-  /**
-   * 搜索字段
-   */
-  Name?: string
+  RequestId?: string
 }
 
 /**
@@ -571,13 +805,23 @@ export interface DescribeMaintainPeriodRequest {
 }
 
 /**
- * OfflineCluster请求参数结构体
+ * DescribeInstances返回参数结构体
  */
-export interface OfflineClusterRequest {
+export interface DescribeInstancesResponse {
   /**
-   * 集群ID
+   * 实例个数
    */
-  ClusterId: string
+  TotalCount?: number
+
+  /**
+   * 实例列表
+   */
+  InstanceSet?: Array<CynosdbInstance>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -693,6 +937,11 @@ export interface CynosdbClusterDetail {
    * 可用区
    */
   Zone: string
+
+  /**
+   * 实例绑定的tag数组信息
+   */
+  ResourceTags: Array<Tag>
 }
 
 /**
@@ -821,6 +1070,16 @@ export interface DescribeRollbackTimeValidityResponse {
 }
 
 /**
+ * DescribeInstanceDetail请求参数结构体
+ */
+export interface DescribeInstanceDetailRequest {
+  /**
+   * 实例ID
+   */
+  InstanceId: string
+}
+
+/**
  * ModifyMaintainPeriodConfig返回参数结构体
  */
 export interface ModifyMaintainPeriodConfigResponse {
@@ -828,6 +1087,55 @@ export interface ModifyMaintainPeriodConfigResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * DescribeInstances请求参数结构体
+ */
+export interface DescribeInstancesRequest {
+  /**
+   * 返回数量，默认为 20，最大值为 100
+   */
+  Limit?: number
+
+  /**
+   * 记录偏移量，默认值为0
+   */
+  Offset?: number
+
+  /**
+      * 排序字段，取值范围：
+<li> CREATETIME：创建时间</li>
+<li> PERIODENDTIME：过期时间</li>
+      */
+  OrderBy?: string
+
+  /**
+      * 排序类型，取值范围：
+<li> ASC：升序排序 </li>
+<li> DESC：降序排序 </li>
+      */
+  OrderByType?: string
+
+  /**
+   * 搜索条件，若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
+   */
+  Filters?: Array<QueryFilter>
+
+  /**
+   * 引擎类型：目前支持“MYSQL”， “POSTGRESQL”
+   */
+  DbType?: string
+
+  /**
+   * 实例状态
+   */
+  Status?: string
+
+  /**
+   * 实例id列表
+   */
+  InstanceIds?: Array<string>
 }
 
 /**
@@ -872,6 +1180,221 @@ export interface DescribeBackupListRequest {
 }
 
 /**
+ * 查询过滤器
+ */
+export interface QueryFilter {
+  /**
+   * 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+   */
+  Names: Array<string>
+
+  /**
+   * 搜索字符串
+   */
+  Values: Array<string>
+
+  /**
+   * 是否精确匹配
+   */
+  ExactMatch?: boolean
+
+  /**
+   * 搜索字段
+   */
+  Name?: string
+}
+
+/**
+ * 实例信息
+ */
+export interface CynosdbInstance {
+  /**
+   * 用户Uin
+   */
+  Uin: string
+
+  /**
+   * 用户AppId
+   */
+  AppId: number
+
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+
+  /**
+   * 集群名称
+   */
+  ClusterName: string
+
+  /**
+   * 实例ID
+   */
+  InstanceId: string
+
+  /**
+   * 实例名称
+   */
+  InstanceName: string
+
+  /**
+   * 项目ID
+   */
+  ProjectId: number
+
+  /**
+   * 地域
+   */
+  Region: string
+
+  /**
+   * 可用区
+   */
+  Zone: string
+
+  /**
+   * 实例状态
+   */
+  Status: string
+
+  /**
+   * 实例状态中文描述
+   */
+  StatusDesc: string
+
+  /**
+   * 数据库类型
+   */
+  DbType: string
+
+  /**
+   * 数据库版本
+   */
+  DbVersion: string
+
+  /**
+   * Cpu，单位：核
+   */
+  Cpu: number
+
+  /**
+   * 内存，单位：GB
+   */
+  Memory: number
+
+  /**
+   * 存储量，单位：GB
+   */
+  Storage: number
+
+  /**
+   * 实例类型
+   */
+  InstanceType: string
+
+  /**
+   * 实例当前角色
+   */
+  InstanceRole: string
+
+  /**
+   * 更新时间
+   */
+  UpdateTime: string
+
+  /**
+   * 创建时间
+   */
+  CreateTime: string
+
+  /**
+   * VPC网络ID
+   */
+  VpcId: string
+
+  /**
+   * 子网ID
+   */
+  SubnetId: string
+
+  /**
+   * 实例内网IP
+   */
+  Vip: string
+
+  /**
+   * 实例内网端口
+   */
+  Vport: number
+
+  /**
+   * 付费模式
+   */
+  PayMode: number
+
+  /**
+   * 实例过期时间
+   */
+  PeriodEndTime: string
+
+  /**
+   * 销毁期限
+   */
+  DestroyDeadlineText: string
+
+  /**
+   * 隔离时间
+   */
+  IsolateTime: string
+
+  /**
+   * 网络类型
+   */
+  NetType: number
+
+  /**
+   * 外网域名
+   */
+  WanDomain: string
+
+  /**
+   * 外网IP
+   */
+  WanIP: string
+
+  /**
+   * 外网端口
+   */
+  WanPort: number
+
+  /**
+   * 外网状态
+   */
+  WanStatus: string
+
+  /**
+   * 实例销毁时间
+   */
+  DestroyTime: string
+
+  /**
+   * Cynos内核版本
+   */
+  CynosVersion: string
+
+  /**
+   * 正在处理的任务
+   */
+  ProcessingTask: string
+
+  /**
+   * 续费标志
+   */
+  RenewFlag: number
+}
+
+/**
  * DescribeAccounts返回参数结构体
  */
 export interface DescribeAccountsResponse {
@@ -884,6 +1407,87 @@ export interface DescribeAccountsResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * UpgradeInstance请求参数结构体
+ */
+export interface UpgradeInstanceRequest {
+  /**
+   * 实例ID
+   */
+  InstanceId: string
+
+  /**
+   * 数据库CPU
+   */
+  Cpu: number
+
+  /**
+   * 数据库内存
+   */
+  Memory: number
+
+  /**
+   * 升级类型：upgradeImmediate，upgradeInMaintain
+   */
+  UpgradeType: string
+
+  /**
+   * 存储上限，为0表示使用标准配置
+   */
+  StorageLimit?: number
+
+  /**
+   * 是否自动选择代金券 1是 0否 默认为0
+   */
+  AutoVoucher?: number
+
+  /**
+      * 数据库类型，取值范围: 
+<li> MYSQL </li>
+      */
+  DbType?: string
+}
+
+/**
+ * DescribeInstanceDetail返回参数结构体
+ */
+export interface DescribeInstanceDetailResponse {
+  /**
+   * 实例详情
+   */
+  Detail?: CynosdbInstanceDetail
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * OfflineInstance请求参数结构体
+ */
+export interface OfflineInstanceRequest {
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+
+  /**
+   * 实例ID数组
+   */
+  InstanceIdList: Array<string>
+}
+
+/**
+ * DescribeRollbackTimeRange请求参数结构体
+ */
+export interface DescribeRollbackTimeRangeRequest {
+  /**
+   * 集群ID
+   */
+  ClusterId: string
 }
 
 /**
@@ -960,6 +1564,51 @@ export interface DescribeInstanceSpecsRequest {
 <li> MYSQL </li>
       */
   DbType: string
+}
+
+/**
+ * 安全组规则
+ */
+export interface PolicyRule {
+  /**
+   * 策略，ACCEPT或者DROP
+   */
+  Action: string
+
+  /**
+   * 来源Ip或Ip段，例如192.168.0.0/16
+   */
+  CidrIp: string
+
+  /**
+   * 端口
+   */
+  PortRange: string
+
+  /**
+   * 网络协议，支持udp、tcp等
+   */
+  IpProtocol: string
+
+  /**
+   * 协议端口ID或者协议端口组ID。
+   */
+  ServiceModule: string
+
+  /**
+   * IP地址ID或者ID地址组ID。
+   */
+  AddressModule: string
+
+  /**
+   * id
+   */
+  Id: string
+
+  /**
+   * 描述
+   */
+  Desc: string
 }
 
 /**
@@ -1182,6 +1831,11 @@ timeRollback，时间点回档
    * 订单来源
    */
   OrderSource?: string
+
+  /**
+   * 集群创建需要绑定的tag数组信息
+   */
+  ResourceTags?: Array<Tag>
 }
 
 /**
@@ -1312,6 +1966,21 @@ export interface CynosdbCluster {
    * 集群的任务数组
    */
   Tasks?: Array<ObjectTask>
+
+  /**
+   * 集群绑定的tag数组
+   */
+  ResourceTags?: Array<Tag>
+}
+
+/**
+ * OfflineCluster请求参数结构体
+ */
+export interface OfflineClusterRequest {
+  /**
+   * 集群ID
+   */
+  ClusterId: string
 }
 
 /**
@@ -1330,18 +1999,98 @@ export interface DescribeClusterDetailResponse {
 }
 
 /**
- * SetRenewFlag返回参数结构体
+ * OfflineInstance返回参数结构体
  */
-export interface SetRenewFlagResponse {
+export interface OfflineInstanceResponse {
   /**
-   * 操作成功实例数
+   * 任务流ID
    */
-  Count?: number
+  FlowId?: number
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * 实例组信息
+ */
+export interface CynosdbInstanceGrp {
+  /**
+   * appId
+   */
+  AppId: number
+
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+
+  /**
+   * 创建时间
+   */
+  CreatedTime: string
+
+  /**
+   * 删除时间
+   */
+  DeletedTime: string
+
+  /**
+   * 实例组ID
+   */
+  InstanceGrpId: string
+
+  /**
+   * 状态
+   */
+  Status: string
+
+  /**
+   * 实例组类型。ha-ha组；ro-只读组
+   */
+  Type: string
+
+  /**
+   * 更新时间
+   */
+  UpdatedTime: string
+
+  /**
+   * 内网IP
+   */
+  Vip: string
+
+  /**
+   * 内网端口
+   */
+  Vport: number
+
+  /**
+   * 外网域名
+   */
+  WanDomain: string
+
+  /**
+   * 外网ip
+   */
+  WanIP: string
+
+  /**
+   * 外网端口
+   */
+  WanPort: number
+
+  /**
+   * 外网状态
+   */
+  WanStatus: string
+
+  /**
+   * 实例组包含实例信息
+   */
+  InstanceSet: Array<CynosdbInstance>
 }
 
 /**

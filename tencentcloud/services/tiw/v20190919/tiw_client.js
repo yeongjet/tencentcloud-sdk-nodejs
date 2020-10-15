@@ -40,6 +40,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("SetTranscodeCallbackKey", req, cb);
     }
     /**
+     * 发起一个实时录制任务
+     */
+    async StartOnlineRecord(req, cb) {
+        return this.request("StartOnlineRecord", req, cb);
+    }
+    /**
      * 查询文档转码任务的执行进度与转码结果
      */
     async DescribeTranscode(req, cb) {
@@ -50,6 +56,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async CreateTranscode(req, cb) {
         return this.request("CreateTranscode", req, cb);
+    }
+    /**
+     * 查询录制视频生成回调地址
+     */
+    async DescribeVideoGenerationTaskCallback(req, cb) {
+        return this.request("DescribeVideoGenerationTaskCallback", req, cb);
     }
     /**
      * 停止实时录制
@@ -64,10 +76,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("SetTranscodeCallback", req, cb);
     }
     /**
-     * 发起一个实时录制任务
+     * 设置录制视频生成回调地址
      */
-    async StartOnlineRecord(req, cb) {
-        return this.request("StartOnlineRecord", req, cb);
+    async SetVideoGenerationTaskCallback(req, cb) {
+        return this.request("SetVideoGenerationTaskCallback", req, cb);
+    }
+    /**
+     * 创建视频生成任务
+     */
+    async CreateVideoGenerationTask(req, cb) {
+        return this.request("CreateVideoGenerationTask", req, cb);
     }
     /**
      * 设置实时录制回调鉴权密钥，回调鉴权方式请参考文档：https://cloud.tencent.com/document/product/1137/40257
@@ -88,10 +106,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeTranscodeCallback", req, cb);
     }
     /**
-     * 查询实时录制任务状态与结果
+     * 查询录制任务状态与结果
      */
     async DescribeOnlineRecord(req, cb) {
         return this.request("DescribeOnlineRecord", req, cb);
+    }
+    /**
+     * 设置视频生成回调鉴权密钥
+     */
+    async SetVideoGenerationTaskCallbackKey(req, cb) {
+        return this.request("SetVideoGenerationTaskCallbackKey", req, cb);
     }
     /**
      * 查询实时录制回调地址
@@ -104,6 +128,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async ResumeOnlineRecord(req, cb) {
         return this.request("ResumeOnlineRecord", req, cb);
+    }
+    /**
+     * 查询录制视频生成任务状态与结果
+     */
+    async DescribeVideoGenerationTask(req, cb) {
+        return this.request("DescribeVideoGenerationTask", req, cb);
     }
 }
 exports.Client = Client;

@@ -516,6 +516,11 @@ export interface CreateInstanceRequest {
    * 6.8（及以上版本）基础版是否开启xpack security认证<li>1：不开启</li><li>2：开启</li>
    */
   BasicSecurityType?: number
+
+  /**
+   * 场景化模板类型 0：不启用 1：通用 2：日志 3：搜索
+   */
+  SceneType?: number
 }
 
 /**
@@ -797,6 +802,12 @@ export interface InstanceInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   SecurityType: number
+
+  /**
+      * 场景化模板类型：0、不开启；1、通用场景；2、日志场景；3、搜索场景
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SceneType: number
 }
 
 /**
@@ -960,7 +971,7 @@ export interface UpdateInstanceRequest {
   NodeNum?: number
 
   /**
-   * 配置项（JSON格式字符串）。当前仅支持以下配置项：<li>action.destructive_requires_name</li><li>indices.fielddata.cache.size</li><li>indices.query.bool.max_clause_count</li>
+   * 配置项（JSON格式字符串）
    */
   EsConfig?: string
 
@@ -1053,6 +1064,16 @@ export interface UpdateInstanceRequest {
    * 0: 蓝绿变更方式扩容，集群不重启 （默认） 1: 磁盘解挂载扩容，集群滚动重启
    */
   ScaleType?: number
+
+  /**
+   * 多可用区部署
+   */
+  MultiZoneInfo?: Array<ZoneDetail>
+
+  /**
+   * 场景化模板类型 -1：不启用 1：通用 2：日志 3：搜索
+   */
+  SceneType?: number
 }
 
 /**
@@ -1103,6 +1124,26 @@ export interface DescribeInstanceOperationsResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * RestartNodes请求参数结构体
+ */
+export interface RestartNodesRequest {
+  /**
+   * 集群实例ID
+   */
+  InstanceId: string
+
+  /**
+   * 节点名称列表
+   */
+  NodeNames: Array<string>
+
+  /**
+   * 是否强制重启
+   */
+  ForceRestart?: boolean
 }
 
 /**
@@ -1251,6 +1292,16 @@ export interface SubTaskDetail {
 }
 
 /**
+ * RestartNodes返回参数结构体
+ */
+export interface RestartNodesResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * UpgradeInstance返回参数结构体
  */
 export interface UpgradeInstanceResponse {
@@ -1298,6 +1349,11 @@ export interface UpgradeInstanceRequest {
    * 6.8（及以上版本）基础版是否开启xpack security认证<li>1：不开启</li><li>2：开启</li>
    */
   BasicSecurityType?: number
+
+  /**
+   * 升级方式：<li>scale 蓝绿变更</li><li>restart 滚动重启</li>默认值为scale
+   */
+  UpgradeMode?: string
 }
 
 /**

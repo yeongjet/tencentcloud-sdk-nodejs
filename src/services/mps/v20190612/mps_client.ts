@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   ModifySnapshotByTimeOffsetTemplateResponse,
   ModifySampleSnapshotTemplateResponse,
@@ -61,6 +62,7 @@ import {
   ParseLiveStreamProcessNotificationResponse,
   AiRecognitionTaskInput,
   AudioTemplateInfo,
+  ExecuteFunctionResponse,
   CoverConfigureInfo,
   AIRecognitionTemplateItem,
   AiReviewPornAsrTaskInput,
@@ -327,6 +329,7 @@ import {
   DescribeWatermarkTemplatesResponse,
   CreateAnimatedGraphicsTemplateRequest,
   FrameTagConfigureInfo,
+  ExecuteFunctionRequest,
   ModifyPersonSampleResponse,
   DeleteTranscodeTemplateResponse,
   MediaTranscodeItem,
@@ -841,6 +844,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreatePersonSampleResponse) => void
   ): Promise<CreatePersonSampleResponse> {
     return this.request("CreatePersonSample", req, cb)
+  }
+
+  /**
+   * 本接口仅用于定制开发的特殊场景，除非云视频处理客服人员主动告知您需要使用本接口，其它情况请勿调用。
+   */
+  async ExecuteFunction(
+    req: ExecuteFunctionRequest,
+    cb?: (error: string, rep: ExecuteFunctionResponse) => void
+  ): Promise<ExecuteFunctionResponse> {
+    return this.request("ExecuteFunction", req, cb)
   }
 
   /**

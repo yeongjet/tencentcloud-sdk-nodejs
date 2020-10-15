@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DeleteSecretVersionResponse, RestoreSecretResponse, UpdateDescriptionResponse, DescribeSecretResponse, DeleteSecretRequest, CreateSecretRequest, GetSecretValueResponse, GetRegionsResponse, DeleteSecretVersionRequest, ListSecretVersionIdsRequest, CreateSecretResponse, GetRegionsRequest, UpdateSecretResponse, DisableSecretResponse, ListSecretsRequest, UpdateDescriptionRequest, EnableSecretResponse, UpdateSecretRequest, PutSecretValueRequest, GetSecretValueRequest, GetServiceStatusResponse, RestoreSecretRequest, DescribeSecretRequest, PutSecretValueResponse, DeleteSecretResponse, DisableSecretRequest, ListSecretsResponse, EnableSecretRequest, GetServiceStatusRequest, ListSecretVersionIdsResponse } from "./ssm_models";
 /**
  * ssm client

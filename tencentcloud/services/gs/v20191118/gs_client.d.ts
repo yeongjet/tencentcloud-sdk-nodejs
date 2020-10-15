@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { StopGameRequest, TrylockWorkerResponse, StopGameResponse, CreateSessionResponse, TrylockWorkerRequest, CreateSessionRequest } from "./gs_models";
 /**
  * gs client

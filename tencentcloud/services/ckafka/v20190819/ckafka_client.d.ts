@@ -1,5 +1,6 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { DeleteAclRequest, DeleteUserRequest, DescribeACLRequest, DescribeTopicAttributesRequest, DescribeInstanceAttributesRequest, DescribeConsumerGroupResponse, DeleteTopicRequest, DescribeInstancesResponse, FetchMessageByOffsetResponse, FetchMessageListByOffsetRequest, DescribeInstancesDetailResponse, DescribeACLResponse, FetchMessageListByTimestampRequest, DescribeTopicAttributesResponse, FetchMessageListByOffsetResponse, DescribeGroupResponse, CreateUserResponse, ModifyInstanceAttributesResponse, CreatePartitionResponse, DeleteUserResponse, CreateAclRequest, DescribeAppInfoRequest, DescribeTopicResponse, CreateTopicIpWhiteListResponse, ModifyGroupOffsetsResponse, CreateAclResponse, CreateTopicRequest, DeleteAclResponse, DescribeRouteRequest, FetchMessageByOffsetRequest, DescribeGroupInfoRequest, DescribeGroupInfoResponse, DescribeUserResponse, DescribeTopicRequest, CreatePartitionRequest, DescribeAppInfoResponse, DescribeInstanceAttributesResponse, ModifyPasswordRequest, ModifyInstanceAttributesRequest, ModifyTopicAttributesResponse, DescribeConsumerGroupRequest, DeleteTopicResponse, DescribeInstancesRequest, DescribeGroupRequest, CreateUserRequest, DeleteTopicIpWhiteListResponse, CreateInstancePreResponse, DescribeInstancesDetailRequest, ModifyPasswordResponse, DescribeRouteResponse, DescribeTopicDetailRequest, DescribeGroupOffsetsResponse, ModifyGroupOffsetsRequest, CreateTopicIpWhiteListRequest, FetchMessageListByTimestampResponse, ModifyTopicAttributesRequest, CreateTopicResponse, CreateInstancePreRequest, DeleteTopicIpWhiteListRequest, DescribeGroupOffsetsRequest, DescribeUserRequest, DescribeTopicDetailResponse } from "./ckafka_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { DeleteAclRequest, DeleteUserRequest, DescribeACLRequest, DescribeTopicAttributesRequest, DescribeInstanceAttributesRequest, DescribeConsumerGroupResponse, DeleteTopicRequest, DescribeInstancesResponse, DescribeInstancesDetailResponse, DescribeACLResponse, DescribeTopicAttributesResponse, DescribeGroupResponse, CreateUserResponse, CreatePartitionResponse, DeleteUserResponse, CreateAclRequest, DescribeAppInfoRequest, DescribeTopicResponse, CreateTopicIpWhiteListResponse, ModifyInstanceAttributesResponse, ModifyGroupOffsetsResponse, CreateAclResponse, CreateTopicRequest, DeleteAclResponse, DescribeRouteRequest, DescribeGroupInfoRequest, DescribeGroupInfoResponse, DescribeUserResponse, DescribeTopicRequest, CreatePartitionRequest, DescribeAppInfoResponse, DescribeInstanceAttributesResponse, ModifyPasswordRequest, ModifyInstanceAttributesRequest, ModifyTopicAttributesResponse, DescribeConsumerGroupRequest, DeleteTopicResponse, DescribeInstancesRequest, DescribeGroupRequest, CreateUserRequest, DeleteTopicIpWhiteListResponse, CreateInstancePreResponse, DescribeInstancesDetailRequest, ModifyPasswordResponse, DescribeRouteResponse, DescribeTopicDetailRequest, DescribeGroupOffsetsResponse, ModifyGroupOffsetsRequest, CreateTopicIpWhiteListRequest, ModifyTopicAttributesRequest, CreateTopicResponse, CreateInstancePreRequest, DeleteTopicIpWhiteListRequest, DescribeGroupOffsetsRequest, DescribeUserRequest, DescribeTopicDetailResponse } from "./ckafka_models";
 /**
  * ckafka client
  * @class
@@ -47,10 +48,6 @@ export declare class Client extends AbstractClient {
      */
     DescribeUser(req: DescribeUserRequest, cb?: (error: string, rep: DescribeUserResponse) => void): Promise<DescribeUserResponse>;
     /**
-     * 根据位点查询消息列表
-     */
-    FetchMessageListByOffset(req: FetchMessageListByOffsetRequest, cb?: (error: string, rep: FetchMessageListByOffsetResponse) => void): Promise<FetchMessageListByOffsetResponse>;
-    /**
      * 枚举ACL
      */
     DescribeACL(req: DescribeACLRequest, cb?: (error: string, rep: DescribeACLResponse) => void): Promise<DescribeACLResponse>;
@@ -62,10 +59,6 @@ export declare class Client extends AbstractClient {
      * 创建实例(预付费包年包月)
      */
     CreateInstancePre(req: CreateInstancePreRequest, cb?: (error: string, rep: CreateInstancePreResponse) => void): Promise<CreateInstancePreResponse>;
-    /**
-     * 根据指定offset位置的消息
-     */
-    FetchMessageByOffset(req: FetchMessageByOffsetRequest, cb?: (error: string, rep: FetchMessageByOffsetResponse) => void): Promise<FetchMessageByOffsetResponse>;
     /**
      * 删除主题IP白名单
      */
@@ -95,9 +88,9 @@ export declare class Client extends AbstractClient {
      */
     DescribeAppInfo(req: DescribeAppInfoRequest, cb?: (error: string, rep: DescribeAppInfoResponse) => void): Promise<DescribeAppInfoResponse>;
     /**
-     * 获取主题属性
-
-     */
+       * 获取主题属性
+  
+       */
     DescribeTopicAttributes(req: DescribeTopicAttributesRequest, cb?: (error: string, rep: DescribeTopicAttributesResponse) => void): Promise<DescribeTopicAttributesResponse>;
     /**
      * 获取实例属性
@@ -116,13 +109,9 @@ export declare class Client extends AbstractClient {
      */
     DescribeGroupOffsets(req: DescribeGroupOffsetsRequest, cb?: (error: string, rep: DescribeGroupOffsetsResponse) => void): Promise<DescribeGroupOffsetsResponse>;
     /**
-     * 根据时间戳查询消息列表
-     */
-    FetchMessageListByTimestamp(req: FetchMessageListByTimestampRequest, cb?: (error: string, rep: FetchMessageListByTimestampResponse) => void): Promise<FetchMessageListByTimestampResponse>;
-    /**
-     * 接口请求域名：https://ckafka.tencentcloudapi.com
-本接口（DescribeTopic）用于在用户获取消息队列 CKafka 实例的主题列表
-     */
+       * 接口请求域名：https://ckafka.tencentcloudapi.com
+  本接口（DescribeTopic）用于在用户获取消息队列 CKafka 实例的主题列表
+       */
     DescribeTopic(req: DescribeTopicRequest, cb?: (error: string, rep: DescribeTopicResponse) => void): Promise<DescribeTopicResponse>;
     /**
      * 添加用户

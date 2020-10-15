@@ -28,6 +28,12 @@ class Client extends abstract_client_1.AbstractClient {
         super("partners.tencentcloudapi.com", "2018-03-21", clientConfig);
     }
     /**
+     * 可以查询代理商下指定客户的自付订单
+     */
+    async DescribeAgentSelfPayDeals(req, cb) {
+        return this.request("DescribeAgentSelfPayDeals", req, cb);
+    }
+    /**
      * 供超大型代理商（代客数量>=3000 ）拉取缓存的全量客户订单。
      */
     async DescribeAgentDealsCache(req, cb) {

@@ -215,6 +215,7 @@ export interface TaskDetail {
 "KILLED" - 已终止；
 "REMOVED" - 已删除；
 "PAUSED" - 已暂停。
+"WAITING" - 等待中（可撤销）
       */
   TaskStatus: string
 
@@ -280,6 +281,11 @@ export interface DeviceDiskInfo {
    * 磁盘平均每秒完成的写操作次数总和*100。例如：该值为30001，表示磁盘平均每秒完成写操作为：30001/100=300.01次
    */
   Write: Array<number>
+
+  /**
+   * 磁盘空间容量，每两个一组，第一个为已使用容量，第二个为磁盘总容量
+   */
+  CapacityRatio: Array<number>
 }
 
 /**

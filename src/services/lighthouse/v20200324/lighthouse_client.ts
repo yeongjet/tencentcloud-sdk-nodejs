@@ -15,18 +15,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribeBlueprintsResponse,
+  DescribeInstancesTrafficPackagesRequest,
+  DeleteFirewallRulesRequest,
   LoginSettings,
+  InstanceTrafficPackage,
   StartInstancesResponse,
   Instance,
+  DescribeInstancesTrafficPackagesResponse,
+  TrafficPackage,
   RebootInstancesResponse,
-  StopInstancesRequest,
+  DescribeBundlesRequest,
   Blueprint,
   Price,
   Bundle,
   StartInstancesRequest,
+  DeleteFirewallRulesResponse,
+  RebootInstancesRequest,
   DescribeBlueprintsRequest,
   DescribeInstancesResponse,
   InstancePrice,
@@ -36,10 +44,15 @@ import {
   DescribeInstancesRequest,
   Filter,
   ResetInstanceResponse,
-  RebootInstancesRequest,
+  CreateFirewallRulesRequest,
+  DescribeFirewallRulesRequest,
+  DescribeFirewallRulesResponse,
+  FirewallRule,
+  FirewallRuleInfo,
+  CreateFirewallRulesResponse,
   StopInstancesResponse,
   InternetAccessible,
-  DescribeBundlesRequest,
+  StopInstancesRequest,
 } from "./lighthouse_models"
 
 /**
@@ -49,6 +62,20 @@ import {
 export class Client extends AbstractClient {
   constructor(clientConfig: ClientConfig) {
     super("lighthouse.tencentcloudapi.com", "2020-03-24", clientConfig)
+  }
+
+  /**
+   * 本接口（StopInstances）用于关闭一个或多个实例。
+   * 只有状态为 RUNNING 的实例才可以进行此操作。
+   * 接口调用成功时，实例会进入 STOPPING 状态；关闭实例成功时，实例会进入 STOPPED 状态。
+   * 支持批量操作。每次请求批量实例的上限为 100。
+   * 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+   */
+  async StopInstances(
+    req: StopInstancesRequest,
+    cb?: (error: string, rep: StopInstancesResponse) => void
+  ): Promise<StopInstancesResponse> {
+    return this.request("StopInstances", req, cb)
   }
 
   /**
@@ -67,32 +94,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-     * 本接口（StartInstances）用于启动一个或多个实例。
-
-* 只有状态为 STOPPED 的实例才可以进行此操作。
-* 接口调用成功时，实例会进入 STARTING 状态；启动实例成功时，实例会进入 RUNNING 状态。
-* 支持批量操作。每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
-     */
-  async StartInstances(
-    req: StartInstancesRequest,
-    cb?: (error: string, rep: StartInstancesResponse) => void
-  ): Promise<StartInstancesResponse> {
-    return this.request("StartInstances", req, cb)
-  }
-
-  /**
-   * 本接口（StopInstances）用于关闭一个或多个实例。
-   * 只有状态为 RUNNING 的实例才可以进行此操作。
-   * 接口调用成功时，实例会进入 STOPPING 状态；关闭实例成功时，实例会进入 STOPPED 状态。
-   * 支持批量操作。每次请求批量实例的上限为 100。
-   * 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+   * 本接口（DescribeInstancesTrafficPackages）用于查询一个或多个实例的流量包详情。
    */
-  async StopInstances(
-    req: StopInstancesRequest,
-    cb?: (error: string, rep: StopInstancesResponse) => void
-  ): Promise<StopInstancesResponse> {
-    return this.request("StopInstances", req, cb)
+  async DescribeInstancesTrafficPackages(
+    req: DescribeInstancesTrafficPackagesRequest,
+    cb?: (error: string, rep: DescribeInstancesTrafficPackagesResponse) => void
+  ): Promise<DescribeInstancesTrafficPackagesResponse> {
+    return this.request("DescribeInstancesTrafficPackages", req, cb)
   }
 
   /**
@@ -108,6 +116,59 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: RebootInstancesResponse) => void
   ): Promise<RebootInstancesResponse> {
     return this.request("RebootInstances", req, cb)
+  }
+
+  /**
+     * 本接口（StartInstances）用于启动一个或多个实例。
+
+* 只有状态为 STOPPED 的实例才可以进行此操作。
+* 接口调用成功时，实例会进入 STARTING 状态；启动实例成功时，实例会进入 RUNNING 状态。
+* 支持批量操作。每次请求批量实例的上限为 100。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+     */
+  async StartInstances(
+    req: StartInstancesRequest,
+    cb?: (error: string, rep: StartInstancesResponse) => void
+  ): Promise<StartInstancesResponse> {
+    return this.request("StartInstances", req, cb)
+  }
+
+  /**
+     * 本接口（DeleteFirewallRules）用于删除实例的防火墙规则。
+
+* Protocol 字段支持输入 TCP，UDP，或 ALL。
+
+* Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
+     */
+  async DeleteFirewallRules(
+    req: DeleteFirewallRulesRequest,
+    cb?: (error: string, rep: DeleteFirewallRulesResponse) => void
+  ): Promise<DeleteFirewallRulesResponse> {
+    return this.request("DeleteFirewallRules", req, cb)
+  }
+
+  /**
+   * 本接口（DescribeBundles）用于查询套餐信息。
+   */
+  async DescribeBundles(
+    req: DescribeBundlesRequest,
+    cb?: (error: string, rep: DescribeBundlesResponse) => void
+  ): Promise<DescribeBundlesResponse> {
+    return this.request("DescribeBundles", req, cb)
+  }
+
+  /**
+     * 本接口（CreateFirewallRules）用于在实例上添加防火墙规则。
+
+* Protocol 字段支持输入 TCP，UDP，或 ALL。
+
+* Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
+     */
+  async CreateFirewallRules(
+    req: CreateFirewallRulesRequest,
+    cb?: (error: string, rep: CreateFirewallRulesResponse) => void
+  ): Promise<CreateFirewallRulesResponse> {
+    return this.request("CreateFirewallRules", req, cb)
   }
 
   /**
@@ -136,12 +197,12 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口（DescribeBundles）用于查询套餐信息。
+   * 本接口（DescribeFirewallRules）用于查询实例的防火墙规则。
    */
-  async DescribeBundles(
-    req: DescribeBundlesRequest,
-    cb?: (error: string, rep: DescribeBundlesResponse) => void
-  ): Promise<DescribeBundlesResponse> {
-    return this.request("DescribeBundles", req, cb)
+  async DescribeFirewallRules(
+    req: DescribeFirewallRulesRequest,
+    cb?: (error: string, rep: DescribeFirewallRulesResponse) => void
+  ): Promise<DescribeFirewallRulesResponse> {
+    return this.request("DescribeFirewallRules", req, cb)
   }
 }

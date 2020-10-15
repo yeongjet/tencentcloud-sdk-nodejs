@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { UpdateAliasRequest, EnableWhiteBoxKeyRequest, AsymmetricRsaDecryptRequest, EnableKeyRotationRequest, DescribeWhiteBoxKeyDetailsResponse, CreateKeyRequest, DisableWhiteBoxKeyResponse, DisableKeyResponse, DescribeWhiteBoxServiceStatusRequest, DescribeKeyRequest, ListAlgorithmsResponse, DisableKeysResponse, DescribeWhiteBoxKeyResponse, UpdateKeyDescriptionResponse, DescribeWhiteBoxServiceStatusResponse, ImportKeyMaterialRequest, EnableKeyRequest, GetKeyRotationStatusRequest, ListAlgorithmsRequest, ListKeyDetailResponse, GenerateDataKeyRequest, UpdateAliasResponse, ScheduleKeyDeletionResponse, GenerateRandomResponse, DescribeKeysRequest, GetPublicKeyRequest, GetServiceStatusRequest, EnableWhiteBoxKeysResponse, ArchiveKeyResponse, DescribeWhiteBoxKeyRequest, GetParametersForImportResponse, DecryptResponse, CreateWhiteBoxKeyResponse, DeleteImportedKeyMaterialResponse, EnableKeysRequest, EnableWhiteBoxKeysRequest, EncryptByWhiteBoxResponse, DescribeKeysResponse, EnableWhiteBoxKeyResponse, ReEncryptRequest, ListKeysResponse, AsymmetricSm2DecryptResponse, DisableKeyRotationResponse, DisableWhiteBoxKeysRequest, ListKeyDetailRequest, DeleteWhiteBoxKeyRequest, GetRegionsResponse, GenerateDataKeyResponse, CreateWhiteBoxKeyRequest, OverwriteWhiteBoxDeviceFingerprintsResponse, DisableWhiteBoxKeysResponse, ArchiveKeyRequest, GetParametersForImportRequest, CreateKeyResponse, ReEncryptResponse, EncryptResponse, CancelKeyDeletionRequest, DeleteImportedKeyMaterialRequest, EnableKeyResponse, GetServiceStatusResponse, GetKeyRotationStatusResponse, EncryptRequest, AsymmetricSm2DecryptRequest, DeleteWhiteBoxKeyResponse, ListKeysRequest, DescribeWhiteBoxDecryptKeyRequest, CancelKeyArchiveResponse, DecryptRequest, DescribeWhiteBoxKeyDetailsRequest, AsymmetricRsaDecryptResponse, CancelKeyDeletionResponse, DisableKeysRequest, DisableWhiteBoxKeyRequest, UnbindCloudResourceRequest, OverwriteWhiteBoxDeviceFingerprintsRequest, EnableKeyRotationResponse, BindCloudResourceResponse, EnableKeysResponse, DescribeWhiteBoxDeviceFingerprintsRequest, GetRegionsRequest, EncryptByWhiteBoxRequest, GenerateRandomRequest, ScheduleKeyDeletionRequest, DisableKeyRequest, ImportKeyMaterialResponse, GetPublicKeyResponse, BindCloudResourceRequest, DescribeWhiteBoxDecryptKeyResponse, DescribeWhiteBoxDeviceFingerprintsResponse, UpdateKeyDescriptionRequest, UnbindCloudResourceResponse, DescribeKeyResponse, CancelKeyArchiveRequest, DisableKeyRotationRequest } from "./kms_models";
 /**
  * kms client
@@ -23,9 +24,9 @@ export declare class Client extends AbstractClient {
      */
     DeleteWhiteBoxKey(req: DeleteWhiteBoxKeyRequest, cb?: (error: string, rep: DeleteWhiteBoxKeyResponse) => void): Promise<DeleteWhiteBoxKeyResponse>;
     /**
-     * 用于导入密钥材料。只有类型为EXTERNAL 的CMK 才可以导入，导入的密钥材料使用 GetParametersForImport 获取的密钥进行加密。可以为指定的 CMK 重新导入密钥材料，并重新指定过期时间，但必须导入相同的密钥材料。CMK 密钥材料导入后不可以更换密钥材料。导入的密钥材料过期或者被删除后，指定的CMK将无法使用，需要再次导入相同的密钥材料才能正常使用。CMK是独立的，同样的密钥材料可导入不同的 CMK 中，但使用其中一个 CMK 加密的数据无法使用另一个 CMK解密。
-只有Enabled 和 PendingImport状态的CMK可以导入密钥材料。
-     */
+       * 用于导入密钥材料。只有类型为EXTERNAL 的CMK 才可以导入，导入的密钥材料使用 GetParametersForImport 获取的密钥进行加密。可以为指定的 CMK 重新导入密钥材料，并重新指定过期时间，但必须导入相同的密钥材料。CMK 密钥材料导入后不可以更换密钥材料。导入的密钥材料过期或者被删除后，指定的CMK将无法使用，需要再次导入相同的密钥材料才能正常使用。CMK是独立的，同样的密钥材料可导入不同的 CMK 中，但使用其中一个 CMK 加密的数据无法使用另一个 CMK解密。
+  只有Enabled 和 PendingImport状态的CMK可以导入密钥材料。
+       */
     ImportKeyMaterial(req: ImportKeyMaterialRequest, cb?: (error: string, rep: ImportKeyMaterialResponse) => void): Promise<ImportKeyMaterialResponse>;
     /**
      * 该接口用户获取 KeyUsage为ASYMMETRIC_DECRYPT_RSA_2048 和 ASYMMETRIC_DECRYPT_SM2 的非对称密钥的公钥信息，使用该公钥用户可在本地进行数据加密，使用该公钥加密的数据只能通过KMS使用对应的私钥进行解密。只有处于Enabled状态的非对称密钥才可能获取公钥。

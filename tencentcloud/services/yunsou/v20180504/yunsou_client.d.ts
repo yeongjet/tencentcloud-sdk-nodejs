@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DataSearchResponse, DataSearchRequest, DataManipulationRequest, DataManipulationResponse } from "./yunsou_models";
 /**
  * yunsou client

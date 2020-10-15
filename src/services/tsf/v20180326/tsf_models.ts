@@ -89,6 +89,31 @@ export interface DescribeMsApiListResponse {
 }
 
 /**
+ * EnableTask请求参数结构体
+ */
+export interface EnableTaskRequest {
+  /**
+   * 启用任务
+   */
+  TaskId: string
+}
+
+/**
+ * DisableTaskFlow返回参数结构体
+ */
+export interface DisableTaskFlowResponse {
+  /**
+   * true成功，false: 失败
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribeDownloadInfo请求参数结构体
  */
 export interface DescribeDownloadInfoRequest {
@@ -260,6 +285,21 @@ export interface DescribeClusterInstancesResponse {
 }
 
 /**
+ * DisableTask返回参数结构体
+ */
+export interface DisableTaskResponse {
+  /**
+   * 操作成功 or 失败
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribeMicroservice请求参数结构体
  */
 export interface DescribeMicroserviceRequest {
@@ -321,6 +361,71 @@ export interface CosCredentials {
 }
 
 /**
+ * 健康检查配置信息，若不指定该参数，则默认不设置健康检查。
+ */
+export interface HealthCheckSetting {
+  /**
+      * 健康检查方法。HTTP：通过 HTTP 接口检查；CMD：通过执行命令检查；TCP：通过建立 TCP 连接检查。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ActionType: string
+
+  /**
+      * 容器延时启动健康检查的时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InitialDelaySeconds?: number
+
+  /**
+      * 每次健康检查响应的最大超时时间。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TimeoutSeconds?: number
+
+  /**
+      * 进行健康检查的时间间隔。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PeriodSeconds?: number
+
+  /**
+      * 表示后端容器从失败到成功的连续健康检查成功次数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SuccessThreshold?: number
+
+  /**
+      * 表示后端容器从成功到失败的连续健康检查成功次数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FailureThreshold?: number
+
+  /**
+      * HTTP 健康检查方法使用的检查协议。支持HTTP、HTTPS。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Scheme?: string
+
+  /**
+      * 健康检查端口，范围 1~65535 。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Port?: number
+
+  /**
+      * HTTP 健康检查接口的请求路径。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Path?: string
+
+  /**
+      * 执行命令检查方式，执行的命令。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Command?: Array<string>
+}
+
+/**
  * DescribeContainerGroups请求参数结构体
  */
 export interface DescribeContainerGroupsRequest {
@@ -363,6 +468,31 @@ export interface DescribeContainerGroupsRequest {
    * 命名空间 ID
    */
   NamespaceId?: string
+}
+
+/**
+ * RedoTaskBatch返回参数结构体
+ */
+export interface RedoTaskBatchResponse {
+  /**
+   * 批次ID
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * TerminateTaskFlowBatch请求参数结构体
+ */
+export interface TerminateTaskFlowBatchRequest {
+  /**
+   * 工作流批次 ID
+   */
+  FlowBatchId: string
 }
 
 /**
@@ -450,6 +580,28 @@ export interface DescribeSimpleClustersResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * 任务规则
+ */
+export interface TaskRule {
+  /**
+   * 触发规则类型, Cron/Repeat
+   */
+  RuleType: string
+
+  /**
+      * Cron类型规则，cron表达式。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Expression?: string
+
+  /**
+      * 时间间隔， 单位毫秒
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RepeatInterval: number
 }
 
 /**
@@ -753,7 +905,7 @@ export interface ModifyUploadInfoRequest {
   /**
    * 程序包MD5
    */
-  Md5?: string
+  Md5: string
 
   /**
    * 程序包大小（单位字节）
@@ -955,6 +1107,22 @@ export interface DescribeConfigReleasesRequest {
 }
 
 /**
+ * 分片参数
+ */
+export interface ShardArgument {
+  /**
+   * 分片参数 KEY，整形
+   */
+  ShardKey: number
+
+  /**
+      * 分片参数 VALUE
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ShardValue: string
+}
+
+/**
  * DeleteLane返回参数结构体
  */
 export interface DeleteLaneResponse {
@@ -962,6 +1130,37 @@ export interface DeleteLaneResponse {
    * true / false
    */
   Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * StopTaskBatch返回参数结构体
+ */
+export interface StopTaskBatchResponse {
+  /**
+   * 操作成功 or 失败
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeSimpleNamespaces返回参数结构体
+ */
+export interface DescribeSimpleNamespacesResponse {
+  /**
+      * 命名空间分页列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Result?: TsfPageNamespace
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -1024,6 +1223,31 @@ export interface DescribeContainerGroupDetailResponse {
    * 容器部署组详情
    */
   Result?: ContainerGroupDetail
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DisableTask请求参数结构体
+ */
+export interface DisableTaskRequest {
+  /**
+   * 任务ID
+   */
+  TaskId: string
+}
+
+/**
+ * DescribePkgs返回参数结构体
+ */
+export interface DescribePkgsResponse {
+  /**
+   * 符合查询程序包信息列表
+   */
+  Result?: PkgList
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -1119,68 +1343,28 @@ export interface DescribePublicConfigSummaryResponse {
 }
 
 /**
- * 健康检查配置信息，若不指定该参数，则默认不设置健康检查。
+ * DescribeLaneRules请求参数结构体
  */
-export interface HealthCheckSetting {
+export interface DescribeLaneRulesRequest {
   /**
-      * 健康检查方法。HTTP：通过 HTTP 接口检查；CMD：通过执行命令检查；TCP：通过建立 TCP 连接检查。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ActionType: string
+   * 每页展示的条数
+   */
+  Limit: number
 
   /**
-      * 容器延时启动健康检查的时间。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  InitialDelaySeconds?: number
+   * 翻页偏移量
+   */
+  Offset: number
 
   /**
-      * 每次健康检查响应的最大超时时间。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TimeoutSeconds?: number
+   * 搜索关键词
+   */
+  SearchWord?: string
 
   /**
-      * 进行健康检查的时间间隔。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  PeriodSeconds?: number
-
-  /**
-      * 表示后端容器从失败到成功的连续健康检查成功次数。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  SuccessThreshold?: number
-
-  /**
-      * 表示后端容器从成功到失败的连续健康检查成功次数。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  FailureThreshold?: number
-
-  /**
-      * HTTP 健康检查方法使用的检查协议。支持HTTP、HTTPS。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Scheme?: string
-
-  /**
-      * 健康检查端口，范围 1~65535 。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Port?: number
-
-  /**
-      * HTTP 健康检查接口的请求路径。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Path?: string
-
-  /**
-      * 执行命令检查方式，执行的命令。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Command?: Array<string>
+   * 泳道规则ID（用于精确搜索）
+   */
+  RuleId?: string
 }
 
 /**
@@ -1282,6 +1466,22 @@ false：操作失败。
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeBasicResourceUsage返回参数结构体
+ */
+export interface DescribeBasicResourceUsageResponse {
+  /**
+      * TSF基本资源信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Result?: OverviewBasicResourceUsage
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -1710,6 +1910,31 @@ export interface ModifyContainerReplicasRequest {
 }
 
 /**
+ * TerminateTaskFlowBatch返回参数结构体
+ */
+export interface TerminateTaskFlowBatchResponse {
+  /**
+   * 是否停止成功
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * ExecuteTaskFlow请求参数结构体
+ */
+export interface ExecuteTaskFlowRequest {
+  /**
+   * 工作流 ID
+   */
+  FlowId?: string
+}
+
+/**
  * ModifyLane请求参数结构体
  */
 export interface ModifyLaneRequest {
@@ -1801,6 +2026,23 @@ export interface RemoveInstancesResponse {
   /**
       * 集群移除机器是否成功
 注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * StopContainerGroup返回参数结构体
+ */
+export interface StopContainerGroupResponse {
+  /**
+      * 停止操作是否成功。
+true：停止成功
+false：停止失败
       */
   Result?: boolean
 
@@ -1988,6 +2230,17 @@ export interface DescribeGroupsResponse {
 }
 
 /**
+ * 任务id
+ */
+export interface TaskId {
+  /**
+      * 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TaskId: string
+}
+
+/**
  * 环境变量
  */
 export interface Env {
@@ -2168,6 +2421,26 @@ export interface ApiDefinitionDescr {
 }
 
 /**
+ * ExecuteTask请求参数结构体
+ */
+export interface ExecuteTaskRequest {
+  /**
+   * 任务 ID。
+   */
+  TaskId: string
+}
+
+/**
+ * RedoTaskFlowBatch请求参数结构体
+ */
+export interface RedoTaskFlowBatchRequest {
+  /**
+   * 工作流批次 ID
+   */
+  FlowBatchId: string
+}
+
+/**
  * 微服务实例的分页内容
  */
 export interface TsfPageMsInstance {
@@ -2182,6 +2455,21 @@ export interface TsfPageMsInstance {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Content: Array<MsInstance>
+}
+
+/**
+ * StopTaskBatch请求参数结构体
+ */
+export interface StopTaskBatchRequest {
+  /**
+   * 批次ID
+   */
+  BatchId: string
+
+  /**
+   * 参数ID
+   */
+  TaskId?: string
 }
 
 /**
@@ -2420,6 +2708,36 @@ export interface DescribeSimpleGroupsResponse {
 }
 
 /**
+ * StopTaskExecute请求参数结构体
+ */
+export interface StopTaskExecuteRequest {
+  /**
+   * 任务执行ID
+   */
+  ExecuteId: string
+
+  /**
+   * 任务批次ID
+   */
+  BatchId?: string
+
+  /**
+   * 任务ID
+   */
+  TaskId?: string
+}
+
+/**
+ * DescribeFlowLastBatchState请求参数结构体
+ */
+export interface DescribeFlowLastBatchStateRequest {
+  /**
+   * 工作流 ID
+   */
+  FlowId: string
+}
+
+/**
  *  容器部署组详情
  */
 export interface ContainerGroupDetail {
@@ -2651,6 +2969,29 @@ export interface DeletePublicConfigRequest {
 }
 
 /**
+ * 任务最近一次执行状态
+ */
+export interface TaskLastExecuteStatus {
+  /**
+      * 批次ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  BatchId: string
+
+  /**
+      * 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  State: string
+
+  /**
+      * 批次历史ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  BatchLogId: string
+}
+
+/**
  * DeleteNamespace返回参数结构体
  */
 export interface DeleteNamespaceResponse {
@@ -2763,6 +3104,16 @@ export interface RemoveInstancesRequest {
 }
 
 /**
+ * DisableTaskFlow请求参数结构体
+ */
+export interface DisableTaskFlowRequest {
+  /**
+   * 工作流 ID
+   */
+  FlowId: string
+}
+
+/**
  * ShrinkInstances请求参数结构体
  */
 export interface ShrinkInstancesRequest {
@@ -2858,20 +3209,128 @@ export interface DescribePodInstancesRequest {
 }
 
 /**
- * TSF简单部署组分页列表
+ * DescribeTaskLastStatus请求参数结构体
  */
-export interface TsfPageSimpleGroup {
+export interface DescribeTaskLastStatusRequest {
   /**
-      * 总条数
+   * 任务ID
+   */
+  TaskId: string
+}
+
+/**
+ * TSF基本资源信息概览
+ */
+export interface OverviewBasicResourceUsage {
+  /**
+      * 应用总数
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  TotalCount: number
+  ApplicationCount: number
 
   /**
-      * 简单部署组列表
+      * 命名空间总数
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  Content: Array<SimpleGroup>
+  NamespaceCount: number
+
+  /**
+      * 部署组个数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  GroupCount: number
+
+  /**
+      * 程序包存储空间用量，单位字节
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PackageSpaceUsed: number
+
+  /**
+      * 已注册实例数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ConsulInstanceCount: number
+}
+
+/**
+ * CreateTask请求参数结构体
+ */
+export interface CreateTaskRequest {
+  /**
+   * 任务名称，任务长度64字符
+   */
+  TaskName: string
+
+  /**
+   * 任务内容，长度限制65536个字节
+   */
+  TaskContent: string
+
+  /**
+   * 执行类型，UNICAST/BROADCAST
+   */
+  ExecuteType: string
+
+  /**
+   * 任务类型
+   */
+  TaskType: string
+
+  /**
+   * 任务超时时间， 时间单位 ms
+   */
+  TimeOut: number
+
+  /**
+   * 部署组ID
+   */
+  GroupId: string
+
+  /**
+   * 触发规则
+   */
+  TaskRule?: TaskRule
+
+  /**
+   * 重试次数，0 <= RetryCount<= 10
+   */
+  RetryCount?: number
+
+  /**
+   * 重试间隔， 0 <= RetryInterval <= 600000， 时间单位 ms
+   */
+  RetryInterval?: number
+
+  /**
+   * 分片数量
+   */
+  ShardCount?: number
+
+  /**
+   * 分片参数
+   */
+  ShardArguments?: Array<ShardArgument>
+
+  /**
+   * 判断任务成功的操作符
+   */
+  SuccessOperator?: string
+
+  /**
+   * 判断任务成功率的阈值，如99.99
+   */
+  SuccessRatio?: string
+
+  /**
+   * 高级设置
+   */
+  AdvanceSettings?: AdvanceSettings
+
+  /**
+   * 任务参数，长度限制10000个字符
+   */
+  TaskArgument?: string
 }
 
 /**
@@ -3177,6 +3636,21 @@ export interface DescribeSimpleNamespacesRequest {
 }
 
 /**
+ * ExecuteTaskFlow返回参数结构体
+ */
+export interface ExecuteTaskFlowResponse {
+  /**
+   * 工作流批次ID
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 泳道规则
  */
 export interface LaneRule {
@@ -3364,6 +3838,36 @@ export interface MsInstance {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   ApplicationType: string
+
+  /**
+      * 服务状态，passing 在线，critical 离线
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ServiceStatus: string
+
+  /**
+      * 注册时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RegistrationTime: number
+
+  /**
+      * 上次心跳时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LastHeartbeatTime: number
+
+  /**
+      * 实例注册id
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RegistrationId: number
+
+  /**
+      * 屏蔽状态，hidden 为屏蔽，unhidden 为未屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  HiddenStatus: string
 }
 
 /**
@@ -3412,6 +3916,23 @@ export interface DescribePublicConfigsResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * ServerlessGroup 翻页对象
+ */
+export interface ServerlessGroupPage {
+  /**
+      * 总记录数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalCount: number
+
+  /**
+      * 列表信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Content: Array<ServerlessGroup>
 }
 
 /**
@@ -3481,13 +4002,18 @@ export interface DeleteApplicationRequest {
 }
 
 /**
- * RevocationPublicConfig请求参数结构体
+ * ContinueRunFailedTaskBatch返回参数结构体
  */
-export interface RevocationPublicConfigRequest {
+export interface ContinueRunFailedTaskBatchResponse {
   /**
-   * 配置项发布ID
+   * 成功或失败
    */
-  ConfigReleaseId: string
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -3557,6 +4083,16 @@ export interface DescribePublicConfigReleaseLogsResponse {
 }
 
 /**
+ * DeleteTask请求参数结构体
+ */
+export interface DeleteTaskRequest {
+  /**
+   * 任务ID
+   */
+  TaskId: string
+}
+
+/**
  * 健康检查参数
  */
 export interface HealthCheckSettings {
@@ -3594,6 +4130,21 @@ export interface ServiceSetting {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   SubnetId: string
+}
+
+/**
+ * ExecuteTask返回参数结构体
+ */
+export interface ExecuteTaskResponse {
+  /**
+   * 成功/失败
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -3798,6 +4349,22 @@ export interface CreateMicroserviceResponse {
       * 新增微服务是否成功。
 true：操作成功。
 false：操作失败。
+      */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * ReleasePublicConfig返回参数结构体
+ */
+export interface ReleasePublicConfigResponse {
+  /**
+      * true：发布成功；false：发布失败
+注意：此字段可能返回 null，表示取不到有效值。
       */
   Result?: boolean
 
@@ -4135,13 +4702,13 @@ export interface DeleteContainerGroupRequest {
 }
 
 /**
- * DescribeContainerGroupDetail请求参数结构体
+ * 高级选项设置
  */
-export interface DescribeContainerGroupDetailRequest {
+export interface AdvanceSettings {
   /**
-   * 分组ID
+   * 子任务单机并发数限制，默认值为2
    */
-  GroupId: string
+  SubTaskConcurrency?: number
 }
 
 /**
@@ -4264,6 +4831,16 @@ export interface CreateNamespaceRequest {
    * 命名空间ID
    */
   NamespaceId?: string
+}
+
+/**
+ * DescribeContainerGroupDetail请求参数结构体
+ */
+export interface DescribeContainerGroupDetailRequest {
+  /**
+   * 分组ID
+   */
+  GroupId: string
 }
 
 /**
@@ -4392,6 +4969,39 @@ export interface DescribeRepositoryRequest {
 }
 
 /**
+ * RevocationPublicConfig请求参数结构体
+ */
+export interface RevocationPublicConfigRequest {
+  /**
+   * 配置项发布ID
+   */
+  ConfigReleaseId: string
+}
+
+/**
+ * 工作流最近批次的状态
+ */
+export interface TaskFlowLastBatchState {
+  /**
+      * 批次ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FlowBatchId: string
+
+  /**
+      * 批次历史ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FlowBatchLogId: string
+
+  /**
+      * 状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  State: string
+}
+
+/**
  * 属性字段
  */
 export interface PropertyField {
@@ -4437,6 +5047,16 @@ export interface DescribeGroupRequest {
    * 部署组ID
    */
   GroupId: string
+}
+
+/**
+ * RedoTask请求参数结构体
+ */
+export interface RedoTaskRequest {
+  /**
+   * 任务ID
+   */
+  TaskId: string
 }
 
 /**
@@ -4523,20 +5143,13 @@ export interface RepositoryInfo {
 }
 
 /**
- * StopContainerGroup返回参数结构体
+ * EnableTaskFlow请求参数结构体
  */
-export interface StopContainerGroupResponse {
+export interface EnableTaskFlowRequest {
   /**
-      * 停止操作是否成功。
-true：停止成功
-false：停止失败
-      */
-  Result?: boolean
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 工作流 ID
    */
-  RequestId?: string
+  FlowId: string
 }
 
 /**
@@ -4606,13 +5219,13 @@ export interface AddInstanceResult {
 }
 
 /**
- * DescribePkgs返回参数结构体
+ * DescribeFlowLastBatchState返回参数结构体
  */
-export interface DescribePkgsResponse {
+export interface DescribeFlowLastBatchStateResponse {
   /**
-   * 符合查询程序包信息列表
+   * 工作流批次最新状态
    */
-  Result?: PkgList
+  Result?: TaskFlowLastBatchState
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -4621,14 +5234,38 @@ export interface DescribePkgsResponse {
 }
 
 /**
- * DescribeSimpleNamespaces返回参数结构体
+ * ContinueRunFailedTaskBatch请求参数结构体
  */
-export interface DescribeSimpleNamespacesResponse {
+export interface ContinueRunFailedTaskBatchRequest {
   /**
-      * 命名空间分页列表
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Result?: TsfPageNamespace
+   * 批次ID。
+   */
+  BatchId: string
+}
+
+/**
+ * StopTaskExecute返回参数结构体
+ */
+export interface StopTaskExecuteResponse {
+  /**
+   * 操作成功 or 失败
+   */
+  Result?: boolean
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * EnableTaskFlow返回参数结构体
+ */
+export interface EnableTaskFlowResponse {
+  /**
+   * true成功，false: 失败
+   */
+  Result?: boolean
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -4987,6 +5624,12 @@ export interface Microservice {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   RunInstanceCount?: number
+
+  /**
+      * 微服务的离线实例数目
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CriticalInstanceCount?: number
 }
 
 /**
@@ -5428,38 +6071,18 @@ export interface CreateLaneRuleResponse {
 }
 
 /**
- * DescribeConfigReleaseLogs请求参数结构体
+ * CreateTask返回参数结构体
  */
-export interface DescribeConfigReleaseLogsRequest {
+export interface CreateTaskResponse {
   /**
-   * 部署组ID，不传入时查询全量
+   * 任务ID
    */
-  GroupId?: string
+  Result?: string
 
   /**
-   * 偏移量，默认为0
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  Offset?: number
-
-  /**
-   * 每页条数，默认为20
-   */
-  Limit?: number
-
-  /**
-   * 命名空间ID，不传入时查询全量
-   */
-  NamespaceId?: string
-
-  /**
-   * 集群ID，不传入时查询全量
-   */
-  ClusterId?: string
-
-  /**
-   * 应用ID，不传入时查询全量
-   */
-  ApplicationId?: string
+  RequestId?: string
 }
 
 /**
@@ -5525,6 +6148,21 @@ export interface DescribeGroupsRequest {
    * 部署组资源类型列表
    */
   GroupResourceTypeList?: Array<string>
+}
+
+/**
+ * DescribeTaskLastStatus返回参数结构体
+ */
+export interface DescribeTaskLastStatusResponse {
+  /**
+   * 任务上一次执行状态
+   */
+  Result?: TaskLastExecuteStatus
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -5673,6 +6311,21 @@ export interface AddInstancesRequest {
    * 云主机导入方式，虚拟机集群必填，容器集群不填写此字段，R：重装TSF系统镜像，M：手动安装agent
    */
   InstanceImportMode?: string
+}
+
+/**
+ * RedoTask返回参数结构体
+ */
+export interface RedoTaskResponse {
+  /**
+   * 操作成功or失败
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -6036,28 +6689,18 @@ export interface PkgBind {
 }
 
 /**
- * DescribeLaneRules请求参数结构体
+ * DeleteTask返回参数结构体
  */
-export interface DescribeLaneRulesRequest {
+export interface DeleteTaskResponse {
   /**
-   * 每页展示的条数
+   * 删除成功or失败
    */
-  Limit: number
+  Result?: boolean
 
   /**
-   * 翻页偏移量
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  Offset: number
-
-  /**
-   * 搜索关键词
-   */
-  SearchWord?: string
-
-  /**
-   * 泳道规则ID（用于精确搜索）
-   */
-  RuleId?: string
+  RequestId?: string
 }
 
 /**
@@ -6100,6 +6743,21 @@ export interface LaneInfos {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Content: Array<LaneInfo>
+}
+
+/**
+ * RedoTaskBatch请求参数结构体
+ */
+export interface RedoTaskBatchRequest {
+  /**
+   * 任务ID
+   */
+  TaskId: string
+
+  /**
+   * 批次ID
+   */
+  BatchId: string
 }
 
 /**
@@ -6390,6 +7048,11 @@ export interface DeployContainerGroupRequest {
    * 容器部署组的网络设置。
    */
   ServiceSetting?: ServiceSetting
+
+  /**
+   * 是否部署 agent 容器。若不指定该参数，则默认不部署 agent 容器。
+   */
+  DeployAgent?: boolean
 }
 
 /**
@@ -6419,6 +7082,23 @@ export interface CosDownloadInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Credentials: CosCredentials
+}
+
+/**
+ * TSF简单部署组分页列表
+ */
+export interface TsfPageSimpleGroup {
+  /**
+      * 总条数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalCount: number
+
+  /**
+      * 简单部署组列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Content: Array<SimpleGroup>
 }
 
 /**
@@ -6464,20 +7144,38 @@ export interface TsfPageInstance {
 }
 
 /**
- * ServerlessGroup 翻页对象
+ * DescribeConfigReleaseLogs请求参数结构体
  */
-export interface ServerlessGroupPage {
+export interface DescribeConfigReleaseLogsRequest {
   /**
-      * 总记录数
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TotalCount: number
+   * 部署组ID，不传入时查询全量
+   */
+  GroupId?: string
 
   /**
-      * 列表信息
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Content: Array<ServerlessGroup>
+   * 偏移量，默认为0
+   */
+  Offset?: number
+
+  /**
+   * 每页条数，默认为20
+   */
+  Limit?: number
+
+  /**
+   * 命名空间ID，不传入时查询全量
+   */
+  NamespaceId?: string
+
+  /**
+   * 集群ID，不传入时查询全量
+   */
+  ClusterId?: string
+
+  /**
+   * 应用ID，不传入时查询全量
+   */
+  ApplicationId?: string
 }
 
 /**
@@ -6871,13 +7569,12 @@ false：失败。
 }
 
 /**
- * ReleasePublicConfig返回参数结构体
+ * EnableTask返回参数结构体
  */
-export interface ReleasePublicConfigResponse {
+export interface EnableTaskResponse {
   /**
-      * true：发布成功；false：发布失败
-注意：此字段可能返回 null，表示取不到有效值。
-      */
+   * 操作成功or失败
+   */
   Result?: boolean
 
   /**
@@ -7000,15 +7697,9 @@ export interface LaneGroup {
 }
 
 /**
- * 任务id
+ * DescribeBasicResourceUsage请求参数结构体
  */
-export interface TaskId {
-  /**
-      * 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TaskId: string
-}
+export type DescribeBasicResourceUsageRequest = null
 
 /**
  * TsfPage<Config>
@@ -7023,6 +7714,21 @@ export interface TsfPageConfig {
    * 配置项列表
    */
   Content: Array<Config>
+}
+
+/**
+ * RedoTaskFlowBatch返回参数结构体
+ */
+export interface RedoTaskFlowBatchResponse {
+  /**
+   * 工作流批次历史 ID
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**

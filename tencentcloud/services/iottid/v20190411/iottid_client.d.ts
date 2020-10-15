@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribePermissionRequest, VerifyChipBurnInfoResponse, DeliverTidsResponse, BurnTidNotifyResponse, DescribeAvailableLibCountResponse, UploadDeviceUniqueCodeResponse, AuthTestTidResponse, DeliverTidNotifyResponse, AuthTestTidRequest, BurnTidNotifyRequest, VerifyChipBurnInfoRequest, UploadDeviceUniqueCodeRequest, DescribeAvailableLibCountRequest, DeliverTidsRequest, DeliverTidNotifyRequest, DescribePermissionResponse, DownloadTidsRequest, DownloadTidsResponse } from "./iottid_models";
 /**
  * iottid client

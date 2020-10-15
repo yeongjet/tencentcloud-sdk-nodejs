@@ -125,64 +125,53 @@ export interface StorageInfo {
 }
 
 /**
- * 终端用户登录新增统计
+ * DescribeCloudBaseRunVersionSnapshot请求参数结构体
  */
-export interface LoginStatistic {
+export interface DescribeCloudBaseRunVersionSnapshotRequest {
   /**
-      * 统计类型 新增NEWUSER 和登录 LOGIN
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  StatisticalType?: string
+   * 服务名
+   */
+  ServerName: string
 
   /**
-      * 统计周期：日DAY，周WEEK，月MONTH
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  StatisticalCycle?: string
+   * 版本名
+   */
+  VersionName: string
 
   /**
-      * 统计总量
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Count?: number
+   * 环境id
+   */
+  EnvId: string
 
   /**
-      * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  UpdateTime?: string
+   * 版本历史名
+   */
+  SnapshotName?: string
+
+  /**
+   * 偏移量
+   */
+  Offset?: number
+
+  /**
+   * 限制大小
+   */
+  Limit?: number
 }
 
 /**
- * 按量付费免费配额信息
+ * 键值对
  */
-export interface PostpayEnvQuota {
+export interface KVPair {
   /**
-   * 资源类型
+   * 键
    */
-  ResourceType: string
+  Key: string
 
   /**
-   * 指标名
+   * 值
    */
-  MetricName: string
-
-  /**
-   * 配额值
-   */
-  Value: number
-
-  /**
-      * 配额生效时间
-为空表示没有时间限制
-      */
-  StartTime: string
-
-  /**
-      * 配额失效时间
-为空表示没有时间限制
-      */
-  EndTime: string
+  Value: string
 }
 
 /**
@@ -235,6 +224,38 @@ export interface CommonServiceAPIRequest {
    * 需要转发的云API参数，要转成JSON格式
    */
   JSONData?: string
+}
+
+/**
+ * 按量付费免费配额信息
+ */
+export interface PostpayEnvQuota {
+  /**
+   * 资源类型
+   */
+  ResourceType: string
+
+  /**
+   * 指标名
+   */
+  MetricName: string
+
+  /**
+   * 配额值
+   */
+  Value: number
+
+  /**
+      * 配额生效时间
+为空表示没有时间限制
+      */
+  StartTime: string
+
+  /**
+      * 配额失效时间
+为空表示没有时间限制
+      */
+  EndTime: string
 }
 
 /**
@@ -327,6 +348,56 @@ export interface LogServiceInfo {
 }
 
 /**
+ * DescribeEnvLimit返回参数结构体
+ */
+export interface DescribeEnvLimitResponse {
+  /**
+   * 环境总数上限
+   */
+  MaxEnvNum?: number
+
+  /**
+   * 目前环境总数
+   */
+  CurrentEnvNum?: number
+
+  /**
+   * 免费环境数量上限
+   */
+  MaxFreeEnvNum?: number
+
+  /**
+   * 目前免费环境数量
+   */
+  CurrentFreeEnvNum?: number
+
+  /**
+   * 总计允许销毁环境次数上限
+   */
+  MaxDeleteTotal?: number
+
+  /**
+   * 目前已销毁环境次数
+   */
+  CurrentDeleteTotal?: number
+
+  /**
+   * 每月允许销毁环境次数上限
+   */
+  MaxDeleteMonthly?: number
+
+  /**
+   * 本月已销毁环境次数
+   */
+  CurrentDeleteMonthly?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CreateStaticStore请求参数结构体
  */
 export interface CreateStaticStoreRequest {
@@ -373,6 +444,36 @@ export interface DescribeEndUserStatisticResponse {
 }
 
 /**
+ * DescribeExtraPkgBillingInfo返回参数结构体
+ */
+export interface DescribeExtraPkgBillingInfoResponse {
+  /**
+   * 增值包计费信息列表
+   */
+  EnvInfoList?: Array<EnvBillingInfoItem>
+
+  /**
+   * 增值包数目
+   */
+  Total?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * ReinstateEnv返回参数结构体
+ */
+export interface ReinstateEnvResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribePostpayPackageFreeQuotas请求参数结构体
  */
 export interface DescribePostpayPackageFreeQuotasRequest {
@@ -391,6 +492,36 @@ export interface DescribePostpayPackageFreeQuotasRequest {
  * CreateAuthDomain返回参数结构体
  */
 export interface CreateAuthDomainResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeCloudBaseBuildService返回参数结构体
+ */
+export interface DescribeCloudBaseBuildServiceResponse {
+  /**
+   * 上传url
+   */
+  UploadUrl?: string
+
+  /**
+   * heder
+   */
+  UploadHeaders?: Array<KVPair>
+
+  /**
+   * 包名
+   */
+  PackageName?: string
+
+  /**
+   * 包版本
+   */
+  PackageVersion?: string
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -435,6 +566,16 @@ export interface DescribeEndUsersRequest {
    * 按照 uuid 列表过滤，最大个数为100
    */
   UUIds?: Array<string>
+}
+
+/**
+ * DescribeDownloadFile请求参数结构体
+ */
+export interface DescribeDownloadFileRequest {
+  /**
+   * 代码uri
+   */
+  CodeUri: string
 }
 
 /**
@@ -502,13 +643,23 @@ export interface DescribeQuotaDataRequest {
 }
 
 /**
- * ReinstateEnv返回参数结构体
+ * DescribeCloudBaseBuildService请求参数结构体
  */
-export interface ReinstateEnvResponse {
+export interface DescribeCloudBaseBuildServiceRequest {
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 环境id
    */
-  RequestId?: string
+  EnvId: string
+
+  /**
+   * 服务名
+   */
+  ServiceName: string
+
+  /**
+   * build类型,枚举值有: cloudbaserun, framework-ci
+   */
+  CIBusiness?: string
 }
 
 /**
@@ -571,19 +722,18 @@ export interface PackageFreeQuotaInfo {
 }
 
 /**
- * DescribeEnvFreeQuota返回参数结构体
+ * 代码仓库里 Repo的信息描述
  */
-export interface DescribeEnvFreeQuotaResponse {
+export interface CloudBaseCodeRepoDetail {
   /**
-      * 免费抵扣配额详情
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  QuotaItems?: Array<PostpayEnvQuota>
+   * repo的名字
+   */
+  Name?: CloudBaseCodeRepoName
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * repo的url
    */
-  RequestId?: string
+  Url?: string
 }
 
 /**
@@ -637,23 +787,182 @@ export interface StaticStorageInfo {
 }
 
 /**
- * DescribeExtraPkgBillingInfo返回参数结构体
+ * CloudRunServiceSimpleVersionSnapshot 信息
  */
-export interface DescribeExtraPkgBillingInfoResponse {
+export interface CloudRunServiceSimpleVersionSnapshot {
   /**
-   * 增值包计费信息列表
-   */
-  EnvInfoList?: Array<EnvBillingInfoItem>
+      * 版本名
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  VersionName?: string
 
   /**
-   * 增值包数目
-   */
-  Total?: number
+      * 版本备注
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Remark?: string
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+      * cpu规格
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Cpu?: number
+
+  /**
+      * 内存规格
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Mem?: number
+
+  /**
+      * 最小副本数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MinNum?: number
+
+  /**
+      * 最大副本数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MaxNum?: number
+
+  /**
+      * 镜像url
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ImageUrl?: string
+
+  /**
+      * 扩容策略
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PolicyType?: string
+
+  /**
+      * 策略阈值
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PolicyThreshold?: number
+
+  /**
+      * 环境参数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EnvParams?: string
+
+  /**
+      * 容器端口
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ContainerPort?: number
+
+  /**
+      * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime?: string
+
+  /**
+      * 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpdateTime?: string
+
+  /**
+      * 更新类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UploadType?: string
+
+  /**
+      * dockerfile路径
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DockerfilePath?: string
+
+  /**
+      * 构建路径
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  BuildDir?: string
+
+  /**
+      * repo类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  RepoType?: string
+
+  /**
+      * 仓库
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Repo?: string
+
+  /**
+      * 分支
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Branch?: string
+
+  /**
+      * 环境id
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EnvId?: string
+
+  /**
+      * 服务名
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ServerName?: string
+
+  /**
+      * package名字
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PackageName?: string
+
+  /**
+      * package版本
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PackageVersion?: string
+
+  /**
+      * 自定义log路径
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CustomLogs?: string
+
+  /**
+      * 延时健康检查时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  InitialDelaySeconds?: number
+
+  /**
+      * snapshot名
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SnapshotName?: string
+
+  /**
+      * 镜像信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ImageInfo?: CloudBaseRunImageInfo
+
+  /**
+      * 代码仓库信息
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CodeDetail?: CloudBaseCodeRepoDetail
+
+  /**
+      * 状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status?: string
 }
 
 /**
@@ -702,7 +1011,7 @@ export interface CreatePostpayPackageRequest {
   EnvSource?: string
 
   /**
-   * 环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
+   * 环境别名，要以a-z开头，不能包含  a-z,0-9,-  以外的字符
    */
   Alias?: string
 
@@ -717,6 +1026,13 @@ export interface CreatePostpayPackageRequest {
    * 扩展ID
    */
   ExtensionId?: string
+
+  /**
+      * 订单标记。建议使用方统一转大小写之后再判断。
+<li>QuickStart：快速启动来源</li>
+<li>Activity：活动来源</li>
+      */
+  Flag?: string
 }
 
 /**
@@ -761,6 +1077,35 @@ export interface DatabasesInfo {
 }
 
 /**
+ * 终端用户登录新增统计
+ */
+export interface LoginStatistic {
+  /**
+      * 统计类型 新增NEWUSER 和登录 LOGIN
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StatisticalType?: string
+
+  /**
+      * 统计周期：日DAY，周WEEK，月MONTH
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StatisticalCycle?: string
+
+  /**
+      * 统计总量
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Count?: number
+
+  /**
+      * 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpdateTime?: string
+}
+
+/**
  * DescribeAuthDomains请求参数结构体
  */
 export interface DescribeAuthDomainsRequest {
@@ -771,18 +1116,19 @@ export interface DescribeAuthDomainsRequest {
 }
 
 /**
- * DeleteEndUser请求参数结构体
+ * DescribeEndUserLoginStatistic返回参数结构体
  */
-export interface DeleteEndUserRequest {
+export interface DescribeEndUserLoginStatisticResponse {
   /**
-   * 环境ID
-   */
-  EnvId: string
+      * 环境终端用户新增与登录统计
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  LoginStatistics?: Array<LoginStatistic>
 
   /**
-   * 用户列表，每一项都是uuid
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  UserList: Array<string>
+  RequestId?: string
 }
 
 /**
@@ -823,6 +1169,29 @@ export interface DescribeDatabaseACLRequest {
    * 集合名称
    */
   CollectionName: string
+}
+
+/**
+ * 终端用户平台统计信息
+ */
+export interface PlatformStatistic {
+  /**
+      * 终端用户从属平台
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Platform?: string
+
+  /**
+      * 平台终端用户数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Count?: number
+
+  /**
+      * 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpdateTime?: string
 }
 
 /**
@@ -951,26 +1320,29 @@ export interface EnvBillingInfoItem {
 }
 
 /**
- * 终端用户平台统计信息
+ * DescribeEnvFreeQuota返回参数结构体
  */
-export interface PlatformStatistic {
+export interface DescribeEnvFreeQuotaResponse {
   /**
-      * 终端用户从属平台
+      * 免费抵扣配额详情
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  Platform?: string
+  QuotaItems?: Array<PostpayEnvQuota>
 
   /**
-      * 平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Count?: number
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
 
+/**
+ * ModifyEnv返回参数结构体
+ */
+export interface ModifyEnvResponse {
   /**
-      * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  UpdateTime?: string
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1100,26 +1472,56 @@ export interface EnvInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   EnvChannel: string
+
+  /**
+      * 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PayMode: string
+
+  /**
+      * 是否为默认环境
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  IsDefault: boolean
+
+  /**
+      * 环境所属地域
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Region: string
 }
 
 /**
- * DestroyEnv请求参数结构体
+ * CloudBaseRun 镜像信息
  */
-export interface DestroyEnvRequest {
+export interface CloudBaseRunImageInfo {
   /**
-   * 环境Id
+   * 镜像仓库名称
    */
-  EnvId: string
+  RepositoryName: string
 
   /**
-   * 针对预付费 删除隔离中的环境时要传true 正常环境直接跳过隔离期删除
+   * 是否公有
    */
-  IsForce?: boolean
+  IsPublic: boolean
 
   /**
-   * 是否绕过资源检查，资源包等额外资源，默认为false，如果为true，则不检查资源是否有数据，直接删除。
+   * 镜像tag名称
    */
-  BypassCheck?: boolean
+  TagName: string
+
+  /**
+   * 镜像server
+   */
+  ServerAddr: string
+
+  /**
+   * 镜像拉取地址
+   */
+  ImageUrl: string
 }
 
 /**
@@ -1257,48 +1659,14 @@ export interface EndUserInfo {
 }
 
 /**
- * DescribeEnvLimit返回参数结构体
+ * DescribeCloudBaseRunVersionSnapshot返回参数结构体
  */
-export interface DescribeEnvLimitResponse {
+export interface DescribeCloudBaseRunVersionSnapshotResponse {
   /**
-   * 环境总数上限
-   */
-  MaxEnvNum?: number
-
-  /**
-   * 目前环境总数
-   */
-  CurrentEnvNum?: number
-
-  /**
-   * 免费环境数量上限
-   */
-  MaxFreeEnvNum?: number
-
-  /**
-   * 目前免费环境数量
-   */
-  CurrentFreeEnvNum?: number
-
-  /**
-   * 总计允许销毁环境次数上限
-   */
-  MaxDeleteTotal?: number
-
-  /**
-   * 目前已销毁环境次数
-   */
-  CurrentDeleteTotal?: number
-
-  /**
-   * 每月允许销毁环境次数上限
-   */
-  MaxDeleteMonthly?: number
-
-  /**
-   * 本月已销毁环境次数
-   */
-  CurrentDeleteMonthly?: number
+      * 版本历史
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Snapshots?: Array<CloudRunServiceSimpleVersionSnapshot>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -1323,44 +1691,18 @@ export interface DescribePostpayPackageFreeQuotasResponse {
 }
 
 /**
- * DescribeEndUserLoginStatistic返回参数结构体
+ * DeleteEndUser请求参数结构体
  */
-export interface DescribeEndUserLoginStatisticResponse {
+export interface DeleteEndUserRequest {
   /**
-      * 环境终端用户新增与登录统计
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  LoginStatistics?: Array<LoginStatistic>
+   * 环境ID
+   */
+  EnvId: string
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 用户列表，每一项都是uuid
    */
-  RequestId?: string
-}
-
-/**
- * DescribeEnvs返回参数结构体
- */
-export interface DescribeEnvsResponse {
-  /**
-   * 环境信息列表
-   */
-  EnvList?: Array<EnvInfo>
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
-
-/**
- * ModifyEnv返回参数结构体
- */
-export interface ModifyEnvResponse {
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+  UserList: Array<string>
 }
 
 /**
@@ -1429,6 +1771,66 @@ export interface OrderInfo {
 }
 
 /**
+ * DescribeEnvs返回参数结构体
+ */
+export interface DescribeEnvsResponse {
+  /**
+   * 环境信息列表
+   */
+  EnvList?: Array<EnvInfo>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 代码仓库 repo的名字
+ */
+export interface CloudBaseCodeRepoName {
+  /**
+      * repo的名字
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Name?: string
+
+  /**
+      * repo的完整全名
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FullName?: string
+}
+
+/**
+ * DescribeDownloadFile返回参数结构体
+ */
+export interface DescribeDownloadFileResponse {
+  /**
+      * 文件路径
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FilePath?: string
+
+  /**
+      * 加密key
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CustomKey?: string
+
+  /**
+      * 下载链接
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DownloadUrl?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CreateAuthDomain请求参数结构体
  */
 export interface CreateAuthDomainRequest {
@@ -1441,4 +1843,24 @@ export interface CreateAuthDomainRequest {
    * 安全域名
    */
   Domains: Array<string>
+}
+
+/**
+ * DestroyEnv请求参数结构体
+ */
+export interface DestroyEnvRequest {
+  /**
+   * 环境Id
+   */
+  EnvId: string
+
+  /**
+   * 针对预付费 删除隔离中的环境时要传true 正常环境直接跳过隔离期删除
+   */
+  IsForce?: boolean
+
+  /**
+   * 是否绕过资源检查，资源包等额外资源，默认为false，如果为true，则不检查资源是否有数据，直接删除。
+   */
+  BypassCheck?: boolean
 }

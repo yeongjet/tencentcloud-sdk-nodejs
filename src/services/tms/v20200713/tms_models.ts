@@ -70,7 +70,7 @@ export interface DetailResults {
   Label: string
 
   /**
-      * 建议值,Block：打击,Review：待复审,Normal：正常
+      * 建议值,Block：打击,Review：待复审,Pass：正常
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Suggestion: string
@@ -116,7 +116,7 @@ export interface AccountTipoffAccessRequest {
   ReportedAccount: string
 
   /**
-   * 被举报账号类型(1-微信uin 2-QQ号 3-微信群uin 4-qq群号 5-微信openid 6-QQopenid 7-手机号 8-微信号 0-其它string)
+   * 被举报账号类型(1-手机号 2-QQ号 3-微信号 4-QQ群号 5-微信openid 6-QQopenid 0-其它)
    */
   ReportedAccountType: number
 
@@ -131,7 +131,7 @@ export interface AccountTipoffAccessRequest {
   SenderAccount?: string
 
   /**
-   * 举报者账号类型(1-微信uin 2-QQ号 3-微信群uin 4-qq群号 5-微信openid 6-QQopenid 7-手机号 8-微信号 0-其它string)
+   * 举报者账号类型(1-手机号 2-QQ号 3-微信号 4-QQ群号 5-微信openid 6-QQopenid 0-其它)
    */
   SenderAccountType?: number
 

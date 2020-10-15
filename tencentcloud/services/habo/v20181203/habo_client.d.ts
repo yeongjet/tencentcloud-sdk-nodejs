@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeStatusRequest, StartAnalyseResponse, StartAnalyseRequest, DescribeStatusResponse } from "./habo_models";
 /**
  * habo client

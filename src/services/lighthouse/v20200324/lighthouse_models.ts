@@ -36,6 +36,41 @@ export interface DescribeBlueprintsResponse {
 }
 
 /**
+ * DescribeInstancesTrafficPackages请求参数结构体
+ */
+export interface DescribeInstancesTrafficPackagesRequest {
+  /**
+   * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
+   */
+  InstanceIds?: Array<string>
+
+  /**
+   * 偏移量，默认为 0。
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，默认为 20，最大值为 100。
+   */
+  Limit?: number
+}
+
+/**
+ * DeleteFirewallRules请求参数结构体
+ */
+export interface DeleteFirewallRulesRequest {
+  /**
+   * 实例 ID。
+   */
+  InstanceId: string
+
+  /**
+   * 防火墙规则列表。
+   */
+  FirewallRules: Array<FirewallRule>
+}
+
+/**
  * 描述了实例登录相关配置与信息。
  */
 export interface LoginSettings {
@@ -43,6 +78,21 @@ export interface LoginSettings {
    * 密钥 ID 列表。关联密钥后，就可以通过对应的私钥来访问实例。注意：此字段可能返回 []，表示取不到有效值。
    */
   KeyIds: Array<string>
+}
+
+/**
+ * 实例流量包详情
+ */
+export interface InstanceTrafficPackage {
+  /**
+   * 实例ID。
+   */
+  InstanceId: string
+
+  /**
+   * 流量包详情列表。
+   */
+  TrafficPackageSet: Array<TrafficPackage>
 }
 
 /**
@@ -198,6 +248,84 @@ FAILED：表示操作失败
 }
 
 /**
+ * DescribeInstancesTrafficPackages返回参数结构体
+ */
+export interface DescribeInstancesTrafficPackagesResponse {
+  /**
+   * 符合条件的实例流量包详情数量。
+   */
+  TotalCount?: number
+
+  /**
+   * 实例流量包详情列表。
+   */
+  InstanceTrafficPackageSet?: Array<InstanceTrafficPackage>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 流量包详情
+ */
+export interface TrafficPackage {
+  /**
+   * 流量包ID。
+   */
+  TrafficPackageId: string
+
+  /**
+   * 流量包生效周期内的总流量，单位字节。
+   */
+  TrafficUsed: number
+
+  /**
+   * 流量包生效周期内的总流量，单位字节。
+   */
+  TrafficPackageTotal: number
+
+  /**
+   * 流量包生效周期内的剩余流量，单位字节。
+   */
+  TrafficPackageRemaining: number
+
+  /**
+   * 流量包生效周期内超出流量包额度的流量，单位字节。
+   */
+  TrafficOverflow: number
+
+  /**
+      * 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
+格式为： YYYY-MM-DDThh:mm:ssZ。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StartTime: string
+
+  /**
+      * 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
+格式为： YYYY-MM-DDThh:mm:ssZ。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EndTime: string
+
+  /**
+      * 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
+格式为： YYYY-MM-DDThh:mm:ssZ。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Deadline: string
+
+  /**
+      * 流量包状态：
+<li>NETWORK_NORMAL：正常</li>
+<li>OVERDUE_NETWORK_DISABLED：欠费断网</li>
+      */
+  Status: string
+}
+
+/**
  * RebootInstances返回参数结构体
  */
 export interface RebootInstancesResponse {
@@ -208,13 +336,36 @@ export interface RebootInstancesResponse {
 }
 
 /**
- * StopInstances请求参数结构体
+ * DescribeBundles请求参数结构体
  */
-export interface StopInstancesRequest {
+export interface DescribeBundlesRequest {
   /**
-   * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
+   * 套餐 ID 列表。
    */
-  InstanceIds: Array<string>
+  BundleIds?: Array<string>
+
+  /**
+   * 偏移量，默认为 0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/product/1207/47578)中的相关小节。
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，默认为 20，最大值为 100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/product/1207/47578)中的相关小节。
+   */
+  Limit?: number
+
+  /**
+      * 过滤器列表。
+<li>bundle-id</li>按照【镜像 ID】进行过滤。
+类型：String
+必选：否
+<li>support-platform-type</li>按照【系统类型】进行过滤。
+取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
+类型：String
+必选：否
+每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 BundleIds 和 Filters。
+      */
+  Filters?: Array<Filter>
 }
 
 /**
@@ -265,6 +416,16 @@ export interface Blueprint {
    * 镜像图片 URL。
    */
   ImageUrl: string
+
+  /**
+   * 镜像所需系统盘大小
+   */
+  RequiredSystemDiskSize: number
+
+  /**
+   * 镜像状态，取值：ONLINE、OFFLINE
+   */
+  BlueprintState: string
 }
 
 /**
@@ -348,6 +509,26 @@ export interface Bundle {
  * StartInstances请求参数结构体
  */
 export interface StartInstancesRequest {
+  /**
+   * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
+   */
+  InstanceIds: Array<string>
+}
+
+/**
+ * DeleteFirewallRules返回参数结构体
+ */
+export interface DeleteFirewallRulesResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * RebootInstances请求参数结构体
+ */
+export interface RebootInstancesRequest {
   /**
    * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
    */
@@ -565,13 +746,103 @@ export interface ResetInstanceResponse {
 }
 
 /**
- * RebootInstances请求参数结构体
+ * CreateFirewallRules请求参数结构体
  */
-export interface RebootInstancesRequest {
+export interface CreateFirewallRulesRequest {
   /**
-   * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
+   * 实例 ID。
    */
-  InstanceIds: Array<string>
+  InstanceId: string
+
+  /**
+   * 防火墙规则列表。
+   */
+  FirewallRules: Array<FirewallRule>
+}
+
+/**
+ * DescribeFirewallRules请求参数结构体
+ */
+export interface DescribeFirewallRulesRequest {
+  /**
+   * 实例 ID。
+   */
+  InstanceId: string
+
+  /**
+   * 偏移量，默认为 0。
+   */
+  Offset?: number
+
+  /**
+   * 返回数量，默认为 20，最大值为 100。
+   */
+  Limit?: number
+}
+
+/**
+ * DescribeFirewallRules返回参数结构体
+ */
+export interface DescribeFirewallRulesResponse {
+  /**
+   * 符合条件的防火墙规则数量。
+   */
+  TotalCount?: number
+
+  /**
+   * 防火墙规则详细信息列表。
+   */
+  FirewallRuleSet?: Array<FirewallRuleInfo>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * 描述防火墙规则信息。
+ */
+export interface FirewallRule {
+  /**
+   * 协议，取值：TCP，UDP，ALL。
+   */
+  Protocol: string
+
+  /**
+   * 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
+   */
+  Port?: string
+}
+
+/**
+ * 描述防火墙规则详细信息。
+ */
+export interface FirewallRuleInfo {
+  /**
+   * 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，ALL。
+   */
+  AppType: string
+
+  /**
+   * 协议，取值：TCP，UDP，ALL。
+   */
+  Protocol: string
+
+  /**
+   * 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
+   */
+  Port: string
+}
+
+/**
+ * CreateFirewallRules返回参数结构体
+ */
+export interface CreateFirewallRulesResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -605,34 +876,11 @@ export interface InternetAccessible {
 }
 
 /**
- * DescribeBundles请求参数结构体
+ * StopInstances请求参数结构体
  */
-export interface DescribeBundlesRequest {
+export interface StopInstancesRequest {
   /**
-   * 套餐 ID 列表。
+   * 实例 ID 列表。每次请求批量实例的上限为 100。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。
    */
-  BundleIds?: Array<string>
-
-  /**
-   * 偏移量，默认为 0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/product/1207/47578)中的相关小节。
-   */
-  Offset?: number
-
-  /**
-   * 返回数量，默认为 20，最大值为 100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/product/1207/47578)中的相关小节。
-   */
-  Limit?: number
-
-  /**
-      * 过滤器列表。
-<li>bundle-id</li>按照【镜像 ID】进行过滤。
-类型：String
-必选：否
-<li>support-platform-type</li>按照【系统类型】进行过滤。
-取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
-类型：String
-必选：否
-每次请求的 Filters 的上限为 10，Filter.Values 的上限为 5。参数不支持同时指定 BundleIds 和 Filters。
-      */
-  Filters?: Array<Filter>
+  InstanceIds: Array<string>
 }

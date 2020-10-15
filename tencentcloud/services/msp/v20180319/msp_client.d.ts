@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeMigrationTaskRequest, ModifyMigrationTaskBelongToProjectRequest, ModifyMigrationTaskStatusResponse, ListMigrationTaskRequest, DeregisterMigrationTaskResponse, ModifyMigrationTaskBelongToProjectResponse, ListMigrationProjectResponse, RegisterMigrationTaskResponse, ModifyMigrationTaskStatusRequest, ListMigrationProjectRequest, DeregisterMigrationTaskRequest, ListMigrationTaskResponse, DescribeMigrationTaskResponse, RegisterMigrationTaskRequest } from "./msp_models";
 /**
  * msp client

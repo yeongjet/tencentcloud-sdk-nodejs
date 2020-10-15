@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   CreateNetworkAclResponse,
   NetworkAcl,
@@ -28,7 +29,7 @@ import {
   DeleteServiceTemplateResponse,
   CreateServiceTemplateRequest,
   DescribeIp6TranslatorQuotaResponse,
-  TransformAddressResponse,
+  CreateCcnResponse,
   DescribeVpnConnectionsRequest,
   CreateAssistantCidrRequest,
   DescribeNetworkInterfacesRequest,
@@ -46,6 +47,7 @@ import {
   CreateDefaultSecurityGroupRequest,
   DescribeServiceTemplateGroupsResponse,
   DetachClassicLinkVpcRequest,
+  DescribeBandwidthPackageBillUsageResponse,
   DeleteBandwidthPackageResponse,
   ModifyNatGatewayAttributeRequest,
   DescribeVpcLimitsResponse,
@@ -58,12 +60,14 @@ import {
   AddressTemplate,
   IKEOptionsSpecification,
   VpnGatewayQuota,
+  DescribeBandwidthPackageBillUsageRequest,
   UnassignIpv6AddressesResponse,
   CreateIp6TranslatorsResponse,
   DescribeFlowLogsRequest,
   AssociateNatGatewayAddressRequest,
   CreateDirectConnectGatewayRequest,
   ModifyBandwidthPackageAttributeRequest,
+  TransformAddressResponse,
   DisassociateNetworkInterfaceSecurityGroupsRequest,
   SecurityGroupPolicySet,
   ModifyFlowLogAttributeRequest,
@@ -176,7 +180,7 @@ import {
   TemplateLimit,
   CreateSubnetResponse,
   DescribeSecurityGroupPoliciesResponse,
-  GetCcnRegionBandwidthLimitsResponse,
+  DescribeGatewayFlowQosResponse,
   ModifySecurityGroupPoliciesRequest,
   RemoveIp6RulesResponse,
   AssociateDhcpIpWithAddressIpRequest,
@@ -186,10 +190,10 @@ import {
   DisassociateAddressRequest,
   NetworkAclEntrySet,
   DeleteVpnConnectionResponse,
-  CreateCcnResponse,
+  DescribeBandwidthPackageResourcesRequest,
   EnableCcnRoutesRequest,
   Tag,
-  DescribeVpcPrivateIpAddressesResponse,
+  DescribeCcnAttachedInstancesResponse,
   DefaultVpcSubnet,
   DescribeIp6TranslatorsRequest,
   CreateSubnetsResponse,
@@ -216,7 +220,7 @@ import {
   ReplaceSecurityGroupPolicyRequest,
   NatGateway,
   ResourceDashboard,
-  DescribeCcnAttachedInstancesResponse,
+  DescribeVpcPrivateIpAddressesResponse,
   DeleteCustomerGatewayResponse,
   CreateNetDetectRequest,
   CreateAddressTemplateResponse,
@@ -257,6 +261,7 @@ import {
   DirectConnectGateway,
   Price,
   HaVipDisassociateAddressIpRequest,
+  DescribeBandwidthPackageResourcesResponse,
   DescribeCrossBorderComplianceResponse,
   ModifyVpnGatewayAttributeResponse,
   AssociateDirectConnectGatewayNatGatewayResponse,
@@ -267,12 +272,13 @@ import {
   DescribeVpnGatewayCcnRoutesResponse,
   DetachCcnInstancesRequest,
   CreateFlowLogResponse,
-  GetCcnRegionBandwidthLimitsRequest,
+  DeleteDirectConnectGatewayRequest,
   ReleaseIp6AddressesBandwidthRequest,
   CcnAttachedInstance,
   SecurityPolicyDatabase,
   Ipv6Address,
   CreateNetworkInterfaceRequest,
+  BandwidthPackageBillBandwidth,
   DeleteHaVipResponse,
   DescribeFlowLogsResponse,
   VpcPrivateIpAddress,
@@ -289,6 +295,7 @@ import {
   RejectAttachCcnInstancesResponse,
   SetCcnRegionBandwidthLimitsResponse,
   DescribeAccountAttributesRequest,
+  RenewAddressesResponse,
   DescribeCcnRoutesRequest,
   ModifyDhcpIpAttributeResponse,
   CreateAndAttachNetworkInterfaceRequest,
@@ -363,6 +370,7 @@ import {
   CreateRouteTableRequest,
   MigrateNetworkInterfaceRequest,
   DisableCcnRoutesRequest,
+  RenewAddressesRequest,
   ModifyAddressAttributeRequest,
   DhcpIp,
   DeleteAssistantCidrRequest,
@@ -474,7 +482,7 @@ import {
   SecurityGroup,
   DisableGatewayFlowMonitorResponse,
   DisassociateAddressResponse,
-  DescribeGatewayFlowQosResponse,
+  GetCcnRegionBandwidthLimitsResponse,
   DeleteRoutesRequest,
   AssociateAddressRequest,
   CcnRegionBandwidthLimit,
@@ -497,7 +505,7 @@ import {
   DeleteSecurityGroupRequest,
   DescribeDhcpIpsResponse,
   CreateRouteTableResponse,
-  DeleteDirectConnectGatewayRequest,
+  GetCcnRegionBandwidthLimitsRequest,
   DescribeDirectConnectGatewayCcnRoutesResponse,
   ModifyPrivateIpAddressesAttributeRequest,
   ResetNatGatewayConnectionResponse,
@@ -1092,7 +1100,7 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口（ModifyAddressesBandwidth）用于调整[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)(简称EIP)带宽，包括后付费EIP, 预付费EIP和带宽包EIP
+   * 本接口（ModifyAddressesBandwidth）用于调整[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)(简称EIP)带宽，支持后付费EIP, 预付费EIP和带宽包EIP
    */
   async ModifyAddressesBandwidth(
     req: ModifyAddressesBandwidthRequest,
@@ -1367,7 +1375,7 @@ export class Client extends AbstractClient {
    * 将 EIP 绑定到实例（CVM）上，其本质是将 EIP 绑定到实例上主网卡的主内网 IP 上。
    * 将 EIP 绑定到主网卡的主内网IP上，绑定过程会把其上绑定的普通公网 IP 自动解绑并释放。
    * 将 EIP 绑定到指定网卡的内网 IP上（非主网卡的主内网IP），则必须先解绑该 EIP，才能再绑定新的。
-   * 将 EIP 绑定到NAT网关，请使用接口[EipBindNatGateway](https://cloud.tencent.com/document/product/215/4093)
+   * 将 EIP 绑定到NAT网关，请使用接口[AssociateNatGatewayAddress](https://cloud.tencent.com/document/product/215/36722)
    * EIP 如果欠费或被封堵，则不能被绑定。
    * 只有状态为 UNBIND 的 EIP 才能够被绑定。
    */
@@ -1612,6 +1620,17 @@ export class Client extends AbstractClient {
   }
 
   /**
+     * 本接口（UnassignIpv6CidrBlock）用于释放IPv6网段。<br />
+网段如果还有IP占用且未回收，则网段无法释放。
+     */
+  async UnassignIpv6CidrBlock(
+    req: UnassignIpv6CidrBlockRequest,
+    cb?: (error: string, rep: UnassignIpv6CidrBlockResponse) => void
+  ): Promise<UnassignIpv6CidrBlockResponse> {
+    return this.request("UnassignIpv6CidrBlock", req, cb)
+  }
+
+  /**
    * 本接口（ModifyDhcpIpAttribute）用于修改DhcpIp属性
    */
   async ModifyDhcpIpAttribute(
@@ -1619,6 +1638,17 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: ModifyDhcpIpAttributeResponse) => void
   ): Promise<ModifyDhcpIpAttributeResponse> {
     return this.request("ModifyDhcpIpAttribute", req, cb)
+  }
+
+  /**
+     * 本接口 (DescribeBandwidthPackageResources) 用于根据共享带宽包唯一ID查询共享带宽包内的资源列表，支持按条件过滤查询结果和分页查询。
+
+     */
+  async DescribeBandwidthPackageResources(
+    req: DescribeBandwidthPackageResourcesRequest,
+    cb?: (error: string, rep: DescribeBandwidthPackageResourcesResponse) => void
+  ): Promise<DescribeBandwidthPackageResourcesResponse> {
+    return this.request("DescribeBandwidthPackageResources", req, cb)
   }
 
   /**
@@ -1641,6 +1671,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribeVpnConnectionsResponse) => void
   ): Promise<DescribeVpnConnectionsResponse> {
     return this.request("DescribeVpnConnections", req, cb)
+  }
+
+  /**
+   * 该接口用于续费包月带宽计费模式的弹性公网IP
+   */
+  async RenewAddresses(
+    req: RenewAddressesRequest,
+    cb?: (error: string, rep: RenewAddressesResponse) => void
+  ): Promise<RenewAddressesResponse> {
+    return this.request("RenewAddresses", req, cb)
   }
 
   /**
@@ -2133,7 +2173,7 @@ export class Client extends AbstractClient {
   /**
    * 本接口 (DisassociateAddress) 用于解绑[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）。
    * 支持CVM实例，弹性网卡上的EIP解绑
-   * 不支持NAT上的EIP解绑。NAT上的EIP解绑请参考[EipUnBindNatGateway](https://cloud.tencent.com/document/product/215/4092)
+   * 不支持NAT上的EIP解绑。NAT上的EIP解绑请参考[DisassociateNatGatewayAddress](https://cloud.tencent.com/document/api/215/36716)
    * 只有状态为 BIND 和 BIND_ENI 的 EIP 才能进行解绑定操作。
    * EIP 如果被封堵，则不能进行解绑定操作。
    */
@@ -2234,14 +2274,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-     * 本接口（UnassignIpv6CidrBlock）用于释放IPv6网段。<br />
-网段如果还有IP占用且未回收，则网段无法释放。
-     */
-  async UnassignIpv6CidrBlock(
-    req: UnassignIpv6CidrBlockRequest,
-    cb?: (error: string, rep: UnassignIpv6CidrBlockResponse) => void
-  ): Promise<UnassignIpv6CidrBlockResponse> {
-    return this.request("UnassignIpv6CidrBlock", req, cb)
+   * 本接口 (DescribeBandwidthPackageBillUsage) 用于查询后付费共享带宽包当前的计费用量.
+   */
+  async DescribeBandwidthPackageBillUsage(
+    req: DescribeBandwidthPackageBillUsageRequest,
+    cb?: (error: string, rep: DescribeBandwidthPackageBillUsageResponse) => void
+  ): Promise<DescribeBandwidthPackageBillUsageResponse> {
+    return this.request("DescribeBandwidthPackageBillUsage", req, cb)
   }
 
   /**

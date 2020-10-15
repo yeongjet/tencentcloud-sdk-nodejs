@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   GetUserResponse,
   ListAccessKeysRequest,
@@ -52,10 +53,12 @@ import {
   RemoveUserFromGroupRequest,
   CreatePolicyVersionResponse,
   ListPoliciesResponse,
+  OffsiteFlag,
   GroupIdOfUidInfo,
   UpdateRoleDescriptionRequest,
-  SetDefaultPolicyVersionRequest,
+  DeleteGroupResponse,
   RoleInfo,
+  DescribeSafeAuthFlagResponse,
   CreatePolicyVersionRequest,
   DeleteGroupRequest,
   ListAttachedRolePoliciesResponse,
@@ -66,11 +69,12 @@ import {
   DeletePolicyRequest,
   GroupInfo,
   AddUserRequest,
+  LoginActionFlag,
   DeleteRoleRequest,
   UpdateRoleConsoleLoginRequest,
   GetCustomMFATokenInfoResponse,
   UpdateAssumeRolePolicyResponse,
-  ListAttachedUserPoliciesResponse,
+  GetPolicyVersionRequest,
   CreateSAMLProviderResponse,
   DeleteRolePermissionsBoundaryResponse,
   GetUserRequest,
@@ -88,7 +92,7 @@ import {
   ConsumeCustomMFATokenResponse,
   AttachUserPolicyRequest,
   ListAttachedGroupPoliciesResponse,
-  GetPolicyVersionRequest,
+  ListAttachedUserPoliciesResponse,
   PutUserPermissionsBoundaryResponse,
   DeletePolicyResponse,
   ConsumeCustomMFATokenRequest,
@@ -115,6 +119,7 @@ import {
   GetSAMLProviderResponse,
   ListPolicyVersionsResponse,
   GetPolicyRequest,
+  SetDefaultPolicyVersionRequest,
   AddUserToGroupRequest,
   RemoveUserFromGroupResponse,
   DetachRolePolicyResponse,
@@ -129,7 +134,7 @@ import {
   CreateRoleRequest,
   DeleteServiceLinkedRoleResponse,
   GetPolicyResponse,
-  DeleteGroupResponse,
+  DescribeSafeAuthFlagRequest,
   AttachGroupPolicyRequest,
   DeleteServiceLinkedRoleRequest,
   AttachEntityOfPolicy,
@@ -139,6 +144,8 @@ import {
   ListEntitiesForPolicyResponse,
   AddUserToGroupResponse,
   AttachUserPolicyResponse,
+  DescribeSafeAuthFlagCollResponse,
+  DescribeSafeAuthFlagCollRequest,
   PutRolePermissionsBoundaryResponse,
   SetMfaFlagRequest,
   ListCollaboratorsResponse,
@@ -539,6 +546,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 查询安全设置
+   */
+  async DescribeSafeAuthFlagColl(
+    req: DescribeSafeAuthFlagCollRequest,
+    cb?: (error: string, rep: DescribeSafeAuthFlagCollResponse) => void
+  ): Promise<DescribeSafeAuthFlagCollResponse> {
+    return this.request("DescribeSafeAuthFlagColl", req, cb)
+  }
+
+  /**
      * 本接口（UpdatePolicy ）可用于更新策略。
 如果已存在策略版本，本接口会直接更新策略的默认版本，不会创建新版本，如果不存在任何策略版本，则直接创建一个默认版本。
      */
@@ -557,6 +574,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: ListPolicyVersionsResponse) => void
   ): Promise<ListPolicyVersionsResponse> {
     return this.request("ListPolicyVersions", req, cb)
+  }
+
+  /**
+   * 查询安全设置
+   */
+  async DescribeSafeAuthFlag(
+    req?: DescribeSafeAuthFlagRequest,
+    cb?: (error: string, rep: DescribeSafeAuthFlagResponse) => void
+  ): Promise<DescribeSafeAuthFlagResponse> {
+    return this.request("DescribeSafeAuthFlag", req, cb)
   }
 
   /**

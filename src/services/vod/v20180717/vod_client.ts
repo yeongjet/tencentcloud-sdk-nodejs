@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   Canvas,
   ModifySampleSnapshotTemplateResponse,
@@ -31,6 +32,7 @@ import {
   AudioTrackItem,
   MediaAiAnalysisHighlightItem,
   DescribeAnimatedGraphicsTemplatesRequest,
+  LiveRealTimeClipResponse,
   AiReviewTaskProhibitedAsrResult,
   AdaptiveDynamicStreamingTemplate,
   DeleteAnimatedGraphicsTemplateResponse,
@@ -38,6 +40,7 @@ import {
   AiRecognitionTaskAsrFullTextResultOutput,
   AiReviewProhibitedOcrTaskOutput,
   MediaMiniProgramReviewElem,
+  CreateImageProcessingTemplateRequest,
   AiAnalysisTaskCoverOutput,
   MediaSnapshotByTimeOffsetItem,
   ModifySampleSnapshotTemplateRequest,
@@ -79,6 +82,7 @@ import {
   ModifyTranscodeTemplateRequest,
   AiAnalysisTaskHighlightResult,
   DeleteAIAnalysisTemplateResponse,
+  DeleteImageProcessingTemplateRequest,
   ApplyUploadResponse,
   TextWatermarkTemplateInputForUpdate,
   DeleteSuperPlayerConfigRequest,
@@ -167,7 +171,7 @@ import {
   TranscodeTask2017,
   CreatePersonSampleResponse,
   CreateContentReviewTemplateResponse,
-  HighlightsConfigureInfo,
+  ModifyAnimatedGraphicsTemplateRequest,
   DescribeProcedureTemplatesRequest,
   ProhibitedConfigureInfoForUpdate,
   TagConfigureInfoForUpdate,
@@ -207,7 +211,7 @@ import {
   AiRecognitionTaskAsrWordsResultOutput,
   ModifyAdaptiveDynamicStreamingTemplateResponse,
   MediaProcessTaskTranscodeResult,
-  AiRecognitionTaskSegmentResultOutput,
+  ImageProcessingTemplate,
   ImageSpriteTaskInput,
   ObjectConfigureInfoForUpdate,
   DeleteMediaRequest,
@@ -228,15 +232,19 @@ import {
   TEHDConfig,
   AnimatedGraphicsTemplate,
   TerrorismOcrReviewTemplateInfoForUpdate,
-  UserDefineAsrTextReviewTemplateInfoForUpdate,
+  DescribeEventsStateResponse,
   AiRecognitionTaskHeadTailResultOutput,
+  AdaptiveDynamicStreamingTaskInput,
   ModifyImageSpriteTemplateResponse,
   MediaProcessTaskCoverBySnapshotResult,
   CreateWatermarkTemplateRequest,
   TerrorismConfigureInfoForUpdate,
+  DescribeEventsStateRequest,
   WechatMiniProgramPublishTask,
+  CreateImageProcessingTemplateResponse,
   ComposeMediaTask,
   HeadTailConfigureInfoForUpdate,
+  ImageScale,
   TranscodePlayInfo2017,
   ComposeMediaTaskInput,
   AnimatedGraphicTaskInput,
@@ -254,6 +262,7 @@ import {
   CreateSubAppIdResponse,
   CreateWatermarkTemplateResponse,
   AiReviewTerrorismTaskOutput,
+  DescribeImageProcessingTemplatesRequest,
   ResetProcedureTemplateResponse,
   ProhibitedConfigureInfo,
   DrmStreamingsInfo,
@@ -277,7 +286,7 @@ import {
   ProcessMediaByUrlResponse,
   MediaContentReviewAsrTextSegmentItem,
   DescribeCdnLogsResponse,
-  MediaContentReviewPoliticalSegmentItem,
+  DescribeTaskDetailResponse,
   DeletePersonSampleResponse,
   CreateSnapshotByTimeOffsetTemplateResponse,
   ModifyContentReviewTemplateRequest,
@@ -288,8 +297,9 @@ import {
   AiAnalysisTaskInput,
   ImageSpriteTemplate,
   AiRecognitionTaskOcrFullTextSegmentTextItem,
-  SnapshotByTimeOffsetTaskInput,
+  AiRecognitionTaskSegmentResultOutput,
   SegmentConfigureInfo,
+  SnapshotByTimeOffsetTaskInput,
   TaskStatDataItem,
   ParseStreamingManifestResponse,
   AiReviewPornOcrTaskOutput,
@@ -354,7 +364,7 @@ import {
   ModifyAIRecognitionTemplateResponse,
   PoliticalImgReviewTemplateInfo,
   PoliticalConfigureInfo,
-  ModifyAnimatedGraphicsTemplateRequest,
+  HighlightsConfigureInfo,
   AiRecognitionTaskOcrWordsSegmentItem,
   MediaProcessTaskResult,
   DeleteWordSamplesResponse,
@@ -372,13 +382,13 @@ import {
   VideoTemplateInfoForUpdate,
   CreateContentReviewTemplateRequest,
   DescribeContentReviewTemplatesRequest,
-  AdaptiveDynamicStreamingTaskInput,
+  ImageOperation,
   DescribeImageSpriteTemplatesResponse,
   AiAnalysisTaskFrameTagInput,
   MediaAiAnalysisFrameTagSegmentItem,
   AiRecognitionTaskAsrWordsResultItem,
   MediaAiAnalysisTagItem,
-  DescribeTaskDetailResponse,
+  MediaContentReviewPoliticalSegmentItem,
   MediaKeyFrameDescInfo,
   DeleteImageSpriteTemplateRequest,
   CreateClassRequest,
@@ -419,7 +429,7 @@ import {
   DeleteWatermarkTemplateRequest,
   EditMediaStreamInfo,
   DescribeWordSamplesRequest,
-  LiveRealTimeClipResponse,
+  ImageCenterCut,
   ModifyAIAnalysisTemplateRequest,
   CommitUploadResponse,
   DescribeSampleSnapshotTemplatesResponse,
@@ -429,6 +439,7 @@ import {
   DrmStreamingsInfoForUpdate,
   DeleteClassRequest,
   DescribeTranscodeTemplatesRequest,
+  UserDefineAsrTextReviewTemplateInfoForUpdate,
   PoliticalConfigureInfoForUpdate,
   DescribeWatermarkTemplatesResponse,
   WeChatMiniProgramPublishResponse,
@@ -462,6 +473,7 @@ import {
   PullUploadResponse,
   FaceConfigureInfo,
   AiRecognitionTaskFaceResultOutput,
+  DeleteImageProcessingTemplateResponse,
   PornImgReviewTemplateInfoForUpdate,
   EditMediaTask,
   PornImgReviewTemplateInfo,
@@ -476,6 +488,7 @@ import {
   DeleteSnapshotByTimeOffsetTemplateRequest,
   DescribeAnimatedGraphicsTemplatesResponse,
   MediaAiAnalysisFrameTagItem,
+  DescribeImageProcessingTemplatesResponse,
   SampleSnapshotTaskInput,
   TerrorismConfigureInfo,
   PoliticalAsrReviewTemplateInfo,
@@ -507,6 +520,16 @@ import {
 export class Client extends AbstractClient {
   constructor(clientConfig: ClientConfig) {
     super("vod.tencentcloudapi.com", "2018-07-17", clientConfig)
+  }
+
+  /**
+   * 创建一个用户自定义的图片处理模板，数量上限：16。最多支持三次操作，例如：裁剪-缩略-裁剪。
+   */
+  async CreateImageProcessingTemplate(
+    req: CreateImageProcessingTemplateRequest,
+    cb?: (error: string, rep: CreateImageProcessingTemplateResponse) => void
+  ): Promise<CreateImageProcessingTemplateResponse> {
+    return this.request("CreateImageProcessingTemplate", req, cb)
   }
 
   /**
@@ -624,7 +647,9 @@ export class Client extends AbstractClient {
   }
 
   /**
-     * 该接口返回查询时间范围内每天使用的视频内容审核时长数据，单位： 秒。
+     * <b>本接口已不推荐使用，用 [DescribeMediaProcessUsageData](/document/product/266/41464) 替代</b>
+
+该接口返回查询时间范围内每天使用的视频内容审核时长数据，单位： 秒。
 
 1. 可以查询最近365天内的视频内容审核时长统计数据。
 2. 查询时间跨度不超过90天。
@@ -1076,6 +1101,17 @@ export class Client extends AbstractClient {
   }
 
   /**
+     * * 该接口用于业务服务器获取 [可靠回调](https://cloud.tencent.com/document/product/266/33779#.E5.8F.AF.E9.9D.A0.E5.9B.9E.E8.B0.83) 事件通知的状态。
+
+     */
+  async DescribeEventsState(
+    req: DescribeEventsStateRequest,
+    cb?: (error: string, rep: DescribeEventsStateResponse) => void
+  ): Promise<DescribeEventsStateResponse> {
+    return this.request("DescribeEventsState", req, cb)
+  }
+
+  /**
    * * 开发者调用拉取事件通知，获取到事件后，必须调用该接口来确认消息已经收到；
    * 开发者获取到事件句柄后，等待确认的有效时间为 30 秒，超出 30 秒会报参数错误（4000）；
    * 更多参考事件通知的[可靠回调](https://cloud.tencent.com/document/product/266/33779#.E5.8F.AF.E9.9D.A0.E5.9B.9E.E8.B0.83)。
@@ -1121,6 +1157,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribeContentReviewTemplatesResponse) => void
   ): Promise<DescribeContentReviewTemplatesResponse> {
     return this.request("DescribeContentReviewTemplates", req, cb)
+  }
+
+  /**
+   * 删除用户自定义图片处理模板。
+   */
+  async DeleteImageProcessingTemplate(
+    req: DeleteImageProcessingTemplateRequest,
+    cb?: (error: string, rep: DeleteImageProcessingTemplateResponse) => void
+  ): Promise<DeleteImageProcessingTemplateResponse> {
+    return this.request("DeleteImageProcessingTemplate", req, cb)
   }
 
   /**
@@ -1226,6 +1272,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: ForbidMediaDistributionResponse) => void
   ): Promise<ForbidMediaDistributionResponse> {
     return this.request("ForbidMediaDistribution", req, cb)
+  }
+
+  /**
+   * 获取图片处理模板列表，支持根据条件，分页查询。
+   */
+  async DescribeImageProcessingTemplates(
+    req: DescribeImageProcessingTemplatesRequest,
+    cb?: (error: string, rep: DescribeImageProcessingTemplatesResponse) => void
+  ): Promise<DescribeImageProcessingTemplatesResponse> {
+    return this.request("DescribeImageProcessingTemplates", req, cb)
   }
 
   /**

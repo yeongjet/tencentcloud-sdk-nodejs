@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeSubnetRequest, DescribeVsmsResponse, InquiryPriceBuyVsmRequest, DescribeVpcResponse, ModifyVsmAttributesRequest, DescribeSubnetResponse, DescribeHSMByVpcIdRequest, DescribeHSMByVpcIdResponse, DescribeUsgRuleResponse, DescribeVpcRequest, DescribeUsgRequest, DescribeVsmAttributesResponse, InquiryPriceBuyVsmResponse, DescribeHSMBySubnetIdResponse, DescribeUsgResponse, DescribeHSMBySubnetIdRequest, DescribeVsmsRequest, DescribeUsgRuleRequest, ModifyVsmAttributesResponse, DescribeVsmAttributesRequest } from "./cloudhsm_models";
 /**
  * cloudhsm client

@@ -28,10 +28,118 @@ class Client extends abstract_client_1.AbstractClient {
         super("cynosdb.tencentcloudapi.com", "2019-01-07", clientConfig);
     }
     /**
+     * 查询备份文件列表
+     */
+    async DescribeBackupList(req, cb) {
+        return this.request("DescribeBackupList", req, cb);
+    }
+    /**
+     * 获取指定集群的备份配置信息，包括全量备份时间段，备份文件保留时间
+     */
+    async DescribeBackupConfig(req, cb) {
+        return this.request("DescribeBackupConfig", req, cb);
+    }
+    /**
+     * 本接口（DescribeClusterInstanceGrps）用于查询实例组
+     */
+    async DescribeClusterInstanceGrps(req, cb) {
+        return this.request("DescribeClusterInstanceGrps", req, cb);
+    }
+    /**
+     * 下线集群
+     */
+    async OfflineCluster(req, cb) {
+        return this.request("OfflineCluster", req, cb);
+    }
+    /**
+     * 本接口(DescribeInstanceDetail)用于查询实例详情。
+     */
+    async DescribeInstanceDetail(req, cb) {
+        return this.request("DescribeInstanceDetail", req, cb);
+    }
+    /**
+     * 查询指定集群有效回滚时间范围
+     */
+    async DescribeRollbackTimeRange(req, cb) {
+        return this.request("DescribeRollbackTimeRange", req, cb);
+    }
+    /**
      * 修改指定集群的备份配置
      */
     async ModifyBackupConfig(req, cb) {
         return this.request("ModifyBackupConfig", req, cb);
+    }
+    /**
+     * 本接口(DescribeInstances)用于查询实例列表。
+     */
+    async DescribeInstances(req, cb) {
+        return this.request("DescribeInstances", req, cb);
+    }
+    /**
+     * 修改维护时间配置
+     */
+    async ModifyMaintainPeriodConfig(req, cb) {
+        return this.request("ModifyMaintainPeriodConfig", req, cb);
+    }
+    /**
+     * 下线实例
+     */
+    async OfflineInstance(req, cb) {
+        return this.request("OfflineInstance", req, cb);
+    }
+    /**
+     * 查询实例维护时间窗
+     */
+    async DescribeMaintainPeriod(req, cb) {
+        return this.request("DescribeMaintainPeriod", req, cb);
+    }
+    /**
+     * 查询集群列表
+     */
+    async DescribeClusters(req, cb) {
+        return this.request("DescribeClusters", req, cb);
+    }
+    /**
+     * 隔离集群
+     */
+    async IsolateCluster(req, cb) {
+        return this.request("IsolateCluster", req, cb);
+    }
+    /**
+     * 查询项目安全组信息
+     */
+    async DescribeProjectSecurityGroups(req, cb) {
+        return this.request("DescribeProjectSecurityGroups", req, cb);
+    }
+    /**
+     * 显示集群详情
+     */
+    async DescribeClusterDetail(req, cb) {
+        return this.request("DescribeClusterDetail", req, cb);
+    }
+    /**
+     * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
+     */
+    async ModifyDBInstanceSecurityGroups(req, cb) {
+        return this.request("ModifyDBInstanceSecurityGroups", req, cb);
+    }
+    /**
+     * 本接口(IsolateInstance)用于隔离实例。
+     */
+    async IsolateInstance(req, cb) {
+        return this.request("IsolateInstance", req, cb);
+    }
+    /**
+     * 本接口（DescribeInstanceSpecs）用于查询实例规格
+     */
+    async DescribeInstanceSpecs(req, cb) {
+        return this.request("DescribeInstanceSpecs", req, cb);
+    }
+    /**
+     * 本接口(DescribeAccounts)用于查询数据库管理账号。
+     */
+    async DescribeAccounts(req, cb) {
+        return this.request("DescribeAccounts", req, cb);
     }
     /**
      * SetRenewFlag设置实例的自动续费功能
@@ -52,88 +160,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateClusters", req, cb);
     }
     /**
-     * 下线集群
-     */
-    async OfflineCluster(req, cb) {
-        return this.request("OfflineCluster", req, cb);
-    }
-    /**
-     * 本接口(IsolateInstance)用于隔离实例访问。
-     */
-    async IsolateInstance(req, cb) {
-        return this.request("IsolateInstance", req, cb);
-    }
-    /**
      * 指定时间和集群查询是否可回滚
      */
     async DescribeRollbackTimeValidity(req, cb) {
         return this.request("DescribeRollbackTimeValidity", req, cb);
     }
     /**
-     * 本接口（DescribeInstanceSpecs）用于查询实例规格
+     * 查询实例安全组信息
      */
-    async DescribeInstanceSpecs(req, cb) {
-        return this.request("DescribeInstanceSpecs", req, cb);
-    }
-    /**
-     * 显示集群详情
-     */
-    async DescribeClusterDetail(req, cb) {
-        return this.request("DescribeClusterDetail", req, cb);
-    }
-    /**
-     * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
-     */
-    async ModifyDBInstanceSecurityGroups(req, cb) {
-        return this.request("ModifyDBInstanceSecurityGroups", req, cb);
-    }
-    /**
-     * 隔离集群
-     */
-    async IsolateCluster(req, cb) {
-        return this.request("IsolateCluster", req, cb);
-    }
-    /**
-     * 查询备份文件列表
-     */
-    async DescribeBackupList(req, cb) {
-        return this.request("DescribeBackupList", req, cb);
-    }
-    /**
-     * 查询实例维护时间窗
-     */
-    async DescribeMaintainPeriod(req, cb) {
-        return this.request("DescribeMaintainPeriod", req, cb);
-    }
-    /**
-     * 获取指定集群的备份配置信息，包括全量备份时间段，备份文件保留时间
-     */
-    async DescribeBackupConfig(req, cb) {
-        return this.request("DescribeBackupConfig", req, cb);
-    }
-    /**
-     * 查询集群列表
-     */
-    async DescribeClusters(req, cb) {
-        return this.request("DescribeClusters", req, cb);
-    }
-    /**
-     * 本接口(DescribeAccounts)用于查询数据库管理账号。
-     */
-    async DescribeAccounts(req, cb) {
-        return this.request("DescribeAccounts", req, cb);
-    }
-    /**
-     * 修改维护时间配置
-     */
-    async ModifyMaintainPeriodConfig(req, cb) {
-        return this.request("ModifyMaintainPeriodConfig", req, cb);
-    }
-    /**
-     * 查询指定集群有效回滚时间范围
-     */
-    async DescribeRollbackTimeRange(req, cb) {
-        return this.request("DescribeRollbackTimeRange", req, cb);
+    async DescribeDBSecurityGroups(req, cb) {
+        return this.request("DescribeDBSecurityGroups", req, cb);
     }
     /**
      * 本接口（AddInstances）用于集群添加实例

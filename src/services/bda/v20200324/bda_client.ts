@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   SegmentPortraitPicResponse,
   DetectBodyJointsResponse,
@@ -110,7 +111,7 @@ export class Client extends AbstractClient {
   }
 
   /**
-     * 识别传入图片中人体的完整轮廓，进行抠像。
+     * 即二分类人像分割，识别传入图片中人体的完整轮廓，进行抠像。
 
      */
   async SegmentPortraitPic(

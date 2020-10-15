@@ -88,11 +88,11 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeProduct", req, cb);
     }
     /**
-     * 本接口（SendOnlineMsg）用于向设备发送在线消息。
-注意：
-若设备当前不在线,会直接返回错误;
-若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒.waitresp非0情况下,会导致本接口阻塞3秒。
-     */
+       * 本接口（SendOnlineMsg）用于向设备发送在线消息。
+  注意：
+  若设备当前不在线,会直接返回错误;
+  若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒.waitresp非0情况下,会导致本接口阻塞3秒。
+       */
     async SendOnlineMsg(req, cb) {
         return this.request("SendOnlineMsg", req, cb);
     }
@@ -103,14 +103,14 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("RunIotModel", req, cb);
     }
     /**
-     * 本接口（ModifyDeviceAction）用于修改设备物模型的行为（Action）。
-
-可对ctlVal数据属性进行写入,如:Action.takePhoto.ctlVal,设备在线且成功发送到设备才返回,物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
-注意:
-  1.若设备当前不在线,会直接返回错误
-  2.若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒
-  3.value的内容必须与实际物模型的定义一致
-     */
+       * 本接口（ModifyDeviceAction）用于修改设备物模型的行为（Action）。
+  
+  可对ctlVal数据属性进行写入,如:Action.takePhoto.ctlVal,设备在线且成功发送到设备才返回,物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
+  注意:
+    1.若设备当前不在线,会直接返回错误
+    2.若设备网络出现异常时,消息发送可能超时,超时等待最长时间为3秒
+    3.value的内容必须与实际物模型的定义一致
+       */
     async ModifyDeviceAction(req, cb) {
         return this.request("ModifyDeviceAction", req, cb);
     }
@@ -121,9 +121,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateIotDataType", req, cb);
     }
     /**
-     * 本接口（CreateDevices）用于批量创建新的物联网视频通信设备。
-注意：腾讯云不会对设备私钥进行保存，请自行保管好您的设备私钥。
-     */
+       * 本接口（CreateDevices）用于批量创建新的物联网视频通信设备。
+  注意：腾讯云不会对设备私钥进行保存，请自行保管好您的设备私钥。
+       */
     async CreateDevices(req, cb) {
         return this.request("CreateDevices", req, cb);
     }
@@ -134,9 +134,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateProduct", req, cb);
     }
     /**
-     * 本接口（CreateIotModel）用于定义的物模型提交。
-该接口实现了物模型草稿箱的功能，保存用户最后一次编辑的物模型数据。
-     */
+       * 本接口（CreateIotModel）用于定义的物模型提交。
+  该接口实现了物模型草稿箱的功能，保存用户最后一次编辑的物模型数据。
+       */
     async CreateIotModel(req, cb) {
         return this.request("CreateIotModel", req, cb);
     }
@@ -183,18 +183,18 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateAppUsr", req, cb);
     }
     /**
-     * 本接口（CreateBinding）用于终端用户和设备进行绑定，具体的应用场景如下：
-    终端用户与设备具有“强关联”关系。用户与设备绑定之后，用户终端即具备了该设备的访问权限,访问或操作设备时，无需获取设备访问Token。
-     */
+       * 本接口（CreateBinding）用于终端用户和设备进行绑定，具体的应用场景如下：
+      终端用户与设备具有“强关联”关系。用户与设备绑定之后，用户终端即具备了该设备的访问权限,访问或操作设备时，无需获取设备访问Token。
+       */
     async CreateBinding(req, cb) {
         return this.request("CreateBinding", req, cb);
     }
     /**
-     * 本接口（CreateDevToken）用于以下场景：
-终端用户与设备没有强绑定关联关系;
-允许终端用户短时或一次性临时访问设备;
-当终端用户与设备有强绑定关系时，可以不用调用此接口
-     */
+       * 本接口（CreateDevToken）用于以下场景：
+  终端用户与设备没有强绑定关联关系;
+  允许终端用户短时或一次性临时访问设备;
+  当终端用户与设备有强绑定关系时，可以不用调用此接口
+       */
     async CreateDevToken(req, cb) {
         return this.request("CreateDevToken", req, cb);
     }
@@ -217,9 +217,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("ModifyProduct", req, cb);
     }
     /**
-     * 本接口（DescribeLogs）用于查询设备日志列表。
-设备日志最长保留时长为15天,超期自动清除。
-     */
+       * 本接口（DescribeLogs）用于查询设备日志列表。
+  设备日志最长保留时长为15天,超期自动清除。
+       */
     async DescribeLogs(req, cb) {
         return this.request("DescribeLogs", req, cb);
     }
@@ -338,14 +338,14 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DeleteMessageQueue", req, cb);
     }
     /**
-     * 本接口（ModifyDeviceProperty）用于修改设备物模型的属性（ProWritable）。
-可对setVal数据属性进行写入,如:
-ProWritable.Pos.setVal
-对于嵌套类型的可写属性，可以仅对其部分数据内容进行写入，如:
-ProWritable.Pos.setVal.x;
-可写属性云端写入成功即返回;云端向设备端发布属性变更参数;若当前设备不在线,在设备下次上线时会自动更新这些属性参数;
-物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
-     */
+       * 本接口（ModifyDeviceProperty）用于修改设备物模型的属性（ProWritable）。
+  可对setVal数据属性进行写入,如:
+  ProWritable.Pos.setVal
+  对于嵌套类型的可写属性，可以仅对其部分数据内容进行写入，如:
+  ProWritable.Pos.setVal.x;
+  可写属性云端写入成功即返回;云端向设备端发布属性变更参数;若当前设备不在线,在设备下次上线时会自动更新这些属性参数;
+  物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
+       */
     async ModifyDeviceProperty(req, cb) {
         return this.request("ModifyDeviceProperty", req, cb);
     }
@@ -362,10 +362,10 @@ ProWritable.Pos.setVal.x;
         return this.request("UploadOtaVersion", req, cb);
     }
     /**
-     * 本接口（UpgradeDevice）用于对设备进行固件升级。
-该接口向指定的设备下发固件更新指令,可将固件升级到任意版本(可实现固件降级)。
-警告:使能UpgradeNow参数存在一定的风险性！建议仅在debug场景下使用!
-     */
+       * 本接口（UpgradeDevice）用于对设备进行固件升级。
+  该接口向指定的设备下发固件更新指令,可将固件升级到任意版本(可实现固件降级)。
+  警告:使能UpgradeNow参数存在一定的风险性！建议仅在debug场景下使用!
+       */
     async UpgradeDevice(req, cb) {
         return this.request("UpgradeDevice", req, cb);
     }

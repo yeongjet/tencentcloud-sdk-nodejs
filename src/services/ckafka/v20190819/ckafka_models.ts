@@ -317,21 +317,6 @@ export interface DescribeInstancesResponse {
 }
 
 /**
- * FetchMessageByOffset返回参数结构体
- */
-export interface FetchMessageByOffsetResponse {
-  /**
-   * 返回结果
-   */
-  Result?: ConsumerRecord
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
-
-/**
  * GroupInfo内部topic对象
  */
 export interface GroupInfoTopics {
@@ -348,33 +333,20 @@ export interface GroupInfoTopics {
 }
 
 /**
- * FetchMessageListByOffset请求参数结构体
+ * 统一返回的TopicResponse
  */
-export interface FetchMessageListByOffsetRequest {
+export interface TopicResult {
   /**
-   * 实例Id
-   */
-  InstanceId: string
+      * 返回的主题信息列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TopicList: Array<Topic>
 
   /**
-   * 主题名
-   */
-  Topic: string
-
-  /**
-   * 分区id
-   */
-  Partition: number
-
-  /**
-   * 位点信息
-   */
-  Offset: number
-
-  /**
-   * 最大查询条数，默认20
-   */
-  SinglePartitionRecordNumber?: number
+      * 符合条件的 topic 数量
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TotalCount: number
 }
 
 /**
@@ -499,36 +471,6 @@ export interface GroupResponse {
 }
 
 /**
- * FetchMessageListByTimestamp请求参数结构体
- */
-export interface FetchMessageListByTimestampRequest {
-  /**
-   * 实例Id
-   */
-  InstanceId: string
-
-  /**
-   * 主题名
-   */
-  Topic: string
-
-  /**
-   * 分区id
-   */
-  Partition: number
-
-  /**
-   * 查询开始时间，13位时间戳
-   */
-  StartTime?: number
-
-  /**
-   * 最大查询条数，默认20
-   */
-  SinglePartitionRecordNumber?: number
-}
-
-/**
  * DescribeTopicAttributes返回参数结构体
  */
 export interface DescribeTopicAttributesResponse {
@@ -536,21 +478,6 @@ export interface DescribeTopicAttributesResponse {
    * 返回的结果对象
    */
   Result?: TopicAttributesResponse
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
-
-/**
- * FetchMessageListByOffset返回参数结构体
- */
-export interface FetchMessageListByOffsetResponse {
-  /**
-   * 返回结果
-   */
-  Result?: Array<ConsumerRecord>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -631,18 +558,19 @@ export interface CreateUserResponse {
 }
 
 /**
- * ModifyInstanceAttributes返回参数结构体
+ * 消费分组主题对象
  */
-export interface ModifyInstanceAttributesResponse {
+export interface GroupOffsetTopic {
   /**
-   * 返回结果
+   * 主题名称
    */
-  Result?: JgwOperateResponse
+  Topic: string
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+      * 该主题分区数组，其中每个元素为一个 json object
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Partitions: Array<GroupOffsetPartition>
 }
 
 /**
@@ -814,19 +742,18 @@ export interface CreateTopicIpWhiteListResponse {
 }
 
 /**
- * 消费分组主题对象
+ * ModifyInstanceAttributes返回参数结构体
  */
-export interface GroupOffsetTopic {
+export interface ModifyInstanceAttributesResponse {
   /**
-   * 主题名称
+   * 返回结果
    */
-  Topic: string
+  Result?: JgwOperateResponse
 
   /**
-      * 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Partitions: Array<GroupOffsetPartition>
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -957,31 +884,6 @@ export interface DescribeRouteRequest {
    * 实例唯一id
    */
   InstanceId: string
-}
-
-/**
- * FetchMessageByOffset请求参数结构体
- */
-export interface FetchMessageByOffsetRequest {
-  /**
-   * 实例Id
-   */
-  InstanceId: string
-
-  /**
-   * 主题名
-   */
-  Topic: string
-
-  /**
-   * 分区id
-   */
-  Partition: number
-
-  /**
-   * 位点信息
-   */
-  Offset?: number
 }
 
 /**
@@ -2018,23 +1920,6 @@ export interface DescribeRouteResponse {
 }
 
 /**
- * 统一返回的TopicResponse
- */
-export interface TopicResult {
-  /**
-      * 返回的主题信息列表
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TopicList: Array<Topic>
-
-  /**
-      * 符合条件的 topic 数量
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TotalCount: number
-}
-
-/**
  * DescribeTopicDetail请求参数结构体
  */
 export interface DescribeTopicDetailRequest {
@@ -2075,44 +1960,6 @@ export interface DescribeGroupOffsetsResponse {
 }
 
 /**
- * 消息记录
- */
-export interface ConsumerRecord {
-  /**
-   * 主题名
-   */
-  Topic: string
-
-  /**
-   * 分区id
-   */
-  Partition: number
-
-  /**
-   * 位点
-   */
-  Offset: number
-
-  /**
-      * 消息key
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Key: string
-
-  /**
-      * 消息value
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Value: string
-
-  /**
-      * 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Timestamp: number
-}
-
-/**
  * ModifyGroupOffsets请求参数结构体
  */
 export interface ModifyGroupOffsetsRequest {
@@ -2150,6 +1997,11 @@ export interface ModifyGroupOffsetsRequest {
    * 需要重新设置的offset位置。当strategy为2，必须包含该字段。
    */
   Offset?: number
+
+  /**
+   * 需要重新设置的partition的列表，如果没有指定Topics参数。则重置全部topics的对应的Partition列表里的partition。指定Topics时则重置指定的topic列表的对应的Partitions列表的partition。
+   */
+  Partitions?: Array<number>
 }
 
 /**
@@ -2211,21 +2063,6 @@ export interface Route {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   DomainPort: number
-}
-
-/**
- * FetchMessageListByTimestamp返回参数结构体
- */
-export interface FetchMessageListByTimestampResponse {
-  /**
-   * 返回结果
-   */
-  Result?: Array<ConsumerRecord>
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
 }
 
 /**
@@ -2618,4 +2455,10 @@ export interface SubscribedInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   PartitionOffset: Array<PartitionOffset>
+
+  /**
+      * 订阅的主题ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TopicId: string
 }

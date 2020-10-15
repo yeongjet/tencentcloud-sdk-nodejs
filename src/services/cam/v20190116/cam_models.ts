@@ -608,6 +608,36 @@ IsAttached: 当需要查询标记实体是否已经关联策略时不为null。0
 }
 
 /**
+ * 异地登录设置
+ */
+export interface OffsiteFlag {
+  /**
+   * 验证标识
+   */
+  VerifyFlag?: number
+
+  /**
+   * 手机通知
+   */
+  NotifyPhone?: number
+
+  /**
+   * 邮箱通知
+   */
+  NotifyEmail?: number
+
+  /**
+   * 微信通知
+   */
+  NotifyWechat?: number
+
+  /**
+   * 提示
+   */
+  Tips?: number
+}
+
+/**
  * 子用户和用户组关联信息
  */
 export interface GroupIdOfUidInfo {
@@ -643,18 +673,13 @@ export interface UpdateRoleDescriptionRequest {
 }
 
 /**
- * SetDefaultPolicyVersion请求参数结构体
+ * DeleteGroup返回参数结构体
  */
-export interface SetDefaultPolicyVersionRequest {
+export interface DeleteGroupResponse {
   /**
-   * 策略ID
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  PolicyId: number
-
-  /**
-   * 策略版本号
-   */
-  VersionId: number
+  RequestId?: string
 }
 
 /**
@@ -713,6 +738,31 @@ export interface RoleInfo {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   DeletionTaskId: string
+}
+
+/**
+ * DescribeSafeAuthFlag返回参数结构体
+ */
+export interface DescribeSafeAuthFlagResponse {
+  /**
+   * 登录保护设置
+   */
+  LoginFlag?: LoginActionFlag
+
+  /**
+   * 敏感操作保护设置
+   */
+  ActionFlag?: LoginActionFlag
+
+  /**
+   * 异地登录保护设置
+   */
+  OffsiteFlag?: OffsiteFlag
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -973,6 +1023,36 @@ export interface AddUserRequest {
 }
 
 /**
+ * 登录和敏感操作flag
+ */
+export interface LoginActionFlag {
+  /**
+   * 手机
+   */
+  Phone?: number
+
+  /**
+   * 硬token
+   */
+  Token?: number
+
+  /**
+   * 软token
+   */
+  Stoken?: number
+
+  /**
+   * 微信
+   */
+  Wechat?: number
+
+  /**
+   * 自定义
+   */
+  Custom?: number
+}
+
+/**
  * DeleteRole请求参数结构体
  */
 export interface DeleteRoleRequest {
@@ -1033,23 +1113,18 @@ export interface UpdateAssumeRolePolicyResponse {
 }
 
 /**
- * ListAttachedUserPolicies返回参数结构体
+ * GetPolicyVersion请求参数结构体
  */
-export interface ListAttachedUserPoliciesResponse {
+export interface GetPolicyVersionRequest {
   /**
-   * 策略总数
+   * 策略ID
    */
-  TotalNum?: number
+  PolicyId: number
 
   /**
-   * 策略列表
+   * 策略版本号
    */
-  List?: Array<AttachPolicyInfo>
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+  VersionId: number
 }
 
 /**
@@ -1438,18 +1513,23 @@ export interface ListAttachedGroupPoliciesResponse {
 }
 
 /**
- * GetPolicyVersion请求参数结构体
+ * ListAttachedUserPolicies返回参数结构体
  */
-export interface GetPolicyVersionRequest {
+export interface ListAttachedUserPoliciesResponse {
   /**
-   * 策略ID
+   * 策略总数
    */
-  PolicyId: number
+  TotalNum?: number
 
   /**
-   * 策略版本号
+   * 策略列表
    */
-  VersionId: number
+  List?: Array<AttachPolicyInfo>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1862,6 +1942,21 @@ export interface GetPolicyRequest {
 }
 
 /**
+ * SetDefaultPolicyVersion请求参数结构体
+ */
+export interface SetDefaultPolicyVersionRequest {
+  /**
+   * 策略ID
+   */
+  PolicyId: number
+
+  /**
+   * 策略版本号
+   */
+  VersionId: number
+}
+
+/**
  * AddUserToGroup请求参数结构体
  */
 export interface AddUserToGroupRequest {
@@ -2154,14 +2249,9 @@ export interface GetPolicyResponse {
 }
 
 /**
- * DeleteGroup返回参数结构体
+ * DescribeSafeAuthFlag请求参数结构体
  */
-export interface DeleteGroupResponse {
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
+export type DescribeSafeAuthFlagRequest = null
 
 /**
  * AttachGroupPolicy请求参数结构体
@@ -2213,6 +2303,12 @@ export interface AttachEntityOfPolicy {
    * 关联类型。1 用户关联 ； 2 用户组关联
    */
   RelatedType: number
+
+  /**
+      * 策略关联时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  AttachmentTime: string
 }
 
 /**
@@ -2344,6 +2440,41 @@ export interface AttachUserPolicyResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * DescribeSafeAuthFlagColl返回参数结构体
+ */
+export interface DescribeSafeAuthFlagCollResponse {
+  /**
+   * 登录保护设置
+   */
+  LoginFlag?: LoginActionFlag
+
+  /**
+   * 敏感操作保护设置
+   */
+  ActionFlag?: LoginActionFlag
+
+  /**
+   * 异地登录保护设置
+   */
+  OffsiteFlag?: OffsiteFlag
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeSafeAuthFlagColl请求参数结构体
+ */
+export interface DescribeSafeAuthFlagCollRequest {
+  /**
+   * 子账号
+   */
+  SubUin: number
 }
 
 /**

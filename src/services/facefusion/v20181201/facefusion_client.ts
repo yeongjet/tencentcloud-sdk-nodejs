@@ -15,16 +15,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   PublicMaterialInfos,
-  FaceFusionRequest,
+  FaceInfo,
   FaceFusionResponse,
   DescribeMaterialListResponse,
   MaterialFaceList,
-  FaceInfo,
+  FaceFusionRequest,
+  FaceFusionLiteResponse,
   FuseFaceReviewDetail,
   MergeInfo,
+  FaceFusionLiteRequest,
   FuseFaceReviewResult,
   FuseFaceResponse,
   FuseFaceRequest,
@@ -75,5 +78,15 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: FuseFaceResponse) => void
   ): Promise<FuseFaceResponse> {
     return this.request("FuseFace", req, cb)
+  }
+
+  /**
+   * 人脸融合活动专用版
+   */
+  async FaceFusionLite(
+    req: FaceFusionLiteRequest,
+    cb?: (error: string, rep: FaceFusionLiteResponse) => void
+  ): Promise<FaceFusionLiteResponse> {
+    return this.request("FaceFusionLite", req, cb)
   }
 }

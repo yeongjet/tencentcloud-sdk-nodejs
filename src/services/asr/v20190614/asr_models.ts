@@ -31,6 +31,36 @@ export interface SetVocabStateResponse {
 }
 
 /**
+ * CreateCustomization返回参数结构体
+ */
+export interface CreateCustomizationResponse {
+  /**
+   * 模型ID
+   */
+  ModelId?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * ModifyCustomizationState请求参数结构体
+ */
+export interface ModifyCustomizationStateRequest {
+  /**
+   * 自学习模型ID
+   */
+  ModelId: string
+
+  /**
+   * 想要变换的模型状态，-1代表下线，1代表上线
+   */
+  ToState: number
+}
+
+/**
  * GetAsrVocab返回参数结构体
  */
 export interface GetAsrVocabResponse {
@@ -116,6 +146,140 @@ export interface DescribeTaskStatusResponse {
 }
 
 /**
+ * SentenceRecognition请求参数结构体
+ */
+export interface SentenceRecognitionRequest {
+  /**
+   * 腾讯云项目 ID，可填 0，总长度不超过 1024 字节。
+   */
+  ProjectId: number
+
+  /**
+   * 子服务类型。2： 一句话识别。
+   */
+  SubServiceType: number
+
+  /**
+      * 引擎模型类型。
+电话场景：
+• 8k_en：电话 8k 英语；
+• 8k_zh：电话 8k 中文普通话通用；
+非电话场景：
+• 16k_zh：16k 中文普通话通用；
+• 16k_en：16k 英语；
+• 16k_ca：16k 粤语；
+• 16k_ja：16k 日语；
+•16k_wuu-SH：16k 上海话方言。
+      */
+  EngSerViceType: string
+
+  /**
+   * 语音数据来源。0：语音 URL；1：语音数据（post body）。
+   */
+  SourceType: number
+
+  /**
+   * 识别音频的音频格式。mp3、wav。
+   */
+  VoiceFormat: string
+
+  /**
+   * 用户端对此任务的唯一标识，用户自助生成，用于用户查找识别结果。
+   */
+  UsrAudioKey: string
+
+  /**
+   * 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
+   */
+  Url?: string
+
+  /**
+   * 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。数据长度要小于3MB（Base64后）。
+   */
+  Data?: string
+
+  /**
+   * 数据长度，单位为字节。当 SourceType 值为1（本地语音数据上传）时必须填写，当 SourceType 值为0（语音 URL上传）可不写（此数据长度为数据未进行base64编码时的数据长度）。
+   */
+  DataLen?: number
+
+  /**
+   * 热词id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词id设置，自动生效默认热词；如果进行了单独的热词id设置，那么将生效单独设置的热词id。
+   */
+  HotwordId?: string
+
+  /**
+   * 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
+   */
+  FilterDirty?: number
+
+  /**
+   * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
+   */
+  FilterModal?: number
+
+  /**
+   * 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认为0。
+   */
+  FilterPunc?: number
+
+  /**
+   * 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1
+   */
+  ConvertNumMode?: number
+
+  /**
+   * 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，16k_zh，16k_en，16k_ca，16k_ja，16k_wuu-SH
+   */
+  WordInfo?: number
+}
+
+/**
+ * 一句话识别返回的词时间戳
+ */
+export interface SentenceWord {
+  /**
+   * 词结果
+   */
+  Word: string
+
+  /**
+   * 词在音频中的开始时间
+   */
+  StartTime: number
+
+  /**
+   * 词在音频中的结束时间
+   */
+  EndTime: number
+}
+
+/**
+ * CreateCustomization请求参数结构体
+ */
+export interface CreateCustomizationRequest {
+  /**
+   * 自学习模型名称，需在1-20字符之间
+   */
+  ModelName: string
+
+  /**
+   * 文本文件的下载地址，服务会从该地址下载文件， 以训练模型，目前仅支持腾讯云cos
+   */
+  TextUrl: string
+
+  /**
+   * 自学习模型类型，填写8k或者16k
+   */
+  ModelType: string
+
+  /**
+   * 标签信息
+   */
+  TagInfos?: Array<string>
+}
+
+/**
  * DownloadAsrVocab返回参数结构体
  */
 export interface DownloadAsrVocabResponse {
@@ -151,13 +315,23 @@ export interface CreateRecTaskResponse {
 }
 
 /**
- * UpdateAsrVocab返回参数结构体
+ * ModifyCustomization返回参数结构体
  */
-export interface UpdateAsrVocabResponse {
+export interface ModifyCustomizationResponse {
   /**
-   * 热词表ID
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  VocabId?: string
+  RequestId?: string
+}
+
+/**
+ * ModifyCustomizationState返回参数结构体
+ */
+export interface ModifyCustomizationStateResponse {
+  /**
+   * 自学习模型ID
+   */
+  ModelId?: string
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -176,9 +350,39 @@ export interface DeleteAsrVocabResponse {
 }
 
 /**
+ * DownloadCustomization返回参数结构体
+ */
+export interface DownloadCustomizationResponse {
+  /**
+   * 下载地址
+   */
+  DownloadUrl?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * GetAsrVocabList请求参数结构体
  */
-export type GetAsrVocabListRequest = null
+export interface GetAsrVocabListRequest {
+  /**
+   * 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
+   */
+  TagInfos?: Array<string>
+
+  /**
+   * 分页Offset
+   */
+  Offset?: number
+
+  /**
+   * 分页Limit
+   */
+  Limit?: number
+}
 
 /**
  * CreateRecTask请求参数结构体
@@ -187,6 +391,7 @@ export interface CreateRecTaskRequest {
   /**
       * 引擎模型类型。
 电话场景：
+• 8k_en：电话 8k 英语；
 • 8k_zh：电话 8k 中文普通话通用（可用于双声道音频）；
 • 8k_zh_s：电话 8k 中文普通话话者分离（仅适用于单声道音频）；
 非电话场景：
@@ -205,7 +410,7 @@ export interface CreateRecTaskRequest {
   ChannelNum: number
 
   /**
-   * 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：仅支持16k中文引擎，含词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(词时间戳列表，一般用于生成字幕场景)。
+   * 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：词级别粒度的[详细识别结果](https://cloud.tencent.com/document/api/1093/37824#SentenceDetail)(不含标点，词时间戳列表，一般用于生成字幕场景)；2：词级别粒度的详细识别结果（包含标点）
    */
   ResTextFormat: number
 
@@ -277,44 +482,25 @@ export interface CreateRecTaskRequest {
 }
 
 /**
- * 单句的详细识别结果，包含单个词的时间偏移，一般用于生成字幕的场景。
+ * GetCustomizationList返回参数结构体
  */
-export interface SentenceDetail {
+export interface GetCustomizationListResponse {
   /**
-      * 单句最终识别结果
+      * 自学习模型数组
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  FinalSentence: string
+  Data?: Array<Model>
 
   /**
-      * 单句中间识别结果，使用空格拆分为多个词
+      * 自学习模型总量
 注意：此字段可能返回 null，表示取不到有效值。
       */
-  SliceSentence: string
+  TotalCount?: number
 
   /**
-      * 单句开始时间（毫秒）
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  StartMs: number
-
-  /**
-      * 单句结束时间（毫秒）
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  EndMs: number
-
-  /**
-      * 单句中词个数
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  WordsNum: number
-
-  /**
-      * 单句中词详情
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  Words: Array<SentenceWords>
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -380,6 +566,12 @@ export interface Vocab {
    * 热词表状态，1为默认状态即在识别时默认加载该热词表进行识别，0为初始状态
    */
   State: number
+
+  /**
+      * 标签数组
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TagInfos: Array<string>
 }
 
 /**
@@ -390,6 +582,41 @@ export interface Task {
    * 任务ID，可通过此ID在轮询接口获取识别状态与结果
    */
   TaskId: number
+}
+
+/**
+ * ModifyCustomization请求参数结构体
+ */
+export interface ModifyCustomizationRequest {
+  /**
+   * 要修改的模型ID
+   */
+  ModelId: string
+
+  /**
+   * 要修改的模型名称，长度需在1-20个字符之间
+   */
+  ModelName?: string
+
+  /**
+   * 要修改的模型类型，为8k或者16k
+   */
+  ModelType?: string
+
+  /**
+   * 要修改的模型语料的下载地址，目前仅支持腾讯云cos
+   */
+  TextUrl?: string
+}
+
+/**
+ * DeleteCustomization返回参数结构体
+ */
+export interface DeleteCustomizationResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -439,86 +666,94 @@ export interface DeleteAsrVocabRequest {
 }
 
 /**
- * SentenceRecognition请求参数结构体
+ * GetCustomizationList请求参数结构体
  */
-export interface SentenceRecognitionRequest {
+export interface GetCustomizationListRequest {
   /**
-   * 腾讯云项目 ID，可填 0，总长度不超过 1024 字节。
+   * 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
    */
-  ProjectId: number
+  TagInfos?: Array<string>
 
   /**
-   * 子服务类型。2： 一句话识别。
+   * 分页大小
    */
-  SubServiceType: number
+  Limit?: number
 
   /**
-      * 引擎模型类型。
-电话场景：
-• 8k_zh：电话 8k 中文普通话通用；
-非电话场景：
-• 16k_zh：16k 中文普通话通用；
-• 16k_en：16k 英语；
-• 16k_ca：16k 粤语；
-• 16k_ja：16k 日语；
-•16k_wuu-SH：16k 上海话方言。
+   * 分页offset
+   */
+  Offset?: number
+}
+
+/**
+ * UpdateAsrVocab返回参数结构体
+ */
+export interface UpdateAsrVocabResponse {
+  /**
+   * 热词表ID
+   */
+  VocabId?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeTaskStatus请求参数结构体
+ */
+export interface DescribeTaskStatusRequest {
+  /**
+   * 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+   */
+  TaskId: number
+}
+
+/**
+ * 自学习模型信息
+ */
+export interface Model {
+  /**
+   * 模型名称
+   */
+  ModelName: string
+
+  /**
+   * 模型文件名称
+   */
+  DictName: string
+
+  /**
+   * 模型Id
+   */
+  ModelId: string
+
+  /**
+   * 模型类型，“8k”或者”16k“
+   */
+  ModelType: string
+
+  /**
+   * 服务类型
+   */
+  ServiceType: string
+
+  /**
+   * 模型状态，-1下线状态，1上线状态, 0训练中, -2 训练失败
+   */
+  ModelState: number
+
+  /**
+   * 最后更新时间
+   */
+  AtUpdated: string
+
+  /**
+      * 标签信息
+注意：此字段可能返回 null，表示取不到有效值。
       */
-  EngSerViceType: string
-
-  /**
-   * 语音数据来源。0：语音 URL；1：语音数据（post body）。
-   */
-  SourceType: number
-
-  /**
-   * 识别音频的音频格式。mp3、wav。
-   */
-  VoiceFormat: string
-
-  /**
-   * 用户端对此任务的唯一标识，用户自助生成，用于用户查找识别结果。
-   */
-  UsrAudioKey: string
-
-  /**
-   * 语音 URL，公网可下载。当 SourceType 值为 0（语音 URL上传） 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048，需进行urlencode编码。音频时间长度要小于60s。
-   */
-  Url?: string
-
-  /**
-   * 语音数据，当SourceType 值为1（本地语音数据上传）时必须填写，当SourceType 值为0（语音 URL上传）可不写。要使用base64编码(采用python语言时注意读取文件应该为string而不是byte，以byte格式读取后要decode()。编码后的数据不可带有回车换行符)。数据长度要小于3MB（Base64后）。
-   */
-  Data?: string
-
-  /**
-   * 数据长度，单位为字节。当 SourceType 值为1（本地语音数据上传）时必须填写，当 SourceType 值为0（语音 URL上传）可不写（此数据长度为数据未进行base64编码时的数据长度）。
-   */
-  DataLen?: number
-
-  /**
-   * 热词id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词id设置，自动生效默认热词；如果进行了单独的热词id设置，那么将生效单独设置的热词id。
-   */
-  HotwordId?: string
-
-  /**
-   * 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。
-   */
-  FilterDirty?: number
-
-  /**
-   * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。
-   */
-  FilterModal?: number
-
-  /**
-   * 是否过滤标点符号（目前支持中文普通话引擎）。 0：不过滤，1：过滤句末标点，2：过滤所有标点。默认为0。
-   */
-  FilterPunc?: number
-
-  /**
-   * 是否进行阿拉伯数字智能转换。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1
-   */
-  ConvertNumMode?: number
+  TagInfos: Array<string>
 }
 
 /**
@@ -545,6 +780,53 @@ export interface CreateAsrVocabRequest {
 当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
       */
   WordWeightStr?: string
+}
+
+/**
+ * 单句的详细识别结果，包含单个词的时间偏移，一般用于生成字幕的场景。
+ */
+export interface SentenceDetail {
+  /**
+      * 单句最终识别结果
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FinalSentence: string
+
+  /**
+      * 单句中间识别结果，使用空格拆分为多个词
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SliceSentence: string
+
+  /**
+      * 单句开始时间（毫秒）
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StartMs: number
+
+  /**
+      * 单句结束时间（毫秒）
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EndMs: number
+
+  /**
+      * 单句中词个数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WordsNum: number
+
+  /**
+      * 单句中词详情
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Words: Array<SentenceWords>
+
+  /**
+      * 单句语速，单位：字数/秒
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SpeechSpeed: number
 }
 
 /**
@@ -608,19 +890,31 @@ export interface SentenceRecognitionResponse {
   AudioDuration?: number
 
   /**
+      * 词时间戳列表的长度
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WordSize?: number
+
+  /**
+      * 词时间戳列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WordList?: Array<SentenceWord>
+
+  /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
 }
 
 /**
- * DescribeTaskStatus请求参数结构体
+ * DeleteCustomization请求参数结构体
  */
-export interface DescribeTaskStatusRequest {
+export interface DeleteCustomizationRequest {
   /**
-   * 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+   * 要删除的模型ID
    */
-  TaskId: number
+  ModelId: string
 }
 
 /**
@@ -631,6 +925,11 @@ export interface GetAsrVocabListResponse {
    * 热词表列表
    */
   VocabList?: Array<Vocab>
+
+  /**
+   * 热词列表总数
+   */
+  TotalCount?: number
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -659,4 +958,14 @@ export interface SentenceWords {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   OffsetEndMs: number
+}
+
+/**
+ * DownloadCustomization请求参数结构体
+ */
+export interface DownloadCustomizationRequest {
+  /**
+   * 自学习模型ID
+   */
+  ModelId: string
 }

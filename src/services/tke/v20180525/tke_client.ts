@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribeClusterEndpointVipStatusRequest,
   DescribeClusterSecurityResponse,
@@ -79,6 +80,7 @@ import {
   DeleteClusterRouteTableRequest,
   CreateClusterRequest,
   InstanceExtraArgs,
+  AcquireClusterAdminRoleRequest,
   CreateClusterAsGroupResponse,
   DeleteClusterAsGroupsResponse,
   DescribeClusterInstancesRequest,
@@ -86,6 +88,7 @@ import {
   ImageInstance,
   CreateClusterEndpointResponse,
   ClusterAdvancedSettings,
+  AcquireClusterAdminRoleResponse,
   DeleteClusterEndpointVipRequest,
   Cluster,
   DescribeClusterEndpointStatusResponse,
@@ -237,6 +240,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 通过此接口，可以获取集群的tke:admin的ClusterRole，即管理员角色，可以用于CAM侧高权限的用户，通过CAM策略给予子账户此接口权限，进而可以通过此接口直接获取到kubernetes集群内的管理员角色。
+   */
+  async AcquireClusterAdminRole(
+    req: AcquireClusterAdminRoleRequest,
+    cb?: (error: string, rep: AcquireClusterAdminRoleResponse) => void
+  ): Promise<AcquireClusterAdminRoleResponse> {
+    return this.request("AcquireClusterAdminRole", req, cb)
+  }
+
+  /**
    * 查询已经存在的节点，判断是否可以加入集群
    */
   async DescribeExistedInstances(
@@ -267,13 +280,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 查询集群路由表
+   * 集群弹性伸缩配置
    */
-  async DescribeClusterRouteTables(
-    req?: DescribeClusterRouteTablesRequest,
-    cb?: (error: string, rep: DescribeClusterRouteTablesResponse) => void
-  ): Promise<DescribeClusterRouteTablesResponse> {
-    return this.request("DescribeClusterRouteTables", req, cb)
+  async DescribeClusterAsGroupOption(
+    req: DescribeClusterAsGroupOptionRequest,
+    cb?: (error: string, rep: DescribeClusterAsGroupOptionResponse) => void
+  ): Promise<DescribeClusterAsGroupOptionResponse> {
+    return this.request("DescribeClusterAsGroupOption", req, cb)
   }
 
   /**
@@ -317,13 +330,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 集群弹性伸缩配置
+   * 查询集群路由表
    */
-  async DescribeClusterAsGroupOption(
-    req: DescribeClusterAsGroupOptionRequest,
-    cb?: (error: string, rep: DescribeClusterAsGroupOptionResponse) => void
-  ): Promise<DescribeClusterAsGroupOptionResponse> {
-    return this.request("DescribeClusterAsGroupOption", req, cb)
+  async DescribeClusterRouteTables(
+    req?: DescribeClusterRouteTablesRequest,
+    cb?: (error: string, rep: DescribeClusterRouteTablesResponse) => void
+  ): Promise<DescribeClusterRouteTablesResponse> {
+    return this.request("DescribeClusterRouteTables", req, cb)
   }
 
   /**

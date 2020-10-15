@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { QueryFaceMorphJobResponse, CancelFaceMorphJobResponse, SwapGenderPicRequest, SwapGenderPicResponse, MorphFaceRequest, ChangeAgePicResponse, ChangeAgePicRequest, CancelFaceMorphJobRequest, FaceCartoonPicRequest, QueryFaceMorphJobRequest, FaceCartoonPicResponse, MorphFaceResponse } from "./ft_models";
 /**
  * ft client

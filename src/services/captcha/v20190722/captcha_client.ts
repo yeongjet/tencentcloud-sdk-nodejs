@@ -15,20 +15,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribeCaptchaOperDataResponse,
   CaptchaOperDataInterceptUnit,
   CaptchaOperDataTryTimesDistributeUnit,
-  CaptchaOperDataTryTimesUnit,
+  DescribeCaptchaMiniOperDataResponse,
+  DescribeCaptchaMiniDataSumResponse,
+  UpdateCaptchaAppIdInfoRequest,
   CaptchaOperDataRes,
   TicketInterceptUnit,
   DescribeCaptchaUserAllAppIdRequest,
+  DescribeCaptchaMiniDataResponse,
   UpdateCaptchaAppIdInfoResponse,
   CaptchaUserAllAppId,
   DescribeCaptchaDataSumResponse,
   DescribeCaptchaTicketDataRequest,
-  UpdateCaptchaAppIdInfoRequest,
+  DescribeCaptchaMiniDataSumRequest,
+  CaptchaOperDataTryTimesUnit,
   DescribeCaptchaOperDataRequest,
   DescribeCaptchaDataSumRequest,
   TicketAmountUnit,
@@ -38,12 +43,16 @@ import {
   DescribeCaptchaResultRequest,
   DescribeCaptchaResultResponse,
   CaptchaOperDataLoadTimeUnit,
+  DescribeCaptchaMiniOperDataRequest,
   DescribeCaptchaAppIdInfoRequest,
   DescribeCaptchaAppIdInfoResponse,
   DescribeCaptchaUserAllAppIdResponse,
   DescribeCaptchaDataRequest,
-  CaptchaTicketDataRes,
+  DescribeCaptchaMiniResultRequest,
   DescribeCaptchaTicketDataResponse,
+  CaptchaTicketDataRes,
+  DescribeCaptchaMiniResultResponse,
+  DescribeCaptchaMiniDataRequest,
 } from "./captcha_models"
 
 /**
@@ -66,7 +75,7 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 验证码控制台票据验证信息
+   * 安全验证码用户操作票据数据查询
    */
   async DescribeCaptchaTicketData(
     req: DescribeCaptchaTicketDataRequest,
@@ -96,13 +105,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 查询安全验证码应用APPId信息
+   * 安全验证码小程序插件分类查询数据接口（内测中），请求量type=0、通过量type=1、验证量type=2、拦截量type=3 小时级查询（五小时左右延迟）
    */
-  async DescribeCaptchaAppIdInfo(
-    req: DescribeCaptchaAppIdInfoRequest,
-    cb?: (error: string, rep: DescribeCaptchaAppIdInfoResponse) => void
-  ): Promise<DescribeCaptchaAppIdInfoResponse> {
-    return this.request("DescribeCaptchaAppIdInfo", req, cb)
+  async DescribeCaptchaMiniData(
+    req: DescribeCaptchaMiniDataRequest,
+    cb?: (error: string, rep: DescribeCaptchaMiniDataResponse) => void
+  ): Promise<DescribeCaptchaMiniDataResponse> {
+    return this.request("DescribeCaptchaMiniData", req, cb)
+  }
+
+  /**
+   * 安全验证码小程序插件用户操作数据查询（内测中）
+   */
+  async DescribeCaptchaMiniOperData(
+    req: DescribeCaptchaMiniOperDataRequest,
+    cb?: (error: string, rep: DescribeCaptchaMiniOperDataResponse) => void
+  ): Promise<DescribeCaptchaMiniOperDataResponse> {
+    return this.request("DescribeCaptchaMiniOperData", req, cb)
   }
 
   /**
@@ -116,6 +135,26 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 安全验证码小程序插件查询请求数据概况（内测中）
+   */
+  async DescribeCaptchaMiniDataSum(
+    req: DescribeCaptchaMiniDataSumRequest,
+    cb?: (error: string, rep: DescribeCaptchaMiniDataSumResponse) => void
+  ): Promise<DescribeCaptchaMiniDataSumResponse> {
+    return this.request("DescribeCaptchaMiniDataSum", req, cb)
+  }
+
+  /**
+   * 核查验证码小程序插件票据结果（内测中）
+   */
+  async DescribeCaptchaMiniResult(
+    req: DescribeCaptchaMiniResultRequest,
+    cb?: (error: string, rep: DescribeCaptchaMiniResultResponse) => void
+  ): Promise<DescribeCaptchaMiniResultResponse> {
+    return this.request("DescribeCaptchaMiniResult", req, cb)
+  }
+
+  /**
    * 更新验证码应用APPId信息
    */
   async UpdateCaptchaAppIdInfo(
@@ -123,6 +162,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: UpdateCaptchaAppIdInfoResponse) => void
   ): Promise<UpdateCaptchaAppIdInfoResponse> {
     return this.request("UpdateCaptchaAppIdInfo", req, cb)
+  }
+
+  /**
+   * 查询安全验证码应用APPId信息
+   */
+  async DescribeCaptchaAppIdInfo(
+    req: DescribeCaptchaAppIdInfoRequest,
+    cb?: (error: string, rep: DescribeCaptchaAppIdInfoResponse) => void
+  ): Promise<DescribeCaptchaAppIdInfoResponse> {
+    return this.request("DescribeCaptchaAppIdInfo", req, cb)
   }
 
   /**

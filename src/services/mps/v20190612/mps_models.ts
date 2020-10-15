@@ -1372,6 +1372,21 @@ export interface AudioTemplateInfo {
 }
 
 /**
+ * ExecuteFunction返回参数结构体
+ */
+export interface ExecuteFunctionResponse {
+  /**
+   * 处理结果打包后的字符串，具体与后台一同协调。
+   */
+  Result?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 智能封面任务控制参数
  */
 export interface CoverConfigureInfo {
@@ -2670,7 +2685,7 @@ export interface EditMediaRequest {
   TasksPriority?: number
 
   /**
-   * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -3500,7 +3515,7 @@ export interface ProcessMediaRequest {
   TasksPriority?: number
 
   /**
-   * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -8481,6 +8496,21 @@ export interface FrameTagConfigureInfo {
 <li>OFF：关闭智能按帧标签任务。</li>
       */
   Switch: string
+}
+
+/**
+ * ExecuteFunction请求参数结构体
+ */
+export interface ExecuteFunctionRequest {
+  /**
+   * 调用后端接口名称。
+   */
+  FunctionName: string
+
+  /**
+   * 接口参数，具体参数格式调用时与后端协调。
+   */
+  FunctionArg: string
 }
 
 /**

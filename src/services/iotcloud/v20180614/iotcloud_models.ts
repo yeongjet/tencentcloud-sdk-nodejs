@@ -164,6 +164,21 @@ export interface TopicRulePayload {
 }
 
 /**
+ * DescribeFirmware请求参数结构体
+ */
+export interface DescribeFirmwareRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+}
+
+/**
  * DescribeDevices返回参数结构体
  */
 export interface DescribeDevicesResponse {
@@ -425,6 +440,59 @@ export interface ProductProperties {
 }
 
 /**
+ * 设备固件更新状态
+ */
+export interface DeviceUpdateStatus {
+  /**
+   * 设备名
+   */
+  DeviceName: string
+
+  /**
+   * 最后处理时间
+   */
+  LastProcessTime: number
+
+  /**
+   * 状态
+   */
+  Status: number
+
+  /**
+   * 错误消息
+   */
+  ErrMsg: string
+
+  /**
+   * 返回码
+   */
+  Retcode: number
+
+  /**
+   * 目标更新版本
+   */
+  DstVersion: string
+
+  /**
+      * 下载中状态时的下载进度
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Percent: number
+
+  /**
+      * 原版本号
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  OriVersion: string
+
+  /**
+      * 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TaskId: number
+}
+
+/**
  * UpdateTopicPolicy返回参数结构体
  */
 export interface UpdateTopicPolicyResponse {
@@ -495,6 +563,23 @@ export interface DeleteProductRequest {
 }
 
 /**
+ * 状态统计信息
+ */
+export interface StatusStatistic {
+  /**
+      * 任务状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status: number
+
+  /**
+      * 统计总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Total: number
+}
+
+/**
  * DescribeTasks请求参数结构体
  */
 export interface DescribeTasksRequest {
@@ -510,28 +595,28 @@ export interface DescribeTasksRequest {
 }
 
 /**
- * ReplaceTopicRule请求参数结构体
+ * EditFirmware请求参数结构体
  */
-export interface ReplaceTopicRuleRequest {
+export interface EditFirmwareRequest {
   /**
-   * 规则名称
+   * 产品ID。
    */
-  RuleName: string
+  ProductID: string
 
   /**
-   * 替换的规则包体
+   * 固件版本号。
    */
-  TopicRulePayload: TopicRulePayload
+  FirmwareVersion: string
 
   /**
-   * 修改类型，0：其他，1：创建行为，2：更新行为，3：删除行为
+   * 固件名称。
    */
-  ModifyType?: number
+  FirmwareName: string
 
   /**
-   * action增删改变更填对应topicRulePayload里面第几个action
+   * 固件描述
    */
-  ActionIndex?: number
+  FirmwareDescription?: string
 }
 
 /**
@@ -660,6 +745,85 @@ export interface DeleteDeviceRequest {
 }
 
 /**
+ * DescribeFirmwareTaskDevices请求参数结构体
+ */
+export interface DescribeFirmwareTaskDevicesRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本
+   */
+  FirmwareVersion?: string
+
+  /**
+   * 筛选条件
+   */
+  Filters?: Array<SearchKeyword>
+
+  /**
+   * 查询偏移量
+   */
+  Offset?: number
+
+  /**
+   * 查询的数量
+   */
+  Limit?: number
+}
+
+/**
+ * DescribeFirmware返回参数结构体
+ */
+export interface DescribeFirmwareResponse {
+  /**
+   * 固件版本号
+   */
+  Version?: string
+
+  /**
+   * 产品ID
+   */
+  ProductId?: string
+
+  /**
+      * 固件名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Name?: string
+
+  /**
+      * 固件描述
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Description?: string
+
+  /**
+      * 固件Md5值
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Md5sum?: string
+
+  /**
+      * 固件上传的秒级时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Createtime?: number
+
+  /**
+   * 产品名称
+   */
+  ProductName?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CreateMultiDevicesTask请求参数结构体
  */
 export interface CreateMultiDevicesTaskRequest {
@@ -692,6 +856,34 @@ export interface CreateMultiDevicesTaskRequest {
    * 文件上传类型时文件md5值
    */
   Hash?: string
+}
+
+/**
+ * DescribeFirmwareTaskStatistics返回参数结构体
+ */
+export interface DescribeFirmwareTaskStatisticsResponse {
+  /**
+      * 升级成功的设备总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SuccessTotal?: number
+
+  /**
+      * 升级失败的设备总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  FailureTotal?: number
+
+  /**
+      * 正在升级的设备总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpgradingTotal?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -765,6 +957,21 @@ export interface CreateProductResponse {
 }
 
 /**
+ * CreateMultiDevice请求参数结构体
+ */
+export interface CreateMultiDeviceRequest {
+  /**
+   * 产品 ID。创建产品时腾讯云为用户分配全局唯一的 ID
+   */
+  ProductId: string
+
+  /**
+   * 批量创建的设备名数组，单次最多创建 100 个设备。命名规则：[a-zA-Z0-9:_-]{1,48}
+   */
+  DeviceNames: Array<string>
+}
+
+/**
  * DeleteLoraDevice返回参数结构体
  */
 export interface DeleteLoraDeviceResponse {
@@ -825,6 +1032,28 @@ export interface DescribeAllDevicesRequest {
 }
 
 /**
+ * DescribeFirmwareTaskDevices返回参数结构体
+ */
+export interface DescribeFirmwareTaskDevicesResponse {
+  /**
+      * 固件升级任务的设备总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Total?: number
+
+  /**
+      * 固件升级任务的设备列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Devices?: Array<DeviceUpdateStatus>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 设备资源信息。
  */
 export interface DeviceProperty {
@@ -854,24 +1083,19 @@ export interface DeviceProperty {
 }
 
 /**
- * DescribeMultiDevices返回参数结构体
+ * PublishToDevice返回参数结构体
  */
-export interface DescribeMultiDevicesResponse {
+export interface PublishToDeviceResponse {
   /**
-   * 任务 ID，由批量创建设备接口返回
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  TaskId?: string
+  RequestId?: string
+}
 
-  /**
-   * 设备详细信息列表
-   */
-  DevicesInfo?: Array<MultiDevicesInfo>
-
-  /**
-   * 该任务创建设备的总数
-   */
-  TotalDevNum?: number
-
+/**
+ * RetryDeviceFirmwareTask返回参数结构体
+ */
+export interface RetryDeviceFirmwareTaskResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -1014,6 +1238,58 @@ export interface DescribeProductTaskRequest {
 }
 
 /**
+ * DescribeFirmwareTask返回参数结构体
+ */
+export interface DescribeFirmwareTaskResponse {
+  /**
+      * 固件任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TaskId?: number
+
+  /**
+      * 固件任务状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status?: number
+
+  /**
+      * 固件任务创建时间，单位:秒
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime?: number
+
+  /**
+      * 固件任务升级类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Type?: number
+
+  /**
+      * 产品名称
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ProductName?: string
+
+  /**
+      * 固件任务升级模式。originalVersion（按版本号升级）、filename（提交文件升级）、devicenames（按设备名称升级）
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  UpgradeMode?: string
+
+  /**
+      * 产品ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ProductId?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CreateProduct请求参数结构体
  */
 export interface CreateProductRequest {
@@ -1031,6 +1307,36 @@ export interface CreateProductRequest {
    * 创建CLAA产品时，需要Skey
    */
   Skey?: string
+}
+
+/**
+ * DescribeFirmwareTasks请求参数结构体
+ */
+export interface DescribeFirmwareTasksRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 查询偏移量
+   */
+  Offset: number
+
+  /**
+   * 返回查询结果条数
+   */
+  Limit: number
+
+  /**
+   * 搜索过滤条件
+   */
+  Filters?: Array<SearchKeyword>
 }
 
 /**
@@ -1263,6 +1569,53 @@ export interface PublishMessageRequest {
 }
 
 /**
+ * RetryDeviceFirmwareTask请求参数结构体
+ */
+export interface RetryDeviceFirmwareTaskRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 设备名称
+   */
+  DeviceName: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 固件升级任务ID
+   */
+  TaskId: number
+}
+
+/**
+ * DescribeFirmwareTasks返回参数结构体
+ */
+export interface DescribeFirmwareTasksResponse {
+  /**
+      * 固件升级任务列表
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TaskInfos?: Array<FirmwareTaskInfo>
+
+  /**
+      * 固件升级任务总数
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Total?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 设备标签
  */
 export interface DeviceLabel {
@@ -1288,6 +1641,16 @@ export interface UpdateDeviceAvailableStateResponse {
 }
 
 /**
+ * EditFirmware返回参数结构体
+ */
+export interface EditFirmwareResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * CancelTask请求参数结构体
  */
 export interface CancelTaskRequest {
@@ -1295,6 +1658,26 @@ export interface CancelTaskRequest {
    * 任务 ID
    */
   Id: string
+}
+
+/**
+ * DescribeFirmwareTaskDistribution请求参数结构体
+ */
+export interface DescribeFirmwareTaskDistributionRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 固件升级任务ID
+   */
+  TaskId: number
 }
 
 /**
@@ -1363,6 +1746,16 @@ export interface PublishToDeviceRequest {
 }
 
 /**
+ * UploadFirmware返回参数结构体
+ */
+export interface UploadFirmwareResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 产品详细信息
  */
 export interface ProductInfo {
@@ -1385,6 +1778,21 @@ export interface ProductInfo {
    * 产品属性
    */
   ProductProperties: ProductProperties
+}
+
+/**
+ * DescribeFirmwareTaskDistribution返回参数结构体
+ */
+export interface DescribeFirmwareTaskDistributionResponse {
+  /**
+   * 固件升级任务状态分布信息
+   */
+  StatusInfos?: Array<StatusStatistic>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1578,6 +1986,31 @@ export interface ProductTaskInfo {
 }
 
 /**
+ * ReplaceTopicRule请求参数结构体
+ */
+export interface ReplaceTopicRuleRequest {
+  /**
+   * 规则名称
+   */
+  RuleName: string
+
+  /**
+   * 替换的规则包体
+   */
+  TopicRulePayload: TopicRulePayload
+
+  /**
+   * 修改类型，0：其他，1：创建行为，2：更新行为，3：删除行为
+   */
+  ModifyType?: number
+
+  /**
+   * action增删改变更填对应topicRulePayload里面第几个action
+   */
+  ActionIndex?: number
+}
+
+/**
  * PublishRRPCMessage返回参数结构体
  */
 export interface PublishRRPCMessageResponse {
@@ -1668,24 +2101,84 @@ export interface ReplaceTopicRuleResponse {
 }
 
 /**
- * CreateMultiDevice请求参数结构体
+ * PublishAsDevice请求参数结构体
  */
-export interface CreateMultiDeviceRequest {
+export interface PublishAsDeviceRequest {
   /**
-   * 产品 ID。创建产品时腾讯云为用户分配全局唯一的 ID
+   * 产品ID
    */
   ProductId: string
 
   /**
-   * 批量创建的设备名数组，单次最多创建 100 个设备。命名规则：[a-zA-Z0-9:_-]{1,48}
+   * 设备名称
    */
-  DeviceNames: Array<string>
+  DeviceName: string
+
+  /**
+   * LoRa 设备端口
+   */
+  Port: number
+
+  /**
+   * 消息内容
+   */
+  Payload: string
 }
 
 /**
- * PublishToDevice返回参数结构体
+ * CancelDeviceFirmwareTask请求参数结构体
  */
-export interface PublishToDeviceResponse {
+export interface CancelDeviceFirmwareTaskRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 设备名称
+   */
+  DeviceName: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 固件升级任务ID
+   */
+  TaskId: number
+}
+
+/**
+ * CancelDeviceFirmwareTask返回参数结构体
+ */
+export interface CancelDeviceFirmwareTaskResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeMultiDevices返回参数结构体
+ */
+export interface DescribeMultiDevicesResponse {
+  /**
+   * 任务 ID，由批量创建设备接口返回
+   */
+  TaskId?: string
+
+  /**
+   * 设备详细信息列表
+   */
+  DevicesInfo?: Array<MultiDevicesInfo>
+
+  /**
+   * 该任务创建设备的总数
+   */
+  TotalDevNum?: number
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -2045,6 +2538,21 @@ export interface ResetDeviceResult {
 }
 
 /**
+ * 搜索关键词
+ */
+export interface SearchKeyword {
+  /**
+   * 搜索条件的Key
+   */
+  Key: string
+
+  /**
+   * 搜索条件的值
+   */
+  Value?: string
+}
+
+/**
  * DescribeDevices请求参数结构体
  */
 export interface DescribeDevicesRequest {
@@ -2090,6 +2598,41 @@ export interface DescribeDeviceClientKeyResponse {
 }
 
 /**
+ * UploadFirmware请求参数结构体
+ */
+export interface UploadFirmwareRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 固件的MD5值
+   */
+  Md5sum: string
+
+  /**
+   * 固件的大小
+   */
+  FileSize: number
+
+  /**
+   * 固件名称
+   */
+  FirmwareName?: string
+
+  /**
+   * 固件描述
+   */
+  FirmwareDescription?: string
+}
+
+/**
  * DisableTopicRule请求参数结构体
  */
 export interface DisableTopicRuleRequest {
@@ -2120,6 +2663,35 @@ export interface ResetDeviceStateResponse {
 }
 
 /**
+ * 固件升级任务信息
+ */
+export interface FirmwareTaskInfo {
+  /**
+      * 任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TaskId: number
+
+  /**
+      * 任务状态
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Status: number
+
+  /**
+      * 任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  Type: number
+
+  /**
+      * 任务创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateTime: number
+}
+
+/**
  * CreateTopicRule返回参数结构体
  */
 export interface CreateTopicRuleResponse {
@@ -2145,28 +2717,18 @@ export interface CreateTopicRuleRequest {
 }
 
 /**
- * PublishAsDevice请求参数结构体
+ * DescribeFirmwareTaskStatistics请求参数结构体
  */
-export interface PublishAsDeviceRequest {
+export interface DescribeFirmwareTaskStatisticsRequest {
   /**
    * 产品ID
    */
-  ProductId: string
+  ProductID: string
 
   /**
-   * 设备名称
+   * 固件版本号
    */
-  DeviceName: string
-
-  /**
-   * LoRa 设备端口
-   */
-  Port: number
-
-  /**
-   * 消息内容
-   */
-  Payload: string
+  FirmwareVersion: string
 }
 
 /**
@@ -2351,4 +2913,24 @@ export interface EnableTopicRuleRequest {
    * 规则名称
    */
   RuleName: string
+}
+
+/**
+ * DescribeFirmwareTask请求参数结构体
+ */
+export interface DescribeFirmwareTaskRequest {
+  /**
+   * 产品ID
+   */
+  ProductID: string
+
+  /**
+   * 固件版本号
+   */
+  FirmwareVersion: string
+
+  /**
+   * 固件任务ID
+   */
+  TaskId: number
 }

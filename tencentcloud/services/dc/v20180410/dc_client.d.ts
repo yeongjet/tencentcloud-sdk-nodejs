@@ -1,11 +1,20 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { RejectDirectConnectTunnelRequest, ModifyDirectConnectAttributeRequest, DeleteDirectConnectTunnelRequest, CreateDirectConnectResponse, DescribeAccessPointsResponse, AcceptDirectConnectTunnelResponse, DescribeDirectConnectTunnelsRequest, ModifyDirectConnectTunnelAttributeResponse, AcceptDirectConnectTunnelRequest, CreateDirectConnectTunnelRequest, DeleteDirectConnectResponse, DescribeDirectConnectsResponse, DescribeAccessPointsRequest, DescribeDirectConnectsRequest, ModifyDirectConnectTunnelAttributeRequest, CreateDirectConnectRequest, ModifyDirectConnectAttributeResponse, RejectDirectConnectTunnelResponse, CreateDirectConnectTunnelResponse, DeleteDirectConnectTunnelResponse, DeleteDirectConnectRequest, DescribeDirectConnectTunnelsResponse } from "./dc_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { RejectDirectConnectTunnelRequest, ModifyDirectConnectAttributeRequest, DeleteDirectConnectTunnelRequest, CreateDirectConnectResponse, DescribeDirectConnectTunnelExtraRequest, DescribePublicDirectConnectTunnelRoutesRequest, DescribeAccessPointsResponse, AcceptDirectConnectTunnelResponse, AcceptDirectConnectTunnelRequest, DescribeDirectConnectTunnelExtraResponse, ModifyDirectConnectTunnelAttributeResponse, CreateDirectConnectTunnelRequest, DeleteDirectConnectResponse, ModifyDirectConnectTunnelExtraResponse, DescribeDirectConnectsResponse, DescribeAccessPointsRequest, DescribeDirectConnectsRequest, DescribeDirectConnectTunnelsRequest, ModifyDirectConnectTunnelAttributeRequest, CreateDirectConnectRequest, ModifyDirectConnectAttributeResponse, ModifyDirectConnectTunnelExtraRequest, RejectDirectConnectTunnelResponse, CreateDirectConnectTunnelResponse, DeleteDirectConnectTunnelResponse, DeleteDirectConnectRequest, DescribeDirectConnectTunnelsResponse, DescribePublicDirectConnectTunnelRoutesResponse } from "./dc_models";
 /**
  * dc client
  * @class
  */
 export declare class Client extends AbstractClient {
     constructor(clientConfig: ClientConfig);
+    /**
+     * 本接口（DescribePublicDirectConnectTunnelRoutes）用于查询互联网通道路由列表
+     */
+    DescribePublicDirectConnectTunnelRoutes(req: DescribePublicDirectConnectTunnelRoutesRequest, cb?: (error: string, rep: DescribePublicDirectConnectTunnelRoutesResponse) => void): Promise<DescribePublicDirectConnectTunnelRoutesResponse>;
+    /**
+     * 本接口（ModifyDirectConnectTunnelExtra）用于修改专用通道扩展信息
+     */
+    ModifyDirectConnectTunnelExtra(req: ModifyDirectConnectTunnelExtraRequest, cb?: (error: string, rep: ModifyDirectConnectTunnelExtraResponse) => void): Promise<ModifyDirectConnectTunnelExtraResponse>;
     /**
      * 修改物理专线的属性。
      */
@@ -15,9 +24,13 @@ export declare class Client extends AbstractClient {
      */
     CreateDirectConnectTunnel(req: CreateDirectConnectTunnelRequest, cb?: (error: string, rep: CreateDirectConnectTunnelResponse) => void): Promise<CreateDirectConnectTunnelResponse>;
     /**
-     * 删除物理专线。
-只能删除处于已连接状态的物理专线。
+     * 本接口（DescribeDirectConnectTunnelExtra）用于查询专用通道扩展信息
      */
+    DescribeDirectConnectTunnelExtra(req: DescribeDirectConnectTunnelExtraRequest, cb?: (error: string, rep: DescribeDirectConnectTunnelExtraResponse) => void): Promise<DescribeDirectConnectTunnelExtraResponse>;
+    /**
+       * 删除物理专线。
+  只能删除处于已连接状态的物理专线。
+       */
     DeleteDirectConnect(req: DeleteDirectConnectRequest, cb?: (error: string, rep: DeleteDirectConnectResponse) => void): Promise<DeleteDirectConnectResponse>;
     /**
      * 接受专用通道申请
@@ -28,20 +41,20 @@ export declare class Client extends AbstractClient {
      */
     DeleteDirectConnectTunnel(req: DeleteDirectConnectTunnelRequest, cb?: (error: string, rep: DeleteDirectConnectTunnelResponse) => void): Promise<DeleteDirectConnectTunnelResponse>;
     /**
-     * 查询物理专线接入点
-
-     */
+       * 查询物理专线接入点
+  
+       */
     DescribeAccessPoints(req: DescribeAccessPointsRequest, cb?: (error: string, rep: DescribeAccessPointsResponse) => void): Promise<DescribeAccessPointsResponse>;
     /**
      * 用于查询专用通道列表。
      */
     DescribeDirectConnectTunnels(req: DescribeDirectConnectTunnelsRequest, cb?: (error: string, rep: DescribeDirectConnectTunnelsResponse) => void): Promise<DescribeDirectConnectTunnelsResponse>;
     /**
-     * 申请物理专线接入。
-调用该接口时，请注意：
-账号要进行实名认证，否则不允许申请物理专线；
-若账户下存在欠费状态的物理专线，则不能申请更多的物理专线。
-     */
+       * 申请物理专线接入。
+  调用该接口时，请注意：
+  账号要进行实名认证，否则不允许申请物理专线；
+  若账户下存在欠费状态的物理专线，则不能申请更多的物理专线。
+       */
     CreateDirectConnect(req: CreateDirectConnectRequest, cb?: (error: string, rep: CreateDirectConnectResponse) => void): Promise<CreateDirectConnectResponse>;
     /**
      * 拒绝专用通道申请

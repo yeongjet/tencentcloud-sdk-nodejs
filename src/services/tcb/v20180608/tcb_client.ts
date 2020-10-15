@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   CreateHostingDomainResponse,
   CreateStaticStoreResponse,
@@ -24,61 +25,72 @@ import {
   CheckTcbServiceResponse,
   DescribeEndUserLoginStatisticRequest,
   StorageInfo,
-  LoginStatistic,
-  PostpayEnvQuota,
+  DescribeCloudBaseRunVersionSnapshotRequest,
+  KVPair,
   FunctionInfo,
   CreatePostpayPackageResponse,
   CommonServiceAPIRequest,
+  PostpayEnvQuota,
   DescribeEndUsersResponse,
   AuthDomain,
   LogServiceInfo,
+  DescribeEnvLimitResponse,
   CreateStaticStoreRequest,
   CommonServiceAPIResponse,
   DescribeEndUserStatisticResponse,
+  DescribeExtraPkgBillingInfoResponse,
+  ReinstateEnvResponse,
   DescribePostpayPackageFreeQuotasRequest,
   CreateAuthDomainResponse,
+  DescribeCloudBaseBuildServiceResponse,
   ModifyEnvRequest,
   DescribeEndUsersRequest,
+  DescribeDownloadFileRequest,
   DescribeEnvsRequest,
   DescribeQuotaDataRequest,
-  ReinstateEnvResponse,
+  DescribeCloudBaseBuildServiceRequest,
   DescribeEndUserStatisticRequest,
   PackageFreeQuotaInfo,
-  DescribeEnvFreeQuotaResponse,
+  CloudBaseCodeRepoDetail,
   CheckTcbServiceRequest,
   ModifyDatabaseACLResponse,
   StaticStorageInfo,
-  DescribeExtraPkgBillingInfoResponse,
+  CloudRunServiceSimpleVersionSnapshot,
   DescribeExtraPkgBillingInfoRequest,
   CreatePostpayPackageRequest,
   DescribeEnvFreeQuotaRequest,
   DatabasesInfo,
+  LoginStatistic,
   DescribeAuthDomainsRequest,
-  DeleteEndUserRequest,
+  DescribeEndUserLoginStatisticResponse,
   DescribeAuthDomainsResponse,
   ReinstateEnvRequest,
   DescribeDatabaseACLRequest,
+  PlatformStatistic,
   CreateHostingDomainRequest,
   DestroyStaticStoreResponse,
   DeleteEndUserResponse,
   EnvBillingInfoItem,
-  PlatformStatistic,
+  DescribeEnvFreeQuotaResponse,
+  ModifyEnvResponse,
   ModifyEndUserRequest,
   DescribeDatabaseACLResponse,
   EnvInfo,
-  DestroyEnvRequest,
+  CloudBaseRunImageInfo,
   DestroyEnvResponse,
   ModifyDatabaseACLRequest,
   DestroyStaticStoreRequest,
   ModifyEndUserResponse,
   EndUserInfo,
-  DescribeEnvLimitResponse,
+  DescribeCloudBaseRunVersionSnapshotResponse,
   DescribePostpayPackageFreeQuotasResponse,
-  DescribeEndUserLoginStatisticResponse,
-  DescribeEnvsResponse,
-  ModifyEnvResponse,
+  DeleteEndUserRequest,
   OrderInfo,
+  DescribeEnvsResponse,
+  CloudBaseCodeRepoName,
+  DescribeDownloadFileResponse,
   CreateAuthDomainRequest,
+  DestroyEnvRequest,
 } from "./tcb_models"
 
 /**
@@ -111,6 +123,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 获取环境列表，含环境下的各个资源信息。尤其是各资源的唯一标识，是请求各资源的关键参数
+   */
+  async DescribeEnvs(
+    req: DescribeEnvsRequest,
+    cb?: (error: string, rep: DescribeEnvsResponse) => void
+  ): Promise<DescribeEnvsResponse> {
+    return this.request("DescribeEnvs", req, cb)
+  }
+
+  /**
    * 增加安全域名
    */
   async CreateAuthDomain(
@@ -118,6 +140,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateAuthDomainResponse) => void
   ): Promise<CreateAuthDomainResponse> {
     return this.request("CreateAuthDomain", req, cb)
+  }
+
+  /**
+   * 获取下载文件信息
+   */
+  async DescribeDownloadFile(
+    req: DescribeDownloadFileRequest,
+    cb?: (error: string, rep: DescribeDownloadFileResponse) => void
+  ): Promise<DescribeDownloadFileResponse> {
+    return this.request("DescribeDownloadFile", req, cb)
   }
 
   /**
@@ -271,13 +303,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 获取环境列表，含环境下的各个资源信息。尤其是各资源的唯一标识，是请求各资源的关键参数
+   * 获取云托管代码上传url
    */
-  async DescribeEnvs(
-    req: DescribeEnvsRequest,
-    cb?: (error: string, rep: DescribeEnvsResponse) => void
-  ): Promise<DescribeEnvsResponse> {
-    return this.request("DescribeEnvs", req, cb)
+  async DescribeCloudBaseBuildService(
+    req: DescribeCloudBaseBuildServiceRequest,
+    cb?: (error: string, rep: DescribeCloudBaseBuildServiceResponse) => void
+  ): Promise<DescribeCloudBaseBuildServiceResponse> {
+    return this.request("DescribeCloudBaseBuildService", req, cb)
+  }
+
+  /**
+   * 查询版本历史
+   */
+  async DescribeCloudBaseRunVersionSnapshot(
+    req: DescribeCloudBaseRunVersionSnapshotRequest,
+    cb?: (error: string, rep: DescribeCloudBaseRunVersionSnapshotResponse) => void
+  ): Promise<DescribeCloudBaseRunVersionSnapshotResponse> {
+    return this.request("DescribeCloudBaseRunVersionSnapshot", req, cb)
   }
 
   /**

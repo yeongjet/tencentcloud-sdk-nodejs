@@ -15,25 +15,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribeMsApiListRequest,
   TsfApiListResponse,
   DescribeGroupInstancesResponse,
   DescribeMsApiListResponse,
+  EnableTaskRequest,
+  DisableTaskFlowResponse,
   DescribeDownloadInfoRequest,
   ApiDetailResponse,
   ImageTag,
   DescribePublicConfigSummaryRequest,
   DescribeClusterInstancesResponse,
+  DisableTaskResponse,
   DescribeMicroserviceRequest,
   CosCredentials,
+  HealthCheckSetting,
   DescribeContainerGroupsRequest,
+  RedoTaskBatchResponse,
+  TerminateTaskFlowBatchRequest,
   ExpandGroupRequest,
   DeleteServerlessGroupRequest,
   DescribeImageTagsRequest,
   ModifyLaneRuleResponse,
   DescribeSimpleClustersResponse,
+  TaskRule,
   DescribePodInstancesResponse,
   VmGroup,
   DescribeRepositoryResponse,
@@ -49,20 +57,26 @@ import {
   CreateGroupRequest,
   ModifyMicroserviceRequest,
   DescribeConfigReleasesRequest,
+  ShardArgument,
   DeleteLaneResponse,
+  StopTaskBatchResponse,
+  DescribeSimpleNamespacesResponse,
   ModifyLaneResponse,
   TsfPageConfigRelease,
   CreateContainGroupResponse,
   DescribeContainerGroupDetailResponse,
+  DisableTaskRequest,
+  DescribePkgsResponse,
   SimpleApplication,
   DescribePublicConfigSummaryResponse,
-  HealthCheckSetting,
+  DescribeLaneRulesRequest,
   DescribeSimpleApplicationsResponse,
   DeleteRepositoryResponse,
   DescribePublicConfigReleaseLogsRequest,
   CreateServerlessGroupResponse,
   CreateLaneRequest,
   DeleteApplicationResponse,
+  DescribeBasicResourceUsageResponse,
   UpdateRepositoryRequest,
   Instance,
   DeployServerlessGroupResponse,
@@ -71,11 +85,14 @@ import {
   DescribeApplicationsResponse,
   VmGroupSimple,
   ModifyContainerReplicasRequest,
+  TerminateTaskFlowBatchResponse,
+  ExecuteTaskFlowRequest,
   ModifyLaneRequest,
   DescribeLanesRequest,
   DeleteMicroserviceRequest,
   CreatePublicConfigRequest,
   RemoveInstancesResponse,
+  StopContainerGroupResponse,
   DescribeApiVersionsRequest,
   ModifyContainerReplicasResponse,
   DescribeConfigRequest,
@@ -83,6 +100,7 @@ import {
   TsfPageCluster,
   DescribeGroupResponse,
   DescribeGroupsResponse,
+  TaskId,
   Env,
   DeleteContainerGroupResponse,
   DescribeSimpleGroupsRequest,
@@ -93,27 +111,36 @@ import {
   DescribeImageTagsResponse,
   DeleteGroupRequest,
   ApiDefinitionDescr,
+  ExecuteTaskRequest,
+  RedoTaskFlowBatchRequest,
   TsfPageMsInstance,
+  StopTaskBatchRequest,
   ServerlessGroup,
   DescribeApplicationResponse,
   LaneInfo,
   DescribeConfigReleaseLogsResponse,
   RevocationConfigResponse,
   DescribeSimpleGroupsResponse,
+  StopTaskExecuteRequest,
+  DescribeFlowLastBatchStateRequest,
   ContainerGroupDetail,
   DeletePublicConfigRequest,
+  TaskLastExecuteStatus,
   DeleteNamespaceResponse,
   CreateMicroserviceRequest,
   DescribePkgsRequest,
   ReleaseConfigResponse,
   RemoveInstancesRequest,
+  DisableTaskFlowRequest,
   ShrinkInstancesRequest,
   ShrinkInstancesResponse,
   DeleteImageTagsRequest,
   DescribeRepositoriesRequest,
   DescribeApplicationAttributeRequest,
   DescribePodInstancesRequest,
-  TsfPageSimpleGroup,
+  DescribeTaskLastStatusRequest,
+  OverviewBasicResourceUsage,
+  CreateTaskRequest,
   DescribeConfigsRequest,
   OperationInfo,
   AddClusterInstancesRequest,
@@ -125,21 +152,25 @@ import {
   DescribeSimpleApplicationsRequest,
   DescribeConfigResponse,
   DescribeSimpleNamespacesRequest,
+  ExecuteTaskFlowResponse,
   LaneRule,
   MsInstance,
   ExpandGroupResponse,
   DescribeServerlessGroupsResponse,
   DescribePublicConfigsResponse,
+  ServerlessGroupPage,
   ModifyLaneRuleRequest,
   AddInstancesResponse,
   DeleteApplicationRequest,
-  RevocationPublicConfigRequest,
+  ContinueRunFailedTaskBatchResponse,
   DescribeSimpleClustersRequest,
   StartContainerGroupRequest,
   DeleteConfigRequest,
   DescribePublicConfigReleaseLogsResponse,
+  DeleteTaskRequest,
   HealthCheckSettings,
   ServiceSetting,
+  ExecuteTaskResponse,
   ApiResponseDescr,
   DeployServerlessGroupRequest,
   Config,
@@ -147,6 +178,7 @@ import {
   DeletePublicConfigResponse,
   ApiRequestDescr,
   CreateMicroserviceResponse,
+  ReleasePublicConfigResponse,
   ApiVersionArray,
   CreateClusterRequest,
   StopGroupRequest,
@@ -155,28 +187,34 @@ import {
   CosUploadInfo,
   ConfigRelease,
   DeleteContainerGroupRequest,
-  DescribeContainerGroupDetailRequest,
+  AdvanceSettings,
   ReleaseConfigRequest,
   CreateConfigRequest,
   MsApiArray,
   CreateNamespaceRequest,
+  DescribeContainerGroupDetailRequest,
   DescribeApiDetailRequest,
   DescribeUploadInfoRequest,
   DescribeClusterInstancesRequest,
   StopContainerGroupRequest,
   DescribeRepositoryRequest,
+  RevocationPublicConfigRequest,
+  TaskFlowLastBatchState,
   PropertyField,
   TsfPageApplication,
   DescribeGroupRequest,
+  RedoTaskRequest,
   ImageTagsResult,
   RepositoryInfo,
-  StopContainerGroupResponse,
+  EnableTaskFlowRequest,
   CreateLaneResponse,
   DescribeServerlessGroupRequest,
   TsfPageVmGroup,
   AddInstanceResult,
-  DescribePkgsResponse,
-  DescribeSimpleNamespacesResponse,
+  DescribeFlowLastBatchStateResponse,
+  ContinueRunFailedTaskBatchRequest,
+  StopTaskExecuteResponse,
+  EnableTaskFlowResponse,
   ApplicationAttribute,
   DeleteImageTag,
   DeletePkgsResponse,
@@ -208,14 +246,16 @@ import {
   PkgInfo,
   RepositoryList,
   CreateLaneRuleResponse,
-  DescribeConfigReleaseLogsRequest,
+  CreateTaskResponse,
   DescribeApiDetailResponse,
   DescribeGroupsRequest,
+  DescribeTaskLastStatusResponse,
   ModifyContainerGroupRequest,
   UpdateRepositoryResponse,
   TsfPageMicroservice,
   DescribePublicConfigsRequest,
   AddInstancesRequest,
+  RedoTaskResponse,
   StartGroupRequest,
   LaneRuleTag,
   RollbackConfigResponse,
@@ -227,9 +267,10 @@ import {
   SimpleGroup,
   DeleteNamespaceRequest,
   PkgBind,
-  DescribeLaneRulesRequest,
+  DeleteTaskResponse,
   DeployGroupRequest,
   LaneInfos,
+  RedoTaskBatchRequest,
   CreateServerlessGroupRequest,
   DescribeMicroserviceResponse,
   DeleteGroupResponse,
@@ -238,9 +279,10 @@ import {
   DescribeServerlessGroupsRequest,
   DeployContainerGroupRequest,
   CosDownloadInfo,
+  TsfPageSimpleGroup,
   DeletePkgsRequest,
   TsfPageInstance,
-  ServerlessGroupPage,
+  DescribeConfigReleaseLogsRequest,
   DescribeConfigSummaryResponse,
   CreateContainGroupRequest,
   ContainGroup,
@@ -253,12 +295,13 @@ import {
   DeleteLaneRequest,
   DeployGroupResponse,
   ModifyContainerGroupResponse,
-  ReleasePublicConfigResponse,
+  EnableTaskResponse,
   ReleasePublicConfigRequest,
   DescribeServerlessGroupResponse,
   LaneGroup,
-  TaskId,
+  DescribeBasicResourceUsageRequest,
   TsfPageConfig,
+  RedoTaskFlowBatchResponse,
   RevocationPublicConfigResponse,
   DescribeGroupInstancesRequest,
   CreateGroupResponse,
@@ -271,6 +314,16 @@ import {
 export class Client extends AbstractClient {
   constructor(clientConfig: ClientConfig) {
     super("tsf.tencentcloudapi.com", "2018-03-26", clientConfig)
+  }
+
+  /**
+   * 创建任务
+   */
+  async CreateTask(
+    req: CreateTaskRequest,
+    cb?: (error: string, rep: CreateTaskResponse) => void
+  ): Promise<CreateTaskResponse> {
+    return this.request("CreateTask", req, cb)
   }
 
   /**
@@ -291,6 +344,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateClusterResponse) => void
   ): Promise<CreateClusterResponse> {
     return this.request("CreateCluster", req, cb)
+  }
+
+  /**
+   * 对执行失败的任务批次执行续跑
+   */
+  async ContinueRunFailedTaskBatch(
+    req: ContinueRunFailedTaskBatchRequest,
+    cb?: (error: string, rep: ContinueRunFailedTaskBatchResponse) => void
+  ): Promise<ContinueRunFailedTaskBatchResponse> {
+    return this.request("ContinueRunFailedTaskBatch", req, cb)
   }
 
   /**
@@ -324,6 +387,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 撤回已发布的公共配置
+   */
+  async RevocationPublicConfig(
+    req: RevocationPublicConfigRequest,
+    cb?: (error: string, rep: RevocationPublicConfigResponse) => void
+  ): Promise<RevocationPublicConfigResponse> {
+    return this.request("RevocationPublicConfig", req, cb)
+  }
+
+  /**
    * 创建命名空间
    */
   async CreateNamespace(
@@ -344,6 +417,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 重新执行工作流批次
+   */
+  async RedoTaskFlowBatch(
+    req: RedoTaskFlowBatchRequest,
+    cb?: (error: string, rep: RedoTaskFlowBatchResponse) => void
+  ): Promise<RedoTaskFlowBatchResponse> {
+    return this.request("RedoTaskFlowBatch", req, cb)
+  }
+
+  /**
    * 查询公共配置汇总列表
    */
   async DescribePublicConfigSummary(
@@ -354,13 +437,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 容器部署组列表
+   * 查询仓库列表
    */
-  async DescribeContainerGroups(
-    req: DescribeContainerGroupsRequest,
-    cb?: (error: string, rep: DescribeContainerGroupsResponse) => void
-  ): Promise<DescribeContainerGroupsResponse> {
-    return this.request("DescribeContainerGroups", req, cb)
+  async DescribeRepositories(
+    req: DescribeRepositoriesRequest,
+    cb?: (error: string, rep: DescribeRepositoriesResponse) => void
+  ): Promise<DescribeRepositoriesResponse> {
+    return this.request("DescribeRepositories", req, cb)
   }
 
   /**
@@ -374,6 +457,26 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 停用任务
+   */
+  async DisableTask(
+    req: DisableTaskRequest,
+    cb?: (error: string, rep: DisableTaskResponse) => void
+  ): Promise<DisableTaskResponse> {
+    return this.request("DisableTask", req, cb)
+  }
+
+  /**
+   * 批量删除镜像版本
+   */
+  async DeleteImageTags(
+    req: DeleteImageTagsRequest,
+    cb?: (error: string, rep: DeleteImageTagsResponse) => void
+  ): Promise<DeleteImageTagsResponse> {
+    return this.request("DeleteImageTags", req, cb)
+  }
+
+  /**
    * 查询配置
    */
   async DescribeConfig(
@@ -381,6 +484,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribeConfigResponse) => void
   ): Promise<DescribeConfigResponse> {
     return this.request("DescribeConfig", req, cb)
+  }
+
+  /**
+   * 停止正在某个节点上执行的任务
+   */
+  async StopTaskExecute(
+    req: StopTaskExecuteRequest,
+    cb?: (error: string, rep: StopTaskExecuteResponse) => void
+  ): Promise<StopTaskExecuteResponse> {
+    return this.request("StopTaskExecute", req, cb)
   }
 
   /**
@@ -465,23 +578,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 撤回已发布的公共配置
+   * 容器部署组列表
    */
-  async RevocationPublicConfig(
-    req: RevocationPublicConfigRequest,
-    cb?: (error: string, rep: RevocationPublicConfigResponse) => void
-  ): Promise<RevocationPublicConfigResponse> {
-    return this.request("RevocationPublicConfig", req, cb)
+  async DescribeContainerGroups(
+    req: DescribeContainerGroupsRequest,
+    cb?: (error: string, rep: DescribeContainerGroupsResponse) => void
+  ): Promise<DescribeContainerGroupsResponse> {
+    return this.request("DescribeContainerGroups", req, cb)
   }
 
   /**
-   * 批量删除镜像版本
+   * 停用工作流
    */
-  async DeleteImageTags(
-    req: DeleteImageTagsRequest,
-    cb?: (error: string, rep: DeleteImageTagsResponse) => void
-  ): Promise<DeleteImageTagsResponse> {
-    return this.request("DeleteImageTags", req, cb)
+  async DisableTaskFlow(
+    req: DisableTaskFlowRequest,
+    cb?: (error: string, rep: DisableTaskFlowResponse) => void
+  ): Promise<DisableTaskFlowResponse> {
+    return this.request("DisableTaskFlow", req, cb)
   }
 
   /**
@@ -526,13 +639,13 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 查询公共配置（单条）
+   * 查询简单应用列表
    */
-  async DescribePublicConfig(
-    req: DescribePublicConfigRequest,
-    cb?: (error: string, rep: DescribePublicConfigResponse) => void
-  ): Promise<DescribePublicConfigResponse> {
-    return this.request("DescribePublicConfig", req, cb)
+  async DescribeSimpleApplications(
+    req: DescribeSimpleApplicationsRequest,
+    cb?: (error: string, rep: DescribeSimpleApplicationsResponse) => void
+  ): Promise<DescribeSimpleApplicationsResponse> {
+    return this.request("DescribeSimpleApplications", req, cb)
   }
 
   /**
@@ -546,6 +659,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 执行一次任务。
+   */
+  async ExecuteTask(
+    req: ExecuteTaskRequest,
+    cb?: (error: string, rep: ExecuteTaskResponse) => void
+  ): Promise<ExecuteTaskResponse> {
+    return this.request("ExecuteTask", req, cb)
+  }
+
+  /**
    * 查询简单命名空间列表
    */
   async DescribeSimpleNamespaces(
@@ -556,13 +679,13 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 删除微服务
+   * 创建Serverless部署组
    */
-  async DeleteMicroservice(
-    req: DeleteMicroserviceRequest,
-    cb?: (error: string, rep: DeleteMicroserviceResponse) => void
-  ): Promise<DeleteMicroserviceResponse> {
-    return this.request("DeleteMicroservice", req, cb)
+  async CreateServerlessGroup(
+    req: CreateServerlessGroupRequest,
+    cb?: (error: string, rep: CreateServerlessGroupResponse) => void
+  ): Promise<CreateServerlessGroupResponse> {
+    return this.request("CreateServerlessGroup", req, cb)
   }
 
   /**
@@ -606,6 +729,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 停止一个工作流批次
+   */
+  async TerminateTaskFlowBatch(
+    req: TerminateTaskFlowBatchRequest,
+    cb?: (error: string, rep: TerminateTaskFlowBatchResponse) => void
+  ): Promise<TerminateTaskFlowBatchResponse> {
+    return this.request("TerminateTaskFlowBatch", req, cb)
+  }
+
+  /**
    * 获取虚拟机部署组列表
    */
   async DescribeGroups(
@@ -613,16 +746,6 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
     cb?: (error: string, rep: DescribeGroupsResponse) => void
   ): Promise<DescribeGroupsResponse> {
     return this.request("DescribeGroups", req, cb)
-  }
-
-  /**
-   * 查询仓库列表
-   */
-  async DescribeRepositories(
-    req: DescribeRepositoriesRequest,
-    cb?: (error: string, rep: DescribeRepositoriesResponse) => void
-  ): Promise<DescribeRepositoriesResponse> {
-    return this.request("DescribeRepositories", req, cb)
   }
 
   /**
@@ -666,16 +789,6 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 创建Serverless部署组
-   */
-  async CreateServerlessGroup(
-    req: CreateServerlessGroupRequest,
-    cb?: (error: string, rep: CreateServerlessGroupResponse) => void
-  ): Promise<CreateServerlessGroupResponse> {
-    return this.request("CreateServerlessGroup", req, cb)
-  }
-
-  /**
    * 添加云主机节点至TSF集群
    */
   async AddInstances(
@@ -696,6 +809,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 重新执行任务
+   */
+  async RedoTask(
+    req: RedoTaskRequest,
+    cb?: (error: string, rep: RedoTaskResponse) => void
+  ): Promise<RedoTaskResponse> {
+    return this.request("RedoTask", req, cb)
+  }
+
+  /**
    * 无
    */
   async DescribePkgs(
@@ -706,23 +829,23 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 查询简单应用列表
+   * 查询公共配置（单条）
    */
-  async DescribeSimpleApplications(
-    req: DescribeSimpleApplicationsRequest,
-    cb?: (error: string, rep: DescribeSimpleApplicationsResponse) => void
-  ): Promise<DescribeSimpleApplicationsResponse> {
-    return this.request("DescribeSimpleApplications", req, cb)
+  async DescribePublicConfig(
+    req: DescribePublicConfigRequest,
+    cb?: (error: string, rep: DescribePublicConfigResponse) => void
+  ): Promise<DescribePublicConfigResponse> {
+    return this.request("DescribePublicConfig", req, cb)
   }
 
   /**
-   * 删除容器部署组
+   * 启动容器部署组
    */
-  async DeleteGroup(
-    req: DeleteGroupRequest,
-    cb?: (error: string, rep: DeleteGroupResponse) => void
-  ): Promise<DeleteGroupResponse> {
-    return this.request("DeleteGroup", req, cb)
+  async StartContainerGroup(
+    req: StartContainerGroupRequest,
+    cb?: (error: string, rep: StartContainerGroupResponse) => void
+  ): Promise<StartContainerGroupResponse> {
+    return this.request("StartContainerGroup", req, cb)
   }
 
   /**
@@ -743,6 +866,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
     cb?: (error: string, rep: CreateGroupResponse) => void
   ): Promise<CreateGroupResponse> {
     return this.request("CreateGroup", req, cb)
+  }
+
+  /**
+   * 查询任务最近一次执行状态
+   */
+  async DescribeTaskLastStatus(
+    req: DescribeTaskLastStatusRequest,
+    cb?: (error: string, rep: DescribeTaskLastStatusResponse) => void
+  ): Promise<DescribeTaskLastStatusResponse> {
+    return this.request("DescribeTaskLastStatus", req, cb)
   }
 
   /**
@@ -777,13 +910,23 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 启动容器部署组
+   * 启用任务
    */
-  async StartContainerGroup(
-    req: StartContainerGroupRequest,
-    cb?: (error: string, rep: StartContainerGroupResponse) => void
-  ): Promise<StartContainerGroupResponse> {
-    return this.request("StartContainerGroup", req, cb)
+  async EnableTask(
+    req: EnableTaskRequest,
+    cb?: (error: string, rep: EnableTaskResponse) => void
+  ): Promise<EnableTaskResponse> {
+    return this.request("EnableTask", req, cb)
+  }
+
+  /**
+   * 删除容器部署组
+   */
+  async DeleteGroup(
+    req: DeleteGroupRequest,
+    cb?: (error: string, rep: DeleteGroupResponse) => void
+  ): Promise<DeleteGroupResponse> {
+    return this.request("DeleteGroup", req, cb)
   }
 
   /**
@@ -804,6 +947,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
     cb?: (error: string, rep: ExpandGroupResponse) => void
   ): Promise<ExpandGroupResponse> {
     return this.request("ExpandGroup", req, cb)
+  }
+
+  /**
+   * 删除任务
+   */
+  async DeleteTask(
+    req: DeleteTaskRequest,
+    cb?: (error: string, rep: DeleteTaskResponse) => void
+  ): Promise<DeleteTaskResponse> {
+    return this.request("DeleteTask", req, cb)
   }
 
   /**
@@ -877,6 +1030,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 启用工作流
+   */
+  async EnableTaskFlow(
+    req: EnableTaskFlowRequest,
+    cb?: (error: string, rep: EnableTaskFlowResponse) => void
+  ): Promise<EnableTaskFlowResponse> {
+    return this.request("EnableTaskFlow", req, cb)
+  }
+
+  /**
    * 查询服务API列表
    */
   async DescribeMsApiList(
@@ -894,6 +1057,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
     cb?: (error: string, rep: CreateApplicationResponse) => void
   ): Promise<CreateApplicationResponse> {
     return this.request("CreateApplication", req, cb)
+  }
+
+  /**
+   * 重新执行任务批次
+   */
+  async RedoTaskBatch(
+    req: RedoTaskBatchRequest,
+    cb?: (error: string, rep: RedoTaskBatchResponse) => void
+  ): Promise<RedoTaskBatchResponse> {
+    return this.request("RedoTaskBatch", req, cb)
   }
 
   /**
@@ -917,6 +1090,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 执行一次工作流
+   */
+  async ExecuteTaskFlow(
+    req: ExecuteTaskFlowRequest,
+    cb?: (error: string, rep: ExecuteTaskFlowResponse) => void
+  ): Promise<ExecuteTaskFlowResponse> {
+    return this.request("ExecuteTaskFlow", req, cb)
+  }
+
+  /**
    * 查询微服务详情
    */
   async DescribeMicroservice(
@@ -934,6 +1117,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
     cb?: (error: string, rep: DeleteServerlessGroupResponse) => void
   ): Promise<DeleteServerlessGroupResponse> {
     return this.request("DeleteServerlessGroup", req, cb)
+  }
+
+  /**
+   * 查询工作流最新一个批次的状态信息
+   */
+  async DescribeFlowLastBatchState(
+    req: DescribeFlowLastBatchStateRequest,
+    cb?: (error: string, rep: DescribeFlowLastBatchStateResponse) => void
+  ): Promise<DescribeFlowLastBatchStateResponse> {
+    return this.request("DescribeFlowLastBatchState", req, cb)
   }
 
   /**
@@ -957,6 +1150,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 查询虚拟机部署组详情
+   */
+  async DescribeGroup(
+    req: DescribeGroupRequest,
+    cb?: (error: string, rep: DescribeGroupResponse) => void
+  ): Promise<DescribeGroupResponse> {
+    return this.request("DescribeGroup", req, cb)
+  }
+
+  /**
    * 删除应用
    */
   async DeleteApplication(
@@ -967,13 +1170,23 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 删除命名空间
+   * 删除微服务
    */
-  async DeleteNamespace(
-    req: DeleteNamespaceRequest,
-    cb?: (error: string, rep: DeleteNamespaceResponse) => void
-  ): Promise<DeleteNamespaceResponse> {
-    return this.request("DeleteNamespace", req, cb)
+  async DeleteMicroservice(
+    req: DeleteMicroserviceRequest,
+    cb?: (error: string, rep: DeleteMicroserviceResponse) => void
+  ): Promise<DeleteMicroserviceResponse> {
+    return this.request("DeleteMicroservice", req, cb)
+  }
+
+  /**
+   * TSF基本资源信息概览接口
+   */
+  async DescribeBasicResourceUsage(
+    req?: DescribeBasicResourceUsageRequest,
+    cb?: (error: string, rep: DescribeBasicResourceUsageResponse) => void
+  ): Promise<DescribeBasicResourceUsageResponse> {
+    return this.request("DescribeBasicResourceUsage", req, cb)
   }
 
   /**
@@ -997,6 +1210,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
+   * 停止执行中的任务批次， 非运行中的任务不可调用。
+   */
+  async StopTaskBatch(
+    req: StopTaskBatchRequest,
+    cb?: (error: string, rep: StopTaskBatchResponse) => void
+  ): Promise<StopTaskBatchResponse> {
+    return this.request("StopTaskBatch", req, cb)
+  }
+
+  /**
    * 获取微服务列表
    */
   async DescribeMicroservices(
@@ -1017,13 +1240,13 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
   }
 
   /**
-   * 查询虚拟机部署组详情
+   * 删除命名空间
    */
-  async DescribeGroup(
-    req: DescribeGroupRequest,
-    cb?: (error: string, rep: DescribeGroupResponse) => void
-  ): Promise<DescribeGroupResponse> {
-    return this.request("DescribeGroup", req, cb)
+  async DeleteNamespace(
+    req: DeleteNamespaceRequest,
+    cb?: (error: string, rep: DeleteNamespaceResponse) => void
+  ): Promise<DeleteNamespaceResponse> {
+    return this.request("DeleteNamespace", req, cb)
   }
 
   /**

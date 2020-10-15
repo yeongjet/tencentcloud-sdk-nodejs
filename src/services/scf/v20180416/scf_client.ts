@@ -15,10 +15,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   AccessInfo,
   Trigger,
+  ListTriggersResponse,
   ListAliasesResponse,
   DeleteLayerVersionResponse,
   GetAliasResponse,
@@ -48,7 +50,7 @@ import {
   PublicNetConfigOut,
   UpdateFunctionCodeRequest,
   UpdateFunctionConfigurationRequest,
-  ListTriggersResponse,
+  StatusReason,
   UpdateNamespaceResponse,
   ListLayersRequest,
   CopyFunctionRequest,

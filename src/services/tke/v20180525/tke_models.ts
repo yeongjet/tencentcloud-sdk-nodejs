@@ -1419,6 +1419,16 @@ export interface InstanceExtraArgs {
 }
 
 /**
+ * AcquireClusterAdminRole请求参数结构体
+ */
+export interface AcquireClusterAdminRoleRequest {
+  /**
+   * 集群ID
+   */
+  ClusterId: string
+}
+
+/**
  * CreateClusterAsGroup返回参数结构体
  */
 export interface CreateClusterAsGroupResponse {
@@ -1606,6 +1616,16 @@ export interface ClusterAdvancedSettings {
    * 审计日志上传到的topic
    */
   AuditLogTopicId?: string
+}
+
+/**
+ * AcquireClusterAdminRole返回参数结构体
+ */
+export interface AcquireClusterAdminRoleResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**

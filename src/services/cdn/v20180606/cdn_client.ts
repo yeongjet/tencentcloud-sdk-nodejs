@@ -15,10 +15,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribeCdnDomainLogsResponse,
   ScdnTopUrlData,
+  ScdnLogTaskDetail,
   DescribeCdnDomainLogsRequest,
   Compression,
   Revalidate,
@@ -48,7 +50,7 @@ import {
   AccessControl,
   DeleteCdnDomainRequest,
   DescribePayTypeResponse,
-  VerifyDomainRecordResponse,
+  PathRule,
   ListTopDataRequest,
   ListClsTopicDomainsRequest,
   DescribeDomainsResponse,
@@ -57,6 +59,7 @@ import {
   CompressionRule,
   GuetzliAdapter,
   Origin,
+  ViolationUrl,
   TopData,
   EnableCachesRequest,
   Quota,
@@ -86,13 +89,14 @@ import {
   OverseaConfig,
   AddCdnDomainRequest,
   UserAgentFilterRule,
-  TopDetailData,
+  Tag,
   CacheConfigFollowOrigin,
   MaxAgeRule,
   DescribePayTypeRequest,
   DescribeCertDomainsRequest,
   DescribeDomainsConfigRequest,
   AdvancedCache,
+  DeleteScdnDomainRequest,
   WebpAdapter,
   CreateScdnLogTaskResponse,
   MapInfo,
@@ -120,12 +124,13 @@ import {
   ResponseHeader,
   CdnIpHistory,
   SummarizedData,
+  VerifyDomainRecordResponse,
   ManageClsTopicDomainsRequest,
   Cache,
   ForceRedirect,
   DescribeOriginDataRequest,
   RangeOriginPull,
-  ViolationUrl,
+  ListScdnLogTasksRequest,
   SearchClsLogResponse,
   PushUrlsCacheRequest,
   MainlandConfig,
@@ -145,6 +150,7 @@ import {
   EnableCachesResponse,
   RuleQueryString,
   DescribeIpVisitRequest,
+  HttpHeaderRule,
   StatusCodeCacheRule,
   ClientCert,
   ScdnTopData,
@@ -160,6 +166,7 @@ import {
   AdvanceCacheRule,
   DescribeIpStatusResponse,
   DescribeDistrictIspDataRequest,
+  ListScdnLogTasksResponse,
   CacheKey,
   UrlRedirect,
   DownstreamCapping,
@@ -167,6 +174,7 @@ import {
   VerifyDomainRecordRequest,
   KeyRule,
   CappingRule,
+  DeleteScdnDomainResponse,
   ListClsLogTopicsRequest,
   Seo,
   BandwidthAlert,
@@ -183,6 +191,7 @@ import {
   TimestampData,
   StartCdnDomainResponse,
   DescribePushQuotaRequest,
+  TopDetailData,
   ResponseHeaderCache,
   ResourceBillingData,
   Sort,
@@ -218,6 +227,7 @@ import {
   CacheTagKey,
   ScdnTypeData,
   DescribeDomainsRequest,
+  IpFilterPathRule,
 } from "./cdn_models"
 
 /**
@@ -277,6 +287,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DescribePurgeTasksResponse) => void
   ): Promise<DescribePurgeTasksResponse> {
     return this.request("DescribePurgeTasks", req, cb)
+  }
+
+  /**
+   * 删除SCDN域名
+   */
+  async DeleteScdnDomain(
+    req: DeleteScdnDomainRequest,
+    cb?: (error: string, rep: DeleteScdnDomainResponse) => void
+  ): Promise<DeleteScdnDomainResponse> {
+    return this.request("DeleteScdnDomain", req, cb)
   }
 
   /**
@@ -413,6 +433,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * ListScdnLogTasks 用于查询SCDN日志下载任务列表,以及展示下载任务基本信息
+   */
+  async ListScdnLogTasks(
+    req?: ListScdnLogTasksRequest,
+    cb?: (error: string, rep: ListScdnLogTasksResponse) => void
+  ): Promise<ListScdnLogTasksResponse> {
+    return this.request("ListScdnLogTasks", req, cb)
+  }
+
+  /**
    * CreateScdnLogTask 用于创建事件日志任务
    */
   async CreateScdnLogTask(
@@ -492,7 +522,7 @@ export class Client extends AbstractClient {
 
   /**
      * DescribeCdnIp 用于查询 CDN IP 归属。
-（注意：此接口请求频率限制以 CDN 侧限制为准：200次/10分钟）
+（注意：此接口请求频率限制以 CDN 侧限制为准：200次/10分钟）  
      */
   async DescribeCdnIp(
     req: DescribeCdnIpRequest,

@@ -1,26 +1,9 @@
-import { ClientProfile, Credential } from "./interface";
+import { ClientProfile, Credential, ClientConfig } from "./interface";
 declare type ResponseCallback = (error: string, rep: any) => void;
 interface RequestOptions {
     multipart: boolean;
 }
 declare type ResponseData = any;
-export interface ClientConfig {
-    /**
-     * @param {Credential} credential 认证信息
-     * 必选
-     */
-    credential: Credential;
-    /**
-     * @param {string} region 产品地域
-     * 必选
-     */
-    region: string;
-    /**
-     * @param {ClientProfile} profile 可选配置实例
-     * 可选，没有特殊需求可以跳过。
-     */
-    profile?: ClientProfile;
-}
 /**
  * @inner
  */

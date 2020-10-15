@@ -1,5 +1,6 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { ResumeOnlineRecordResponse, StartOnlineRecordRequest, DescribeOnlineRecordCallbackRequest, DescribeOnlineRecordCallbackResponse, SetTranscodeCallbackResponse, StopOnlineRecordRequest, CreateTranscodeResponse, SetTranscodeCallbackKeyResponse, DescribeOnlineRecordRequest, StartOnlineRecordResponse, DescribeOnlineRecordResponse, CreateTranscodeRequest, SetOnlineRecordCallbackKeyResponse, PauseOnlineRecordResponse, SetTranscodeCallbackKeyRequest, DescribeTranscodeRequest, DescribeTranscodeResponse, SetOnlineRecordCallbackResponse, SetOnlineRecordCallbackKeyRequest, StopOnlineRecordResponse, DescribeTranscodeCallbackRequest, ResumeOnlineRecordRequest, DescribeTranscodeCallbackResponse, SetTranscodeCallbackRequest, SetOnlineRecordCallbackRequest, PauseOnlineRecordRequest } from "./tiw_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { SetVideoGenerationTaskCallbackRequest, StopOnlineRecordResponse, SetVideoGenerationTaskCallbackKeyRequest, DescribeVideoGenerationTaskCallbackResponse, ResumeOnlineRecordResponse, SetVideoGenerationTaskCallbackResponse, StartOnlineRecordRequest, DescribeOnlineRecordCallbackRequest, DescribeOnlineRecordCallbackResponse, SetTranscodeCallbackResponse, StopOnlineRecordRequest, SetVideoGenerationTaskCallbackKeyResponse, CreateTranscodeResponse, DescribeVideoGenerationTaskResponse, SetTranscodeCallbackKeyResponse, DescribeOnlineRecordRequest, StartOnlineRecordResponse, DescribeVideoGenerationTaskRequest, CreateVideoGenerationTaskResponse, PauseOnlineRecordResponse, CreateTranscodeRequest, SetOnlineRecordCallbackKeyResponse, DescribeOnlineRecordResponse, SetTranscodeCallbackKeyRequest, DescribeTranscodeRequest, DescribeTranscodeResponse, SetOnlineRecordCallbackResponse, SetOnlineRecordCallbackKeyRequest, CreateVideoGenerationTaskRequest, DescribeTranscodeCallbackRequest, ResumeOnlineRecordRequest, DescribeTranscodeCallbackResponse, SetTranscodeCallbackRequest, SetOnlineRecordCallbackRequest, DescribeVideoGenerationTaskCallbackRequest, PauseOnlineRecordRequest } from "./tiw_models";
 /**
  * tiw client
  * @class
@@ -15,6 +16,10 @@ export declare class Client extends AbstractClient {
      */
     SetTranscodeCallbackKey(req: SetTranscodeCallbackKeyRequest, cb?: (error: string, rep: SetTranscodeCallbackKeyResponse) => void): Promise<SetTranscodeCallbackKeyResponse>;
     /**
+     * 发起一个实时录制任务
+     */
+    StartOnlineRecord(req: StartOnlineRecordRequest, cb?: (error: string, rep: StartOnlineRecordResponse) => void): Promise<StartOnlineRecordResponse>;
+    /**
      * 查询文档转码任务的执行进度与转码结果
      */
     DescribeTranscode(req: DescribeTranscodeRequest, cb?: (error: string, rep: DescribeTranscodeResponse) => void): Promise<DescribeTranscodeResponse>;
@@ -22,6 +27,10 @@ export declare class Client extends AbstractClient {
      * 创建一个文档转码任务
      */
     CreateTranscode(req: CreateTranscodeRequest, cb?: (error: string, rep: CreateTranscodeResponse) => void): Promise<CreateTranscodeResponse>;
+    /**
+     * 查询录制视频生成回调地址
+     */
+    DescribeVideoGenerationTaskCallback(req: DescribeVideoGenerationTaskCallbackRequest, cb?: (error: string, rep: DescribeVideoGenerationTaskCallbackResponse) => void): Promise<DescribeVideoGenerationTaskCallbackResponse>;
     /**
      * 停止实时录制
      */
@@ -31,9 +40,13 @@ export declare class Client extends AbstractClient {
      */
     SetTranscodeCallback(req: SetTranscodeCallbackRequest, cb?: (error: string, rep: SetTranscodeCallbackResponse) => void): Promise<SetTranscodeCallbackResponse>;
     /**
-     * 发起一个实时录制任务
+     * 设置录制视频生成回调地址
      */
-    StartOnlineRecord(req: StartOnlineRecordRequest, cb?: (error: string, rep: StartOnlineRecordResponse) => void): Promise<StartOnlineRecordResponse>;
+    SetVideoGenerationTaskCallback(req: SetVideoGenerationTaskCallbackRequest, cb?: (error: string, rep: SetVideoGenerationTaskCallbackResponse) => void): Promise<SetVideoGenerationTaskCallbackResponse>;
+    /**
+     * 创建视频生成任务
+     */
+    CreateVideoGenerationTask(req: CreateVideoGenerationTaskRequest, cb?: (error: string, rep: CreateVideoGenerationTaskResponse) => void): Promise<CreateVideoGenerationTaskResponse>;
     /**
      * 设置实时录制回调鉴权密钥，回调鉴权方式请参考文档：https://cloud.tencent.com/document/product/1137/40257
      */
@@ -47,9 +60,13 @@ export declare class Client extends AbstractClient {
      */
     DescribeTranscodeCallback(req: DescribeTranscodeCallbackRequest, cb?: (error: string, rep: DescribeTranscodeCallbackResponse) => void): Promise<DescribeTranscodeCallbackResponse>;
     /**
-     * 查询实时录制任务状态与结果
+     * 查询录制任务状态与结果
      */
     DescribeOnlineRecord(req: DescribeOnlineRecordRequest, cb?: (error: string, rep: DescribeOnlineRecordResponse) => void): Promise<DescribeOnlineRecordResponse>;
+    /**
+     * 设置视频生成回调鉴权密钥
+     */
+    SetVideoGenerationTaskCallbackKey(req: SetVideoGenerationTaskCallbackKeyRequest, cb?: (error: string, rep: SetVideoGenerationTaskCallbackKeyResponse) => void): Promise<SetVideoGenerationTaskCallbackKeyResponse>;
     /**
      * 查询实时录制回调地址
      */
@@ -58,4 +75,8 @@ export declare class Client extends AbstractClient {
      * 恢复实时录制
      */
     ResumeOnlineRecord(req: ResumeOnlineRecordRequest, cb?: (error: string, rep: ResumeOnlineRecordResponse) => void): Promise<ResumeOnlineRecordResponse>;
+    /**
+     * 查询录制视频生成任务状态与结果
+     */
+    DescribeVideoGenerationTask(req: DescribeVideoGenerationTaskRequest, cb?: (error: string, rep: DescribeVideoGenerationTaskResponse) => void): Promise<DescribeVideoGenerationTaskResponse>;
 }

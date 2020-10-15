@@ -515,7 +515,7 @@ export interface DeployDynamicContractHandlerRequest {
   Module: string
 
   /**
-   * 操作名，固定字段：deploy_by_dynamic_contract
+   * 操作名，固定字段：deploy_dynamic_contract
    */
   Operation: string
 
@@ -860,7 +860,7 @@ export interface Block {
   BlockNum: number
 
   /**
-   * 区块Hash数值
+   * 区块数据Hash数值
    */
   DataHash: string
 
@@ -870,7 +870,7 @@ export interface Block {
   BlockId: number
 
   /**
-   * 前一个区块Hash（未使用）,与区块Hash数值一致
+   * 前一个区块Hash
    */
   PreHash: string
 

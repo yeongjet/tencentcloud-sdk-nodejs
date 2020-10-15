@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { GetDetectInfoEnhancedRequest, LivenessRequest, CheckBankCardInformationRequest, MobileNetworkTimeVerificationResponse, GetLiveCodeRequest, IdCardVerificationRequest, BankCardVerificationRequest, CheckBankCardInformationResponse, CheckIdCardInformationResponse, GetDetectInfoEnhancedResponse, PhoneVerificationRequest, DetectAuthResponse, PhoneVerificationResponse, IdCardOCRVerificationRequest, BankCard4EVerificationResponse, MobileStatusRequest, LivenessRecognitionResponse, BankCard2EVerificationRequest, LivenessRecognitionRequest, MobileNetworkTimeVerificationRequest, IdCardOCRVerificationResponse, MobileStatusResponse, LivenessResponse, CheckIdCardInformationRequest, DetectAuthRequest, MinorsVerificationResponse, BankCardVerificationResponse, ImageRecognitionRequest, BankCard4EVerificationRequest, GetActionSequenceResponse, MinorsVerificationRequest, ImageRecognitionResponse, GetActionSequenceRequest, GetDetectInfoResponse, LivenessCompareResponse, GetLiveCodeResponse, GetDetectInfoRequest, BankCard2EVerificationResponse, IdCardVerificationResponse, LivenessCompareRequest } from "./faceid_models";
 /**
  * faceid client

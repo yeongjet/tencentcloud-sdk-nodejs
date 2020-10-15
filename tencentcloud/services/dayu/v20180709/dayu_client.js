@@ -658,9 +658,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateInstanceName", req, cb);
     }
     /**
-     * 获取高防IP可添加的最多7层规则数量
-
-     */
+       * 获取高防IP可添加的最多7层规则数量
+  
+       */
     async DescribeBGPIPL7RuleMaxCnt(req, cb) {
         return this.request("DescribeBGPIPL7RuleMaxCnt", req, cb);
     }

@@ -236,9 +236,19 @@ OPEN：公网属性， INTERNAL：内网属性。
   Tags?: Array<TagInfo>
 
   /**
+   * 独占集群信息
+   */
+  ExclusiveCluster?: ExclusiveCluster
+
+  /**
    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
    */
   ClientToken?: string
+
+  /**
+   * Stgw独占集群的标签。
+   */
+  ClusterTag?: string
 }
 
 /**
@@ -1323,6 +1333,11 @@ export interface ModifyListenerRequest {
    * 是否开启SNI特性，此参数仅适用于HTTPS监听器。注意：未开启SNI的监听器可以开启SNI；已开启SNI的监听器不能关闭SNI
    */
   SniSwitch?: number
+
+  /**
+   * 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器
+   */
+  KeepaliveEnable?: number
 }
 
 /**
@@ -2481,6 +2496,11 @@ export interface CreateListenerRequest {
    * 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。
    */
   SessionType?: string
+
+  /**
+   * 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭
+   */
+  KeepaliveEnable?: number
 }
 
 /**
@@ -3194,7 +3214,7 @@ export interface DeregisterTargetsRequest {
 export interface InternetAccessible {
   /**
       * TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费（当前，只有指定运营商时才支持此种计费模式）
+BANDWIDTH_PACKAGE 按带宽包计费;
 注意：此字段可能返回 null，表示取不到有效值。
       */
   InternetChargeType?: string

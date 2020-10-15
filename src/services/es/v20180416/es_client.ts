@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   InstanceLog,
   LocalDiskInfo,
@@ -44,12 +45,14 @@ import {
   UpdateInstanceRequest,
   EsDictionaryInfo,
   DescribeInstanceOperationsResponse,
+  RestartNodesRequest,
   UpdatePluginsRequest,
   UpgradeLicenseResponse,
   EsAcl,
   MasterNodeInfo,
   DeleteInstanceRequest,
   SubTaskDetail,
+  RestartNodesResponse,
   UpgradeInstanceResponse,
   UpdateInstanceResponse,
   UpgradeInstanceRequest,
@@ -160,6 +163,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: RestartInstanceResponse) => void
   ): Promise<RestartInstanceResponse> {
     return this.request("RestartInstance", req, cb)
+  }
+
+  /**
+   * 用于重启集群节点
+   */
+  async RestartNodes(
+    req: RestartNodesRequest,
+    cb?: (error: string, rep: RestartNodesResponse) => void
+  ): Promise<RestartNodesResponse> {
+    return this.request("RestartNodes", req, cb)
   }
 
   /**

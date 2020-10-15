@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeSmpnChpRequest, CreateSmpnEpaResponse, DescribeSmpnFnrResponse, DescribeSmpnMhmResponse, DescribeSmpnFnrRequest, DescribeSmpnMrlRequest, DescribeSmpnMrlResponse, DescribeSmpnMhmRequest, CreateSmpnEpaRequest, DescribeSmpnChpResponse } from "./smpn_models";
 /**
  * smpn client

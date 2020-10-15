@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   AgentClientElem,
   DescribeAgentDealsCacheRequest,
@@ -26,6 +27,7 @@ import {
   DescribeAgentClientGradeResponse,
   RebateInfoElem,
   DescribeClientBalanceResponse,
+  DescribeAgentSelfPayDealsResponse,
   AgentTransferMoneyRequest,
   DescribeClientBalanceRequest,
   RemovePayRelationForClientResponse,
@@ -42,6 +44,7 @@ import {
   AgentAuditedClient,
   DescribeAgentPayDealsResponse,
   DealGoodsPriceElem,
+  DescribeAgentSelfPayDealsRequest,
   ModifyClientRemarkRequest,
   CreatePayRelationForClientRequest,
   AgentTransferMoneyResponse,
@@ -63,6 +66,16 @@ import {
 export class Client extends AbstractClient {
   constructor(clientConfig: ClientConfig) {
     super("partners.tencentcloudapi.com", "2018-03-21", clientConfig)
+  }
+
+  /**
+   * 可以查询代理商下指定客户的自付订单
+   */
+  async DescribeAgentSelfPayDeals(
+    req: DescribeAgentSelfPayDealsRequest,
+    cb?: (error: string, rep: DescribeAgentSelfPayDealsResponse) => void
+  ): Promise<DescribeAgentSelfPayDealsResponse> {
+    return this.request("DescribeAgentSelfPayDeals", req, cb)
   }
 
   /**

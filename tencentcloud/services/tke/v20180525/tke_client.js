@@ -94,6 +94,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateClusterAsGroup", req, cb);
     }
     /**
+     * 通过此接口，可以获取集群的tke:admin的ClusterRole，即管理员角色，可以用于CAM侧高权限的用户，通过CAM策略给予子账户此接口权限，进而可以通过此接口直接获取到kubernetes集群内的管理员角色。
+     */
+    async AcquireClusterAdminRole(req, cb) {
+        return this.request("AcquireClusterAdminRole", req, cb);
+    }
+    /**
      * 查询已经存在的节点，判断是否可以加入集群
      */
     async DescribeExistedInstances(req, cb) {
@@ -112,10 +118,10 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateClusterRouteTable", req, cb);
     }
     /**
-     * 查询集群路由表
+     * 集群弹性伸缩配置
      */
-    async DescribeClusterRouteTables(req, cb) {
-        return this.request("DescribeClusterRouteTables", req, cb);
+    async DescribeClusterAsGroupOption(req, cb) {
+        return this.request("DescribeClusterAsGroupOption", req, cb);
     }
     /**
      * 查询集群列表
@@ -142,10 +148,10 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateClusterEndpoint", req, cb);
     }
     /**
-     * 集群弹性伸缩配置
+     * 查询集群路由表
      */
-    async DescribeClusterAsGroupOption(req, cb) {
-        return this.request("DescribeClusterAsGroupOption", req, cb);
+    async DescribeClusterRouteTables(req, cb) {
+        return this.request("DescribeClusterRouteTables", req, cb);
     }
     /**
      * 获取容器服务支持的所有地域

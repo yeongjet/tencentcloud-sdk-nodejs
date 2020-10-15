@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { UnbindEipAclsRequest, ModifyEipChargeResponse, ModifyEipAclResponse, DescribeEipsResponse, ModifyEipAclRequest, UnbindVpcIpRequest, BindRsResponse, BindEipAclsResponse, CreateEipRequest, UnbindHostedResponse, DeleteEipAclRequest, UnbindEipAclsResponse, DescribeEipAclsResponse, ModifyEipNameResponse, DescribeEipQuotaResponse, UnbindRsResponse, BindRsRequest, UnbindHostedRequest, UnbindRsListResponse, BindVpcIpResponse, DescribeEipsRequest, ModifyEipNameRequest, DeleteEipResponse, BindHostedResponse, BindVpcIpRequest, CreateEipAclRequest, CreateEipResponse, BindHostedRequest, DescribeEipTaskResponse, ModifyEipChargeRequest, DescribeEipQuotaRequest, DeleteEipRequest, UnbindRsListRequest, DeleteEipAclResponse, DescribeEipAclsRequest, BindEipAclsRequest, DescribeEipTaskRequest, UnbindRsRequest, UnbindVpcIpResponse, CreateEipAclResponse } from "./bmeip_models";
 /**
  * bmeip client

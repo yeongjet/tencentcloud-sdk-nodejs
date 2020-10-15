@@ -242,9 +242,14 @@ QUOTAID属性是TOTAL_TRANSLATOR_QUOTA，表示账户在指定地域的IPV6转�
 }
 
 /**
- * TransformAddress返回参数结构体
+ * CreateCcn返回参数结构体
  */
-export interface TransformAddressResponse {
+export interface CreateCcnResponse {
+  /**
+   * 云联网（CCN）对象。
+   */
+  Ccn?: CCN
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -607,6 +612,21 @@ export interface DetachClassicLinkVpcRequest {
 }
 
 /**
+ * DescribeBandwidthPackageBillUsage返回参数结构体
+ */
+export interface DescribeBandwidthPackageBillUsageResponse {
+  /**
+   * 当前计费用量
+   */
+  BandwidthPackageBillBandwidthSet?: Array<BandwidthPackageBillBandwidth>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DeleteBandwidthPackage返回参数结构体
  */
 export interface DeleteBandwidthPackageResponse {
@@ -878,6 +898,16 @@ export interface VpnGatewayQuota {
 }
 
 /**
+ * DescribeBandwidthPackageBillUsage请求参数结构体
+ */
+export interface DescribeBandwidthPackageBillUsageRequest {
+  /**
+   * 后付费共享带宽包的唯一ID
+   */
+  BandwidthPackageId: string
+}
+
+/**
  * UnassignIpv6Addresses返回参数结构体
  */
 export interface UnassignIpv6AddressesResponse {
@@ -1047,6 +1077,16 @@ export interface ModifyBandwidthPackageAttributeRequest {
    * 带宽包计费模式
    */
   ChargeType?: string
+}
+
+/**
+ * TransformAddress返回参数结构体
+ */
+export interface TransformAddressResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -3450,19 +3490,17 @@ export interface DescribeSecurityGroupPoliciesResponse {
 }
 
 /**
- * GetCcnRegionBandwidthLimits返回参数结构体
+ * DescribeGatewayFlowQos返回参数结构体
  */
-export interface GetCcnRegionBandwidthLimitsResponse {
+export interface DescribeGatewayFlowQosResponse {
   /**
-      * 云联网（CCN）各地域出带宽带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  CcnBandwidthSet?: Array<CcnBandwidthInfo>
+   * 实例详细信息列表。
+   */
+  GatewayQosSet?: Array<GatewayQos>
 
   /**
-      * 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
+   * 符合条件的实例数量。
+   */
   TotalCount?: number
 
   /**
@@ -3597,18 +3635,30 @@ export interface DeleteVpnConnectionResponse {
 }
 
 /**
- * CreateCcn返回参数结构体
+ * DescribeBandwidthPackageResources请求参数结构体
  */
-export interface CreateCcnResponse {
+export interface DescribeBandwidthPackageResourcesRequest {
   /**
-   * 云联网（CCN）对象。
+   * 标识 共享带宽包 的唯一 ID 列表。共享带宽包 唯一 ID 形如：`bwp-11112222`。
    */
-  Ccn?: CCN
+  BandwidthPackageId: string
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+      * 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。详细的过滤条件如下：
+<li> resource-id - String - 是否必填：否 - （过滤条件）按照 共享带宽包内资源 的唯一 ID 过滤。共享带宽包内资源 唯一 ID 形如：eip-11112222。</li>
+<li> resource-type - String - 是否必填：否 - （过滤条件）按照 共享带宽包内资源 类型过滤，目前仅支持 弹性IP 和 负载均衡 两种类型，可选值为 Address 和 LoadBalance。</li>
+      */
+  Filters?: Array<Filter>
+
+  /**
+   * 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
    */
-  RequestId?: string
+  Offset?: number
+
+  /**
+   * 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](https://cloud.tencent.com/document/api/213/11646)中的相关小节。
+   */
+  Limit?: number
 }
 
 /**
@@ -3644,13 +3694,18 @@ export interface Tag {
 }
 
 /**
- * DescribeVpcPrivateIpAddresses返回参数结构体
+ * DescribeCcnAttachedInstances返回参数结构体
  */
-export interface DescribeVpcPrivateIpAddressesResponse {
+export interface DescribeCcnAttachedInstancesResponse {
   /**
-   * 内网`IP`地址信息列表。
+   * 符合条件的对象数。
    */
-  VpcPrivateIpAddressSet?: Array<VpcPrivateIpAddress>
+  TotalCount?: number
+
+  /**
+   * 关联实例列表。
+   */
+  InstanceSet?: Array<CcnAttachedInstance>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -4470,18 +4525,13 @@ export interface ResourceDashboard {
 }
 
 /**
- * DescribeCcnAttachedInstances返回参数结构体
+ * DescribeVpcPrivateIpAddresses返回参数结构体
  */
-export interface DescribeCcnAttachedInstancesResponse {
+export interface DescribeVpcPrivateIpAddressesResponse {
   /**
-   * 符合条件的对象数。
+   * 内网`IP`地址信息列表。
    */
-  TotalCount?: number
-
-  /**
-   * 关联实例列表。
-   */
-  InstanceSet?: Array<CcnAttachedInstance>
+  VpcPrivateIpAddressSet?: Array<VpcPrivateIpAddress>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -4614,7 +4664,7 @@ export interface CreateBandwidthPackageRequest {
   BandwidthPackageName?: string
 
   /**
-   * 带宽包数量(非上移账户只能填1)
+   * 带宽包数量(传统账户类型只能填1)
    */
   BandwidthPackageCount?: number
 
@@ -5155,7 +5205,7 @@ export interface DeleteDirectConnectGatewayResponse {
  */
 export interface ModifyAddressesBandwidthRequest {
   /**
-   * EIP唯一标识ID，形如'eip-xxxx'
+   * EIP唯一标识ID列表，形如'eip-xxxx'
    */
   AddressIds: Array<string>
 
@@ -5165,12 +5215,12 @@ export interface ModifyAddressesBandwidthRequest {
   InternetMaxBandwidthOut: number
 
   /**
-   * 包月带宽起始时间
+   * 包月带宽起始时间(已废弃，输入无效)
    */
   StartTime?: string
 
   /**
-   * 包月带宽结束时间
+   * 包月带宽结束时间(已废弃，输入无效)
    */
   EndTime?: string
 }
@@ -5293,6 +5343,26 @@ export interface HaVipDisassociateAddressIpRequest {
    * `HAVIP`唯一`ID`，形如：`havip-9o233uri`。必须是已绑定`EIP`的`HAVIP`。
    */
   HaVipId: string
+}
+
+/**
+ * DescribeBandwidthPackageResources返回参数结构体
+ */
+export interface DescribeBandwidthPackageResourcesResponse {
+  /**
+   * 符合条件的 共享带宽包内资源 数量。
+   */
+  TotalCount?: number
+
+  /**
+   * 共享带宽包内资源 详细信息列表。
+   */
+  ResourceSet?: Array<Resource>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -5451,40 +5521,13 @@ export interface CreateFlowLogResponse {
 }
 
 /**
- * GetCcnRegionBandwidthLimits请求参数结构体
+ * DeleteDirectConnectGateway请求参数结构体
  */
-export interface GetCcnRegionBandwidthLimitsRequest {
+export interface DeleteDirectConnectGatewayRequest {
   /**
-   * CCN实例ID。形如：ccn-f49l6u0z。
+   * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
    */
-  CcnId: string
-
-  /**
-      * 过滤条件。
-<li>sregion - String - （过滤条件）源地域，形如：ap-guangzhou。</li>
-<li>dregion - String - （过滤条件）目的地域，形如：ap-shanghai-bm</li>
-      */
-  Filters?: Array<Filter>
-
-  /**
-   * 排序条件，目前支持带宽（BandwidthLimit）和过期时间（ExpireTime）
-   */
-  SortedBy?: string
-
-  /**
-   * 偏移量
-   */
-  Offset?: number
-
-  /**
-   * 返回数量
-   */
-  Limit?: number
-
-  /**
-   * 排序方式，'ASC':升序,'DESC':降序。
-   */
-  OrderBy?: string
+  DirectConnectGatewayId: string
 }
 
 /**
@@ -5671,6 +5714,16 @@ export interface CreateNetworkInterfaceRequest {
    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
    */
   Tags?: Array<Tag>
+}
+
+/**
+ * 后付费共享带宽包的当前计费用量
+ */
+export interface BandwidthPackageBillBandwidth {
+  /**
+   * 当前计费用量，单位为 Mbps
+   */
+  BandwidthUsage: number
 }
 
 /**
@@ -6063,6 +6116,16 @@ export interface SetCcnRegionBandwidthLimitsResponse {
 export type DescribeAccountAttributesRequest = null
 
 /**
+ * RenewAddresses返回参数结构体
+ */
+export interface RenewAddressesResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * DescribeCcnRoutes请求参数结构体
  */
 export interface DescribeCcnRoutesRequest {
@@ -6234,21 +6297,28 @@ export interface AllocateAddressesRequest {
 
   /**
       * EIP计费方式。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值：<ul><li>BANDWIDTH_PACKAGE：[共享带宽包](https://cloud.tencent.com/document/product/684/15255)付费（需额外开通共享带宽包白名单）</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：带宽按小时后付费</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：包月按带宽预付费</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：流量按小时后付费</li></ul>默认值：TRAFFIC_POSTPAID_BY_HOUR。</li>
-<li>未开通带宽上移白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP计费方式与其绑定的实例的计费方式一致，无需传递此参数。</li></ul>
       */
   InternetChargeType?: string
 
   /**
       * EIP出带宽上限，单位：Mbps。
-<ul style="margin:0"><li>已开通带宽上移白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
+<ul style="margin:0"><li>已开通标准账户类型白名单的用户，可选值范围取决于EIP计费方式：<ul><li>BANDWIDTH_PACKAGE：1 Mbps 至 1000 Mbps</li>
 <li>BANDWIDTH_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li>
+<li>BANDWIDTH_PREPAID_BY_MONTH：1 Mbps 至 200 Mbps</li>
 <li>TRAFFIC_POSTPAID_BY_HOUR：1 Mbps 至 100 Mbps</li></ul>默认值：1 Mbps。</li>
-<li>未开通带宽上移白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
+<li>未开通标准账户类型白名单的用户，EIP出带宽上限取决于与其绑定的实例的公网出带宽上限，无需传递此参数。</li></ul>
       */
   InternetMaxBandwidthOut?: number
+
+  /**
+   * 包月按带宽预付费EIP的计费参数。EIP为包月按带宽预付费时，该参数必传，其余场景不需传递
+   */
+  AddressChargePrepaid?: AddressChargePrepaid
 
   /**
       * EIP类型。默认值：EIP。
@@ -6862,14 +6932,14 @@ export interface ResetVpnGatewayInternetMaxBandwidthResponse {
  */
 export interface AddressChargePrepaid {
   /**
-   * 购买实例的时长
+   * 购买实例的时长，单位是月。可支持时长：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36
    */
   Period: number
 
   /**
-   * 自动续费标志
+   * 自动续费标志。0表示手动续费，1表示自动续费，2表示到期不续费。默认缺省为0即手动续费
    */
-  RenewFlag?: string
+  AutoRenewFlag?: number
 }
 
 /**
@@ -7458,6 +7528,21 @@ export interface DisableCcnRoutesRequest {
 }
 
 /**
+ * RenewAddresses请求参数结构体
+ */
+export interface RenewAddressesRequest {
+  /**
+   * EIP唯一标识ID列表，形如'eip-xxxx'
+   */
+  AddressIds: Array<string>
+
+  /**
+   * 续费参数
+   */
+  AddressChargePrepaid: AddressChargePrepaid
+}
+
+/**
  * ModifyAddressAttribute请求参数结构体
  */
 export interface ModifyAddressAttributeRequest {
@@ -7960,13 +8045,13 @@ export interface Address {
   LocalBgp: boolean
 
   /**
-      * 弹性公网IP的带宽值。注意，非带宽上移账户的弹性公网IP没有带宽属性，值为空。
+      * 弹性公网IP的带宽值。注意，传统账户类型账户的弹性公网IP没有带宽属性，值为空。
 注意：此字段可能返回 null，表示取不到有效值。
       */
   Bandwidth: number
 
   /**
-      * 弹性公网IP的网络计费模式。注意，非带宽上移账户的弹性公网IP没有网络计费模式属性，值为空。
+      * 弹性公网IP的网络计费模式。注意，传统账户类型账户的弹性公网IP没有网络计费模式属性，值为空。
 注意：此字段可能返回 null，表示取不到有效值。
       */
   InternetChargeType: string
@@ -9623,7 +9708,7 @@ export interface AllocateIp6AddressesBandwidthRequest {
   InternetMaxBandwidthOut?: number
 
   /**
-   * 网络计费模式。IPV6当前对带宽上移账户支持"TRAFFIC_POSTPAID_BY_HOUR"，对带宽非上移支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
+   * 网络计费模式。IPV6当前对标准账户类型支持"TRAFFIC_POSTPAID_BY_HOUR"，对传统账户类型支持"BANDWIDTH_PACKAGE"。默认网络计费模式是"TRAFFIC_POSTPAID_BY_HOUR"。
    */
   InternetChargeType?: string
 }
@@ -9694,17 +9779,19 @@ export interface DisassociateAddressResponse {
 }
 
 /**
- * DescribeGatewayFlowQos返回参数结构体
+ * GetCcnRegionBandwidthLimits返回参数结构体
  */
-export interface DescribeGatewayFlowQosResponse {
+export interface GetCcnRegionBandwidthLimitsResponse {
   /**
-   * 实例详细信息列表。
-   */
-  GatewayQosSet?: Array<GatewayQos>
+      * 云联网（CCN）各地域出带宽带宽详情。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CcnBandwidthSet?: Array<CcnBandwidthInfo>
 
   /**
-   * 符合条件的实例数量。
-   */
+      * 符合条件的对象数。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
   TotalCount?: number
 
   /**
@@ -10085,13 +10172,40 @@ export interface CreateRouteTableResponse {
 }
 
 /**
- * DeleteDirectConnectGateway请求参数结构体
+ * GetCcnRegionBandwidthLimits请求参数结构体
  */
-export interface DeleteDirectConnectGatewayRequest {
+export interface GetCcnRegionBandwidthLimitsRequest {
   /**
-   * 专线网关唯一`ID`，形如：`dcg-9o233uri`。
+   * CCN实例ID。形如：ccn-f49l6u0z。
    */
-  DirectConnectGatewayId: string
+  CcnId: string
+
+  /**
+      * 过滤条件。
+<li>sregion - String - （过滤条件）源地域，形如：ap-guangzhou。</li>
+<li>dregion - String - （过滤条件）目的地域，形如：ap-shanghai-bm</li>
+      */
+  Filters?: Array<Filter>
+
+  /**
+   * 排序条件，目前支持带宽（BandwidthLimit）和过期时间（ExpireTime）
+   */
+  SortedBy?: string
+
+  /**
+   * 偏移量
+   */
+  Offset?: number
+
+  /**
+   * 返回数量
+   */
+  Limit?: number
+
+  /**
+   * 排序方式，'ASC':升序,'DESC':降序。
+   */
+  OrderBy?: string
 }
 
 /**

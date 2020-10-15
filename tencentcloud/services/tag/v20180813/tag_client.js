@@ -70,9 +70,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("ModifyResourceTags", req, cb);
     }
     /**
-     * 用于查询已建立的标签列表中的标签键。
-
-     */
+       * 用于查询已建立的标签列表中的标签键。
+  
+       */
     async DescribeTagKeys(req, cb) {
         return this.request("DescribeTagKeys", req, cb);
     }
@@ -101,16 +101,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeResourceTagsByResourceIdsSeq", req, cb);
     }
     /**
-     * 用于查询已建立的标签列表。
-
-     */
+       * 用于查询已建立的标签列表。
+  
+       */
     async DescribeTags(req, cb) {
         return this.request("DescribeTags", req, cb);
     }
     /**
-     * 用于查询已建立的标签列表。
-
-     */
+       * 用于查询已建立的标签列表。
+  
+       */
     async DescribeTagsSeq(req, cb) {
         return this.request("DescribeTagsSeq", req, cb);
     }

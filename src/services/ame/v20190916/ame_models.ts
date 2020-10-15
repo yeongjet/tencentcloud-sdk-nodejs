@@ -372,8 +372,9 @@ export interface DescribeMusicRequest {
   IdentityId: string
 
   /**
-   * 填 MP3-64K-FTD-P 获取歌曲热门片段
-   */
+      * 基础版：入参 MP3-64K-FTD-P  获取64kbps歌曲热门片段。
+高级/商用版：入参 MP3-320K-FTD 获取320kbps已核验歌曲完整资源。
+      */
   SubItemType?: string
 
   /**

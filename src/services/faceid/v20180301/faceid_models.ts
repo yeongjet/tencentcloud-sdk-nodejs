@@ -378,6 +378,11 @@ export interface PhoneVerificationRequest {
    * 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个
    */
   EncryptList?: Array<string>
+
+  /**
+   * 有加密需求的用户，传入CBC加密的初试向量
+   */
+  Iv?: string
 }
 
 /**
@@ -409,10 +414,7 @@ export interface PhoneVerificationResponse {
       * 认证结果码:
 收费结果码
 0: 认证通过
--1: 手机号已实名，但是身份证和姓名均与实名信息不一致 
--2: 手机号已实名，手机号和证件号一致，姓名不一致
--3: 手机号已实名，手机号和姓名一致，身份证不一致
--4: 信息不一致
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
 -5: 手机号未实名
 不收费结果码
 -6: 手机号码不合法
@@ -973,10 +975,10 @@ export interface MinorsVerificationResponse {
 收费结果码：
 0: 成年
 -1: 未成年
--2: 未查询到手机号信息
 -3: 姓名和身份证号不一致
 
 不收费结果码：
+-2: 未查询到手机号信息
 -4: 非法身份证号（长度、校验位等不正确）
 -5: 非法姓名（长度、格式等不正确）
 -6: 权威数据源服务异常
@@ -991,8 +993,11 @@ export interface MinorsVerificationResponse {
   Description?: string
 
   /**
-      * 当结果码为0或者-1时，该字段的值为年龄区间。
-格式为[a,b)，表示年龄在a岁以上（包括a岁），b岁以下（不包括b岁）。若b为+时表示没有上限。
+      * 该字段的值为年龄区间。格式为[a,b)，
+[0,8)表示年龄小于8周岁区间，不包括8岁；
+[8,16)表示年龄8-16周岁区间，不包括16岁；
+[16,18)表示年龄16-18周岁区间，不包括18岁；
+[18,+)表示年龄大于18周岁。
       */
   AgeRange?: string
 
@@ -1094,7 +1099,7 @@ export interface BankCard4EVerificationRequest {
 
   /**
       * 证件类型，请确认该证件为开户时使用的证件类型，未用于开户的证件信息不支持验证。
-目前默认：0 身份证，其他证件类型需求可以联系小助手faceid001确认。
+目前默认为0：身份证，其他证件类型暂不支持。
       */
   CertType?: number
 }
@@ -1203,6 +1208,7 @@ export interface GetDetectInfoResponse {
     "LiveMsg": null,      // 活体检测阶段的错误信息
     "Comparestatus": null,// 一比一阶段的错误码。0为成功
     "Comparemsg": null,   // 一比一阶段的错误信息
+    "Sim": null, // 比对相似度
     "Location": null, // 地理位置信息
     "Extra": "",          // DetectAuth结果传进来的Extra信息
     "Detail": {           // 活体一比一信息详情

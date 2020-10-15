@@ -316,9 +316,14 @@ export interface ModifySnapshotAttributeRequest {
   SnapshotName?: string
 
   /**
-   * 快照的保留时间，FALSE表示非永久保留，TRUE表示永久保留。仅支持将非永久快照修改为永久快照。
+   * 快照的保留方式，FALSE表示非永久保留，TRUE表示永久保留。
    */
   IsPermanent?: boolean
+
+  /**
+   * 快照的到期时间；设置好快照将会被同时设置为非永久保留方式；超过到期时间后快照将会被自动删除。
+   */
+  Deadline?: string
 }
 
 /**
@@ -593,7 +598,7 @@ export interface DescribeDiskConfigQuotaRequest {
   DiskChargeType?: string
 
   /**
-   * 硬盘介质类型。取值范围：<br><li>CLOUD_BASIC：表示普通云硬盘<br><li>CLOUD_PREMIUM：表示高性能云硬盘<br><li>CLOUD_SSD：表示SSD云硬盘。
+   * 硬盘介质类型。取值范围：<br><li>CLOUD_BASIC：表示普通云硬盘<br><li>CLOUD_PREMIUM：表示高性能云硬盘<br><li>CLOUD_SSD：表示SSD云硬盘<br><li>CLOUD_HSSD：表示增强型SSD云硬盘。
    */
   DiskTypes?: Array<string>
 
@@ -1405,6 +1410,11 @@ export interface CreateSnapshotRequest {
    * 快照名称，不传则新快照名称默认为“未命名”。
    */
   SnapshotName?: string
+
+  /**
+   * 快照的到期时间，到期后该快照将会自动删除
+   */
+  Deadline?: string
 }
 
 /**

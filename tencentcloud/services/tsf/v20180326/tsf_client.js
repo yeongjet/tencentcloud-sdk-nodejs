@@ -28,6 +28,12 @@ class Client extends abstract_client_1.AbstractClient {
         super("tsf.tencentcloudapi.com", "2018-03-26", clientConfig);
     }
     /**
+     * 创建任务
+     */
+    async CreateTask(req, cb) {
+        return this.request("CreateTask", req, cb);
+    }
+    /**
      * 删除公共配置项
      */
     async DeletePublicConfig(req, cb) {
@@ -38,6 +44,12 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async CreateCluster(req, cb) {
         return this.request("CreateCluster", req, cb);
+    }
+    /**
+     * 对执行失败的任务批次执行续跑
+     */
+    async ContinueRunFailedTaskBatch(req, cb) {
+        return this.request("ContinueRunFailedTaskBatch", req, cb);
     }
     /**
      * 修改容器部署组实例数
@@ -58,6 +70,12 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribePodInstances", req, cb);
     }
     /**
+     * 撤回已发布的公共配置
+     */
+    async RevocationPublicConfig(req, cb) {
+        return this.request("RevocationPublicConfig", req, cb);
+    }
+    /**
      * 创建命名空间
      */
     async CreateNamespace(req, cb) {
@@ -70,16 +88,22 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("AddClusterInstances", req, cb);
     }
     /**
+     * 重新执行工作流批次
+     */
+    async RedoTaskFlowBatch(req, cb) {
+        return this.request("RedoTaskFlowBatch", req, cb);
+    }
+    /**
      * 查询公共配置汇总列表
      */
     async DescribePublicConfigSummary(req, cb) {
         return this.request("DescribePublicConfigSummary", req, cb);
     }
     /**
-     * 容器部署组列表
+     * 查询仓库列表
      */
-    async DescribeContainerGroups(req, cb) {
-        return this.request("DescribeContainerGroups", req, cb);
+    async DescribeRepositories(req, cb) {
+        return this.request("DescribeRepositories", req, cb);
     }
     /**
      * 查询配置项列表
@@ -88,10 +112,28 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeConfigs", req, cb);
     }
     /**
+     * 停用任务
+     */
+    async DisableTask(req, cb) {
+        return this.request("DisableTask", req, cb);
+    }
+    /**
+     * 批量删除镜像版本
+     */
+    async DeleteImageTags(req, cb) {
+        return this.request("DeleteImageTags", req, cb);
+    }
+    /**
      * 查询配置
      */
     async DescribeConfig(req, cb) {
         return this.request("DescribeConfig", req, cb);
+    }
+    /**
+     * 停止正在某个节点上执行的任务
+     */
+    async StopTaskExecute(req, cb) {
+        return this.request("StopTaskExecute", req, cb);
     }
     /**
      *  容器部署组详情
@@ -112,9 +154,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeImageTags", req, cb);
     }
     /**
-     * 调用该接口和COS的上传接口后，需要调用此接口更新TSF中保存的程序包状态。
-调用此接口完成后，才标志上传包流程结束。
-     */
+       * 调用该接口和COS的上传接口后，需要调用此接口更新TSF中保存的程序包状态。
+  调用此接口完成后，才标志上传包流程结束。
+       */
     async ModifyUploadInfo(req, cb) {
         return this.request("ModifyUploadInfo", req, cb);
     }
@@ -143,21 +185,21 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateConfig", req, cb);
     }
     /**
-     * 撤回已发布的公共配置
+     * 容器部署组列表
      */
-    async RevocationPublicConfig(req, cb) {
-        return this.request("RevocationPublicConfig", req, cb);
+    async DescribeContainerGroups(req, cb) {
+        return this.request("DescribeContainerGroups", req, cb);
     }
     /**
-     * 批量删除镜像版本
+     * 停用工作流
      */
-    async DeleteImageTags(req, cb) {
-        return this.request("DeleteImageTags", req, cb);
+    async DisableTaskFlow(req, cb) {
+        return this.request("DisableTaskFlow", req, cb);
     }
     /**
-     * TSF上传的程序包存放在腾讯云对象存储（COS）中，通过该API可以获取从COS下载程序包需要的信息，包括包所在的桶、存储路径、鉴权信息等，之后使用COS API（或SDK）进行下载。
-COS相关文档请查阅：https://cloud.tencent.com/document/product/436
-     */
+       * TSF上传的程序包存放在腾讯云对象存储（COS）中，通过该API可以获取从COS下载程序包需要的信息，包括包所在的桶、存储路径、鉴权信息等，之后使用COS API（或SDK）进行下载。
+  COS相关文档请查阅：https://cloud.tencent.com/document/product/436
+       */
     async DescribeDownloadInfo(req, cb) {
         return this.request("DescribeDownloadInfo", req, cb);
     }
@@ -180,10 +222,10 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeApplication", req, cb);
     }
     /**
-     * 查询公共配置（单条）
+     * 查询简单应用列表
      */
-    async DescribePublicConfig(req, cb) {
-        return this.request("DescribePublicConfig", req, cb);
+    async DescribeSimpleApplications(req, cb) {
+        return this.request("DescribeSimpleApplications", req, cb);
     }
     /**
      * 查询泳道列表
@@ -192,16 +234,22 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeLanes", req, cb);
     }
     /**
+     * 执行一次任务。
+     */
+    async ExecuteTask(req, cb) {
+        return this.request("ExecuteTask", req, cb);
+    }
+    /**
      * 查询简单命名空间列表
      */
     async DescribeSimpleNamespaces(req, cb) {
         return this.request("DescribeSimpleNamespaces", req, cb);
     }
     /**
-     * 删除微服务
+     * 创建Serverless部署组
      */
-    async DeleteMicroservice(req, cb) {
-        return this.request("DeleteMicroservice", req, cb);
+    async CreateServerlessGroup(req, cb) {
+        return this.request("CreateServerlessGroup", req, cb);
     }
     /**
      * 停止容器部署组
@@ -228,16 +276,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("ReleaseConfig", req, cb);
     }
     /**
+     * 停止一个工作流批次
+     */
+    async TerminateTaskFlowBatch(req, cb) {
+        return this.request("TerminateTaskFlowBatch", req, cb);
+    }
+    /**
      * 获取虚拟机部署组列表
      */
     async DescribeGroups(req, cb) {
         return this.request("DescribeGroups", req, cb);
-    }
-    /**
-     * 查询仓库列表
-     */
-    async DescribeRepositories(req, cb) {
-        return this.request("DescribeRepositories", req, cb);
     }
     /**
      * 创建仓库
@@ -264,12 +312,6 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeSimpleGroups", req, cb);
     }
     /**
-     * 创建Serverless部署组
-     */
-    async CreateServerlessGroup(req, cb) {
-        return this.request("CreateServerlessGroup", req, cb);
-    }
-    /**
      * 添加云主机节点至TSF集群
      */
     async AddInstances(req, cb) {
@@ -282,22 +324,28 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeConfigSummary", req, cb);
     }
     /**
+     * 重新执行任务
+     */
+    async RedoTask(req, cb) {
+        return this.request("RedoTask", req, cb);
+    }
+    /**
      * 无
      */
     async DescribePkgs(req, cb) {
         return this.request("DescribePkgs", req, cb);
     }
     /**
-     * 查询简单应用列表
+     * 查询公共配置（单条）
      */
-    async DescribeSimpleApplications(req, cb) {
-        return this.request("DescribeSimpleApplications", req, cb);
+    async DescribePublicConfig(req, cb) {
+        return this.request("DescribePublicConfig", req, cb);
     }
     /**
-     * 删除容器部署组
+     * 启动容器部署组
      */
-    async DeleteGroup(req, cb) {
-        return this.request("DeleteGroup", req, cb);
+    async StartContainerGroup(req, cb) {
+        return this.request("StartContainerGroup", req, cb);
     }
     /**
      * 查询Serverless部署组列表
@@ -312,15 +360,21 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("CreateGroup", req, cb);
     }
     /**
+     * 查询任务最近一次执行状态
+     */
+    async DescribeTaskLastStatus(req, cb) {
+        return this.request("DescribeTaskLastStatus", req, cb);
+    }
+    /**
      * 查询虚拟机部署组云主机列表
      */
     async DescribeGroupInstances(req, cb) {
         return this.request("DescribeGroupInstances", req, cb);
     }
     /**
-     * 从软件仓库批量删除程序包。
-一次最多支持删除1000个包，数量超过1000，返回UpperDeleteLimit错误。
-     */
+       * 从软件仓库批量删除程序包。
+  一次最多支持删除1000个包，数量超过1000，返回UpperDeleteLimit错误。
+       */
     async DeletePkgs(req, cb) {
         return this.request("DeletePkgs", req, cb);
     }
@@ -331,10 +385,16 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribePublicConfigs", req, cb);
     }
     /**
-     * 启动容器部署组
+     * 启用任务
      */
-    async StartContainerGroup(req, cb) {
-        return this.request("StartContainerGroup", req, cb);
+    async EnableTask(req, cb) {
+        return this.request("EnableTask", req, cb);
+    }
+    /**
+     * 删除容器部署组
+     */
+    async DeleteGroup(req, cb) {
+        return this.request("DeleteGroup", req, cb);
     }
     /**
      * 从 TSF 集群中批量移除云主机节点
@@ -347,6 +407,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
      */
     async ExpandGroup(req, cb) {
         return this.request("ExpandGroup", req, cb);
+    }
+    /**
+     * 删除任务
+     */
+    async DeleteTask(req, cb) {
+        return this.request("DeleteTask", req, cb);
     }
     /**
      * 删除泳道
@@ -391,6 +457,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("ModifyMicroservice", req, cb);
     }
     /**
+     * 启用工作流
+     */
+    async EnableTaskFlow(req, cb) {
+        return this.request("EnableTaskFlow", req, cb);
+    }
+    /**
      * 查询服务API列表
      */
     async DescribeMsApiList(req, cb) {
@@ -401,6 +473,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
      */
     async CreateApplication(req, cb) {
         return this.request("CreateApplication", req, cb);
+    }
+    /**
+     * 重新执行任务批次
+     */
+    async RedoTaskBatch(req, cb) {
+        return this.request("RedoTaskBatch", req, cb);
     }
     /**
      * 查询公共配置发布历史
@@ -415,6 +493,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeConfigReleaseLogs", req, cb);
     }
     /**
+     * 执行一次工作流
+     */
+    async ExecuteTaskFlow(req, cb) {
+        return this.request("ExecuteTaskFlow", req, cb);
+    }
+    /**
      * 查询微服务详情
      */
     async DescribeMicroservice(req, cb) {
@@ -425,6 +509,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
      */
     async DeleteServerlessGroup(req, cb) {
         return this.request("DeleteServerlessGroup", req, cb);
+    }
+    /**
+     * 查询工作流最新一个批次的状态信息
+     */
+    async DescribeFlowLastBatchState(req, cb) {
+        return this.request("DescribeFlowLastBatchState", req, cb);
     }
     /**
      * 删除仓库
@@ -439,16 +529,28 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DeployContainerGroup", req, cb);
     }
     /**
+     * 查询虚拟机部署组详情
+     */
+    async DescribeGroup(req, cb) {
+        return this.request("DescribeGroup", req, cb);
+    }
+    /**
      * 删除应用
      */
     async DeleteApplication(req, cb) {
         return this.request("DeleteApplication", req, cb);
     }
     /**
-     * 删除命名空间
+     * 删除微服务
      */
-    async DeleteNamespace(req, cb) {
-        return this.request("DeleteNamespace", req, cb);
+    async DeleteMicroservice(req, cb) {
+        return this.request("DeleteMicroservice", req, cb);
+    }
+    /**
+     * TSF基本资源信息概览接口
+     */
+    async DescribeBasicResourceUsage(req, cb) {
+        return this.request("DescribeBasicResourceUsage", req, cb);
     }
     /**
      * 删除配置项
@@ -463,6 +565,12 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("ReleasePublicConfig", req, cb);
     }
     /**
+     * 停止执行中的任务批次， 非运行中的任务不可调用。
+     */
+    async StopTaskBatch(req, cb) {
+        return this.request("StopTaskBatch", req, cb);
+    }
+    /**
      * 获取微服务列表
      */
     async DescribeMicroservices(req, cb) {
@@ -475,10 +583,10 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribeApiVersions", req, cb);
     }
     /**
-     * 查询虚拟机部署组详情
+     * 删除命名空间
      */
-    async DescribeGroup(req, cb) {
-        return this.request("DescribeGroup", req, cb);
+    async DeleteNamespace(req, cb) {
+        return this.request("DeleteNamespace", req, cb);
     }
     /**
      * 创建容器部署组
@@ -535,9 +643,9 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
         return this.request("DescribePublicConfigReleases", req, cb);
     }
     /**
-     * TSF会将软件包上传到腾讯云对象存储（COS）。调用此接口获取上传信息，如目标地域，桶，包Id，存储路径，鉴权信息等，之后请使用COS API（或SDK）进行上传。
-COS相关文档请查阅：https://cloud.tencent.com/document/product/436
-     */
+       * TSF会将软件包上传到腾讯云对象存储（COS）。调用此接口获取上传信息，如目标地域，桶，包Id，存储路径，鉴权信息等，之后请使用COS API（或SDK）进行上传。
+  COS相关文档请查阅：https://cloud.tencent.com/document/product/436
+       */
     async DescribeUploadInfo(req, cb) {
         return this.request("DescribeUploadInfo", req, cb);
     }

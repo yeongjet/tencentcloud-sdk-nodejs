@@ -236,70 +236,89 @@ export interface DescribeBillBandwidthAndFluxListResponse {
  */
 export interface TemplateInfo {
   /**
-      * 视频编码：
-h264/h265。
+      * 视频编码：h264/h265/origin，默认h264。
+
+origin: 保持原始编码格式
       */
   Vcodec: string
 
   /**
-   * 视频码率，取值范围：100kbps - 8000kbps。
-   */
+      * 视频码率。范围：0kbps - 8000kbps。
+0为保持原始码率。
+注: 转码模板有码率唯一要求，最终保存的码率可能与输入码率有所差别。
+      */
   VideoBitrate: number
 
   /**
-   * 音频编码，可选 aac 或 mp3。
-   */
+      * 音频编码：aac，默认aac。
+注意：当前该参数未生效，待后续支持！
+      */
   Acodec: string
 
   /**
-   * 音频码率。取值范围：0kbps - 500kbps。
-   */
+      * 音频码率。取值范围：0kbps - 500kbps。
+默认0。
+      */
   AudioBitrate: number
 
   /**
-   * 宽，取值范围：0-3000。
-   */
+      * 宽，默认0。
+范围[0-3000]
+数值必须是2的倍数，0是原始宽度
+      */
   Width: number
 
   /**
-   * 高，取值范围：0-3000。
-   */
+      * 高，默认0。
+范围[0-3000]
+数值必须是2的倍数，0是原始宽度
+      */
   Height: number
 
   /**
-   * 帧率。取值范围：0fps - 200fps。
-   */
+      * 帧率，默认0。
+范围0-60fps
+      */
   Fps: number
 
   /**
-   * 关键帧间隔，取值范围：1秒 - 50秒。
-   */
+      * 关键帧间隔，单位：秒。
+默认原始的间隔
+范围2-6
+      */
   Gop: number
 
   /**
-   * 旋转角度。可选择：0 90 180 270。
-   */
+      * 旋转角度，默认0。
+可取值：0，90，180，270
+      */
   Rotate: number
 
   /**
-      * 编码质量，可选择：
-baseline，main，high。
+      * 编码质量：
+baseline/main/high。默认baseline
       */
   Profile: string
 
   /**
-   * 是否不超过原始码率。0：否，1：是。
-   */
+      * 当设置的码率>原始码率时，是否以原始码率为准。
+0：否， 1：是
+默认 0。
+      */
   BitrateToOrig: number
 
   /**
-   * 是否不超过原始高度。0：否，1：是。
-   */
+      * 当设置的高度>原始高度时，是否以原始高度为准。
+0：否， 1：是
+默认 0。
+      */
   HeightToOrig: number
 
   /**
-   * 是否不超过原始帧率。0：否，1：是。
-   */
+      * 当设置的帧率>原始帧率时，是否以原始帧率为准。
+0：否， 1：是
+默认 0。
+      */
   FpsToOrig: number
 
   /**
@@ -333,9 +352,18 @@ baseline，main，high。
   AiTransCode: number
 
   /**
-   * 极速高清相比 VideoBitrate 少多少码率，0.1到0.5。
-   */
+      * 极速高清视频码率压缩比。
+极速高清目标码率=VideoBitrate * (1-AdaptBitratePercent)
+
+取值范围：0.0到0.5
+      */
   AdaptBitratePercent: number
+
+  /**
+      * 是否以短边作为高度，0：否，1：是。默认0。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ShortEdgeAsHeight: number
 }
 
 /**
@@ -623,6 +651,16 @@ export interface PushQualityData {
    * metadata 中的帧率。
    */
   MateFps: number
+}
+
+/**
+ * UnBindLiveDomainCert返回参数结构体
+ */
+export interface UnBindLiveDomainCertResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -1003,7 +1041,17 @@ export interface DomainInfo {
 /**
  * DescribeLiveTranscodeRules请求参数结构体
  */
-export type DescribeLiveTranscodeRulesRequest = null
+export interface DescribeLiveTranscodeRulesRequest {
+  /**
+   * 要筛选的模板ID数组。
+   */
+  TemplateIds?: Array<number>
+
+  /**
+   * 要筛选的域名数组。
+   */
+  DomainNames?: Array<string>
+}
 
 /**
  * DeleteLiveSnapshotRule请求参数结构体
@@ -1074,7 +1122,7 @@ export interface DescribeBillBandwidthAndFluxListRequest {
   StartTime: string
 
   /**
-   * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。
+   * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过31天。支持最近3年的数据查询
    */
   EndTime: string
 
@@ -1224,7 +1272,7 @@ export interface DescribeLiveDomainRequest {
   /**
    * 域名。
    */
-  DomainName?: string
+  DomainName: string
 }
 
 /**
@@ -1402,7 +1450,7 @@ export interface DescribeLiveDomainCertResponse {
  */
 export interface DescribeLiveRecordTemplateRequest {
   /**
-   * DescribeRecordTemplates接口获取到的模板 ID。
+   * [DescribeLiveRecordTemplates](/document/product/267/32609)接口获取到的模板 ID。
    */
   TemplateId: number
 }
@@ -1588,6 +1636,21 @@ export interface ModifyLiveTranscodeTemplateResponse {
 }
 
 /**
+ * 海外分区直播带宽出参国家带宽信息
+ */
+export interface BillCountryInfo {
+  /**
+   * 国家名称
+   */
+  Name: string
+
+  /**
+   * 带宽明细数据信息。
+   */
+  BandInfoList: Array<BillDataInfo>
+}
+
+/**
  * ModifyLiveRecordTemplate返回参数结构体
  */
 export interface ModifyLiveRecordTemplateResponse {
@@ -1658,36 +1721,82 @@ export interface LogInfo {
 }
 
 /**
- * AddDelayLiveStream请求参数结构体
+ * 通用混流布局参数。
  */
-export interface AddDelayLiveStreamRequest {
+export interface CommonMixLayoutParams {
   /**
-   * 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
-   */
-  AppName: string
-
-  /**
-   * 推流域名。
-   */
-  DomainName: string
-
-  /**
-   * 流名称。
-   */
-  StreamName: string
-
-  /**
-   * 延播时间，单位：秒，上限：600秒。
-   */
-  DelayTime: number
-
-  /**
-      * 延播设置的过期时间。UTC 格式，例如：2018-11-29T19:00:00Z。
-注意：
-1. 默认7天后过期，且最长支持7天内生效。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+      * 输入图层。取值范围[1，16]。
+1)背景流（即大主播画面或画布）的 image_layer 填1。
+2)纯音频混流，该参数也需填。
       */
-  ExpireTime?: string
+  ImageLayer: number
+
+  /**
+      * 输入类型。取值范围[0，5]。
+不填默认为0。
+0表示输入流为音视频。
+2表示输入流为图片。
+3表示输入流为画布。 
+4表示输入流为音频。
+5表示输入流为纯视频。
+      */
+  InputType?: number
+
+  /**
+      * 输入画面在输出时的宽度。取值范围：
+像素：[0，2000]
+百分比：[0.01，0.99]
+不填默认为输入流的宽度。
+使用百分比时，期望输出为（百分比 * 背景宽）。
+      */
+  ImageWidth?: number
+
+  /**
+      * 输入画面在输出时的高度。取值范围：
+像素：[0，2000]
+百分比：[0.01，0.99]
+不填默认为输入流的高度。
+使用百分比时，期望输出为（百分比 * 背景高）。
+      */
+  ImageHeight?: number
+
+  /**
+      * 输入在输出画面的X偏移。取值范围：
+像素：[0，2000]
+百分比：[0.01，0.99]
+不填默认为0。
+相对于大主播背景画面左上角的横向偏移。 
+使用百分比时，期望输出为（百分比 * 背景宽）。
+      */
+  LocationX?: number
+
+  /**
+      * 输入在输出画面的Y偏移。取值范围：
+像素：[0，2000]
+百分比：[0.01，0.99]
+不填默认为0。
+相对于大主播背景画面左上角的纵向偏移。 
+使用百分比时，期望输出为（百分比 * 背景宽）
+      */
+  LocationY?: number
+
+  /**
+      * 当InputType为3(画布)时，该值表示画布的颜色。
+常用的颜色有：
+红色：0xcc0033。
+黄色：0xcc9900。
+绿色：0xcccc33。
+蓝色：0x99CCFF。
+黑色：0x000000。
+白色：0xFFFFFF。
+灰色：0x999999。
+      */
+  Color?: string
+
+  /**
+   * 当InputType为2(图片)时，该值是水印ID。
+   */
+  WatermarkId?: number
 }
 
 /**
@@ -2209,6 +2318,21 @@ export interface CreateLiveTranscodeTemplateResponse {
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
   RequestId?: string
+}
+
+/**
+ * 海外分区直播带宽出参，分区信息
+ */
+export interface BillAreaInfo {
+  /**
+   * 大区名称
+   */
+  Name: string
+
+  /**
+   * 国家明细数据
+   */
+  Countrys: Array<BillCountryInfo>
 }
 
 /**
@@ -2901,82 +3025,36 @@ export interface PushDataInfo {
 }
 
 /**
- * 通用混流布局参数。
+ * AddDelayLiveStream请求参数结构体
  */
-export interface CommonMixLayoutParams {
+export interface AddDelayLiveStreamRequest {
   /**
-      * 输入图层。取值范围[1，16]。
-1)背景流（即大主播画面或画布）的 image_layer 填1。
-2)纯音频混流，该参数也需填。
-      */
-  ImageLayer: number
-
-  /**
-      * 输入类型。取值范围[0，5]。
-不填默认为0。
-0表示输入流为音视频。
-2表示输入流为图片。
-3表示输入流为画布。 
-4表示输入流为音频。
-5表示输入流为纯视频。
-      */
-  InputType?: number
-
-  /**
-      * 输入画面在输出时的宽度。取值范围：
-像素：[0，2000]
-百分比：[0.01，0.99]
-不填默认为输入流的宽度。
-使用百分比时，期望输出为（百分比 * 背景宽）。
-      */
-  ImageWidth?: number
-
-  /**
-      * 输入画面在输出时的高度。取值范围：
-像素：[0，2000]
-百分比：[0.01，0.99]
-不填默认为输入流的高度。
-使用百分比时，期望输出为（百分比 * 背景高）。
-      */
-  ImageHeight?: number
-
-  /**
-      * 输入在输出画面的X偏移。取值范围：
-像素：[0，2000]
-百分比：[0.01，0.99]
-不填默认为0。
-相对于大主播背景画面左上角的横向偏移。 
-使用百分比时，期望输出为（百分比 * 背景宽）。
-      */
-  LocationX?: number
-
-  /**
-      * 输入在输出画面的Y偏移。取值范围：
-像素：[0，2000]
-百分比：[0.01，0.99]
-不填默认为0。
-相对于大主播背景画面左上角的纵向偏移。 
-使用百分比时，期望输出为（百分比 * 背景宽）
-      */
-  LocationY?: number
-
-  /**
-      * 当InputType为3(画布)时，该值表示画布的颜色。
-常用的颜色有：
-红色：0xcc0033。
-黄色：0xcc9900。
-绿色：0xcccc33。
-蓝色：0x99CCFF。
-黑色：0x000000。
-白色：0xFFFFFF。
-灰色：0x999999。
-      */
-  Color?: string
-
-  /**
-   * 当InputType为2(图片)时，该值是水印ID。
+   * 推流路径，与推流和播放地址中的 AppName 保持一致，默认为 live。
    */
-  WatermarkId?: number
+  AppName: string
+
+  /**
+   * 推流域名。
+   */
+  DomainName: string
+
+  /**
+   * 流名称。
+   */
+  StreamName: string
+
+  /**
+   * 延播时间，单位：秒，上限：600秒。
+   */
+  DelayTime: number
+
+  /**
+      * 延播设置的过期时间。UTC 格式，例如：2018-11-29T19:00:00Z。
+注意：
+1. 默认7天后过期，且最长支持7天内生效。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+      */
+  ExpireTime?: string
 }
 
 /**
@@ -3036,7 +3114,7 @@ export interface ModifyPullStreamStatusRequest {
 export interface DescribeStreamDayPlayInfoListRequest {
   /**
       * 日期，格式：YYYY-mm-dd。
-第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。
+第二天凌晨3点出昨天的数据，建议在这个时间点之后查询最新数据。支持最近3个月的数据查询。
       */
   DayTime: string
 
@@ -4475,9 +4553,9 @@ export interface CertInfo {
   HttpsCrt: string
 
   /**
-      * 证书类型:
-0：腾讯云托管证书。
-1：用户添加证书。
+      * 证书类型。
+0：用户添加证书，
+1：腾讯云托管证书。
       */
   CertType: number
 
@@ -4733,9 +4811,14 @@ export interface CommonMixControlParams {
 }
 
 /**
- * UnBindLiveDomainCert返回参数结构体
+ * DescribeAreaBillBandwidthAndFluxList返回参数结构体
  */
-export interface UnBindLiveDomainCertResponse {
+export interface DescribeAreaBillBandwidthAndFluxListResponse {
+  /**
+   * 明细数据信息。
+   */
+  DataInfoList?: Array<BillAreaInfo>
+
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -4969,14 +5052,13 @@ export interface HttpCodeInfo {
  */
 export interface DescribeStreamPlayInfoListRequest {
   /**
-      * 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-当前时间 和 开始时间 间隔不超过30天。
-      */
+   * 开始时间，北京时间，格式为yyyy-mm-dd HH:MM:SS
+   */
   StartTime: string
 
   /**
       * 结束时间，北京时间，格式为yyyy-mm-dd HH:MM:SS，
-结束时间 和 开始时间  必须在同一天内。
+结束时间 和 开始时间  必须在同一天内，支持距当前时间30天内的数据查询。
       */
   EndTime: string
 
@@ -5013,7 +5095,8 @@ export interface CreateLiveTranscodeTemplateRequest {
   TemplateName: string
 
   /**
-      * 视频码率。范围：100-8000。
+      * 视频码率。范围：0kbps - 8000kbps。
+0为保持原始码率。
 注: 转码模板有码率唯一要求，最终保存的码率可能与输入码率有所差别。
       */
   VideoBitrate: number
@@ -5068,12 +5151,13 @@ origin: 保持原始编码格式
 
   /**
       * 帧率，默认0。
-范围0-60
+范围0-60fps
       */
   Fps?: number
 
   /**
-      * 关键帧间隔，单位：秒。默认原始的间隔
+      * 关键帧间隔，单位：秒。
+默认原始的间隔
 范围2-6
       */
   Gop?: number
@@ -5091,18 +5175,24 @@ baseline/main/high。默认baseline
   Profile?: string
 
   /**
-   * 是否不超过原始码率，0：否，1：是。默认0。
-   */
+      * 当设置的码率>原始码率时，是否以原始码率为准。
+0：否， 1：是
+默认 0。
+      */
   BitrateToOrig?: number
 
   /**
-   * 是否不超过原始高，0：否，1：是。默认0。
-   */
+      * 当设置的高度>原始高度时，是否以原始高度为准。
+0：否， 1：是
+默认 0。
+      */
   HeightToOrig?: number
 
   /**
-   * 是否不超过原始帧率，0：否，1：是。默认0。
-   */
+      * 当设置的帧率>原始帧率时，是否以原始帧率为准。
+0：否， 1：是
+默认 0。
+      */
   FpsToOrig?: number
 
   /**
@@ -5280,7 +5370,8 @@ origin: 保持原始编码格式
   Description?: string
 
   /**
-      * 视频码率。范围：100kbps - 8000kbps。
+      * 视频码率。范围：0kbps - 8000kbps。
+0为保持原始码率。
 注: 转码模板有码率唯一要求，最终保存的码率可能与输入码率有所差别。
       */
   VideoBitrate?: number
@@ -5332,18 +5423,24 @@ baseline/main/high。
   Profile?: string
 
   /**
-   * 是否不超过原始码率。0：否，1：是。默认0。
-   */
+      * 当设置的码率>原始码率时，是否以原始码率为准。
+0：否， 1：是
+默认 0。
+      */
   BitrateToOrig?: number
 
   /**
-   * 是否不超过原始高。0：否，1：是。默认0。
-   */
+      * 当设置的高度>原始高度时，是否以原始高度为准。
+0：否， 1：是
+默认 0。
+      */
   HeightToOrig?: number
 
   /**
-   * 是否不超过原始帧率。0：否，1：是。默认0。
-   */
+      * 当设置的帧率>原始帧率时，是否以原始帧率为准。
+0：否， 1：是
+默认 0。
+      */
   FpsToOrig?: number
 
   /**
@@ -5508,51 +5605,23 @@ export interface DescribeLiveRecordTemplateResponse {
 }
 
 /**
- * DescribeVisitTopSumInfoList返回参数结构体
+ * DescribeAreaBillBandwidthAndFluxList请求参数结构体
  */
-export interface DescribeVisitTopSumInfoListResponse {
+export interface DescribeAreaBillBandwidthAndFluxListRequest {
   /**
-      * 页号，
-范围是[1,1000]，
-默认值是1。
-      */
-  PageNum?: number
-
-  /**
-      * 每页个数，范围是[1,1000]，
-默认值是20。
-      */
-  PageSize?: number
-
-  /**
-   * 峰值指标，可选值包括”Domain”，”StreamId”。
+   * 起始时间点，格式为yyyy-mm-dd HH:MM:SS。
    */
-  TopIndex?: string
+  StartTime: string
 
   /**
-   * 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
+   * 结束时间点，格式为yyyy-mm-dd HH:MM:SS，起始和结束时间跨度不支持超过1天。
    */
-  OrderParam?: string
+  EndTime: string
 
   /**
-   * 记录总数。
+   * 直播播放域名，若不填，表示总体数据。
    */
-  TotalNum?: number
-
-  /**
-   * 记录总页数。
-   */
-  TotalPage?: number
-
-  /**
-   * 数据内容。
-   */
-  DataInfoList?: Array<PlaySumStatInfo>
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+  PlayDomains?: Array<string>
 }
 
 /**
@@ -6118,8 +6187,9 @@ export interface DescribeAllStreamPlayInfoListRequest {
  */
 export interface DescribeLiveDomainResponse {
   /**
-   * 域名信息。
-   */
+      * 域名信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
   DomainInfo?: DomainInfo
 
   /**
@@ -6176,6 +6246,54 @@ export interface DescribeStreamDayPlayInfoListResponse {
    * 每页个数。
    */
   PageSize?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeVisitTopSumInfoList返回参数结构体
+ */
+export interface DescribeVisitTopSumInfoListResponse {
+  /**
+      * 页号，
+范围是[1,1000]，
+默认值是1。
+      */
+  PageNum?: number
+
+  /**
+      * 每页个数，范围是[1,1000]，
+默认值是20。
+      */
+  PageSize?: number
+
+  /**
+   * 峰值指标，可选值包括”Domain”，”StreamId”。
+   */
+  TopIndex?: string
+
+  /**
+   * 排序指标，可选值包括” AvgFluxPerSecond”(按每秒平均流量排序)，”TotalRequest”（默认，按总请求数排序）,“TotalFlux”（按总流量排序）。
+   */
+  OrderParam?: string
+
+  /**
+   * 记录总数。
+   */
+  TotalNum?: number
+
+  /**
+   * 记录总页数。
+   */
+  TotalPage?: number
+
+  /**
+   * 数据内容。
+   */
+  DataInfoList?: Array<PlaySumStatInfo>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。

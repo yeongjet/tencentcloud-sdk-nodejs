@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeEntityRequest, DescribeTripleRequest, DescribeTripleResponse, DescribeRelationResponse, DescribeRelationRequest, DescribeEntityResponse } from "./tkgdq_models";
 /**
  * tkgdq client

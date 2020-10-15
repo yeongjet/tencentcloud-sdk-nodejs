@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   VerifyBizLicenseRequest,
   BusinessCardOCRResponse,
@@ -74,7 +75,7 @@ import {
   QrcodeOCRRequest,
   TaxiInvoiceOCRResponse,
   GeneralBasicOCRResponse,
-  VinOCRRequest,
+  RecognizeThaiIDCardOCRResponse,
   QuotaInvoiceOCRRequest,
   MixedInvoiceOCRResponse,
   ClassifyDetectOCRResponse,
@@ -94,6 +95,7 @@ import {
   VatRollInvoiceOCRResponse,
   VatInvoiceVerifyRequest,
   EduPaperOCRResponse,
+  RecognizeThaiIDCardOCRRequest,
   BusinessCardInfo,
   TextGeneralHandwriting,
   TableOCRRequest,
@@ -142,6 +144,7 @@ import {
   ResidenceBookletOCRResponse,
   CarInvoiceOCRResponse,
   GeneralFastOCRRequest,
+  Polygon,
   ShipInvoiceOCRResponse,
   InsuranceBillInfo,
   VehicleRegCertOCRResponse,
@@ -170,6 +173,7 @@ import {
   ShipInvoiceInfo,
   IDCardOCRRequest,
   MixedInvoiceDetectRequest,
+  VinOCRRequest,
   RideHailingTransportLicenseOCRRequest,
   MLIDCardOCRResponse,
   EstateCertOCRRequest,
@@ -335,8 +339,10 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口支持条形码和二维码的识别（包括 DataMatrix 和 PDF417）。
-   */
+     * 本接口支持条形码和二维码的识别（包括 DataMatrix 和 PDF417）。
+
+本接口目前处于公测阶段，2020年10月7日公测结束后，接口价格会进行相应的变更，请留意站内信通知。
+     */
   async QrcodeOCR(
     req: QrcodeOCRRequest,
     cb?: (error: string, rep: QrcodeOCRResponse) => void
@@ -794,8 +800,10 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口通过检测图片中的文字信息特征，快速判断图片中有无文字并返回判断结果，帮助用户过滤无文字的图片。
-   */
+     * 本接口通过检测图片中的文字信息特征，快速判断图片中有无文字并返回判断结果，帮助用户过滤无文字的图片。
+
+本接口目前处于公测阶段，2020年10月7日公测结束后，接口价格会进行相应的变更，请留意站内信通知。
+     */
   async TextDetect(
     req: TextDetectRequest,
     cb?: (error: string, rep: TextDetectResponse) => void
@@ -1042,6 +1050,18 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: RideHailingTransportLicenseOCRResponse) => void
   ): Promise<RideHailingTransportLicenseOCRResponse> {
     return this.request("RideHailingTransportLicenseOCR", req, cb)
+  }
+
+  /**
+     * 本接口支持泰国身份证识别，识别字段包括泰文姓名、英文姓名、地址、出生日期、身份证号码。
+本接口暂未完全对外开放，如需咨询，请[联系商务](https://cloud.tencent.com/about/connect)
+
+     */
+  async RecognizeThaiIDCardOCR(
+    req: RecognizeThaiIDCardOCRRequest,
+    cb?: (error: string, rep: RecognizeThaiIDCardOCRResponse) => void
+  ): Promise<RecognizeThaiIDCardOCRResponse> {
+    return this.request("RecognizeThaiIDCardOCR", req, cb)
   }
 
   /**

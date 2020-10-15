@@ -28,6 +28,18 @@ class Client extends abstract_client_1.AbstractClient {
         super("dc.tencentcloudapi.com", "2018-04-10", clientConfig);
     }
     /**
+     * 本接口（DescribePublicDirectConnectTunnelRoutes）用于查询互联网通道路由列表
+     */
+    async DescribePublicDirectConnectTunnelRoutes(req, cb) {
+        return this.request("DescribePublicDirectConnectTunnelRoutes", req, cb);
+    }
+    /**
+     * 本接口（ModifyDirectConnectTunnelExtra）用于修改专用通道扩展信息
+     */
+    async ModifyDirectConnectTunnelExtra(req, cb) {
+        return this.request("ModifyDirectConnectTunnelExtra", req, cb);
+    }
+    /**
      * 修改物理专线的属性。
      */
     async ModifyDirectConnectAttribute(req, cb) {
@@ -40,9 +52,15 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("CreateDirectConnectTunnel", req, cb);
     }
     /**
-     * 删除物理专线。
-只能删除处于已连接状态的物理专线。
+     * 本接口（DescribeDirectConnectTunnelExtra）用于查询专用通道扩展信息
      */
+    async DescribeDirectConnectTunnelExtra(req, cb) {
+        return this.request("DescribeDirectConnectTunnelExtra", req, cb);
+    }
+    /**
+       * 删除物理专线。
+  只能删除处于已连接状态的物理专线。
+       */
     async DeleteDirectConnect(req, cb) {
         return this.request("DeleteDirectConnect", req, cb);
     }
@@ -59,9 +77,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DeleteDirectConnectTunnel", req, cb);
     }
     /**
-     * 查询物理专线接入点
-
-     */
+       * 查询物理专线接入点
+  
+       */
     async DescribeAccessPoints(req, cb) {
         return this.request("DescribeAccessPoints", req, cb);
     }
@@ -72,11 +90,11 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeDirectConnectTunnels", req, cb);
     }
     /**
-     * 申请物理专线接入。
-调用该接口时，请注意：
-账号要进行实名认证，否则不允许申请物理专线；
-若账户下存在欠费状态的物理专线，则不能申请更多的物理专线。
-     */
+       * 申请物理专线接入。
+  调用该接口时，请注意：
+  账号要进行实名认证，否则不允许申请物理专线；
+  若账户下存在欠费状态的物理专线，则不能申请更多的物理专线。
+       */
     async CreateDirectConnect(req, cb) {
         return this.request("CreateDirectConnect", req, cb);
     }

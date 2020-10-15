@@ -354,8 +354,11 @@ export interface TransitionOpertion {
  */
 export interface AudioTrackItem {
   /**
-   * 音频素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
-   */
+      * 音频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+      */
   SourceMedia: string
 
   /**
@@ -434,6 +437,37 @@ export interface DescribeAnimatedGraphicsTemplatesRequest {
    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
    */
   SubAppId?: number
+}
+
+/**
+ * LiveRealTimeClip返回参数结构体
+ */
+export interface LiveRealTimeClipResponse {
+  /**
+   * 剪辑后的视频播放 URL。
+   */
+  Url?: string
+
+  /**
+   * 剪辑固化后的视频的媒体文件的唯一标识。
+   */
+  FileId?: string
+
+  /**
+   * 剪辑固化后的视频任务流 ID。
+   */
+  VodTaskId?: string
+
+  /**
+      * 剪辑后的视频元信息。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  MetaData?: MediaMetaData
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -651,6 +685,32 @@ export interface MediaMiniProgramReviewElem {
    * 审核结果置信度。取值 0~100。
    */
   Confidence: number
+}
+
+/**
+ * CreateImageProcessingTemplate请求参数结构体
+ */
+export interface CreateImageProcessingTemplateRequest {
+  /**
+      * 图片处理操作数组，操作将以其在数组中的顺序执行。
+<li>长度限制：3。</li>
+      */
+  Operations: Array<ImageOperation>
+
+  /**
+   * 图片处理模板名称，长度限制：64 个字符。
+   */
+  Name?: string
+
+  /**
+   * 模板描述信息，长度限制：256 个字符。
+   */
+  Comment?: string
+
+  /**
+   * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+   */
+  SubAppId?: number
 }
 
 /**
@@ -1487,7 +1547,7 @@ export interface CoverConfigureInfo {
  */
 export interface ComposeMediaRequest {
   /**
-   * 输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。输入的多个轨道在时间轴上和输出媒体文件的时间轴对齐，时间轴上相同时间点的各个轨道的素材进行重叠，视频或者图片按轨道顺序进行图像的叠加，轨道顺序高的素材叠加在上面；音频素材进行混音。
+   * 输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息，其中：<li>输入的多个轨道在时间轴上和输出媒体文件的时间轴对齐；</li><li>时间轴上相同时间点的各个轨道的素材进行重叠，视频或者图片按轨道顺序进行图像的叠加，轨道顺序高的素材叠加在上面，音频素材进行混音；</li><li>视频、音频、图片，每一种类型的轨道最多支持10个。</li>
    */
   Tracks: Array<MediaTrack>
 
@@ -1507,7 +1567,7 @@ export interface ComposeMediaRequest {
   SessionContext?: string
 
   /**
-   * 用于任务去重的识别码，如果一天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于任务去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -1886,6 +1946,21 @@ export interface DeleteAIAnalysisTemplateResponse {
 }
 
 /**
+ * DeleteImageProcessingTemplate请求参数结构体
+ */
+export interface DeleteImageProcessingTemplateRequest {
+  /**
+   * 图片处理模板唯一标识。
+   */
+  Definition: number
+
+  /**
+   * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+   */
+  SubAppId?: number
+}
+
+/**
  * ApplyUpload返回参数结构体
  */
 export interface ApplyUploadResponse {
@@ -2054,8 +2129,13 @@ export interface DescribeMediaProcessUsageDataRequest {
   EndTime: string
 
   /**
-      * 查询视频处理任务类型，默认查询转码。目前只支持转码类型数据查询。
-<li>Transcode: 转码</li>
+      * 查询视频处理任务类型，目前支持的任务类型包括：
+<li> Transcoding: 普通转码</li>
+<li> Transcoding-TESHD: 极速高清转码</li>
+<li> Editing: 视频编辑</li>
+<li> AdaptiveBitrateStreaming: 自适应码流</li>
+<li> ContentAudit: 内容审核</li>
+<li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
       */
   Type?: string
 
@@ -2659,7 +2739,7 @@ export interface ProcessMediaByUrlRequest {
   SessionContext?: string
 
   /**
-   * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -2889,15 +2969,18 @@ export interface MediaMiniProgramReviewInfoItem {
 export interface TaskStatData {
   /**
       * 任务类型。
-<li>Transcode: 转码</li>
-<li>Snapshot: 截图</li>
+<li> Transcoding: 普通转码</li>
+<li> Transcoding-TESHD: 极速高清转码</li>
+<li> Editing: 视频编辑</li>
+<li> AdaptiveBitrateStreaming: 自适应码流</li>
+<li> ContentAudit: 内容审核</li>
+<li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
       */
   TaskType: string
 
   /**
-      * 任务数统计数据概览。
-<li>Transcode: 用量单位为秒</li>
-      */
+   * 任务数统计数据概览，用量单位为秒。
+   */
   Summary: Array<TaskStatDataItem>
 
   /**
@@ -2982,7 +3065,7 @@ export interface ProcessMediaByProcedureRequest {
   SessionContext?: string
 
   /**
-   * 用于去重的识别码，如果一天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -3624,9 +3707,14 @@ export interface EditMediaRequest {
   TasksPriority?: number
 
   /**
-   * 用于任务去重的识别码，如果一天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于任务去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
+
+  /**
+   * 保留字段，特殊用途时使用。
+   */
+  ExtInfo?: string
 
   /**
    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
@@ -4003,15 +4091,71 @@ export interface CreateContentReviewTemplateResponse {
 }
 
 /**
- * 智能精彩片段任务控制参数
+ * ModifyAnimatedGraphicsTemplate请求参数结构体
  */
-export interface HighlightsConfigureInfo {
+export interface ModifyAnimatedGraphicsTemplateRequest {
   /**
-      * 智能精彩片段任务开关，可选值：
-<li>ON：开启智能精彩片段任务；</li>
-<li>OFF：关闭智能精彩片段任务。</li>
+   * 转动图模板唯一标识。
+   */
+  Definition: number
+
+  /**
+   * 转动图模板名称，长度限制：64 个字符。
+   */
+  Name?: string
+
+  /**
+      * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
       */
-  Switch: string
+  Width?: number
+
+  /**
+      * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
+<li>当 Width、Height 均为 0，则分辨率同源；</li>
+<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
+<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
+<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
+默认值：0。
+      */
+  Height?: number
+
+  /**
+      * 分辨率自适应，可选值：
+<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
+<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
+默认值：open。
+      */
+  ResolutionAdaptive?: string
+
+  /**
+   * 动图格式，取值为 gif 和 webp。
+   */
+  Format?: string
+
+  /**
+   * 帧率，取值范围：[1, 30]，单位：Hz。
+   */
+  Fps?: number
+
+  /**
+   * 图片质量，取值范围：[1, 100]，默认值为 75。
+   */
+  Quality?: number
+
+  /**
+   * 模板描述信息，长度限制：256 个字符。
+   */
+  Comment?: string
+
+  /**
+   * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+   */
+  SubAppId?: number
 }
 
 /**
@@ -4103,8 +4247,11 @@ export interface EmptyTrackItem {
  */
 export interface StickerTrackItem {
   /**
-   * 贴图素材的媒体文件来源。可以是点播的文件 ID，也可以是其它文件的 URL。
-   */
+      * 贴图片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+      */
   SourceMedia: string
 
   /**
@@ -4855,7 +5002,7 @@ export interface ProcessMediaRequest {
   SessionContext?: string
 
   /**
-   * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -5006,13 +5153,36 @@ export interface MediaProcessTaskTranscodeResult {
 }
 
 /**
- * 视频拆条输出。
+ * 图片处理模板， 最多支持三次操作。例如：裁剪-缩略-裁剪。
  */
-export interface AiRecognitionTaskSegmentResultOutput {
+export interface ImageProcessingTemplate {
   /**
-   * 视频拆条片段列表。
+   * 图片处理模板唯一标识。
    */
-  SegmentSet: Array<AiRecognitionTaskSegmentSegmentItem>
+  Definition: number
+
+  /**
+      * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
+  Type: string
+
+  /**
+   * 图片处理模板名称。
+   */
+  Name: string
+
+  /**
+   * 模板描述信息。
+   */
+  Comment: string
+
+  /**
+      * 图片处理操作数组，操作将以数组顺序执行。
+<li>长度限制：3。</li>
+      */
+  Operations: Array<ImageOperation>
 }
 
 /**
@@ -5493,31 +5663,18 @@ export interface TerrorismOcrReviewTemplateInfoForUpdate {
 }
 
 /**
- * 用户自定义语音审核任务控制参数
+ * DescribeEventsState返回参数结构体
  */
-export interface UserDefineAsrTextReviewTemplateInfoForUpdate {
+export interface DescribeEventsStateResponse {
   /**
-      * 用户自定语音审核任务开关，可选值：
-<li>ON：开启自定义语音审核任务；</li>
-<li>OFF：关闭自定义语音审核任务。</li>
-      */
-  Switch?: string
-
-  /**
-      * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
-标签个数最多 10 个，每个标签长度最多 16 个字符。
-      */
-  LabelSet?: Array<string>
-
-  /**
-   * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+   * 待进行拉取的事件通知数，为近似值，约5秒延迟。
    */
-  BlockConfidence?: number
+  CountOfEventsToPull?: number
 
   /**
-   * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  ReviewConfidence?: number
+  RequestId?: string
 }
 
 /**
@@ -5543,6 +5700,21 @@ export interface AiRecognitionTaskHeadTailResultOutput {
    * 视频片尾的开始时间点，单位：秒。
    */
   TailTimeOffset: number
+}
+
+/**
+ * 对视频转自适应码流的输入参数类型
+ */
+export interface AdaptiveDynamicStreamingTaskInput {
+  /**
+   * 转自适应码流模板 ID。
+   */
+  Definition: number
+
+  /**
+   * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+   */
+  WatermarkSet?: Array<WatermarkInput>
 }
 
 /**
@@ -5673,6 +5845,16 @@ export interface TerrorismConfigureInfoForUpdate {
 }
 
 /**
+ * DescribeEventsState请求参数结构体
+ */
+export interface DescribeEventsStateRequest {
+  /**
+   * 点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+   */
+  SubAppId?: number
+}
+
+/**
  * 微信小程序发布任务信息
  */
 export interface WechatMiniProgramPublishTask {
@@ -5718,6 +5900,21 @@ FINISH：已完成。
 <li>Rejected：审核未通过。</li>
       */
   PublishResult: string
+}
+
+/**
+ * CreateImageProcessingTemplate返回参数结构体
+ */
+export interface CreateImageProcessingTemplateResponse {
+  /**
+   * 图片处理模板唯一标识。
+   */
+  Definition?: number
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -5771,6 +5968,41 @@ export interface HeadTailConfigureInfoForUpdate {
 <li>OFF：关闭智能视频片头片尾识别任务。</li>
       */
   Switch?: string
+}
+
+/**
+ * 图片缩放处理。
+ */
+export interface ImageScale {
+  /**
+      * 图片缩放的操作类型。可选模式有：
+<li>WidthFirst : 指定图片的宽为 Width ，高度等比缩放。</li>
+<li>HeightFirst : 指定图片的高为 Height ，宽度等比缩放。</li>
+<li>LongEdgeFirst : 指定图片的长边为 LongEdge ，短边等比缩放。</li>
+<li>ShortEdgeFirst : 指定图片的短边为 ShortEdge ，长边等比缩放。</li>
+<li>Force : 忽略原图宽高比例，指定图片宽度为 Width，高度为 Height ，强行缩放图片，可能导致目标图片变形。</li>
+      */
+  Type: string
+
+  /**
+   * 输出图片的高度，单位为像素。当 Type 取值为 HeightFirst 或 Force 时此字段有效。
+   */
+  Height?: number
+
+  /**
+   * 输出图片的宽度，单位为像素。当 Type 取值为 WidthFirst 或 Force 时此字段有效。
+   */
+  Width?: number
+
+  /**
+   * 输出图片的长边长度，单位为像素。当 Type 取值为 LongEdgeFirst 时此字段有效。
+   */
+  LongEdge?: number
+
+  /**
+   * 输出图片的短边长度，单位为像素。当 Type 取值为 ShortEdgeFirst 时此字段有效。
+   */
+  ShortEdge?: number
 }
 
 /**
@@ -6245,6 +6477,38 @@ export interface AiReviewTerrorismTaskOutput {
    * 有暴恐嫌疑的视频片段列表。
    */
   SegmentSet: Array<MediaContentReviewSegmentItem>
+}
+
+/**
+ * DescribeImageProcessingTemplates请求参数结构体
+ */
+export interface DescribeImageProcessingTemplatesRequest {
+  /**
+   * 图片处理模板标识列表。长度限制：100。
+   */
+  Definitions?: Array<number>
+
+  /**
+      * 模板类型过滤条件，可选值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+      */
+  Type?: string
+
+  /**
+   * 分页偏移量，默认值：0。
+   */
+  Offset?: number
+
+  /**
+   * 返回记录条数，默认值：10，最大值：100。
+   */
+  Limit?: number
+
+  /**
+   * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+   */
+  SubAppId?: number
 }
 
 /**
@@ -6751,85 +7015,120 @@ export interface DescribeCdnLogsResponse {
 }
 
 /**
- * 内容审核涉政嫌疑片段
+ * DescribeTaskDetail返回参数结构体
  */
-export interface MediaContentReviewPoliticalSegmentItem {
+export interface DescribeTaskDetailResponse {
   /**
-   * 嫌疑片段起始的偏移时间，单位：秒。
-   */
-  StartTimeOffset: number
+      * 任务类型，取值：
+<li>Procedure：视频处理任务；</li>
+<li>EditMedia：视频编辑任务；</li>
+<li>WechatPublish：微信发布任务；</li>
+<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
+<li>ComposeMedia：制作媒体文件任务；</li>
+<li>PullUpload：拉取上传媒体文件任务。</li>
 
-  /**
-   * 嫌疑片段结束的偏移时间，单位：秒。
-   */
-  EndTimeOffset: number
-
-  /**
-   * 嫌疑片段涉政分数。
-   */
-  Confidence: number
-
-  /**
-      * 嫌疑片段鉴政结果建议，取值范围：
-<li>pass。</li>
-<li>review。</li>
-<li>block。</li>
+兼容 2017 版的任务类型：
+<li>Transcode：视频转码任务；</li>
+<li>SnapshotByTimeOffset：视频截图任务；</li>
+<li>Concat：视频拼接任务；</li>
+<li>Clip：视频剪辑任务；</li>
+<li>ImageSprites：截取雪碧图任务。</li>
       */
-  Suggestion: string
+  TaskType?: string
 
   /**
-   * 涉政人物、违规图标名字。
-   */
-  Name: string
-
-  /**
-      * 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
-violation_photo：
-<li>violation_photo：违规图标。</li>
-politician：
-<li>nation_politician：国家领导人；</li>
-<li>province_politician: 省部级领导人；</li>
-<li>bureau_politician：厅局级领导人；</li>
-<li>county_politician：县处级领导人；</li>
-<li>rural_politician：乡科级领导人；</li>
-<li>sensitive_politician：敏感政治人物；</li>
-<li>foreign_politician：国外领导人。</li>
-entertainment：
-<li>sensitive_entertainment：敏感娱乐人物。</li>
-sport：
-<li>sensitive_sport：敏感体育人物。</li>
-entrepreneur：
-<li>sensitive_entrepreneur：敏感商业人物。</li>
-scholar：
-<li>sensitive_scholar：敏感教育学者。</li>
-celebrity：
-<li>sensitive_celebrity：敏感知名人物；</li>
-<li>historical_celebrity：历史知名人物。</li>
-military：
-<li>sensitive_military：敏感军事人物。</li>
+      * 任务状态，取值：
+<li>WAITING：等待中；</li>
+<li>PROCESSING：处理中；</li>
+<li>FINISH：已完成。</li>
       */
-  Label: string
+  Status?: string
 
   /**
-      * 嫌疑图片 URL （图片不会永久存储，到达
- PicUrlExpireTime 时间点后图片将被删除）。
+   * 任务的创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   */
+  CreateTime?: string
+
+  /**
+   * 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   */
+  BeginProcessTime?: string
+
+  /**
+   * 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   */
+  FinishTime?: string
+
+  /**
+      * 视频处理任务信息，仅当 TaskType 为 Procedure，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
       */
-  Url: string
+  ProcedureTask?: ProcedureTask
 
   /**
-   * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
-   */
-  AreaCoordSet: Array<number>
+      * 视频编辑任务信息，仅当 TaskType 为 EditMedia，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  EditMediaTask?: EditMediaTask
 
   /**
-   * 该字段已废弃，请使用 PicUrlExpireTime。
-   */
-  PicUrlExpireTimeStamp: number
+      * 微信发布任务信息，仅当 TaskType 为 WechatPublish，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WechatPublishTask?: WechatPublishTask
 
   /**
-   * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+      * 制作媒体文件任务信息，仅当 TaskType 为 ComposeMedia，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ComposeMediaTask?: ComposeMediaTask
+
+  /**
+      * 拉取上传媒体文件任务信息，仅当 TaskType 为 PullUpload，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  PullUploadTask?: PullUploadTask
+
+  /**
+      * 视频转码任务信息，仅当 TaskType 为 Transcode，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  TranscodeTask?: TranscodeTask2017
+
+  /**
+      * 视频指定时间点截图任务信息，仅当 TaskType 为 SnapshotByTimeOffset，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  SnapshotByTimeOffsetTask?: SnapshotByTimeOffsetTask2017
+
+  /**
+      * 视频拼接任务信息，仅当 TaskType 为 Concat，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ConcatTask?: ConcatTask2017
+
+  /**
+      * 视频剪辑任务信息，仅当 TaskType 为 Clip，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  ClipTask?: ClipTask2017
+
+  /**
+      * 截取雪碧图任务信息，仅当 TaskType 为 ImageSprite，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  CreateImageSpriteTask?: CreateImageSpriteTask2017
+
+  /**
+      * 微信小程序发布任务信息，仅当 TaskType 为 WechatMiniProgramPublish，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  WechatMiniProgramPublishTask?: WechatMiniProgramPublishTask
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  PicUrlExpireTime: string
+  RequestId?: string
 }
 
 /**
@@ -7106,6 +7405,28 @@ export interface AiRecognitionTaskOcrFullTextSegmentTextItem {
 }
 
 /**
+ * 视频拆条输出。
+ */
+export interface AiRecognitionTaskSegmentResultOutput {
+  /**
+   * 视频拆条片段列表。
+   */
+  SegmentSet: Array<AiRecognitionTaskSegmentSegmentItem>
+}
+
+/**
+ * 视频拆条任务识别控制参数
+ */
+export interface SegmentConfigureInfo {
+  /**
+      * 视频拆条识别任务开关，可选值：
+<li>ON：开启智能视频拆条识别任务；</li>
+<li>OFF：关闭智能视频拆条识别任务。</li>
+      */
+  Switch: string
+}
+
+/**
  * 对视频按指定时间点截图任务输入参数类型
  */
 export interface SnapshotByTimeOffsetTaskInput {
@@ -7130,18 +7451,6 @@ export interface SnapshotByTimeOffsetTaskInput {
    * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
    */
   WatermarkSet?: Array<WatermarkInput>
-}
-
-/**
- * 视频拆条任务识别控制参数
- */
-export interface SegmentConfigureInfo {
-  /**
-      * 视频拆条识别任务开关，可选值：
-<li>ON：开启智能视频拆条识别任务；</li>
-<li>OFF：关闭智能视频拆条识别任务。</li>
-      */
-  Switch: string
 }
 
 /**
@@ -7452,7 +7761,7 @@ export interface PullUploadRequest {
   SessionContext?: string
 
   /**
-   * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+   * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
    */
   SessionId?: string
 
@@ -8999,71 +9308,15 @@ export interface PoliticalConfigureInfo {
 }
 
 /**
- * ModifyAnimatedGraphicsTemplate请求参数结构体
+ * 智能精彩片段任务控制参数
  */
-export interface ModifyAnimatedGraphicsTemplateRequest {
+export interface HighlightsConfigureInfo {
   /**
-   * 转动图模板唯一标识。
-   */
-  Definition: number
-
-  /**
-   * 转动图模板名称，长度限制：64 个字符。
-   */
-  Name?: string
-
-  /**
-      * 动图宽度（或长边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-<li>当 Width、Height 均为 0，则分辨率同源；</li>
-<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-默认值：0。
+      * 智能精彩片段任务开关，可选值：
+<li>ON：开启智能精彩片段任务；</li>
+<li>OFF：关闭智能精彩片段任务。</li>
       */
-  Width?: number
-
-  /**
-      * 动图高度（或短边）的最大值，取值范围：0 和 [128, 4096]，单位：px。
-<li>当 Width、Height 均为 0，则分辨率同源；</li>
-<li>当 Width 为 0，Height 非 0，则 Width 按比例缩放；</li>
-<li>当 Width 非 0，Height 为 0，则 Height 按比例缩放；</li>
-<li>当 Width、Height 均非 0，则分辨率按用户指定。</li>
-默认值：0。
-      */
-  Height?: number
-
-  /**
-      * 分辨率自适应，可选值：
-<li>open：开启，此时，Width 代表视频的长边，Height 表示视频的短边；</li>
-<li>close：关闭，此时，Width 代表视频的宽度，Height 表示视频的高度。</li>
-默认值：open。
-      */
-  ResolutionAdaptive?: string
-
-  /**
-   * 动图格式，取值为 gif 和 webp。
-   */
-  Format?: string
-
-  /**
-   * 帧率，取值范围：[1, 30]，单位：Hz。
-   */
-  Fps?: number
-
-  /**
-   * 图片质量，取值范围：[1, 100]，默认值为 75。
-   */
-  Quality?: number
-
-  /**
-   * 模板描述信息，长度限制：256 个字符。
-   */
-  Comment?: string
-
-  /**
-   * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-   */
-  SubAppId?: number
+  Switch: string
 }
 
 /**
@@ -9590,18 +9843,25 @@ export interface DescribeContentReviewTemplatesRequest {
 }
 
 /**
- * 对视频转自适应码流的输入参数类型
+ * 单个图片处理操作。
  */
-export interface AdaptiveDynamicStreamingTaskInput {
+export interface ImageOperation {
   /**
-   * 转自适应码流模板 ID。
-   */
-  Definition: number
+      * 图片处理类型。可选类型有：
+<li>Scale : 图片缩略处理。</li>
+<li>CenterCut : 图片裁剪处理。</li>
+      */
+  Type: string
 
   /**
-   * 水印列表，支持多张图片或文字水印，最大可支持 10 张。
+   * 图片缩略处理，仅当 Type 为 Scale 时有效。
    */
-  WatermarkSet?: Array<WatermarkInput>
+  Scale?: ImageScale
+
+  /**
+   * 图片裁剪处理，仅当 Type 为 CenterCut 时有效。
+   */
+  CenterCut?: ImageCenterCut
 }
 
 /**
@@ -9685,120 +9945,85 @@ export interface MediaAiAnalysisTagItem {
 }
 
 /**
- * DescribeTaskDetail返回参数结构体
+ * 内容审核涉政嫌疑片段
  */
-export interface DescribeTaskDetailResponse {
+export interface MediaContentReviewPoliticalSegmentItem {
   /**
-      * 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>PullUpload：拉取上传媒体文件任务。</li>
-
-兼容 2017 版的任务类型：
-<li>Transcode：视频转码任务；</li>
-<li>SnapshotByTimeOffset：视频截图任务；</li>
-<li>Concat：视频拼接任务；</li>
-<li>Clip：视频剪辑任务；</li>
-<li>ImageSprites：截取雪碧图任务。</li>
-      */
-  TaskType?: string
-
-  /**
-      * 任务状态，取值：
-<li>WAITING：等待中；</li>
-<li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li>
-      */
-  Status?: string
-
-  /**
-   * 任务的创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   * 嫌疑片段起始的偏移时间，单位：秒。
    */
-  CreateTime?: string
+  StartTimeOffset: number
 
   /**
-   * 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   * 嫌疑片段结束的偏移时间，单位：秒。
    */
-  BeginProcessTime?: string
+  EndTimeOffset: number
 
   /**
-   * 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   * 嫌疑片段涉政分数。
    */
-  FinishTime?: string
+  Confidence: number
 
   /**
-      * 视频处理任务信息，仅当 TaskType 为 Procedure，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
+      * 嫌疑片段鉴政结果建议，取值范围：
+<li>pass。</li>
+<li>review。</li>
+<li>block。</li>
       */
-  ProcedureTask?: ProcedureTask
+  Suggestion: string
 
   /**
-      * 视频编辑任务信息，仅当 TaskType 为 EditMedia，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  EditMediaTask?: EditMediaTask
-
-  /**
-      * 微信发布任务信息，仅当 TaskType 为 WechatPublish，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  WechatPublishTask?: WechatPublishTask
-
-  /**
-      * 制作媒体文件任务信息，仅当 TaskType 为 ComposeMedia，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ComposeMediaTask?: ComposeMediaTask
-
-  /**
-      * 拉取上传媒体文件任务信息，仅当 TaskType 为 PullUpload，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  PullUploadTask?: PullUploadTask
-
-  /**
-      * 视频转码任务信息，仅当 TaskType 为 Transcode，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  TranscodeTask?: TranscodeTask2017
-
-  /**
-      * 视频指定时间点截图任务信息，仅当 TaskType 为 SnapshotByTimeOffset，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  SnapshotByTimeOffsetTask?: SnapshotByTimeOffsetTask2017
-
-  /**
-      * 视频拼接任务信息，仅当 TaskType 为 Concat，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ConcatTask?: ConcatTask2017
-
-  /**
-      * 视频剪辑任务信息，仅当 TaskType 为 Clip，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  ClipTask?: ClipTask2017
-
-  /**
-      * 截取雪碧图任务信息，仅当 TaskType 为 ImageSprite，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  CreateImageSpriteTask?: CreateImageSpriteTask2017
-
-  /**
-      * 微信小程序发布任务信息，仅当 TaskType 为 WechatMiniProgramPublish，该字段有值。
-注意：此字段可能返回 null，表示取不到有效值。
-      */
-  WechatMiniProgramPublishTask?: WechatMiniProgramPublishTask
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 涉政人物、违规图标名字。
    */
-  RequestId?: string
+  Name: string
+
+  /**
+      * 嫌疑片段鉴政结果标签。内容审核模板[画面鉴政任务控制参数](https://cloud.tencent.com/document/api/266/31773#PoliticalImgReviewTemplateInfo)里 LabelSet 参数与此参数取值范围的对应关系：
+violation_photo：
+<li>violation_photo：违规图标。</li>
+politician：
+<li>nation_politician：国家领导人；</li>
+<li>province_politician: 省部级领导人；</li>
+<li>bureau_politician：厅局级领导人；</li>
+<li>county_politician：县处级领导人；</li>
+<li>rural_politician：乡科级领导人；</li>
+<li>sensitive_politician：敏感政治人物；</li>
+<li>foreign_politician：国外领导人。</li>
+entertainment：
+<li>sensitive_entertainment：敏感娱乐人物。</li>
+sport：
+<li>sensitive_sport：敏感体育人物。</li>
+entrepreneur：
+<li>sensitive_entrepreneur：敏感商业人物。</li>
+scholar：
+<li>sensitive_scholar：敏感教育学者。</li>
+celebrity：
+<li>sensitive_celebrity：敏感知名人物；</li>
+<li>historical_celebrity：历史知名人物。</li>
+military：
+<li>sensitive_military：敏感军事人物。</li>
+      */
+  Label: string
+
+  /**
+      * 嫌疑图片 URL （图片不会永久存储，到达
+ PicUrlExpireTime 时间点后图片将被删除）。
+      */
+  Url: string
+
+  /**
+   * 涉政人物、违规图标出现的区域坐标 (像素级)，[x1, y1, x2, y2]，即左上角坐标、右下角坐标。
+   */
+  AreaCoordSet: Array<number>
+
+  /**
+   * 该字段已废弃，请使用 PicUrlExpireTime。
+   */
+  PicUrlExpireTimeStamp: number
+
+  /**
+   * 嫌疑图片 URL 失效时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+   */
+  PicUrlExpireTime: string
 }
 
 /**
@@ -10909,34 +11134,30 @@ export interface DescribeWordSamplesRequest {
 }
 
 /**
- * LiveRealTimeClip返回参数结构体
+ * 图片中心裁剪处理。
  */
-export interface LiveRealTimeClipResponse {
+export interface ImageCenterCut {
   /**
-   * 剪辑后的视频播放 URL。
-   */
-  Url?: string
-
-  /**
-   * 剪辑固化后的视频的媒体文件的唯一标识。
-   */
-  FileId?: string
-
-  /**
-   * 剪辑固化后的视频任务流 ID。
-   */
-  VodTaskId?: string
-
-  /**
-      * 剪辑后的视频元信息。
-注意：此字段可能返回 null，表示取不到有效值。
+      * 图片的裁剪模式，可选 Circle 和 Rectangle。
+<li>Circle ： 内切圆裁剪，输出图片半径为 Radius。</li>
+<li>Rectangle ： 矩形裁剪，输出图片宽为 Width ， 高为 Height。</li>
       */
-  MetaData?: MediaMetaData
+  Type: string
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 输出图片的宽度，单位为像素，当 Type 取值为 Rectangle 时有效。
    */
-  RequestId?: string
+  Width?: number
+
+  /**
+   * 输出图片的高度，单位为像素，当 Type 取值为 Rectangle 时有效。
+   */
+  Height?: number
+
+  /**
+   * 输出图片的半径，单位为像素，当 Type 取值为 Circle 时有效。
+   */
+  Radius?: number
 }
 
 /**
@@ -11233,6 +11454,34 @@ export interface DescribeTranscodeTemplatesRequest {
 }
 
 /**
+ * 用户自定义语音审核任务控制参数
+ */
+export interface UserDefineAsrTextReviewTemplateInfoForUpdate {
+  /**
+      * 用户自定语音审核任务开关，可选值：
+<li>ON：开启自定义语音审核任务；</li>
+<li>OFF：关闭自定义语音审核任务。</li>
+      */
+  Switch?: string
+
+  /**
+      * 用户自定义语音过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回。如果要使用标签过滤功能，添加自定义语音关键词素材时需要添加对应标签。
+标签个数最多 10 个，每个标签长度最多 16 个字符。
+      */
+  LabelSet?: Array<string>
+
+  /**
+   * 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规。取值范围：0~100。
+   */
+  BlockConfidence?: number
+
+  /**
+   * 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核。取值范围：0~100。
+   */
+  ReviewConfidence?: number
+}
+
+/**
  * 鉴政任务控制参数。
  */
 export interface PoliticalConfigureInfoForUpdate {
@@ -11464,8 +11713,11 @@ export interface ModifyPersonSampleResponse {
  */
 export interface VideoTrackItem {
   /**
-   * 视频片段的媒体素材来源，可以是点播的文件 ID，或者是其它文件的 URL。
-   */
+      * 视频片段的媒体素材来源，可以是：
+<li>点播的媒体文件 ID；</li>
+<li>其他媒体文件的下载 URL。</li>
+注意：当使用其他媒体文件的下载 URL 作为素材来源，且开启了访问控制（如防盗链）时，需要在 URL 携带访问控制参数（如防盗链签名）。
+      */
   SourceMedia: string
 
   /**
@@ -12325,6 +12577,16 @@ export interface AiRecognitionTaskFaceResultOutput {
 }
 
 /**
+ * DeleteImageProcessingTemplate返回参数结构体
+ */
+export interface DeleteImageProcessingTemplateResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * 画面鉴黄任务控制参数。
  */
 export interface PornImgReviewTemplateInfoForUpdate {
@@ -12659,6 +12921,26 @@ export interface MediaAiAnalysisFrameTagItem {
    * 按帧标签的可信度，取值范围是 0 到 100。
    */
   Confidence: number
+}
+
+/**
+ * DescribeImageProcessingTemplates返回参数结构体
+ */
+export interface DescribeImageProcessingTemplatesResponse {
+  /**
+   * 符合过滤条件的记录总数。
+   */
+  TotalCount?: number
+
+  /**
+   * 图片处理模板详情列表。
+   */
+  ImageProcessingTemplateSet?: Array<ImageProcessingTemplate>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**

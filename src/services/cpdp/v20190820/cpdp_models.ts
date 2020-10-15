@@ -662,13 +662,13 @@ export interface BindAcctRequest {
 
   /**
       * 用于提现
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctNo: string
 
   /**
       * 结算账户户名
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctName: string
 
@@ -685,7 +685,7 @@ export interface BindAcctRequest {
 
   /**
       * 证件号码
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   IdCode: string
 
@@ -707,7 +707,7 @@ export interface BindAcctRequest {
   /**
       * 用于短信验证
 BindType==2时必填
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   Mobile?: string
 
@@ -1915,19 +1915,19 @@ export interface CreateAcctRequest {
 
   /**
       * 子商户联系人
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   Contact: string
 
   /**
       * 联系人手机号
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   Mobile: string
 
   /**
       * 邮箱 
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   Email: string
 
@@ -1964,13 +1964,13 @@ merchant: 商户子账户
 
   /**
       * 子商户密钥
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SubMerchantKey?: string
 
   /**
       * 子商户私钥
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SubMerchantPrivateKey?: string
 
@@ -2173,7 +2173,7 @@ export interface CheckAcctRequest {
 
   /**
       * 结算账户账号
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctNo: string
 
@@ -7985,13 +7985,13 @@ export interface ApplyWithdrawalRequest {
 
   /**
       * 用于提现
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctNo: string
 
   /**
       * 结算账户户名
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctName: string
 
@@ -8022,7 +8022,7 @@ export interface ApplyWithdrawalRequest {
 
   /**
       * 会员证件号码
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   IdCode: string
 
@@ -8681,6 +8681,16 @@ development: 开发环境
 缺省: release
       */
   MidasEnvironment?: string
+
+  /**
+   * 微信商户应用ID
+   */
+  WxAppId?: string
+
+  /**
+   * 微信商户子应用ID
+   */
+  WxSubAppId?: string
 }
 
 /**
@@ -8699,7 +8709,7 @@ export interface UnBindAcctRequest {
 
   /**
       * 用于提现
-<敏感信息>加密详见《商户端接口敏感信息加密说明》
+<敏感信息>加密详见<a href="https://cloud.tencent.com/document/product/1122/48979" target="_blank">《商户端接口敏感信息加密说明》</a>
       */
   SettleAcctNo: string
 

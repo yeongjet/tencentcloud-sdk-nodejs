@@ -15,36 +15,48 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   BgpPeer,
+  DirectConnectTunnelRoute,
   RejectDirectConnectTunnelRequest,
   ModifyDirectConnectAttributeRequest,
   DeleteDirectConnectTunnelRequest,
   CreateDirectConnectResponse,
+  DescribeDirectConnectTunnelExtraRequest,
+  DescribePublicDirectConnectTunnelRoutesRequest,
   DirectConnect,
   DescribeAccessPointsResponse,
   AcceptDirectConnectTunnelResponse,
-  DescribeDirectConnectTunnelsRequest,
+  AcceptDirectConnectTunnelRequest,
+  DescribeDirectConnectTunnelExtraResponse,
   ModifyDirectConnectTunnelAttributeResponse,
   RouteFilterPrefix,
-  AcceptDirectConnectTunnelRequest,
+  BGPStatus,
+  DirectConnectTunnelExtra,
+  Tag,
   CreateDirectConnectTunnelRequest,
   DeleteDirectConnectResponse,
+  ModifyDirectConnectTunnelExtraResponse,
   DescribeDirectConnectsResponse,
   DescribeAccessPointsRequest,
   DescribeDirectConnectsRequest,
+  DescribeDirectConnectTunnelsRequest,
   ModifyDirectConnectTunnelAttributeRequest,
   Filter,
   CreateDirectConnectRequest,
   ModifyDirectConnectAttributeResponse,
+  ModifyDirectConnectTunnelExtraRequest,
   RejectDirectConnectTunnelResponse,
   CreateDirectConnectTunnelResponse,
   DeleteDirectConnectTunnelResponse,
-  AccessPoint,
+  BFDInfo,
   DeleteDirectConnectRequest,
   DescribeDirectConnectTunnelsResponse,
-  Tag,
+  AccessPoint,
+  NQAInfo,
+  DescribePublicDirectConnectTunnelRoutesResponse,
   DirectConnectTunnel,
 } from "./dc_models"
 
@@ -55,6 +67,26 @@ import {
 export class Client extends AbstractClient {
   constructor(clientConfig: ClientConfig) {
     super("dc.tencentcloudapi.com", "2018-04-10", clientConfig)
+  }
+
+  /**
+   * 本接口（DescribePublicDirectConnectTunnelRoutes）用于查询互联网通道路由列表
+   */
+  async DescribePublicDirectConnectTunnelRoutes(
+    req: DescribePublicDirectConnectTunnelRoutesRequest,
+    cb?: (error: string, rep: DescribePublicDirectConnectTunnelRoutesResponse) => void
+  ): Promise<DescribePublicDirectConnectTunnelRoutesResponse> {
+    return this.request("DescribePublicDirectConnectTunnelRoutes", req, cb)
+  }
+
+  /**
+   * 本接口（ModifyDirectConnectTunnelExtra）用于修改专用通道扩展信息
+   */
+  async ModifyDirectConnectTunnelExtra(
+    req: ModifyDirectConnectTunnelExtraRequest,
+    cb?: (error: string, rep: ModifyDirectConnectTunnelExtraResponse) => void
+  ): Promise<ModifyDirectConnectTunnelExtraResponse> {
+    return this.request("ModifyDirectConnectTunnelExtra", req, cb)
   }
 
   /**
@@ -75,6 +107,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateDirectConnectTunnelResponse) => void
   ): Promise<CreateDirectConnectTunnelResponse> {
     return this.request("CreateDirectConnectTunnel", req, cb)
+  }
+
+  /**
+   * 本接口（DescribeDirectConnectTunnelExtra）用于查询专用通道扩展信息
+   */
+  async DescribeDirectConnectTunnelExtra(
+    req: DescribeDirectConnectTunnelExtraRequest,
+    cb?: (error: string, rep: DescribeDirectConnectTunnelExtraResponse) => void
+  ): Promise<DescribeDirectConnectTunnelExtraResponse> {
+    return this.request("DescribeDirectConnectTunnelExtra", req, cb)
   }
 
   /**

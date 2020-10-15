@@ -15,34 +15,49 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   SetVocabStateResponse,
+  CreateCustomizationResponse,
+  ModifyCustomizationStateRequest,
   GetAsrVocabResponse,
   HotWord,
   GetAsrVocabRequest,
   DescribeTaskStatusResponse,
+  SentenceRecognitionRequest,
+  SentenceWord,
+  CreateCustomizationRequest,
   DownloadAsrVocabResponse,
   CreateRecTaskResponse,
-  UpdateAsrVocabResponse,
+  ModifyCustomizationResponse,
+  ModifyCustomizationStateResponse,
   DeleteAsrVocabResponse,
+  DownloadCustomizationResponse,
   GetAsrVocabListRequest,
   CreateRecTaskRequest,
-  SentenceDetail,
+  GetCustomizationListResponse,
   DownloadAsrVocabRequest,
   SetVocabStateRequest,
   Vocab,
   Task,
+  ModifyCustomizationRequest,
+  DeleteCustomizationResponse,
   TaskStatus,
   DeleteAsrVocabRequest,
-  SentenceRecognitionRequest,
+  GetCustomizationListRequest,
+  UpdateAsrVocabResponse,
+  DescribeTaskStatusRequest,
+  Model,
   CreateAsrVocabRequest,
+  SentenceDetail,
   UpdateAsrVocabRequest,
   CreateAsrVocabResponse,
   SentenceRecognitionResponse,
-  DescribeTaskStatusRequest,
+  DeleteCustomizationRequest,
   GetAsrVocabListResponse,
   SentenceWords,
+  DownloadCustomizationRequest,
 } from "./asr_models"
 
 /**
@@ -58,10 +73,20 @@ export class Client extends AbstractClient {
    * 用户通过该接口，可获得所有的热词表及其信息。
    */
   async GetAsrVocabList(
-    req?: GetAsrVocabListRequest,
+    req: GetAsrVocabListRequest,
     cb?: (error: string, rep: GetAsrVocabListResponse) => void
   ): Promise<GetAsrVocabListResponse> {
     return this.request("GetAsrVocabList", req, cb)
+  }
+
+  /**
+   * 用户通过本接口进行热词表的下载，获得词表权重文件形式的 base64 值，文件形式为通过 “|” 分割的词和权重，即 word|weight 的形式。
+   */
+  async DownloadAsrVocab(
+    req: DownloadAsrVocabRequest,
+    cb?: (error: string, rep: DownloadAsrVocabResponse) => void
+  ): Promise<DownloadAsrVocabResponse> {
+    return this.request("DownloadAsrVocab", req, cb)
   }
 
   /**
@@ -72,6 +97,7 @@ export class Client extends AbstractClient {
 <br>• 支持语音 URL 和本地语音文件两种请求方式
 <br>• 语音 URL 的音频时长不能长于5小时，文件大小不超过512MB
 <br>• 本地语音文件不能大于5MB
+<br>• 提交录音文件识别请求后，在5小时内完成识别（半小时内发送超过1000小时录音或者2万条识别任务的除外），识别结果在服务端可保存7天
 <br>• 支持回调或轮询的方式获取结果，结果获取请参考[ 录音文件识别结果查询](https://cloud.tencent.com/document/product/1093/37822)。
 <br>•   请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
 <br>•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。
@@ -109,13 +135,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 用户通过该接口可以设置热词表的默认状态。初始状态为0，用户可设置状态为1，即为默认状态。默认状态表示用户在请求识别时，如不设置热词表ID，则默认使用状态为1的热词表。
+   * 通过该接口，用户可以修改自学习模型状态，上下线自学习模型
    */
-  async SetVocabState(
-    req: SetVocabStateRequest,
-    cb?: (error: string, rep: SetVocabStateResponse) => void
-  ): Promise<SetVocabStateResponse> {
-    return this.request("SetVocabState", req, cb)
+  async ModifyCustomizationState(
+    req: ModifyCustomizationStateRequest,
+    cb?: (error: string, rep: ModifyCustomizationStateResponse) => void
+  ): Promise<ModifyCustomizationStateResponse> {
+    return this.request("ModifyCustomizationState", req, cb)
   }
 
   /**
@@ -126,6 +152,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: UpdateAsrVocabResponse) => void
   ): Promise<UpdateAsrVocabResponse> {
     return this.request("UpdateAsrVocab", req, cb)
+  }
+
+  /**
+   * 用户通过该接口可以设置热词表的默认状态。初始状态为0，用户可设置状态为1，即为默认状态。默认状态表示用户在请求识别时，如不设置热词表ID，则默认使用状态为1的热词表。
+   */
+  async SetVocabState(
+    req: SetVocabStateRequest,
+    cb?: (error: string, rep: SetVocabStateResponse) => void
+  ): Promise<SetVocabStateResponse> {
+    return this.request("SetVocabState", req, cb)
   }
 
   /**
@@ -144,13 +180,33 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 用户通过本接口进行热词表的下载，获得词表权重文件形式的 base64 值，文件形式为通过 “|” 分割的词和权重，即 word|weight 的形式。
+   * 用户通过该接口可以删除自学习模型
    */
-  async DownloadAsrVocab(
-    req: DownloadAsrVocabRequest,
-    cb?: (error: string, rep: DownloadAsrVocabResponse) => void
-  ): Promise<DownloadAsrVocabResponse> {
-    return this.request("DownloadAsrVocab", req, cb)
+  async DeleteCustomization(
+    req: DeleteCustomizationRequest,
+    cb?: (error: string, rep: DeleteCustomizationResponse) => void
+  ): Promise<DeleteCustomizationResponse> {
+    return this.request("DeleteCustomization", req, cb)
+  }
+
+  /**
+   * 用户使用该接口可以创建自学习模型，以供识别调用
+   */
+  async CreateCustomization(
+    req: CreateCustomizationRequest,
+    cb?: (error: string, rep: CreateCustomizationResponse) => void
+  ): Promise<CreateCustomizationResponse> {
+    return this.request("CreateCustomization", req, cb)
+  }
+
+  /**
+   * 查询自学习模型列表
+   */
+  async GetCustomizationList(
+    req: GetCustomizationListRequest,
+    cb?: (error: string, rep: GetCustomizationListResponse) => void
+  ): Promise<GetCustomizationListResponse> {
+    return this.request("GetCustomizationList", req, cb)
   }
 
   /**
@@ -161,6 +217,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: DeleteAsrVocabResponse) => void
   ): Promise<DeleteAsrVocabResponse> {
     return this.request("DeleteAsrVocab", req, cb)
+  }
+
+  /**
+   * 用户通过该接口可以更新自学习模型，如模型名称、模型类型、模型语料。
+   */
+  async ModifyCustomization(
+    req: ModifyCustomizationRequest,
+    cb?: (error: string, rep: ModifyCustomizationResponse) => void
+  ): Promise<ModifyCustomizationResponse> {
+    return this.request("ModifyCustomization", req, cb)
   }
 
   /**
@@ -177,5 +243,15 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: SentenceRecognitionResponse) => void
   ): Promise<SentenceRecognitionResponse> {
     return this.request("SentenceRecognition", req, cb)
+  }
+
+  /**
+   * 用户通过该接口可以下载自学习模型的语料
+   */
+  async DownloadCustomization(
+    req: DownloadCustomizationRequest,
+    cb?: (error: string, rep: DownloadCustomizationResponse) => void
+  ): Promise<DownloadCustomizationResponse> {
+    return this.request("DownloadCustomization", req, cb)
   }
 }

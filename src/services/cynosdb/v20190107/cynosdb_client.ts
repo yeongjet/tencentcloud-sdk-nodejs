@@ -15,16 +15,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   AddInstancesResponse,
   UpgradeInstanceResponse,
   Addr,
   DescribeClustersRequest,
   InstanceSpec,
+  DescribeProjectSecurityGroupsRequest,
+  SetRenewFlagResponse,
   Account,
+  SecurityGroup,
   ModifyDBInstanceSecurityGroupsResponse,
   DescribeBackupConfigRequest,
+  DescribeClusterInstanceGrpsRequest,
   DescribeAccountsRequest,
   IsolateInstanceRequest,
   DescribeMaintainPeriodResponse,
@@ -32,34 +37,48 @@ import {
   DescribeRollbackTimeRangeResponse,
   ModifyMaintainPeriodConfigRequest,
   ModifyBackupConfigRequest,
-  DescribeRollbackTimeRangeRequest,
+  DescribeDBSecurityGroupsRequest,
   DescribeRollbackTimeValidityRequest,
   IsolateClusterRequest,
+  DescribeClusterInstanceGrpsResponse,
   AddInstancesRequest,
   DescribeClusterDetailRequest,
-  UpgradeInstanceRequest,
-  QueryFilter,
+  Tag,
+  DescribeProjectSecurityGroupsResponse,
+  CynosdbInstanceDetail,
+  DescribeDBSecurityGroupsResponse,
   DescribeMaintainPeriodRequest,
-  OfflineClusterRequest,
+  DescribeInstancesResponse,
   CynosdbClusterDetail,
   ClusterInstanceDetail,
   BackupFileInfo,
   DescribeRollbackTimeValidityResponse,
+  DescribeInstanceDetailRequest,
   ModifyMaintainPeriodConfigResponse,
+  DescribeInstancesRequest,
   IsolateInstanceResponse,
   DescribeBackupListRequest,
+  QueryFilter,
+  CynosdbInstance,
   DescribeAccountsResponse,
+  UpgradeInstanceRequest,
+  DescribeInstanceDetailResponse,
+  OfflineInstanceRequest,
+  DescribeRollbackTimeRangeRequest,
   OfflineClusterResponse,
   DescribeInstanceSpecsResponse,
   ObjectTask,
   DescribeInstanceSpecsRequest,
+  PolicyRule,
   IsolateClusterResponse,
   CreateClustersResponse,
   SetRenewFlagRequest,
   CreateClustersRequest,
   CynosdbCluster,
+  OfflineClusterRequest,
   DescribeClusterDetailResponse,
-  SetRenewFlagResponse,
+  OfflineInstanceResponse,
+  CynosdbInstanceGrp,
   DescribeClustersResponse,
   ModifyBackupConfigResponse,
   DescribeBackupConfigResponse,
@@ -76,6 +95,66 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 查询备份文件列表
+   */
+  async DescribeBackupList(
+    req: DescribeBackupListRequest,
+    cb?: (error: string, rep: DescribeBackupListResponse) => void
+  ): Promise<DescribeBackupListResponse> {
+    return this.request("DescribeBackupList", req, cb)
+  }
+
+  /**
+   * 获取指定集群的备份配置信息，包括全量备份时间段，备份文件保留时间
+   */
+  async DescribeBackupConfig(
+    req: DescribeBackupConfigRequest,
+    cb?: (error: string, rep: DescribeBackupConfigResponse) => void
+  ): Promise<DescribeBackupConfigResponse> {
+    return this.request("DescribeBackupConfig", req, cb)
+  }
+
+  /**
+   * 本接口（DescribeClusterInstanceGrps）用于查询实例组
+   */
+  async DescribeClusterInstanceGrps(
+    req: DescribeClusterInstanceGrpsRequest,
+    cb?: (error: string, rep: DescribeClusterInstanceGrpsResponse) => void
+  ): Promise<DescribeClusterInstanceGrpsResponse> {
+    return this.request("DescribeClusterInstanceGrps", req, cb)
+  }
+
+  /**
+   * 下线集群
+   */
+  async OfflineCluster(
+    req: OfflineClusterRequest,
+    cb?: (error: string, rep: OfflineClusterResponse) => void
+  ): Promise<OfflineClusterResponse> {
+    return this.request("OfflineCluster", req, cb)
+  }
+
+  /**
+   * 本接口(DescribeInstanceDetail)用于查询实例详情。
+   */
+  async DescribeInstanceDetail(
+    req: DescribeInstanceDetailRequest,
+    cb?: (error: string, rep: DescribeInstanceDetailResponse) => void
+  ): Promise<DescribeInstanceDetailResponse> {
+    return this.request("DescribeInstanceDetail", req, cb)
+  }
+
+  /**
+   * 查询指定集群有效回滚时间范围
+   */
+  async DescribeRollbackTimeRange(
+    req: DescribeRollbackTimeRangeRequest,
+    cb?: (error: string, rep: DescribeRollbackTimeRangeResponse) => void
+  ): Promise<DescribeRollbackTimeRangeResponse> {
+    return this.request("DescribeRollbackTimeRange", req, cb)
+  }
+
+  /**
    * 修改指定集群的备份配置
    */
   async ModifyBackupConfig(
@@ -83,6 +162,126 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: ModifyBackupConfigResponse) => void
   ): Promise<ModifyBackupConfigResponse> {
     return this.request("ModifyBackupConfig", req, cb)
+  }
+
+  /**
+   * 本接口(DescribeInstances)用于查询实例列表。
+   */
+  async DescribeInstances(
+    req: DescribeInstancesRequest,
+    cb?: (error: string, rep: DescribeInstancesResponse) => void
+  ): Promise<DescribeInstancesResponse> {
+    return this.request("DescribeInstances", req, cb)
+  }
+
+  /**
+   * 修改维护时间配置
+   */
+  async ModifyMaintainPeriodConfig(
+    req: ModifyMaintainPeriodConfigRequest,
+    cb?: (error: string, rep: ModifyMaintainPeriodConfigResponse) => void
+  ): Promise<ModifyMaintainPeriodConfigResponse> {
+    return this.request("ModifyMaintainPeriodConfig", req, cb)
+  }
+
+  /**
+   * 下线实例
+   */
+  async OfflineInstance(
+    req: OfflineInstanceRequest,
+    cb?: (error: string, rep: OfflineInstanceResponse) => void
+  ): Promise<OfflineInstanceResponse> {
+    return this.request("OfflineInstance", req, cb)
+  }
+
+  /**
+   * 查询实例维护时间窗
+   */
+  async DescribeMaintainPeriod(
+    req: DescribeMaintainPeriodRequest,
+    cb?: (error: string, rep: DescribeMaintainPeriodResponse) => void
+  ): Promise<DescribeMaintainPeriodResponse> {
+    return this.request("DescribeMaintainPeriod", req, cb)
+  }
+
+  /**
+   * 查询集群列表
+   */
+  async DescribeClusters(
+    req: DescribeClustersRequest,
+    cb?: (error: string, rep: DescribeClustersResponse) => void
+  ): Promise<DescribeClustersResponse> {
+    return this.request("DescribeClusters", req, cb)
+  }
+
+  /**
+   * 隔离集群
+   */
+  async IsolateCluster(
+    req: IsolateClusterRequest,
+    cb?: (error: string, rep: IsolateClusterResponse) => void
+  ): Promise<IsolateClusterResponse> {
+    return this.request("IsolateCluster", req, cb)
+  }
+
+  /**
+   * 查询项目安全组信息
+   */
+  async DescribeProjectSecurityGroups(
+    req: DescribeProjectSecurityGroupsRequest,
+    cb?: (error: string, rep: DescribeProjectSecurityGroupsResponse) => void
+  ): Promise<DescribeProjectSecurityGroupsResponse> {
+    return this.request("DescribeProjectSecurityGroups", req, cb)
+  }
+
+  /**
+   * 显示集群详情
+   */
+  async DescribeClusterDetail(
+    req: DescribeClusterDetailRequest,
+    cb?: (error: string, rep: DescribeClusterDetailResponse) => void
+  ): Promise<DescribeClusterDetailResponse> {
+    return this.request("DescribeClusterDetail", req, cb)
+  }
+
+  /**
+   * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
+   */
+  async ModifyDBInstanceSecurityGroups(
+    req: ModifyDBInstanceSecurityGroupsRequest,
+    cb?: (error: string, rep: ModifyDBInstanceSecurityGroupsResponse) => void
+  ): Promise<ModifyDBInstanceSecurityGroupsResponse> {
+    return this.request("ModifyDBInstanceSecurityGroups", req, cb)
+  }
+
+  /**
+   * 本接口(IsolateInstance)用于隔离实例。
+   */
+  async IsolateInstance(
+    req: IsolateInstanceRequest,
+    cb?: (error: string, rep: IsolateInstanceResponse) => void
+  ): Promise<IsolateInstanceResponse> {
+    return this.request("IsolateInstance", req, cb)
+  }
+
+  /**
+   * 本接口（DescribeInstanceSpecs）用于查询实例规格
+   */
+  async DescribeInstanceSpecs(
+    req: DescribeInstanceSpecsRequest,
+    cb?: (error: string, rep: DescribeInstanceSpecsResponse) => void
+  ): Promise<DescribeInstanceSpecsResponse> {
+    return this.request("DescribeInstanceSpecs", req, cb)
+  }
+
+  /**
+   * 本接口(DescribeAccounts)用于查询数据库管理账号。
+   */
+  async DescribeAccounts(
+    req: DescribeAccountsRequest,
+    cb?: (error: string, rep: DescribeAccountsResponse) => void
+  ): Promise<DescribeAccountsResponse> {
+    return this.request("DescribeAccounts", req, cb)
   }
 
   /**
@@ -116,26 +315,6 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 下线集群
-   */
-  async OfflineCluster(
-    req: OfflineClusterRequest,
-    cb?: (error: string, rep: OfflineClusterResponse) => void
-  ): Promise<OfflineClusterResponse> {
-    return this.request("OfflineCluster", req, cb)
-  }
-
-  /**
-   * 本接口(IsolateInstance)用于隔离实例访问。
-   */
-  async IsolateInstance(
-    req: IsolateInstanceRequest,
-    cb?: (error: string, rep: IsolateInstanceResponse) => void
-  ): Promise<IsolateInstanceResponse> {
-    return this.request("IsolateInstance", req, cb)
-  }
-
-  /**
    * 指定时间和集群查询是否可回滚
    */
   async DescribeRollbackTimeValidity(
@@ -146,113 +325,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 本接口（DescribeInstanceSpecs）用于查询实例规格
+   * 查询实例安全组信息
    */
-  async DescribeInstanceSpecs(
-    req: DescribeInstanceSpecsRequest,
-    cb?: (error: string, rep: DescribeInstanceSpecsResponse) => void
-  ): Promise<DescribeInstanceSpecsResponse> {
-    return this.request("DescribeInstanceSpecs", req, cb)
-  }
-
-  /**
-   * 显示集群详情
-   */
-  async DescribeClusterDetail(
-    req: DescribeClusterDetailRequest,
-    cb?: (error: string, rep: DescribeClusterDetailResponse) => void
-  ): Promise<DescribeClusterDetailResponse> {
-    return this.request("DescribeClusterDetail", req, cb)
-  }
-
-  /**
-   * 本接口(ModifyDBInstanceSecurityGroups)用于修改实例绑定的安全组。
-   */
-  async ModifyDBInstanceSecurityGroups(
-    req: ModifyDBInstanceSecurityGroupsRequest,
-    cb?: (error: string, rep: ModifyDBInstanceSecurityGroupsResponse) => void
-  ): Promise<ModifyDBInstanceSecurityGroupsResponse> {
-    return this.request("ModifyDBInstanceSecurityGroups", req, cb)
-  }
-
-  /**
-   * 隔离集群
-   */
-  async IsolateCluster(
-    req: IsolateClusterRequest,
-    cb?: (error: string, rep: IsolateClusterResponse) => void
-  ): Promise<IsolateClusterResponse> {
-    return this.request("IsolateCluster", req, cb)
-  }
-
-  /**
-   * 查询备份文件列表
-   */
-  async DescribeBackupList(
-    req: DescribeBackupListRequest,
-    cb?: (error: string, rep: DescribeBackupListResponse) => void
-  ): Promise<DescribeBackupListResponse> {
-    return this.request("DescribeBackupList", req, cb)
-  }
-
-  /**
-   * 查询实例维护时间窗
-   */
-  async DescribeMaintainPeriod(
-    req: DescribeMaintainPeriodRequest,
-    cb?: (error: string, rep: DescribeMaintainPeriodResponse) => void
-  ): Promise<DescribeMaintainPeriodResponse> {
-    return this.request("DescribeMaintainPeriod", req, cb)
-  }
-
-  /**
-   * 获取指定集群的备份配置信息，包括全量备份时间段，备份文件保留时间
-   */
-  async DescribeBackupConfig(
-    req: DescribeBackupConfigRequest,
-    cb?: (error: string, rep: DescribeBackupConfigResponse) => void
-  ): Promise<DescribeBackupConfigResponse> {
-    return this.request("DescribeBackupConfig", req, cb)
-  }
-
-  /**
-   * 查询集群列表
-   */
-  async DescribeClusters(
-    req: DescribeClustersRequest,
-    cb?: (error: string, rep: DescribeClustersResponse) => void
-  ): Promise<DescribeClustersResponse> {
-    return this.request("DescribeClusters", req, cb)
-  }
-
-  /**
-   * 本接口(DescribeAccounts)用于查询数据库管理账号。
-   */
-  async DescribeAccounts(
-    req: DescribeAccountsRequest,
-    cb?: (error: string, rep: DescribeAccountsResponse) => void
-  ): Promise<DescribeAccountsResponse> {
-    return this.request("DescribeAccounts", req, cb)
-  }
-
-  /**
-   * 修改维护时间配置
-   */
-  async ModifyMaintainPeriodConfig(
-    req: ModifyMaintainPeriodConfigRequest,
-    cb?: (error: string, rep: ModifyMaintainPeriodConfigResponse) => void
-  ): Promise<ModifyMaintainPeriodConfigResponse> {
-    return this.request("ModifyMaintainPeriodConfig", req, cb)
-  }
-
-  /**
-   * 查询指定集群有效回滚时间范围
-   */
-  async DescribeRollbackTimeRange(
-    req: DescribeRollbackTimeRangeRequest,
-    cb?: (error: string, rep: DescribeRollbackTimeRangeResponse) => void
-  ): Promise<DescribeRollbackTimeRangeResponse> {
-    return this.request("DescribeRollbackTimeRange", req, cb)
+  async DescribeDBSecurityGroups(
+    req: DescribeDBSecurityGroupsRequest,
+    cb?: (error: string, rep: DescribeDBSecurityGroupsResponse) => void
+  ): Promise<DescribeDBSecurityGroupsResponse> {
+    return this.request("DescribeDBSecurityGroups", req, cb)
   }
 
   /**

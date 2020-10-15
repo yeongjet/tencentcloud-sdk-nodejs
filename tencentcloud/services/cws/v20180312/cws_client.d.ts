@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { ModifySiteAttributeRequest, DescribeSitesResponse, DescribeMonitorsResponse, DeleteSitesRequest, DescribeConfigRequest, DescribeVulsRequest, ModifyConfigAttributeResponse, CreateSitesResponse, DescribeVulsNumberRequest, ModifyMonitorAttributeResponse, ModifySiteAttributeResponse, CreateVulsReportRequest, CreateSitesScansResponse, DescribeSiteQuotaResponse, DescribeVulsNumberResponse, CreateVulsMisinformationRequest, DescribeVulsNumberTimelineRequest, CreateSitesScansRequest, CreateMonitorsResponse, DescribeVulsResponse, VerifySitesResponse, CreateMonitorsRequest, DeleteMonitorsResponse, CreateVulsMisinformationResponse, VerifySitesRequest, ModifyMonitorAttributeRequest, DescribeVulsNumberTimelineResponse, CreateVulsReportResponse, CreateSitesRequest, ModifyConfigAttributeRequest, DescribeMonitorsRequest, DeleteSitesResponse, DeleteMonitorsRequest, DescribeSitesVerificationResponse, DescribeConfigResponse, DescribeSitesRequest, DescribeSiteQuotaRequest, DescribeSitesVerificationRequest } from "./cws_models";
 /**
  * cws client

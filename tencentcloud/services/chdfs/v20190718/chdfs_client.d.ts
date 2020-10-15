@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { CreateFileSystemResponse, DescribeFileSystemResponse, ModifyFileSystemResponse, ModifyAccessGroupRequest, DescribeFileSystemsResponse, DescribeFileSystemRequest, CreateMountPointRequest, DeleteAccessGroupRequest, DeleteFileSystemRequest, DescribeMountPointRequest, DescribeAccessGroupsRequest, DeleteAccessGroupResponse, DeleteMountPointResponse, CreateMountPointResponse, CreateFileSystemRequest, ModifyFileSystemRequest, DescribeMountPointsResponse, DeleteMountPointRequest, DeleteFileSystemResponse, CreateAccessGroupResponse, ModifyMountPointRequest, DescribeAccessGroupsResponse, CreateAccessRulesResponse, DeleteAccessRulesRequest, DescribeAccessRulesResponse, DescribeFileSystemsRequest, CreateAccessRulesRequest, DeleteAccessRulesResponse, DescribeAccessRulesRequest, ModifyAccessRulesResponse, DescribeMountPointsRequest, ModifyAccessGroupResponse, ModifyMountPointResponse, ModifyAccessRulesRequest, CreateAccessGroupRequest, DescribeMountPointResponse } from "./chdfs_models";
 /**
  * chdfs client

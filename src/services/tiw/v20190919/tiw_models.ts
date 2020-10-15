@@ -62,6 +62,21 @@ z轴确定了重叠画面的遮盖顺序，z轴值大的画面处于顶层
 }
 
 /**
+ * SetVideoGenerationTaskCallback请求参数结构体
+ */
+export interface SetVideoGenerationTaskCallbackRequest {
+  /**
+   * 客户的SdkAppId
+   */
+  SdkAppId: number
+
+  /**
+   * 课后录制任务结果回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持 http或https协议，即回调地址以http://或https://开头
+   */
+  Callback: string
+}
+
+/**
  * 指定流录制的控制参数，比如是否禁用音频、视频是录制大画面还是录制小画面等
  */
 export interface StreamControl {
@@ -108,9 +123,84 @@ false - 录制大画面。
 }
 
 /**
+ * StopOnlineRecord返回参数结构体
+ */
+export interface StopOnlineRecordResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * SetVideoGenerationTaskCallbackKey请求参数结构体
+ */
+export interface SetVideoGenerationTaskCallbackKeyRequest {
+  /**
+   * 应用的SdkAppId
+   */
+  SdkAppId: number
+
+  /**
+   * 设置视频生成回调鉴权密钥，最长64字符，如果传入空字符串，那么删除现有的鉴权回调密钥
+   */
+  CallbackKey: string
+}
+
+/**
+ * 拼接视频中被忽略的时间段
+ */
+export interface OmittedDuration {
+  /**
+   * 录制暂停时间戳对应的视频播放时间(单位: 毫秒)
+   */
+  VideoTime: number
+
+  /**
+   * 录制暂停时间戳(单位: 毫秒)
+   */
+  PauseTime: number
+
+  /**
+   * 录制恢复时间戳(单位: 毫秒)
+   */
+  ResumeTime: number
+}
+
+/**
+ * DescribeVideoGenerationTaskCallback返回参数结构体
+ */
+export interface DescribeVideoGenerationTaskCallbackResponse {
+  /**
+   * 录制视频生成回调地址
+   */
+  Callback?: string
+
+  /**
+   * 录制视频生成回调鉴权密钥
+   */
+  CallbackKey?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * ResumeOnlineRecord返回参数结构体
  */
 export interface ResumeOnlineRecordResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * SetVideoGenerationTaskCallback返回参数结构体
+ */
+export interface SetVideoGenerationTaskCallbackResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -132,8 +222,8 @@ export interface StartOnlineRecordRequest {
   RoomId: number
 
   /**
-      * 用于实时录制服务进房的用户ID，格式为`tic_record_user_${RoomId}_${Random}`，其中 `${RoomId} `与录制房间号对应，`${Random}`为一个随机字符串。
-该ID必须是一个单独的未在SDK中使用的ID，实时录制服务使用这个用户ID进入房间进行音视频与白板录制，若该ID和SDK中使用的ID重复，会导致SDK和录制服务互踢，影响正常录制。
+      * 用于录制服务进房的用户ID，格式为`tic_record_user_${RoomId}_${Random}`，其中 `${RoomId} `与录制房间号对应，`${Random}`为一个随机字符串。
+该ID必须是一个单独的未在SDK中使用的ID，录制服务使用这个用户ID进入房间进行音视频与白板录制，若该ID和SDK中使用的ID重复，会导致SDK和录制服务互踢，影响正常录制。
       */
   RecordUserId: string
 
@@ -148,17 +238,17 @@ export interface StartOnlineRecordRequest {
   GroupId?: string
 
   /**
-   * 实时录制视频拼接参数
+   * 录制视频拼接参数
    */
   Concat?: Concat
 
   /**
-   * 实时录制白板参数，例如白板宽高等
+   * 录制白板参数，例如白板宽高等
    */
   Whiteboard?: Whiteboard
 
   /**
-      * 实时录制混流参数
+      * 录制混流参数
 特别说明：
 1. 混流功能需要根据额外开通， 请联系腾讯云互动白板客服人员
 2. 使用混流功能，必须提供 Extras 参数，且 Extras 参数中必须包含 "MIX_STREAM"
@@ -178,9 +268,24 @@ MIX_STREAM - 混流功能
   AudioFileNeeded?: boolean
 
   /**
-   * 实时录制控制参数，用于更精细地指定需要录制哪些流，某一路流是否禁用音频，是否只录制小画面等
+   * 录制控制参数，用于更精细地指定需要录制哪些流，某一路流是否禁用音频，是否只录制小画面等
    */
   RecordControl?: RecordControl
+
+  /**
+      * 录制模式
+
+REALTIME_MODE - 实时录制模式（默认）
+VIDEO_GENERATION_MODE - 视频生成模式（内测中，需邮件申请开通）
+      */
+  RecordMode?: string
+
+  /**
+      * 聊天群组ID，此字段仅适用于`视频生成模式`
+
+在`视频生成模式`下，默认会记录白板群组内的非白板信令消息，如果指定了`ChatGroupId`，则会记录指定群ID的聊天消息。
+      */
+  ChatGroupId?: string
 }
 
 /**
@@ -239,36 +344,13 @@ export interface StopOnlineRecordRequest {
 }
 
 /**
- * 流布局参数
+ * SetVideoGenerationTaskCallbackKey返回参数结构体
  */
-export interface StreamLayout {
+export interface SetVideoGenerationTaskCallbackKeyResponse {
   /**
-   * 流布局配置参数
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
-  LayoutParams: LayoutParams
-
-  /**
-      * 视频流ID
-流ID的取值含义如下：
-1. tic_record_user - 表示当前画面用于显示白板视频流
-2. tic_substream - 表示当前画面用于显示辅路视频流
-3. 特定用户ID - 表示当前画面用于显示指定用户的视频流
-4. 不填 - 表示当前画面用于备选，当有新的视频流加入时，会从这些备选的空位中选择一个没有被占用的位置来显示新的视频流画面
-      */
-  InputStreamId?: string
-
-  /**
-   * 背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
-   */
-  BackgroundColor?: string
-
-  /**
-      * 视频画面填充模式。
-
-0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
-1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
-      */
-  FillMode?: number
+  RequestId?: string
 }
 
 /**
@@ -279,6 +361,59 @@ export interface CreateTranscodeResponse {
    * 文档转码任务的唯一标识Id，用于查询该任务的进度以及转码结果
    */
   TaskId?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * DescribeVideoGenerationTask返回参数结构体
+ */
+export interface DescribeVideoGenerationTaskResponse {
+  /**
+   * 任务对应的群组Id
+   */
+  GroupId?: string
+
+  /**
+   * 任务对应的房间号
+   */
+  RoomId?: number
+
+  /**
+   * 任务的Id
+   */
+  TaskId?: string
+
+  /**
+   * 已废弃
+   */
+  Progress?: number
+
+  /**
+      * 录制视频生成任务状态
+- QUEUED: 正在排队
+- PROCESSING: 正在生成视频
+- FINISHED: 生成视频结束（成功完成或失败结束，可以通过错误码和错误信息进一步判断）
+      */
+  Status?: string
+
+  /**
+   * 回放视频总时长,单位：毫秒
+   */
+  TotalTime?: number
+
+  /**
+   * 已废弃，请使用`VideoInfoList`参数
+   */
+  VideoInfos?: VideoInfo
+
+  /**
+   * 录制视频生成视频列表
+   */
+  VideoInfoList?: Array<VideoInfo>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -407,7 +542,7 @@ export interface DescribeOnlineRecordRequest {
  */
 export interface StartOnlineRecordResponse {
   /**
-   * 实时录制的任务Id
+   * 录制任务Id
    */
   TaskId?: string
 
@@ -435,6 +570,99 @@ export interface Whiteboard {
    * 白板初始化参数，透传到白板 SDK
    */
   InitParam?: string
+}
+
+/**
+ * DescribeVideoGenerationTask请求参数结构体
+ */
+export interface DescribeVideoGenerationTaskRequest {
+  /**
+   * 客户的SdkAppId
+   */
+  SdkAppId: number
+
+  /**
+   * 录制视频生成的任务Id
+   */
+  TaskId: string
+}
+
+/**
+ * CreateVideoGenerationTask返回参数结构体
+ */
+export interface CreateVideoGenerationTaskResponse {
+  /**
+   * 视频生成的任务Id
+   */
+  TaskId?: string
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * PauseOnlineRecord返回参数结构体
+ */
+export interface PauseOnlineRecordResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
+ * CreateTranscode请求参数结构体
+ */
+export interface CreateTranscodeRequest {
+  /**
+   * 客户的SdkAppId
+   */
+  SdkAppId: number
+
+  /**
+   * 需要进行转码文件地址
+   */
+  Url: string
+
+  /**
+      * 是否为静态PPT，默认为False；
+如果IsStaticPPT为False，后缀名为.ppt或.pptx的文档会动态转码成HTML5页面，其他格式的文档会静态转码成图片；如果IsStaticPPT为True，所有格式的文档会静态转码成图片；
+      */
+  IsStaticPPT?: boolean
+
+  /**
+      * 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
+
+注意分辨率宽高中间为英文字母"xyz"的"x"
+      */
+  MinResolution?: string
+
+  /**
+      * 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
+
+静态转码这个参数不起作用
+      */
+  ThumbnailResolution?: string
+
+  /**
+      * 转码文件压缩格式，不传、传空字符串或不是指定的格式则不生成压缩文件，目前支持如下压缩格式：
+
+zip： 生成`.zip`压缩包
+tar.gz： 生成`.tar.gz`压缩包
+      */
+  CompressFileType?: string
+}
+
+/**
+ * SetOnlineRecordCallbackKey返回参数结构体
+ */
+export interface SetOnlineRecordCallbackKeyResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**
@@ -510,68 +738,11 @@ export interface DescribeOnlineRecordResponse {
   VideoInfos?: Array<VideoInfo>
 
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
-
-/**
- * CreateTranscode请求参数结构体
- */
-export interface CreateTranscodeRequest {
-  /**
-   * 客户的SdkAppId
-   */
-  SdkAppId: number
-
-  /**
-   * 需要进行转码文件地址
-   */
-  Url: string
-
-  /**
-      * 是否为静态PPT，默认为False；
-如果IsStaticPPT为False，后缀名为.ppt或.pptx的文档会动态转码成HTML5页面，其他格式的文档会静态转码成图片；如果IsStaticPPT为True，所有格式的文档会静态转码成图片；
+      * 回放URL，需配合信令播放器使用。此字段仅适用于`视频生成模式`
+注意：此字段可能返回 null，表示取不到有效值。
       */
-  IsStaticPPT?: boolean
+  ReplayUrl?: string
 
-  /**
-      * 转码后文档的最小分辨率，不传、传空字符串或分辨率格式错误则使用文档原分辨率
-
-注意分辨率宽高中间为英文字母"xyz"的"x"
-      */
-  MinResolution?: string
-
-  /**
-      * 动态PPT转码可以为文件生成该分辨率的缩略图，不传、传空字符串或分辨率格式错误则不生成缩略图，分辨率格式同MinResolution
-
-静态转码这个参数不起作用
-      */
-  ThumbnailResolution?: string
-
-  /**
-      * 转码文件压缩格式，不传、传空字符串或不是指定的格式则不生成压缩文件，目前支持如下压缩格式：
-
-zip： 生成`.zip`压缩包
-tar.gz： 生成`.tar.gz`压缩包
-      */
-  CompressFileType?: string
-}
-
-/**
- * SetOnlineRecordCallbackKey返回参数结构体
- */
-export interface SetOnlineRecordCallbackKeyResponse {
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
-}
-
-/**
- * PauseOnlineRecord返回参数结构体
- */
-export interface PauseOnlineRecordResponse {
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
    */
@@ -678,6 +849,39 @@ export interface DescribeTranscodeResponse {
 }
 
 /**
+ * 流布局参数
+ */
+export interface StreamLayout {
+  /**
+   * 流布局配置参数
+   */
+  LayoutParams: LayoutParams
+
+  /**
+      * 视频流ID
+流ID的取值含义如下：
+1. tic_record_user - 表示当前画面用于显示白板视频流
+2. tic_substream - 表示当前画面用于显示辅路视频流
+3. 特定用户ID - 表示当前画面用于显示指定用户的视频流
+4. 不填 - 表示当前画面用于备选，当有新的视频流加入时，会从这些备选的空位中选择一个没有被占用的位置来显示新的视频流画面
+      */
+  InputStreamId?: string
+
+  /**
+   * 背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
+   */
+  BackgroundColor?: string
+
+  /**
+      * 视频画面填充模式。
+
+0 - 自适应模式，对视频画面进行等比例缩放，在指定区域内显示完整的画面。此模式可能存在黑边。
+1 - 全屏模式，对视频画面进行等比例缩放，让画面填充满整个指定区域。此模式不会存在黑边，但会将超出区域的那一部分画面裁剪掉。
+      */
+  FillMode?: number
+}
+
+/**
  * SetOnlineRecordCallback返回参数结构体
  */
 export interface SetOnlineRecordCallbackResponse {
@@ -703,13 +907,46 @@ export interface SetOnlineRecordCallbackKeyRequest {
 }
 
 /**
- * StopOnlineRecord返回参数结构体
+ * CreateVideoGenerationTask请求参数结构体
  */
-export interface StopOnlineRecordResponse {
+export interface CreateVideoGenerationTaskRequest {
   /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   * 录制任务的TaskId
    */
-  RequestId?: string
+  OnlineRecordTaskId: string
+
+  /**
+   * 客户的SdkAppId
+   */
+  SdkAppId: number
+
+  /**
+      * 视频生成的白板参数，例如白板宽高等。
+
+此参数与开始录制接口提供的Whiteboard参数互斥，在本接口与开始录制接口都提供了Whiteboard参数时，优先使用本接口指定的Whiteboard参数进行视频生成，否则使用开始录制接口提供的Whiteboard参数进行视频生成。
+      */
+  Whiteboard?: Whiteboard
+
+  /**
+      * 视频拼接参数
+
+此参数与开始录制接口提供的Concat参数互斥，在本接口与开始录制接口都提供了Concat参数时，优先使用本接口指定的Concat参数进行视频拼接，否则使用开始录制接口提供的Concat参数进行视频拼接。
+      */
+  Concat?: Concat
+
+  /**
+      * 视频生成混流参数
+
+此参数与开始录制接口提供的MixStream参数互斥，在本接口与开始录制接口都提供了MixStream参数时，优先使用本接口指定的MixStream参数进行视频混流，否则使用开始录制接口提供的MixStream参数进行视频拼混流。
+      */
+  MixStream?: MixStream
+
+  /**
+      * 视频生成控制参数，用于更精细地指定需要生成哪些流，某一路流是否禁用音频，是否只录制小画面等
+
+此参数与开始录制接口提供的RecordControl参数互斥，在本接口与开始录制接口都提供了RecordControl参数时，优先使用本接口指定的RecordControl参数进行视频生成控制，否则使用开始录制接口提供的RecordControl参数进行视频拼生成控制。
+      */
+  RecordControl?: RecordControl
 }
 
 /**
@@ -868,23 +1105,13 @@ export interface MixStream {
 }
 
 /**
- * 拼接视频中被忽略的时间段
+ * DescribeVideoGenerationTaskCallback请求参数结构体
  */
-export interface OmittedDuration {
+export interface DescribeVideoGenerationTaskCallbackRequest {
   /**
-   * 录制暂停时间戳对应的视频播放时间(单位: 毫秒)
+   * 应用的SdkAppId
    */
-  VideoTime: number
-
-  /**
-   * 录制暂停时间戳(单位: 毫秒)
-   */
-  PauseTime: number
-
-  /**
-   * 录制恢复时间戳(单位: 毫秒)
-   */
-  ResumeTime: number
+  SdkAppId: number
 }
 
 /**

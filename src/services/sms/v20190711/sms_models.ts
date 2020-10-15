@@ -594,7 +594,7 @@ export interface SendSmsRequest {
   SessionContext?: string
 
   /**
-   * 国际/港澳台短信 senderid，国内短信填空，默认未开通，如需开通请联系 [sms helper](https://cloud.tencent.com/document/product/382/3773)。
+   * 国内短信无senderid，无需填写该项；若需开通国际/港澳台短信senderid，请联系smshelper。
    */
   SenderId?: string
 }

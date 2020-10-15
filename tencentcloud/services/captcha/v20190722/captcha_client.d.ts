@@ -1,5 +1,6 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { DescribeCaptchaOperDataResponse, DescribeCaptchaUserAllAppIdRequest, UpdateCaptchaAppIdInfoResponse, DescribeCaptchaDataSumResponse, DescribeCaptchaTicketDataRequest, UpdateCaptchaAppIdInfoRequest, DescribeCaptchaOperDataRequest, DescribeCaptchaDataSumRequest, DescribeCaptchaDataResponse, DescribeCaptchaResultRequest, DescribeCaptchaResultResponse, DescribeCaptchaAppIdInfoRequest, DescribeCaptchaAppIdInfoResponse, DescribeCaptchaUserAllAppIdResponse, DescribeCaptchaDataRequest, DescribeCaptchaTicketDataResponse } from "./captcha_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { DescribeCaptchaOperDataResponse, DescribeCaptchaMiniOperDataResponse, DescribeCaptchaMiniDataSumResponse, UpdateCaptchaAppIdInfoRequest, DescribeCaptchaUserAllAppIdRequest, DescribeCaptchaMiniDataResponse, UpdateCaptchaAppIdInfoResponse, DescribeCaptchaDataSumResponse, DescribeCaptchaTicketDataRequest, DescribeCaptchaMiniDataSumRequest, DescribeCaptchaOperDataRequest, DescribeCaptchaDataSumRequest, DescribeCaptchaDataResponse, DescribeCaptchaResultRequest, DescribeCaptchaResultResponse, DescribeCaptchaMiniOperDataRequest, DescribeCaptchaAppIdInfoRequest, DescribeCaptchaAppIdInfoResponse, DescribeCaptchaUserAllAppIdResponse, DescribeCaptchaDataRequest, DescribeCaptchaMiniResultRequest, DescribeCaptchaTicketDataResponse, DescribeCaptchaMiniResultResponse, DescribeCaptchaMiniDataRequest } from "./captcha_models";
 /**
  * captcha client
  * @class
@@ -11,7 +12,7 @@ export declare class Client extends AbstractClient {
      */
     DescribeCaptchaUserAllAppId(req?: DescribeCaptchaUserAllAppIdRequest, cb?: (error: string, rep: DescribeCaptchaUserAllAppIdResponse) => void): Promise<DescribeCaptchaUserAllAppIdResponse>;
     /**
-     * 验证码控制台票据验证信息
+     * 安全验证码用户操作票据数据查询
      */
     DescribeCaptchaTicketData(req: DescribeCaptchaTicketDataRequest, cb?: (error: string, rep: DescribeCaptchaTicketDataResponse) => void): Promise<DescribeCaptchaTicketDataResponse>;
     /**
@@ -23,17 +24,33 @@ export declare class Client extends AbstractClient {
      */
     DescribeCaptchaOperData(req: DescribeCaptchaOperDataRequest, cb?: (error: string, rep: DescribeCaptchaOperDataResponse) => void): Promise<DescribeCaptchaOperDataResponse>;
     /**
-     * 查询安全验证码应用APPId信息
+     * 安全验证码小程序插件分类查询数据接口（内测中），请求量type=0、通过量type=1、验证量type=2、拦截量type=3 小时级查询（五小时左右延迟）
      */
-    DescribeCaptchaAppIdInfo(req: DescribeCaptchaAppIdInfoRequest, cb?: (error: string, rep: DescribeCaptchaAppIdInfoResponse) => void): Promise<DescribeCaptchaAppIdInfoResponse>;
+    DescribeCaptchaMiniData(req: DescribeCaptchaMiniDataRequest, cb?: (error: string, rep: DescribeCaptchaMiniDataResponse) => void): Promise<DescribeCaptchaMiniDataResponse>;
+    /**
+     * 安全验证码小程序插件用户操作数据查询（内测中）
+     */
+    DescribeCaptchaMiniOperData(req: DescribeCaptchaMiniOperDataRequest, cb?: (error: string, rep: DescribeCaptchaMiniOperDataResponse) => void): Promise<DescribeCaptchaMiniOperDataResponse>;
     /**
      * 安全验证码分类查询数据接口，请求量type=0、通过量type=1、验证量type=2、拦截量type=3  分钟级查询
      */
     DescribeCaptchaData(req: DescribeCaptchaDataRequest, cb?: (error: string, rep: DescribeCaptchaDataResponse) => void): Promise<DescribeCaptchaDataResponse>;
     /**
+     * 安全验证码小程序插件查询请求数据概况（内测中）
+     */
+    DescribeCaptchaMiniDataSum(req: DescribeCaptchaMiniDataSumRequest, cb?: (error: string, rep: DescribeCaptchaMiniDataSumResponse) => void): Promise<DescribeCaptchaMiniDataSumResponse>;
+    /**
+     * 核查验证码小程序插件票据结果（内测中）
+     */
+    DescribeCaptchaMiniResult(req: DescribeCaptchaMiniResultRequest, cb?: (error: string, rep: DescribeCaptchaMiniResultResponse) => void): Promise<DescribeCaptchaMiniResultResponse>;
+    /**
      * 更新验证码应用APPId信息
      */
     UpdateCaptchaAppIdInfo(req: UpdateCaptchaAppIdInfoRequest, cb?: (error: string, rep: UpdateCaptchaAppIdInfoResponse) => void): Promise<UpdateCaptchaAppIdInfoResponse>;
+    /**
+     * 查询安全验证码应用APPId信息
+     */
+    DescribeCaptchaAppIdInfo(req: DescribeCaptchaAppIdInfoRequest, cb?: (error: string, rep: DescribeCaptchaAppIdInfoResponse) => void): Promise<DescribeCaptchaAppIdInfoResponse>;
     /**
      * 核查验证码票据结果
      */

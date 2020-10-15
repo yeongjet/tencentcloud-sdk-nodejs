@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   ImageSegments,
   ImageResultResult,
@@ -25,6 +26,7 @@ import {
   CreateBizConfigRequest,
   DescribeBizConfigRequest,
   TaskResult,
+  CancelTaskRequest,
   DescribeTaskDetailResponse,
   CreateAudioModerationTaskRequest,
   CreateBizConfigResponse,
@@ -35,6 +37,7 @@ import {
   InputInfo,
   AudioResultDetailLanguageResult,
   FileOutput,
+  CancelTaskResponse,
   AudioResultDetailTextResult,
   AudioResult,
   AudioResultDetailMoanResult,
@@ -99,10 +102,20 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 查看任务详情
+   */
+  async DescribeTaskDetail(
+    req: DescribeTaskDetailRequest,
+    cb?: (error: string, rep: DescribeTaskDetailResponse) => void
+  ): Promise<DescribeTaskDetailResponse> {
+    return this.request("DescribeTaskDetail", req, cb)
+  }
+
+  /**
      * 创建业务配置，1个账号最多可以创建20个配置，可定义音频审核的场景，如色情、谩骂等，
 
 在创建业务配置之前，你需要以下步骤：
-1. 开通COS存储捅功能，新建存储桶，例如 cms_segments，用来存储 视频转换过程中生成对音频和图片。
+1. 开通COS存储桶功能，新建存储桶，例如 cms_segments，用来存储 视频转换过程中生成对音频和图片。
 2. 然后在COS控制台，授权天御内容安全主账号 对 cms_segments 存储桶对读写权限。具体授权操作，参考https://cloud.tencent.com/document/product/436/38648
 
      */
@@ -114,12 +127,12 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 查看任务详情
+   * 取消任务
    */
-  async DescribeTaskDetail(
-    req: DescribeTaskDetailRequest,
-    cb?: (error: string, rep: DescribeTaskDetailResponse) => void
-  ): Promise<DescribeTaskDetailResponse> {
-    return this.request("DescribeTaskDetail", req, cb)
+  async CancelTask(
+    req: CancelTaskRequest,
+    cb?: (error: string, rep: CancelTaskResponse) => void
+  ): Promise<CancelTaskResponse> {
+    return this.request("CancelTask", req, cb)
   }
 }

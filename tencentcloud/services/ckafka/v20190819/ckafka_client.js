@@ -88,12 +88,6 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeUser", req, cb);
     }
     /**
-     * 根据位点查询消息列表
-     */
-    async FetchMessageListByOffset(req, cb) {
-        return this.request("FetchMessageListByOffset", req, cb);
-    }
-    /**
      * 枚举ACL
      */
     async DescribeACL(req, cb) {
@@ -110,12 +104,6 @@ class Client extends abstract_client_1.AbstractClient {
      */
     async CreateInstancePre(req, cb) {
         return this.request("CreateInstancePre", req, cb);
-    }
-    /**
-     * 根据指定offset位置的消息
-     */
-    async FetchMessageByOffset(req, cb) {
-        return this.request("FetchMessageByOffset", req, cb);
     }
     /**
      * 删除主题IP白名单
@@ -160,9 +148,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeAppInfo", req, cb);
     }
     /**
-     * 获取主题属性
-
-     */
+       * 获取主题属性
+  
+       */
     async DescribeTopicAttributes(req, cb) {
         return this.request("DescribeTopicAttributes", req, cb);
     }
@@ -191,15 +179,9 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeGroupOffsets", req, cb);
     }
     /**
-     * 根据时间戳查询消息列表
-     */
-    async FetchMessageListByTimestamp(req, cb) {
-        return this.request("FetchMessageListByTimestamp", req, cb);
-    }
-    /**
-     * 接口请求域名：https://ckafka.tencentcloudapi.com
-本接口（DescribeTopic）用于在用户获取消息队列 CKafka 实例的主题列表
-     */
+       * 接口请求域名：https://ckafka.tencentcloudapi.com
+  本接口（DescribeTopic）用于在用户获取消息队列 CKafka 实例的主题列表
+       */
     async DescribeTopic(req, cb) {
         return this.request("DescribeTopic", req, cb);
     }

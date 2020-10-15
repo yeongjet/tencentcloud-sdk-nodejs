@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DeleteModelRequest, DeleteJobResponse, CreateJobRequest, CreateJobResponse, InstallAgentResponse, DescribeModelResponse, DescribeModelRequest, DescribeJobRequest, ListJobsRequest, CreateModelResponse, ListModelsRequest, QueryLogsResponse, InstallAgentRequest, ListJobsResponse, QueryLogsRequest, DeleteModelResponse, ListModelsResponse, DeleteJobRequest, CreateModelRequest, DescribeJobResponse } from "./tia_models";
 /**
  * tia client

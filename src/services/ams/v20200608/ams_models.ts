@@ -225,6 +225,16 @@ export interface TaskResult {
 }
 
 /**
+ * CancelTask请求参数结构体
+ */
+export interface CancelTaskRequest {
+  /**
+   * 任务ID
+   */
+  TaskId: string
+}
+
+/**
  * DescribeTaskDetail返回参数结构体
  */
 export interface DescribeTaskDetailResponse {
@@ -588,6 +598,16 @@ export interface FileOutput {
    * 对象前缀
    */
   ObjectPrefix: string
+}
+
+/**
+ * CancelTask返回参数结构体
+ */
+export interface CancelTaskResponse {
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
 }
 
 /**

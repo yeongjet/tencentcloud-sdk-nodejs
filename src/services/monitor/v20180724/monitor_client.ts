@@ -15,88 +15,97 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   DescribePolicyConditionListConfigManual,
-  UnBindingPolicyObjectRequest,
-  DescribePolicyConditionListRequest,
-  DeletePolicyGroupResponse,
-  DescribeAccidentEventListAlarms,
   CreatePolicyGroupEventCondition,
   DescribeProductEventListRequest,
-  DescribeProductListResponse,
-  UnBindingAllPolicyObjectRequest,
-  Instance,
-  DescribeProductEventListEvents,
-  BindingPolicyObjectDimension,
   DescribePolicyConditionListMetric,
+  DescribePolicyGroupListResponse,
+  BindingPolicyObjectRequest,
+  DescribePolicyGroupInfoRequest,
+  DescribePolicyGroupInfoCallback,
+  DescribeProductEventListDimensions,
+  DescribePolicyGroupInfoResponse,
+  DescribeAllNamespacesRequest,
+  CreatePolicyGroupResponse,
+  PutMonitorDataResponse,
+  DescribeBaseMetricsResponse,
+  SendCustomAlarmMsgRequest,
+  DescribePolicyConditionListConfigManualContinueTime,
+  CommonNamespace,
+  GetMonitorDataRequest,
+  DataPoint,
+  DescribePolicyConditionListConfigManualPeriod,
+  UnBindingPolicyObjectRequest,
+  DescribePolicyConditionListRequest,
+  DescribeBindingPolicyObjectListInstance,
+  DeletePolicyGroupResponse,
+  DimensionsDesc,
+  DescribePolicyConditionListCondition,
+  DescribeProductListRequest,
+  PeriodsSt,
+  ModifyAlarmReceiversResponse,
+  DescribePolicyConditionListResponse,
+  DescribeAllNamespacesResponse,
+  DescribeBasicAlarmListResponse,
+  ProductSimple,
+  ModifyAlarmReceiversRequest,
+  DescribeProductEventListEventsDimensions,
+  MetricSet,
+  DescribeBindingPolicyObjectListResponse,
+  ModifyPolicyGroupEventCondition,
+  ModifyPolicyGroupRequest,
+  DescribeProductEventListResponse,
+  DescribeBaseMetricsRequest,
+  Instance,
+  BindingPolicyObjectDimension,
+  Dimension,
+  DescribeBasicAlarmListAlarms,
+  UnBindingAllPolicyObjectResponse,
+  DescribeAlarmHistoriesRequest,
+  MetricObjectMeaning,
+  DeletePolicyGroupRequest,
+  ModifyPolicyGroupResponse,
+  DescribePolicyConditionListConfigManualCalcType,
+  DescribePolicyGroupInfoCondition,
+  DescribeProductEventListEventsGroupInfo,
+  DescribePolicyGroupInfoConditionTpl,
+  DescribeBindingPolicyObjectListRequest,
+  UnBindingPolicyObjectResponse,
+  DescribeProductEventListEvents,
+  DescribePolicyConditionListConfigManualPeriodNum,
+  PutMonitorDataRequest,
+  DescribePolicyGroupListGroupInstanceGroup,
+  InstanceGroup,
+  DescribeAccidentEventListResponse,
+  DescribePolicyConditionListConfigManualStatType,
+  DescribeAccidentEventListAlarms,
+  DescribeProductListResponse,
+  DescribeAlarmHistoriesResponse,
+  AlarmHistory,
+  MonitorTypeNamespace,
   CreatePolicyGroupRequest,
   CreatePolicyGroupCondition,
   DescribePolicyGroupInfoReceiverInfo,
-  BindingPolicyObjectRequest,
-  DescribeProductEventListEventsGroupInfo,
-  ModifyPolicyGroupRequest,
-  DescribePolicyConditionListConfigManualPeriod,
   DescribePolicyConditionListEventMetric,
-  DescribePolicyConditionListCondition,
-  DescribeBasicAlarmListRequest,
-  DescribePolicyGroupListResponse,
-  DescribePolicyGroupInfoRequest,
-  DimensionsDesc,
-  DescribePolicyGroupListGroup,
-  DescribeBasicAlarmListAlarms,
-  DescribeProductListRequest,
-  PeriodsSt,
-  DescribeAccidentEventListRequest,
-  DescribeProductEventListOverView,
-  MetricObjectMeaning,
-  MetricDatum,
-  DeletePolicyGroupRequest,
-  DescribePolicyGroupInfoCallback,
-  DescribeBindingPolicyObjectListInstanceGroup,
-  DescribePolicyConditionListResponse,
-  DescribePolicyConditionListConfigManualCalcType,
-  ModifyPolicyGroupResponse,
-  PutMonitorDataResponse,
-  ReceiverInfo,
-  ModifyAlarmReceiversRequest,
-  DescribeProductEventListDimensions,
-  DescribePolicyGroupInfoResponse,
-  DescribeBasicAlarmListResponse,
-  ProductSimple,
-  DescribeBindingPolicyObjectListDimension,
-  DescribePolicyGroupInfoCondition,
-  UnBindingPolicyObjectResponse,
-  GetMonitorDataResponse,
-  MetricSet,
-  DescribeBindingPolicyObjectListResponse,
-  DescribePolicyGroupInfoConditionTpl,
-  DescribeBindingPolicyObjectListRequest,
-  CreatePolicyGroupResponse,
-  PutMonitorDataRequest,
-  InstanceGroup,
-  DescribePolicyGroupInfoEventCondition,
-  DescribeBaseMetricsResponse,
-  SendCustomAlarmMsgResponse,
-  GetMonitorDataRequest,
-  DescribePolicyConditionListConfigManualPeriodNum,
-  DescribeBindingPolicyObjectListInstance,
-  ModifyPolicyGroupCondition,
-  ModifyPolicyGroupEventCondition,
-  DescribePolicyConditionListConfigManualContinueTime,
   DescribePolicyGroupListRequest,
-  DescribeAccidentEventListResponse,
-  DescribeProductEventListResponse,
-  DescribeBaseMetricsRequest,
-  Dimension,
-  DataPoint,
-  UnBindingAllPolicyObjectResponse,
-  DescribePolicyConditionListConfigManualStatType,
-  SendCustomAlarmMsgRequest,
-  DescribeProductEventListEventsDimensions,
+  DescribeBasicAlarmListRequest,
+  DescribePolicyGroupListGroup,
+  DescribeAccidentEventListRequest,
+  MetricDatum,
+  DescribeBindingPolicyObjectListInstanceGroup,
+  DescribeBindingPolicyObjectListDimension,
+  InstanceGroups,
+  GetMonitorDataResponse,
+  ReceiverInfo,
+  UnBindingAllPolicyObjectRequest,
+  DescribePolicyGroupInfoEventCondition,
+  SendCustomAlarmMsgResponse,
+  ModifyPolicyGroupCondition,
+  DescribeProductEventListOverView,
   DescribePolicyConditionListConfigManualCalcValue,
-  ModifyAlarmReceiversResponse,
-  DescribePolicyGroupListGroupInstanceGroup,
   BindingPolicyObjectResponse,
 } from "./monitor_models"
 
@@ -147,6 +156,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: BindingPolicyObjectResponse) => void
   ): Promise<BindingPolicyObjectResponse> {
     return this.request("BindingPolicyObject", req, cb)
+  }
+
+  /**
+   * 告警2.0-告警历史列表
+   */
+  async DescribeAlarmHistories(
+    req: DescribeAlarmHistoriesRequest,
+    cb?: (error: string, rep: DescribeAlarmHistoriesResponse) => void
+  ): Promise<DescribeAlarmHistoriesResponse> {
+    return this.request("DescribeAlarmHistories", req, cb)
   }
 
   /**
@@ -210,6 +229,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 更新策略组
+   */
+  async ModifyPolicyGroup(
+    req: ModifyPolicyGroupRequest,
+    cb?: (error: string, rep: ModifyPolicyGroupResponse) => void
+  ): Promise<ModifyPolicyGroupResponse> {
+    return this.request("ModifyPolicyGroup", req, cb)
+  }
+
+  /**
    * 查询云监控产品列表
    */
   async DescribeProductList(
@@ -252,13 +281,13 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 更新策略组
+   * 拉取所有名字空间
    */
-  async ModifyPolicyGroup(
-    req: ModifyPolicyGroupRequest,
-    cb?: (error: string, rep: ModifyPolicyGroupResponse) => void
-  ): Promise<ModifyPolicyGroupResponse> {
-    return this.request("ModifyPolicyGroup", req, cb)
+  async DescribeAllNamespaces(
+    req: DescribeAllNamespacesRequest,
+    cb?: (error: string, rep: DescribeAllNamespacesResponse) => void
+  ): Promise<DescribeAllNamespacesResponse> {
+    return this.request("DescribeAllNamespaces", req, cb)
   }
 
   /**

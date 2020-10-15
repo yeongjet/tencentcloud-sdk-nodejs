@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { ModifyDbauditInstancesRenewFlagResponse, DescribeDbauditInstanceTypeResponse, InquiryPriceDbauditInstanceResponse, ModifyDbauditInstancesRenewFlagRequest, DescribeDbauditUsedRegionsResponse, DescribeDbauditInstancesRequest, DescribeDbauditInstanceTypeRequest, DescribeDbauditInstancesResponse, DescribeDbauditUsedRegionsRequest, InquiryPriceDbauditInstanceRequest, DescribeDasbImageIdsResponse, DescribeDasbImageIdsRequest } from "./cds_models";
 /**
  * cds client

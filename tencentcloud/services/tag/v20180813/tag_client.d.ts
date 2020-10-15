@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DetachResourcesTagRequest, AttachResourcesTagResponse, DeleteTagRequest, DeleteResourceTagResponse, DescribeResourceTagsByTagKeysRequest, ModifyResourceTagsResponse, DescribeTagsRequest, DescribeTagKeysResponse, DescribeTagValuesRequest, ModifyResourceTagsRequest, DescribeResourcesByTagsUnionRequest, DescribeTagsResponse, DescribeResourcesByTagsResponse, DescribeTagKeysRequest, DescribeTagsSeqResponse, DescribeResourceTagsResponse, DescribeResourceTagsByResourceIdsRequest, DescribeResourcesByTagsUnionResponse, DescribeResourceTagsByResourceIdsResponse, ModifyResourcesTagValueRequest, AddResourceTagResponse, ModifyResourcesTagValueResponse, AddResourceTagRequest, DescribeTagValuesSeqResponse, CreateTagRequest, DescribeResourceTagsByTagKeysResponse, DescribeTagsSeqRequest, DescribeTagValuesResponse, AttachResourcesTagRequest, CreateTagResponse, DetachResourcesTagResponse, DescribeResourceTagsByResourceIdsSeqResponse, DeleteTagResponse, DescribeTagValuesSeqRequest, UpdateResourceTagValueRequest, DescribeResourcesByTagsRequest, DeleteResourceTagRequest, UpdateResourceTagValueResponse, DescribeResourceTagsRequest, DescribeResourceTagsByResourceIdsSeqRequest } from "./tag_models";
 /**
  * tag client
@@ -35,9 +36,9 @@ export declare class Client extends AbstractClient {
      */
     ModifyResourceTags(req: ModifyResourceTagsRequest, cb?: (error: string, rep: ModifyResourceTagsResponse) => void): Promise<ModifyResourceTagsResponse>;
     /**
-     * 用于查询已建立的标签列表中的标签键。
-
-     */
+       * 用于查询已建立的标签列表中的标签键。
+  
+       */
     DescribeTagKeys(req: DescribeTagKeysRequest, cb?: (error: string, rep: DescribeTagKeysResponse) => void): Promise<DescribeTagKeysResponse>;
     /**
      * 本接口用于修改资源已关联的标签值（标签键不变）
@@ -56,14 +57,14 @@ export declare class Client extends AbstractClient {
      */
     DescribeResourceTagsByResourceIdsSeq(req: DescribeResourceTagsByResourceIdsSeqRequest, cb?: (error: string, rep: DescribeResourceTagsByResourceIdsSeqResponse) => void): Promise<DescribeResourceTagsByResourceIdsSeqResponse>;
     /**
-     * 用于查询已建立的标签列表。
-
-     */
+       * 用于查询已建立的标签列表。
+  
+       */
     DescribeTags(req: DescribeTagsRequest, cb?: (error: string, rep: DescribeTagsResponse) => void): Promise<DescribeTagsResponse>;
     /**
-     * 用于查询已建立的标签列表。
-
-     */
+       * 用于查询已建立的标签列表。
+  
+       */
     DescribeTagsSeq(req: DescribeTagsSeqRequest, cb?: (error: string, rep: DescribeTagsSeqResponse) => void): Promise<DescribeTagsSeqResponse>;
     /**
      * 通过标签查询资源列表

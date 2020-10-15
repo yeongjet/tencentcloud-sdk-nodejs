@@ -1,5 +1,6 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
-import { ModifyEnvironmentAttributesRequest, DescribeSubscriptionsRequest, DescribeEnvironmentAttributesRequest, ResetMsgSubOffsetByTimestampResponse, DescribeTopicsResponse, CreateTopicResponse, DescribeEnvironmentsResponse, ModifyTopicResponse, DescribeProducersRequest, DescribeEnvironmentAttributesResponse, DeleteTopicsResponse, DescribeSubscriptionsResponse, DescribeProducersResponse, CreateTopicRequest, DescribeTopicsRequest, DeleteEnvironmentsResponse, DeleteTopicsRequest, CreateSubscriptionRequest, ModifyTopicRequest, ModifyEnvironmentAttributesResponse, DeleteSubscriptionsRequest, CreateEnvironmentResponse, ResetMsgSubOffsetByTimestampRequest, DeleteSubscriptionsResponse, CreateSubscriptionResponse, DeleteEnvironmentsRequest, DescribeEnvironmentsRequest, CreateEnvironmentRequest } from "./tdmq_models";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
+import { ModifyEnvironmentAttributesRequest, DescribeSubscriptionsRequest, DescribeEnvironmentAttributesRequest, ResetMsgSubOffsetByTimestampResponse, DescribeTopicsResponse, CreateTopicResponse, DescribeEnvironmentsResponse, ModifyTopicResponse, DescribeProducersRequest, DescribeEnvironmentAttributesResponse, DeleteTopicsResponse, DescribeSubscriptionsResponse, DescribeProducersResponse, CreateTopicRequest, DescribeTopicsRequest, DeleteEnvironmentsResponse, DeleteTopicsRequest, DescribeEnvironmentRolesResponse, CreateSubscriptionRequest, ModifyTopicRequest, ModifyEnvironmentAttributesResponse, DeleteSubscriptionsRequest, CreateEnvironmentResponse, ResetMsgSubOffsetByTimestampRequest, DeleteSubscriptionsResponse, CreateSubscriptionResponse, DeleteEnvironmentsRequest, DescribeEnvironmentsRequest, CreateEnvironmentRequest, DescribeEnvironmentRolesRequest } from "./tdmq_models";
 /**
  * tdmq client
  * @class
@@ -31,13 +32,17 @@ export declare class Client extends AbstractClient {
      */
     DescribeSubscriptions(req: DescribeSubscriptionsRequest, cb?: (error: string, rep: DescribeSubscriptionsResponse) => void): Promise<DescribeSubscriptionsResponse>;
     /**
-     * 修改指定环境的属性值
+     * 获取环境下主题列表
      */
-    ModifyEnvironmentAttributes(req: ModifyEnvironmentAttributesRequest, cb?: (error: string, rep: ModifyEnvironmentAttributesResponse) => void): Promise<ModifyEnvironmentAttributesResponse>;
+    DescribeTopics(req: DescribeTopicsRequest, cb?: (error: string, rep: DescribeTopicsResponse) => void): Promise<DescribeTopicsResponse>;
     /**
      * 获取指定环境的属性
      */
     DescribeEnvironmentAttributes(req: DescribeEnvironmentAttributesRequest, cb?: (error: string, rep: DescribeEnvironmentAttributesResponse) => void): Promise<DescribeEnvironmentAttributesResponse>;
+    /**
+     * 修改指定环境的属性值
+     */
+    ModifyEnvironmentAttributes(req: ModifyEnvironmentAttributesRequest, cb?: (error: string, rep: ModifyEnvironmentAttributesResponse) => void): Promise<ModifyEnvironmentAttributesResponse>;
     /**
      * 用于在用户账户下创建消息队列 Tdmq环境（命名空间）
      */
@@ -55,9 +60,9 @@ export declare class Client extends AbstractClient {
      */
     DescribeProducers(req: DescribeProducersRequest, cb?: (error: string, rep: DescribeProducersResponse) => void): Promise<DescribeProducersResponse>;
     /**
-     * 获取环境下主题列表
+     * 获取环境角色列表
      */
-    DescribeTopics(req: DescribeTopicsRequest, cb?: (error: string, rep: DescribeTopicsResponse) => void): Promise<DescribeTopicsResponse>;
+    DescribeEnvironmentRoles(req: DescribeEnvironmentRolesRequest, cb?: (error: string, rep: DescribeEnvironmentRolesResponse) => void): Promise<DescribeEnvironmentRolesResponse>;
     /**
      * 删除订阅关系
      */

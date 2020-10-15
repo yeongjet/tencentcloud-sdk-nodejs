@@ -1904,6 +1904,12 @@ export interface PersistentVolumeContext {
 注意：此字段可能返回 null，表示取不到有效值。
       */
   DiskType?: string
+
+  /**
+      * 磁盘数量
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  DiskNum?: number
 }
 
 /**
@@ -2129,4 +2135,19 @@ export interface ScaleOutInstanceRequest {
    * 使用Pod资源扩容时，指定的Pod规格以及来源等信息
    */
   PodSpec?: PodSpec
+
+  /**
+   * 使用clickhouse集群扩容时，选择的机器分组名称
+   */
+  ClickHouseClusterName?: string
+
+  /**
+   * 使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
+   */
+  ClickHouseClusterType?: string
+
+  /**
+   * 规则扩容指定 yarn node label
+   */
+  YarnNodeLabel?: string
 }

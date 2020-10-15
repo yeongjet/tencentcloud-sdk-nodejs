@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeTopSpaceTableTimeSeriesResponse, DescribeDBDiagHistoryResponse, DescribeDBSpaceStatusRequest, DescribeSlowLogTimeSeriesStatsResponse, DescribeTopSpaceTablesRequest, DescribeSlowLogTimeSeriesStatsRequest, DescribeDBDiagEventRequest, DescribeDBSpaceStatusResponse, DescribeDBDiagEventResponse, DescribeDBDiagHistoryRequest, DescribeTopSpaceTableTimeSeriesRequest, DescribeSlowLogTopSqlsRequest, DescribeSlowLogTopSqlsResponse, DescribeTopSpaceTablesResponse } from "./dbbrain_models";
 /**
  * dbbrain client

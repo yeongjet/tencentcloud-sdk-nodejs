@@ -76,6 +76,26 @@ export interface Trigger {
 }
 
 /**
+ * ListTriggers返回参数结构体
+ */
+export interface ListTriggersResponse {
+  /**
+   * 触发器总数
+   */
+  TotalCount?: number
+
+  /**
+   * 触发器列表
+   */
+  Triggers?: Array<TriggerInfo>
+
+  /**
+   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+   */
+  RequestId?: string
+}
+
+/**
  * ListAliases返回参数结构体
  */
 export interface ListAliasesResponse {
@@ -367,7 +387,7 @@ export interface GetFunctionLogsRequest {
   EndTime?: string
 
   /**
-   * 服务日志相关参数，第一页日志 Offset 为空字符串，后续分页按响应字段里的SearchContext填写
+   * 该字段已下线
    */
   SearchContext?: LogSearchContext
 }
@@ -806,23 +826,18 @@ export interface UpdateFunctionConfigurationRequest {
 }
 
 /**
- * ListTriggers返回参数结构体
+ * 状态原因描述
  */
-export interface ListTriggersResponse {
+export interface StatusReason {
   /**
-   * 触发器总数
+   * 错误码
    */
-  TotalCount?: number
+  ErrorCode: string
 
   /**
-   * 触发器列表
+   * 错误描述
    */
-  Triggers?: Array<TriggerInfo>
-
-  /**
-   * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-   */
-  RequestId?: string
+  ErrorMessage: string
 }
 
 /**
@@ -1041,6 +1056,11 @@ export interface CreateTriggerRequest {
    * 触发器的初始是能状态 OPEN表示开启 CLOSE表示关闭
    */
   Enable?: string
+
+  /**
+   * 用户自定义参数，仅支持timer触发器
+   */
+  CustomArgument?: string
 }
 
 /**
@@ -1307,6 +1327,11 @@ export interface CreateFunctionRequest {
    * 函数初始化超时时间
    */
   InitTimeout?: number
+
+  /**
+   * 函数 Tag 参数，以键值对数组形式传入
+   */
+  Tags?: Array<Tag>
 }
 
 /**
@@ -1846,6 +1871,12 @@ export interface GetFunctionResponse {
    * 函数初始化超时时间
    */
   InitTimeout?: number
+
+  /**
+      * 函数状态失败原因
+注意：此字段可能返回 null，表示取不到有效值。
+      */
+  StatusReasons?: Array<StatusReason>
 
   /**
    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -2456,7 +2487,7 @@ export interface GetFunctionLogsResponse {
   Data?: Array<FunctionLog>
 
   /**
-   * 日志服务分页参数
+   * 该字段已下线
    */
   SearchContext?: LogSearchContext
 

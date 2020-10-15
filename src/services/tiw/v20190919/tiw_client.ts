@@ -15,19 +15,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client"
+import { AbstractClient } from "../../../common/abstract_client"
+import { ClientConfig } from "../../../common/interface"
 import {
   Canvas,
   LayoutParams,
+  SetVideoGenerationTaskCallbackRequest,
   StreamControl,
+  StopOnlineRecordResponse,
+  SetVideoGenerationTaskCallbackKeyRequest,
+  OmittedDuration,
+  DescribeVideoGenerationTaskCallbackResponse,
   ResumeOnlineRecordResponse,
+  SetVideoGenerationTaskCallbackResponse,
   StartOnlineRecordRequest,
   DescribeOnlineRecordCallbackRequest,
   DescribeOnlineRecordCallbackResponse,
   SetTranscodeCallbackResponse,
   StopOnlineRecordRequest,
-  StreamLayout,
+  SetVideoGenerationTaskCallbackKeyResponse,
   CreateTranscodeResponse,
+  DescribeVideoGenerationTaskResponse,
   VideoInfo,
   CustomLayout,
   SetTranscodeCallbackKeyResponse,
@@ -35,16 +43,19 @@ import {
   DescribeOnlineRecordRequest,
   StartOnlineRecordResponse,
   Whiteboard,
-  DescribeOnlineRecordResponse,
+  DescribeVideoGenerationTaskRequest,
+  CreateVideoGenerationTaskResponse,
+  PauseOnlineRecordResponse,
   CreateTranscodeRequest,
   SetOnlineRecordCallbackKeyResponse,
-  PauseOnlineRecordResponse,
+  DescribeOnlineRecordResponse,
   SetTranscodeCallbackKeyRequest,
   DescribeTranscodeRequest,
   DescribeTranscodeResponse,
+  StreamLayout,
   SetOnlineRecordCallbackResponse,
   SetOnlineRecordCallbackKeyRequest,
-  StopOnlineRecordResponse,
+  CreateVideoGenerationTaskRequest,
   DescribeTranscodeCallbackRequest,
   ResumeOnlineRecordRequest,
   DescribeTranscodeCallbackResponse,
@@ -52,7 +63,7 @@ import {
   RecordControl,
   SetOnlineRecordCallbackRequest,
   MixStream,
-  OmittedDuration,
+  DescribeVideoGenerationTaskCallbackRequest,
   PauseOnlineRecordRequest,
 } from "./tiw_models"
 
@@ -86,6 +97,16 @@ export class Client extends AbstractClient {
   }
 
   /**
+   * 发起一个实时录制任务
+   */
+  async StartOnlineRecord(
+    req: StartOnlineRecordRequest,
+    cb?: (error: string, rep: StartOnlineRecordResponse) => void
+  ): Promise<StartOnlineRecordResponse> {
+    return this.request("StartOnlineRecord", req, cb)
+  }
+
+  /**
    * 查询文档转码任务的执行进度与转码结果
    */
   async DescribeTranscode(
@@ -103,6 +124,16 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: CreateTranscodeResponse) => void
   ): Promise<CreateTranscodeResponse> {
     return this.request("CreateTranscode", req, cb)
+  }
+
+  /**
+   * 查询录制视频生成回调地址
+   */
+  async DescribeVideoGenerationTaskCallback(
+    req: DescribeVideoGenerationTaskCallbackRequest,
+    cb?: (error: string, rep: DescribeVideoGenerationTaskCallbackResponse) => void
+  ): Promise<DescribeVideoGenerationTaskCallbackResponse> {
+    return this.request("DescribeVideoGenerationTaskCallback", req, cb)
   }
 
   /**
@@ -126,13 +157,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 发起一个实时录制任务
+   * 设置录制视频生成回调地址
    */
-  async StartOnlineRecord(
-    req: StartOnlineRecordRequest,
-    cb?: (error: string, rep: StartOnlineRecordResponse) => void
-  ): Promise<StartOnlineRecordResponse> {
-    return this.request("StartOnlineRecord", req, cb)
+  async SetVideoGenerationTaskCallback(
+    req: SetVideoGenerationTaskCallbackRequest,
+    cb?: (error: string, rep: SetVideoGenerationTaskCallbackResponse) => void
+  ): Promise<SetVideoGenerationTaskCallbackResponse> {
+    return this.request("SetVideoGenerationTaskCallback", req, cb)
+  }
+
+  /**
+   * 创建视频生成任务
+   */
+  async CreateVideoGenerationTask(
+    req: CreateVideoGenerationTaskRequest,
+    cb?: (error: string, rep: CreateVideoGenerationTaskResponse) => void
+  ): Promise<CreateVideoGenerationTaskResponse> {
+    return this.request("CreateVideoGenerationTask", req, cb)
   }
 
   /**
@@ -166,13 +207,23 @@ export class Client extends AbstractClient {
   }
 
   /**
-   * 查询实时录制任务状态与结果
+   * 查询录制任务状态与结果
    */
   async DescribeOnlineRecord(
     req: DescribeOnlineRecordRequest,
     cb?: (error: string, rep: DescribeOnlineRecordResponse) => void
   ): Promise<DescribeOnlineRecordResponse> {
     return this.request("DescribeOnlineRecord", req, cb)
+  }
+
+  /**
+   * 设置视频生成回调鉴权密钥
+   */
+  async SetVideoGenerationTaskCallbackKey(
+    req: SetVideoGenerationTaskCallbackKeyRequest,
+    cb?: (error: string, rep: SetVideoGenerationTaskCallbackKeyResponse) => void
+  ): Promise<SetVideoGenerationTaskCallbackKeyResponse> {
+    return this.request("SetVideoGenerationTaskCallbackKey", req, cb)
   }
 
   /**
@@ -193,5 +244,15 @@ export class Client extends AbstractClient {
     cb?: (error: string, rep: ResumeOnlineRecordResponse) => void
   ): Promise<ResumeOnlineRecordResponse> {
     return this.request("ResumeOnlineRecord", req, cb)
+  }
+
+  /**
+   * 查询录制视频生成任务状态与结果
+   */
+  async DescribeVideoGenerationTask(
+    req: DescribeVideoGenerationTaskRequest,
+    cb?: (error: string, rep: DescribeVideoGenerationTaskResponse) => void
+  ): Promise<DescribeVideoGenerationTaskResponse> {
+    return this.request("DescribeVideoGenerationTask", req, cb)
   }
 }

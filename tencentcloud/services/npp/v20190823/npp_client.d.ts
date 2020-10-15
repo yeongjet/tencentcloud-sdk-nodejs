@@ -1,4 +1,5 @@
-import { AbstractClient, ClientConfig } from "../../../common/abstract_client";
+import { AbstractClient } from "../../../common/abstract_client";
+import { ClientConfig } from "../../../common/interface";
 import { DescribeCallBackStatusRequest, DescribeCallBackCdrRequest, CreateCallBackRequest, DeleteCallBackRequest, GetVirtualNumResponse, DelVirtualNumResponse, DescribeCallerDisplayListRequest, DescribeCallerDisplayListResponse, CreateCallBackResponse, DelVirtualNumRequest, GetVirtualNumRequest, DeleteCallBackResponse, Get400CdrRequest, DescribeCallBackCdrResponse, Get400CdrResponse, DescribeCallBackStatusResponse } from "./npp_models";
 /**
  * npp client

@@ -586,7 +586,7 @@ export interface InquirePriceRenewDBInstancesRequest {
  */
 export interface DescribeAsyncRequestInfoRequest {
   /**
-   * 异步请求Id
+   * 异步请求Id，涉及到异步流程的接口返回，如CreateBackupDBInstance
    */
   AsyncRequestId: string
 }
@@ -1019,7 +1019,7 @@ export interface DescribeDBInstancesRequest {
   ClusterType?: number
 
   /**
-   * 实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-实例已过期
+   * 实例状态，取值范围：0-待初始化，1-流程执行中，2-实例有效，-2-已隔离（包年包月实例），-3-已隔离（按量计费实例）
    */
   Status?: Array<number>
 
@@ -1064,9 +1064,14 @@ export interface DescribeDBInstancesRequest {
   ProjectIds?: Array<number>
 
   /**
-   * 搜索关键词，支持实例Id、实例名称、完整IP
+   * 搜索关键词，支持实例ID、实例名称、完整IP
    */
   SearchKey?: string
+
+  /**
+   * Tag信息
+   */
+  Tags?: TagInfo
 }
 
 /**
@@ -1744,8 +1749,9 @@ export interface Operation {
  */
 export interface InstanceChargePrepaid {
   /**
-   * 购买实例的时长，单位：月。取值范围：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36。默认为1。
-   */
+      * 购买实例的时长，单位：月。取值范围：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36。默认为1。
+（InquirePriceRenewDBInstances，RenewDBInstances调用时必填）
+      */
   Period?: number
 
   /**
@@ -1755,6 +1761,7 @@ NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费
 DISABLE_NOTIFY_AND_MANUAL_RENEW：不通知过期不自动续费
 
 默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，实例到期后将按月自动续费。
+（InquirePriceRenewDBInstances，RenewDBInstances调用时必填）
       */
   RenewFlag?: string
 }

@@ -34,7 +34,7 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeCaptchaUserAllAppId", req, cb);
     }
     /**
-     * 验证码控制台票据验证信息
+     * 安全验证码用户操作票据数据查询
      */
     async DescribeCaptchaTicketData(req, cb) {
         return this.request("DescribeCaptchaTicketData", req, cb);
@@ -52,10 +52,16 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeCaptchaOperData", req, cb);
     }
     /**
-     * 查询安全验证码应用APPId信息
+     * 安全验证码小程序插件分类查询数据接口（内测中），请求量type=0、通过量type=1、验证量type=2、拦截量type=3 小时级查询（五小时左右延迟）
      */
-    async DescribeCaptchaAppIdInfo(req, cb) {
-        return this.request("DescribeCaptchaAppIdInfo", req, cb);
+    async DescribeCaptchaMiniData(req, cb) {
+        return this.request("DescribeCaptchaMiniData", req, cb);
+    }
+    /**
+     * 安全验证码小程序插件用户操作数据查询（内测中）
+     */
+    async DescribeCaptchaMiniOperData(req, cb) {
+        return this.request("DescribeCaptchaMiniOperData", req, cb);
     }
     /**
      * 安全验证码分类查询数据接口，请求量type=0、通过量type=1、验证量type=2、拦截量type=3  分钟级查询
@@ -64,10 +70,28 @@ class Client extends abstract_client_1.AbstractClient {
         return this.request("DescribeCaptchaData", req, cb);
     }
     /**
+     * 安全验证码小程序插件查询请求数据概况（内测中）
+     */
+    async DescribeCaptchaMiniDataSum(req, cb) {
+        return this.request("DescribeCaptchaMiniDataSum", req, cb);
+    }
+    /**
+     * 核查验证码小程序插件票据结果（内测中）
+     */
+    async DescribeCaptchaMiniResult(req, cb) {
+        return this.request("DescribeCaptchaMiniResult", req, cb);
+    }
+    /**
      * 更新验证码应用APPId信息
      */
     async UpdateCaptchaAppIdInfo(req, cb) {
         return this.request("UpdateCaptchaAppIdInfo", req, cb);
+    }
+    /**
+     * 查询安全验证码应用APPId信息
+     */
+    async DescribeCaptchaAppIdInfo(req, cb) {
+        return this.request("DescribeCaptchaAppIdInfo", req, cb);
     }
     /**
      * 核查验证码票据结果
